@@ -1,0 +1,8 @@
+export const SignUpInput = () => {
+  return (
+    <form className="flex items-center max-w-[410px] w-full rounded-2xl border border-gray-300 p-0.5">
+      <input className="flex-1 text-sm px-4 sm:px-6" placeholder="Please enter your E-mail" />
+      <button className="btn primary-btn min-w-[113px]">Sign up</button>
+    </form>
+  )
+}

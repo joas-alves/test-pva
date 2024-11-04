@@ -1,0 +1,27 @@
+.heading {
+    @apply text-[42px] md:text-[80px] font-semibold leading-[50px] md:leading-[84px] tracking-[-1px] md:tracking-[-2px];
+}
+
+.sub-heading {
+    @apply text-[32px] md:text-[52px] font-semibold leading-9 md:leading-[62px] tracking-[-1px];
+}
+
+.head-value {
+    @apply text-[48px] md:text-[64px] leading-[36px] md:leading-[72px];
+}
+
+.sub-head-value {
+    @apply text-[36px] md:text-[64px] leading-[36px] md:leading-[72px];
+}
+
+.sub-value {
+    @apply text-[32px] md:text-[48px] leading-[32px] md:leading-[48px];
+}
+
+.title {
+    @apply text-lg md:text-2xl leading-[26px] md:leading-8 font-bold;
+}
+
+.body {
+    @apply text-sm sm:text-base leading-[22px] sm:leading-6;
+}
