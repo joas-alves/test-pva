@@ -5,3 +5,7 @@ export * from './FAQAccordionItem';
 export * from './ReviewCarouselCard';
 export * from './BookDemoForm';
 export * from './SmallReviewCarouselCard';
+export * from './FeatureCard';
+export * from './NewsCard';
+export * from './MeetingLink';
+export * from './ContactUsForm';

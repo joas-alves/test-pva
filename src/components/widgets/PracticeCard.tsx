@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from "next/image";
 import clsx from 'clsx';
+import { useTranslations } from "next-intl";
 
 type Props = {
   image: string;
@@ -17,6 +18,8 @@ export const PracticeCard: React.FC<Props> = ({
   variant = 'white',
   backgroundClassName
 }) => {
+  const t = useTranslations('Common');
+
   return (
     <div className={clsx("p-8 rounded-2xl shadow-paper bg-no-repeat", variant === 'info' && 'text-white bg-info', backgroundClassName)}>
       <Image className="mb-12 md:mb-20 w-12 md:w-auto" src={`/images/${image}`} alt="group" width={80} height={80} />
@@ -27,7 +30,7 @@ export const PracticeCard: React.FC<Props> = ({
         {description}
       </div>
 
-      <span className={clsx("body text-info font-medium", variant === 'info' && 'text-white')}>LEARN MORE</span>
+      <span className={clsx("body text-info font-medium", variant === 'info' && 'text-white')}>{t('learn_more')}</span>
     </div>
   )
 }

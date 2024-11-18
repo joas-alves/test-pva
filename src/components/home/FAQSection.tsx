@@ -1,26 +1,28 @@
 import { useState } from 'react';
 import { FAQAccordionItem } from "@/components/widgets";
-
-const DATA = [
-  {
-    title: 'What services does Premier Vet Alliance offer?',
-  },
-  {
-    title: 'How does Premier Pet Care Plan benefit my practice?',
-  },
-  {
-    title: 'What countries does Premier Vet Alliance operate in?',
-  },
-  {
-    title: 'How does the Post2Pet service work?',
-  },
-  {
-    title: 'How do I get started with Premier Vet Alliance?',
-  },
-]
+import { useTranslations } from "next-intl";
 
 export const FAQSection = () => {
   const [active, setActive] = useState<number | null>(null);
+  const t = useTranslations('Home');
+
+  const DATA = [
+    {
+      title: t('what_services_does'),
+    },
+    {
+      title: t('how_does_premier'),
+    },
+    {
+      title: t('what_countries_does'),
+    },
+    {
+      title: t('how_does_the_post'),
+    },
+    {
+      title: t('how_do_i_get'),
+    },
+  ]
 
   const handleClickAccordion = (value: number) => {
     if (active === value) setActive(null);
@@ -30,7 +32,7 @@ export const FAQSection = () => {
   return (
     <section className="container mx-auto py-20">
       <h2 className="sub-heading mb-12 text-center">
-        <span className="text-primary">Frequently</span> Asked Questions
+        <span className="text-primary">{t('frequently')}</span> {t('asked_questions')}
       </h2>
 
       <div className="max-w-[846px] mx-auto flex flex-col gap-4">
@@ -43,7 +45,6 @@ export const FAQSection = () => {
           />
         ))}
       </div>
-
     </section>
   )
 }

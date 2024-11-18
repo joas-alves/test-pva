@@ -16,7 +16,9 @@ const config: Config = {
         secondary: "var(--secondary)",
         info: "var(--info)",
         'dark-blue': "var(--dark-blue)",
+        'dark-blue-100': "var(--dark-blue-100)",
         'dark-green': "var(--dark-green)",
+        'dark-info': "var(--dark-info)",
         warning: "var(--yellow)",
       },
       boxShadow: {

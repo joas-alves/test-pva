@@ -1,9 +1,5 @@
 import React from 'react';
 import { Field, Label, Radio, RadioGroup } from '@headlessui/react'
-import { IoMdRadioButtonOn, IoMdRadioButtonOff } from "react-icons/io";
-import clsx from "clsx";
-
-const plans = ['Startup', 'Business', 'Enterprise'];
 
 type Props = {
   wrapperClassName?: string;

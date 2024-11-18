@@ -5,13 +5,16 @@ import { IoChevronForwardOutline, IoChevronBackOutline } from "react-icons/io5";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import { useTranslations } from "next-intl";
 
 export const RealStoriesSection = () => {
+  const t = useTranslations('Home');
+
   return (
     <section className="container mx-auto py-10">
       <div className="flex">
         <h2 className="sub-heading mb-4 md:mb-12 flex-1">
-          What Our Partners Says: <span className="text-primary">Real Stories</span> of Success
+          {t('what_our_partners')}: <span className="text-primary">{t('real_stories')}</span> {t('of_success')}
         </h2>
         <div className="hidden md:flex justify-end gap-5 pb-8 mt-10">
           <div className="w-[60px] h-[60px] rounded-2xl flex items-center justify-center text-primary border border-primary text-2xl swiper-button-prev cursor-pointer">
@@ -25,12 +28,12 @@ export const RealStoriesSection = () => {
       <div className="flex flex-col justify-between lg:flex-row gap-10">
         <div className="md:max-w-[411px] flex flex-col items-start w-full">
           <p className="text-secondary body mb-8 md:mb-10">
-            Hear from veterinary practices around the world that have grown and thrived with Premier Vet Alliance’s tailored solutions. Discover how our services have made a real impact on their success.
+            {t('hear_from_veterinary_practices')}
           </p>
           <div className="border border-info rounded-2xl flex gap-1 p-4">
             <Image src="/images/google-icon.svg" alt="google-icon" width={44} height={44} />
             <div>
-              <div className="text-dark-green">Reviews</div>
+              <div className="text-dark-green">{t('reviews')}</div>
               <div className="text-warning flex items-center text-sm gap-1">
                 <GoStarFill />
                 <GoStarFill />

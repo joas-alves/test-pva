@@ -3,16 +3,19 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import { IoChevronBackOutline, IoChevronForwardOutline } from "react-icons/io5";
 import 'swiper/css';
+import { useTranslations } from "next-intl";
 
 export const VeterinaryExcellenceSection = () => {
+  const t = useTranslations('Book');
+
   return (
     <section className="container mx-auto py-20">
       <div className="max-w-[954px] w-full mx-auto mb-0 md:mb-4 text-center">
         <h2 className="sub-heading mb-6">
-          Tailored for <span className="text-primary">Veterinary</span> and Efficiency
+          {t('tailored_for')} <span className="text-primary">{t('veterinary')}</span> {t('and_efficiency')}
         </h2>
         <p className="text-secondary max-w-[600px] w-full mx-auto">
-          See how our tailored solutions have helped clients worldwide boost efficiency and improve outcomes, directly from their experiences.
+          {t('see_how_our_tailored')}
         </p>
       </div>
 

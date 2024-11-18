@@ -1,27 +1,31 @@
 import Image from "next/image";
 import { PiChartLineUpLight } from "react-icons/pi";
 import { RiGlobalLine } from "react-icons/ri";
+import { useTranslations } from "next-intl";
 
 export const ElevatingSection = () => {
+  const t = useTranslations('Home');
+  const tc = useTranslations('Common');
+
   return (
     <section className="container mx-auto py-10">
       <div className="flex flex-col lg:flex-row gap-10">
         <div className="md:flex-1">
           <div className="mb-6">
-            <h2 className="sub-heading">Dedicated to <span className="text-primary">Elevating</span></h2>
-            <h2 className="sub-heading"><span className="text-primary">Pet Health</span> Worldwide</h2>
+            <h2 className="sub-heading">{t('dedicate_to')} <span className="text-primary">{t('elevating')}</span></h2>
+            <h2 className="sub-heading"><span className="text-primary">{t('pet_health')}</span> {t('worldwide')}</h2>
           </div>
 
           <div className="max-w-[512px] mb-8">
             <p className="text-secondary body mb-3">
-              Premier Vet Alliance combines cutting-edge technology, investment, and support to develop world-class preventative health plans.
+              {t('premier_vet_alliance')}
             </p>
             <p className="text-secondary body">
-              With over a decade of experience, we are a leading veterinary group delivering premium care worldwide.
+              {t('with_over_a_decade_of_experience')}
             </p>
           </div>
 
-          <button className="btn primary-outline-btn">Learn More</button>
+          <button className="btn primary-outline-btn">{tc('learn_more')}</button>
         </div>
 
         <div className="flex items-start">
@@ -34,7 +38,7 @@ export const ElevatingSection = () => {
 
             <div className="text-center py-5 md:py-9">
               <div className="sub-head-value mb-2">2,360+</div>
-              <div className="text-xs md:text-sm text-secondary">Number of practices we operate in</div>
+              <div className="text-xs md:text-sm text-secondary">{t('number_of_practices')}</div>
             </div>
 
             <div className="flex justify-end pr-5 md:pr-10">
