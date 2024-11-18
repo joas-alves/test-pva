@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { useTranslations } from "next-intl";
+import Link from "next/link";
 
 const Footer = () => {
   const t = useTranslations('Footer');
@@ -9,20 +10,22 @@ const Footer = () => {
     <footer className="pt-10">
       <div className="container mx-auto grid grid-cols-1 gap-6 md:gap-4 md:grid-cols-4 mb-0 sm:mb-16">
         <div>
-          <Image
-            className="pr-10 w-[142px] sm:w-auto"
-            src="/images/logo.svg"
-            width={170}
-            height={70}
-            alt="logo"
-          />
+          <Link href="/">
+            <Image
+              className="pr-10 w-[142px] sm:w-auto"
+              src="/images/logo.svg"
+              width={170}
+              height={70}
+              alt="logo"
+            />
+          </Link>
         </div>
         <div>
           <ul className="flex justify-between flex-row sm:flex-col gap-2 sm:gap-4 text-sm sm:text-base">
-            <li><a href="#">{t('investors')}</a></li>
-            <li><a href="#">{t('services')}</a></li>
-            <li><a href="#">{t('about')}</a></li>
-            <li><a href="#">{t('news')}</a></li>
+            <li><Link href="/investors">{t('investors')}</Link></li>
+            <li><Link href="/pet-owners">{t('services')}</Link></li>
+            <li><Link href="/about-us">{t('about')}</Link></li>
+            <li><Link href="/news">{t('news')}</Link></li>
           </ul>
         </div>
         <div className="md:col-span-2 flex flex-wrap gap-6 border-y sm:border-none border-y-gray-200 py-6 sm:py-0">

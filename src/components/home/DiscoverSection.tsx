@@ -15,7 +15,7 @@ export const DiscoverSection = () => {
             {t('book_a_demo_to_see')}
           </p>
           <button className="btn info-contained-btn h-12 px-11">
-            {t('book_a_demo_to_see')}
+            {t('book_a_demo')}
           </button>
         </div>
 
