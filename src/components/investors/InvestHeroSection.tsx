@@ -2,7 +2,7 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 
 export const InvestHeroSection = () => {
-  const t = useTranslations('Home');
+  const t = useTranslations('Investors');
 
   return (
     <section className="container mx-auto py-10">

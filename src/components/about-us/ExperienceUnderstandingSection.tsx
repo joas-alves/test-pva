@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 
 export const ExperienceUnderstandingSection = () => {
-  const t = useTranslations('Home');
+  const t = useTranslations('About');
 
   return (
     <section className="container mx-auto py-10">
