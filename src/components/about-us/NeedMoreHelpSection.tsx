@@ -11,24 +11,24 @@ export const NeedMoreHelpSection = () => {
           <h2 className="sub-heading text-white max-w-[624px] mb-3 md:mb-6">
             {t('need_more_help')}
           </h2>
-          <p className="text-white text-center body max-w-[383px]">
+          <p className="text-white text-center body max-w-[383px] opacity-80">
             {t('find_the_answers_you')}:
           </p>
         </div>
 
-        <div className="flex justify-between items-center lg:items-end flex-col lg:flex-row px-20">
-          <div className="text-white flex flex-col items-center text-center pt-10 pb-10 md:pb-20">
+        <div className="flex justify-between items-center lg:items-end flex-col lg:flex-row px-10 md:px-20">
+          <div className="text-white flex flex-col items-center text-center pt-10 pb-0 md:pb-20">
             <Image
-              className="mb-8 w-12 md:w-auto"
+              className="mb-5 md:mb-8 w-12 md:w-auto"
               src="/images/icons/envelop-icon.svg"
               alt="envelop-icon"
               width={80}
               height={80}
             />
-            <div className="text-2xl font-bold mb-3">
+            <div className="text-lg md:text-2xl font-bold mb-3">
               {t('send_us_message')}
             </div>
-            <p className="mb-6 max-w-[335px]">
+            <p className="mb-5 md:mb-6 max-w-[335px] body opacity-80">
               {t('use_our_contract_form')}
             </p>
             <button className="btn info-contained-btn h-12 px-11">
@@ -36,7 +36,7 @@ export const NeedMoreHelpSection = () => {
             </button>
           </div>
           <Image
-            className="flex-1"
+            className="hidden lg:block flex-1"
             src="/images/doctor-man.png"
             alt="doctor-man.png"
             width={264}
@@ -44,19 +44,19 @@ export const NeedMoreHelpSection = () => {
           />
           <div className="text-white flex flex-col items-center text-center pt-10 pb-10 md:pb-20">
             <Image
-              className="mb-8 w-12 md:w-auto"
+              className="mb-5 md:mb-8 w-12 md:w-auto"
               src="/images/icons/phone-icon.svg"
               alt="envelop-icon"
               width={80}
               height={80}
             />
-            <div className="text-2xl font-bold mb-3">
+            <div className="text-lg md:text-2xl font-bold mb-3">
               {t('give_us_call')}
             </div>
-            <p className="mb-8 max-w-[335px]">
+            <p className="mb-5 md:mb-8 max-w-[335px] body opacity-80">
               {t('call_us_directly')}
             </p>
-            <div className="text-2xl font-medium">
+            <div className="text-lg md:text-2xl font-medium">
               +44 117 472 5000
             </div>
           </div>

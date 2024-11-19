@@ -43,4 +43,18 @@ a:hover {
   color: var(--primary);
 }
 
+.bg-right-bottom {
+  background-position: right,bottom;
+}
+
+.vertical-milestone:after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  border-style: dashed;
+  border-color: var(--primary-light);
+  border-width: 2px;
+  top: calc(50% + 5px);
+}
+
 

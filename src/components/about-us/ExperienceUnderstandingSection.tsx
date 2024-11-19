@@ -7,7 +7,7 @@ export const ExperienceUnderstandingSection = () => {
 
   return (
     <section className="container mx-auto py-10">
-      <div className="max-w-[954px] w-full mx-auto mb-12 text-left md:text-center">
+      <div className="max-w-[954px] w-full mx-auto mb-8 md:mb-12 text-left md:text-center">
         <h2 className="sub-heading">
           <span className="text-primary">{t('experience_and_understanding')}</span> {t('you_can_trust')}
         </h2>
@@ -16,6 +16,7 @@ export const ExperienceUnderstandingSection = () => {
       <div className="grid grid-cols-1 md:grid-cols-5 gap-6 mb-6">
         <div className="md:col-span-3">
           <Image
+            className="w-full"
             src="/images/experience-understanding-doctors.png"
             alt="doctors"
             width={737}

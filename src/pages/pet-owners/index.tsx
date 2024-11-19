@@ -9,7 +9,7 @@ export default function PetOwners() {
   return (
     <div>
       <section className="container mx-auto pt-10 pb-40">
-        <div className="grid grid-cols-2">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div className="max-w-[519px]">
             <h1 className="sub-heading mb-6">
               <span className="text-primary">{t('for_pet')}</span> {t('owners')}
@@ -27,7 +27,7 @@ export default function PetOwners() {
               height={500}
               alt="invest-hero"
             />
-            <div className="w-[411px] p-8 bg-[url('/images/double-circles.png')] bg-no-repeat rounded-3xl shadow-paper bg-white absolute bottom-20 right-0">
+            <div className="w-full md:w-[411px] p-6 md:p-8 bg-[url('/images/double-circles.png')] bg-no-repeat rounded-3xl shadow-paper bg-white relative md:absolute bottom-20 right-0">
               <div className="text-[32px] font-bold mb-3 text-primary leading-10">
                 {t('contact_us')}
               </div>
