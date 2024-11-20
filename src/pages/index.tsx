@@ -12,18 +12,21 @@ import {
 import axios from 'axios';
 import { useEffect, useState } from "react";
 import { IHomeCMS } from "@/cms-models/home";
+import { NextRouter, useRouter } from "next/router";
 
 export default function Home() {
+  const router: NextRouter = useRouter();
+
   const [data, setData] = useState<IHomeCMS>({} as IHomeCMS);
 
   useEffect(() => {
     (async () => {
-      const response = await axios(`/api/homepage-content/1`);
+      const response = await axios(`/api/${router.locale}/homepage-content/1`);
       if (response.status === 200) {
         setData(response.data);
       }
     })();
-  }, []);
+  }, [router.locale]);
 
   return (
     <div className="flex flex-col gap-0 md:gap-20">
