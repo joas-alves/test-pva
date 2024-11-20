@@ -1,23 +1,27 @@
-import { useTranslations } from 'next-intl';
+// import { useTranslations } from 'next-intl';
 
 import Image from "next/image";
 import { SignUpInput } from "@/components/widgets";
 import { MdStarRate } from "react-icons/md";
+import { IHomeCMS } from "@/cms-models/home";
+import React from "react";
 
-export const HeroSection = () => {
-  const t = useTranslations('Home');
+type Props = {
+  data: IHomeCMS;
+}
+
+export const HeroSection: React.FC<Props> = ({ data }) => {
+  // const t = useTranslations('Home');
 
   return (
     <section className="container mx-auto py-10">
       <div className="flex flex-col md:flex-row gap-10 sm:gap-6">
         <div className="flex flex-col">
-          <h1 className="heading mb-5 sm:mb-8">
-            {t('global_leader_in_preventative')} <span className="text-primary">{t('health_care')}</span>
-          </h1>
+          <h1 className="heading mb-5 sm:mb-8" dangerouslySetInnerHTML={{ __html: data.section1_title }} />
           <div className="flex-1 flex">
             <div className="flex-1 flex flex-col">
               <p className="body text-secondary max-w-[517px] mb-3 sm:mb-6">
-                {t('utilizing_advanced_technology_comprehensive')}
+                {data.section1_description}
               </p>
 
               <SignUpInput />
@@ -30,8 +34,8 @@ export const HeroSection = () => {
                 </div>
                 <div className="pt-4 pb-7">
                   <MdStarRate className="text-warning ml-20 text-3xl" />
-                  <div className="head-value">4,5</div>
-                  <div className="text-secondary text-sm">{t('customer_choice')}</div>
+                  <div className="head-value">{data.section1_rating_number}</div>
+                  <div className="text-secondary text-sm">{data.section1_rating_text}</div>
                 </div>
               </div>
             </div>
@@ -49,8 +53,8 @@ export const HeroSection = () => {
             </div>
             <div className="pt-4 pb-7">
               <MdStarRate className="text-warning ml-20 text-3xl" />
-              <div className="head-value mb-4">4,5</div>
-              <div className="text-secondary text-xs md:text-sm">{t('customer_choice')}</div>
+              <div className="head-value mb-4">{data.section1_rating_number}</div>
+              <div className="text-secondary text-xs md:text-sm">{data.section1_rating_text}</div>
             </div>
           </div>
         </div>

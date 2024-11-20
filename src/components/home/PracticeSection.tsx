@@ -1,17 +1,22 @@
 import { PracticeCard } from "@/components/widgets";
-import { useTranslations } from "next-intl";
+// import { useTranslations } from "next-intl";
+import { IHomeCMS } from "@/cms-models/home";
+import React from "react";
 
-export const PracticeSection = () => {
-  const t = useTranslations('Home');
+type Props = {
+  data: IHomeCMS;
+}
+
+export const PracticeSection: React.FC<Props> = ({ data }) => {
+  // const t = useTranslations('Home');
 
   return (
     <section className="container mx-auto py-10">
       <div className="max-w-[954px] w-full mx-auto mb-12 text-left md:text-center">
-        <h2 className="sub-heading mb-6">
-          {t('empowering')} <span className="text-primary">{t('your_practice')}</span> {t('with_health_plans')}
-        </h2>
+        <div className="sub-heading mb-6" dangerouslySetInnerHTML={{ __html: data.section3_title }}>
+        </div>
         <p className="text-secondary max-w-[600px] w-full mx-auto">
-          {t('at_premier_vet_alliance')}
+          {data.section3_description}
         </p>
       </div>
 
@@ -20,15 +25,15 @@ export const PracticeSection = () => {
           <PracticeCard
             image="Mask group.svg"
             variant="info"
-            title={t('premier_pet_care_plan')}
-            description={t('our_market_leading_health')}
+            title={data.section3_card1_title}
+            description={data.section3_card1_description}
           />
         </div>
         <div className="md:col-span-3">
           <PracticeCard
             image="Mask group_3.svg"
-            title={t('post_2_pet')}
-            description={t('affordable_and_convenient_home')}
+            title={data.section3_card2_title}
+            description={data.section3_card2_description}
             backgroundClassName="bg-[url('/images/post2pet-mobile.png')] md:bg-[url('/images/post2pet.png')] bg-right-top md:bg-right"
           />
         </div>
@@ -37,24 +42,24 @@ export const PracticeSection = () => {
         <div className="col-span-2">
           <PracticeCard
             image="Mask group_4.svg"
-            title={t('vet_2_pet')}
-            description={t('the_new_communication_platform')}
+            title={data.section3_card3_title}
+            description={data.section3_card3_description}
             backgroundClassName="bg-[url('/images/vet2pet.png')] bg-right-top bg-57% md:bg-auto"
           />
         </div>
         <div className="col-span-2">
           <PracticeCard
             image="Mask group_2.svg"
-            title={t('training')}
-            description={t('with_our_expertise_in_health')}
+            title={data.section3_card4_title}
+            description={data.section3_card4_description}
           />
         </div>
         <div className="col-span-2">
           <PracticeCard
             image="Mask group_5.svg"
             variant="info"
-            title={t('technology')}
-            description={t('our_innovative_financial_platform')}
+            title={data.section3_card5_title}
+            description={data.section3_card5_description}
           />
         </div>
       </div>

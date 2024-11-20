@@ -6,7 +6,7 @@ export const YouPracticeSection = () => {
 
   return (
     <section className="container mx-auto py-10">
-      <div className="max-w-[954px] w-full mx-auto mb-12 text-left md:text-center">
+      <div className="max-w-[954px] w-full mx-auto mb-8 md:mb-12 text-center">
         <h2 className="sub-heading mb-6">
           {t('key_benefits')} <span className="text-primary">{t('your_practice')}</span>
         </h2>
@@ -15,7 +15,7 @@ export const YouPracticeSection = () => {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-6 mb-6">
         <FeatureCard
           image="chat-message-icon.svg"
           variant="info"

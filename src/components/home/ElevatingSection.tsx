@@ -2,27 +2,32 @@ import Image from "next/image";
 import { PiChartLineUpLight } from "react-icons/pi";
 import { RiGlobalLine } from "react-icons/ri";
 import { useTranslations } from "next-intl";
+import { IHomeCMS } from "@/cms-models/home";
+import React from "react";
 
-export const ElevatingSection = () => {
-  const t = useTranslations('Home');
+type Props = {
+  data: IHomeCMS;
+}
+
+export const ElevatingSection: React.FC<Props> = ({ data }) => {
+  // const t = useTranslations('Home');
   const tc = useTranslations('Common');
 
   return (
     <section className="container mx-auto py-10">
       <div className="flex flex-col lg:flex-row gap-10">
         <div className="md:flex-1">
-          <div className="mb-6">
-            <h2 className="sub-heading">{t('dedicate_to')} <span className="text-primary">{t('elevating')}</span></h2>
-            <h2 className="sub-heading"><span className="text-primary">{t('pet_health')}</span> {t('worldwide')}</h2>
+          <div className="mb-6 sub-heading" dangerouslySetInnerHTML={{ __html: data.section2_title }}>
+
           </div>
 
           <div className="max-w-[512px] mb-8">
             <p className="text-secondary body mb-3">
-              {t('premier_vet_alliance')}
+              {data.section2_description}
             </p>
-            <p className="text-secondary body">
-              {t('with_over_a_decade_of_experience')}
-            </p>
+            {/*<p className="text-secondary body">*/}
+            {/*  {t('with_over_a_decade_of_experience')}*/}
+            {/*</p>*/}
           </div>
 
           <button className="btn primary-outline-btn">{tc('learn_more')}</button>
@@ -37,8 +42,8 @@ export const ElevatingSection = () => {
             </div>
 
             <div className="text-center py-5 md:py-9">
-              <div className="sub-head-value mb-2">2,360+</div>
-              <div className="text-xs md:text-sm text-secondary">{t('number_of_practices')}</div>
+              <div className="sub-head-value mb-2">{data.section2_practice_number}</div>
+              <div className="text-xs md:text-sm text-secondary">{data.section2_practice_text}</div>
             </div>
 
             <div className="flex justify-end pr-5 md:pr-10">

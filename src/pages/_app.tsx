@@ -5,11 +5,14 @@ import localFont from "next/font/local";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { NextRouter, useRouter } from 'next/router';
+import setupAxios from "@/setupAxios";
 import enUS from "@/i18n/en-US.json";
 import enUK from "@/i18n/en-UK.json";
 import es from "@/i18n/es.json";
 import de from "@/i18n/de.json";
 import fr from "@/i18n/fr.json";
+
+setupAxios();
 
 const languages = {
   'en-US': enUS,
@@ -17,7 +20,8 @@ const languages = {
   es,
   de,
   fr
-}
+};
+const timeZone = 'Europe/Vienna';
 
 const manrope = localFont({
   src: "../assets/fonts/Manrope-VariableFont_wght.ttf",
@@ -31,6 +35,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <NextIntlClientProvider
       locale={router.locale}
       messages={languages[router.locale as 'en-US' | 'en-UK' | 'es' | 'de' | 'fr']}
+      timeZone={timeZone}
     >
       <main className={manrope.className}>
         <Header />

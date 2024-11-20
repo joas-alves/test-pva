@@ -6,11 +6,11 @@ export const Vet2PetSection = () => {
   const t = useTranslations('Services');
 
   return (
-    <section className="container mx-auto py-10">
-      <div className="grid grid-cols-2">
+    <section className="container mx-auto pt-5 pb-10 sm:py-10">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
         <div className="flex flex-col">
           <h1 className="heading mb-5 sm:mb-8 flex items-center gap-5">
-            <span className="p-4 rounded-2xl shadow-paper">
+            <span className="p-2.5 sm:p-4 rounded-2xl shadow-paper">
               <Image src="/images/vet2pet-logo.png" alt="vet2pet" width={61} height={61} />
             </span>
             {t('vet2')}<span className="text-primary">{t('pet')}</span>
@@ -21,8 +21,8 @@ export const Vet2PetSection = () => {
                 {t('the_perfect_addition_to_premier')}
               </p>
 
-              <div className="flex gap-2">
-                <div className="rounded-2xl border border-primary py-3.5 px-6 flex items-center gap-2.5">
+              <div className="grid grid-cols-2 sm:flex gap-2">
+                <div className="rounded-2xl border border-primary py-3 sm:py-3.5 px-4 sm:px-6 flex items-center gap-2.5">
                   <Image
                     src="/images/icons/apple-store-icon.svg"
                     alt="apple-store"
@@ -30,12 +30,12 @@ export const Vet2PetSection = () => {
                     height={27}
                   />
                   <div className="text-dark-blue-100">
-                    <p className="text-xs">{t('download_on_the')}</p>
-                    <p className="font-bold">{t('app_store')}</p>
+                    <p className="text-[10px] sm:text-xs">{t('download_on_the')}</p>
+                    <p className="text-sm sm:text-base font-bold">{t('app_store')}</p>
                   </div>
                 </div>
 
-                <div className="rounded-2xl border border-primary py-3.5 px-6 flex items-center gap-2.5">
+                <div className="rounded-2xl border border-primary py-3 sm:py-3.5 px-4 sm:px-6 flex items-center gap-2.5">
                   <Image
                     src="/images/icons/google-play-icon.svg"
                     alt="google-play"
@@ -43,15 +43,15 @@ export const Vet2PetSection = () => {
                     height={27}
                   />
                   <div className="text-dark-blue-100">
-                    <p className="text-xs">{t('download_on_the')}</p>
-                    <p className="font-bold">{t('google_play')}</p>
+                    <p className="text-[10px] sm:text-xs">{t('download_on_the')}</p>
+                    <p className="text-sm sm:text-base font-bold">{t('google_play')}</p>
                   </div>
                 </div>
               </div>
 
               <div className="flex-1" />
 
-              <div className="hidden md:grid w-full max-w-[302px] rounded-3xl shadow-paper relative grid-cols-2 gap-7">
+              <div className="hidden lg:grid w-full max-w-[302px] rounded-3xl shadow-paper relative grid-cols-2 gap-7">
                 <div className="pt-4 pb-7 pl-8">
                   <MdStarRate className="text-warning ml-24 text-4xl -mb-5" />
                   <div className="head-value">4,5</div>
@@ -63,9 +63,9 @@ export const Vet2PetSection = () => {
           </div>
         </div>
 
-        <div className="flex-shrink-0 flex justify-end relative">
-          <div className="shadow-paper rounded-2xl p-8 max-w-[410px] absolute bg-white -left-10 bottom-20">
-            <div className="text-xl mb-12">
+        <div className="flex-shrink-0 flex flex-col-reverse sm:flex-row sm:justify-end relative">
+          <div className="shadow-paper rounded-2xl p-6 sm:p-8 w-full sm:max-w-[410px] -mt-10 sm:mt-0 sm:absolute bg-white -left-10 bottom-20">
+            <div className="text-xl mb-4 sm:mb-12">
               {t('vet2pet_has_streamlined')}
             </div>
             <div className="flex items-center gap-4">
@@ -77,15 +77,15 @@ export const Vet2PetSection = () => {
             </div>
           </div>
           <Image
-            className="hidden md:block"
+            className="hidden sm:block"
             src="/images/vet2pet-woman-doctor-dog.png"
             width={411}
             height={600}
             alt="dog"
           />
           <Image
-            className="block md:hidden w-full"
-            src="/images/hero-dog-doctor-mobile.png"
+            className="block sm:hidden w-full"
+            src="/images/vet2pet-woman-doctor-dog-mobile.png"
             width={327}
             height={240}
             alt="dog"

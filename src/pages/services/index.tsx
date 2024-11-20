@@ -1,5 +1,5 @@
 import { EnhancedSection, Vet2PetSection, YouPracticeSection } from "@/components/services";
-import { FAQSection, RealStoriesSection } from "@/components/home";
+import { FAQSection } from "@/components/home";
 import { NeedMoreHelpSection } from "@/components/about-us";
 
 export default function Services() {
@@ -8,7 +8,7 @@ export default function Services() {
       <Vet2PetSection />
       <EnhancedSection />
       <YouPracticeSection />
-      <RealStoriesSection />
+      {/*<RealStoriesSection />*/}
       <FAQSection />
       <NeedMoreHelpSection />
     </div>
