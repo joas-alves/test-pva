@@ -4,6 +4,7 @@ import { CiClock2 } from "react-icons/ci";
 import Link from "next/link";
 
 type Props = {
+  id?: number;
   image: string;
   time: string;
   title: string;
@@ -11,13 +12,14 @@ type Props = {
 }
 
 export const NewsCard: React.FC<Props> = ({
+  id = 1,
   image,
   time,
   title,
   description
 }) => {
   return (
-    <Link href="/news/1">
+    <Link href={`/news/${id}`}>
       <div className="rounded-2xl shadow-paper overflow-hidden">
         <Image
           className="w-full"
@@ -31,9 +33,7 @@ export const NewsCard: React.FC<Props> = ({
             <CiClock2 className="text-base sm:text-xl" />
             <span className="text-sm sm:text-base">{time}</span>
           </div>
-          <div className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">
-            {title}
-          </div>
+          <div className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4" dangerouslySetInnerHTML={{ __html: title }} />
           <p className="text-sm mb-5 sm:mb-6 text-secondary">
             {description}
           </p>

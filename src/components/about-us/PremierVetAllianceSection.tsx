@@ -1,23 +1,23 @@
 import { FeatureCard } from "@/components/widgets";
-import { useTranslations } from "next-intl";
+// import { useTranslations } from "next-intl";
+import { IAboutPage } from "@/cms-models/about";
+import React from "react";
 
-export const PremierVetAllianceSection = () => {
-  const t = useTranslations('About');
+type Props = {
+  data: IAboutPage;
+}
+
+export const PremierVetAllianceSection: React.FC<Props> = ({ data }) => {
+  // const t = useTranslations('About');
 
   return (
     <section className="container mx-auto py-10">
       <div className="flex justify-between flex-col lg:flex-row mb-10">
-        <div className="mb-6 lg:mb-0">
-          <h2 className="sub-heading">{t('why_choose')}</h2>
-          <h2 className="sub-heading"><span className="text-primary">{t('premier_vet')}</span></h2>
-        </div>
+        <div className="mb-6 lg:mb-0 sub-heading" dangerouslySetInnerHTML={{ __html: data.section2_title }} />
 
         <div className="lg:max-w-[517px]">
           <p className="text-secondary body mb-3">
-            {t('founded_in_2007')}
-          </p>
-          <p className="text-secondary body">
-            {t('while_initially_focused')}
+            {data.section2_description}
           </p>
         </div>
       </div>
@@ -25,18 +25,21 @@ export const PremierVetAllianceSection = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <FeatureCard
           image="check-mark-icon.svg"
-          title={t('global_expertise_support')}
-          description={t('our_market_leading_health')}
+          title={data.section2_card1_title}
+          description={data.section2_card1_description}
+          cms
         />
         <FeatureCard
           image="notepad-icon.svg"
-          title={t('customized_preventative')}
-          description={t('our_market_leading_health')}
+          title={data.section2_card2_title}
+          description={data.section2_card2_description}
+          cms
         />
         <FeatureCard
           image="display-icon.svg"
-          title={t('technology_training')}
-          description={t('our_market_leading_health')}
+          title={data.section2_card3_title}
+          description={data.section2_card3_description}
+          cms
         />
       </div>
     </section>

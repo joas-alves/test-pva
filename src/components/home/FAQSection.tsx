@@ -1,28 +1,15 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { FAQAccordionItem } from "@/components/widgets";
 import { useTranslations } from "next-intl";
+import { IFaq } from "@/cms-models/faq";
 
-export const FAQSection = () => {
+type Props = {
+  data: IFaq[];
+}
+
+export const FAQSection: React.FC<Props> = ({ data }) => {
   const [active, setActive] = useState<number | null>(null);
   const t = useTranslations('Home');
-
-  const DATA = [
-    {
-      title: t('what_services_does'),
-    },
-    {
-      title: t('how_does_premier'),
-    },
-    {
-      title: t('what_countries_does'),
-    },
-    {
-      title: t('how_does_the_post'),
-    },
-    {
-      title: t('how_do_i_get'),
-    },
-  ]
 
   const handleClickAccordion = (value: number) => {
     if (active === value) setActive(null);
@@ -36,7 +23,7 @@ export const FAQSection = () => {
       </h2>
 
       <div className="max-w-[846px] mx-auto flex flex-col gap-4">
-        {DATA.map((item, index) => (
+        {data?.map((item, index) => (
           <FAQAccordionItem
             key={index}
             data={item}

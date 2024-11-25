@@ -51,7 +51,7 @@ export default function PetOwners() {
         </div>
       </section>
 
-      <FAQSection />
+      <FAQSection data={[]} />
     </div>
   )
 }

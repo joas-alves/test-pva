@@ -3,11 +3,11 @@
 import Image from "next/image";
 import { SignUpInput } from "@/components/widgets";
 import { MdStarRate } from "react-icons/md";
-import { IHomeCMS } from "@/cms-models/home";
+import { IHomePage } from "@/cms-models/home";
 import React from "react";
 
 type Props = {
-  data: IHomeCMS;
+  data: IHomePage;
 }
 
 export const HeroSection: React.FC<Props> = ({ data }) => {

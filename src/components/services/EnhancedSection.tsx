@@ -2,8 +2,14 @@ import Image from "next/image";
 import { PiChartLineUpLight } from "react-icons/pi";
 import { RiGlobalLine } from "react-icons/ri";
 import { useTranslations } from "next-intl";
+import { IServicePage } from "@/cms-models/service";
+import React from "react";
 
-export const EnhancedSection = () => {
+type Props = {
+  data: IServicePage;
+}
+
+export const EnhancedSection: React.FC<Props> = ({ data }) => {
   const t = useTranslations('Services');
 
   return (
@@ -18,7 +24,7 @@ export const EnhancedSection = () => {
             </div>
 
             <div className="text-center py-5 md:py-9">
-              <div className="sub-head-value mb-2">2,360+</div>
+              <div className="sub-head-value mb-2">{data.section2_practice_number}</div>
               <div className="text-xs md:text-sm text-secondary">{t('number_of_practices_we_operate_in')}</div>
             </div>
 
@@ -32,17 +38,10 @@ export const EnhancedSection = () => {
         </div>
 
         <div className="md:flex-1">
-          <div className="mb-6">
-            <h2 className="sub-heading"><span className="text-primary">{t('enhanced')}</span> {t('client_communication')}</h2>
-          </div>
+          <div className="mb-6 sub-heading" dangerouslySetInnerHTML={{ __html: data.section2_title }} />
 
           <div className="max-w-[512px] md:mb-8">
-            <p className="text-secondary body mb-3">
-              {t('the_perfect_complete_to_premier')}
-            </p>
-            <p className="text-secondary body">
-              {t('better_yet_the_technology')}
-            </p>
+            {data.section2_description}
           </div>
         </div>
       </div>
@@ -57,10 +56,10 @@ export const EnhancedSection = () => {
             height={32}
           />
           <div className="text-[32px] md:text-[52px] leading-10 md:leading-12 font-medium mb-1">
-            40%
+            {data.section2_card1_rating_number}
           </div>
           <div className="text-sm md:text-base text-secondary">
-            {t('of_pet_owners_want_to_interact')}
+            {data.section2_card1_rating_desc}
           </div>
         </div>
         <div className="shadow-paper rounded-2xl p-7">
@@ -72,10 +71,10 @@ export const EnhancedSection = () => {
             height={32}
           />
           <div className="text-[32px] md:text-[52px] leading-10 md:leading-12 font-medium mb-1">
-            59%
+            {data.section2_card2_rating_number}
           </div>
           <div className="text-sm md:text-base text-secondary">
-            {t('of_new_pet_owners_are_now_under')}
+            {data.section2_card2_rating_desc}
           </div>
         </div>
         <div className="shadow-paper rounded-2xl p-7">
@@ -87,10 +86,10 @@ export const EnhancedSection = () => {
             height={32}
           />
           <div className="text-[32px] md:text-[52px] leading-10 md:leading-12 font-medium mb-1">
-            £ 4.000
+            {data.section2_card3_amount}
           </div>
           <div className="text-sm md:text-base text-secondary">
-            {t('potential_revenue_per_dog')}
+            {data.section2_card3_amount_desc}
           </div>
         </div>
       </div>

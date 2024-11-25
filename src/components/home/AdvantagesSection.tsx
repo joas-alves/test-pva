@@ -1,10 +1,10 @@
 import Image from "next/image";
 // import { useTranslations } from "next-intl";
-import { IHomeCMS } from "@/cms-models/home";
+import { IHomePage } from "@/cms-models/home";
 import React from "react";
 
 type Props = {
-  data: IHomeCMS;
+  data: IHomePage;
 }
 
 export const AdvantagesSection: React.FC<Props> = ({ data }) => {

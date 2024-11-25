@@ -2,11 +2,11 @@ import Image from "next/image";
 import { PiChartLineUpLight } from "react-icons/pi";
 import { RiGlobalLine } from "react-icons/ri";
 import { useTranslations } from "next-intl";
-import { IHomeCMS } from "@/cms-models/home";
+import { IHomePage } from "@/cms-models/home";
 import React from "react";
 
 type Props = {
-  data: IHomeCMS;
+  data: IHomePage;
 }
 
 export const ElevatingSection: React.FC<Props> = ({ data }) => {

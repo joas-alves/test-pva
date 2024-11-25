@@ -3,19 +3,22 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import { IoChevronBackOutline, IoChevronForwardOutline } from "react-icons/io5";
 import 'swiper/css';
-import { useTranslations } from "next-intl";
+import { IAboutPage } from "@/cms-models/about";
+import React from "react";
 
-export const TrustUsSection = () => {
-  const t = useTranslations('About');
+type Props = {
+  data: IAboutPage;
+}
+
+export const TrustUsSection: React.FC<Props> = ({ data }) => {
+  // const t = useTranslations('About');
 
   return (
     <section className="container mx-auto py-20">
       <div className="max-w-[954px] w-full mx-auto mb-0 md:mb-4 text-center">
-        <h2 className="sub-heading mb-6">
-          {t('success_stories_from')} <span className="text-primary">{t('those_who_trust_us')}</span>
-        </h2>
+        <h2 className="sub-heading mb-6" dangerouslySetInnerHTML={{ __html: data.section5_title }} />
         <p className="text-secondary max-w-[600px] w-full mx-auto">
-          {t('see_how_our_tailored_solutions')}
+          {data.section5_description}
         </p>
       </div>
 

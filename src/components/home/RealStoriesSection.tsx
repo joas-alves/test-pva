@@ -6,11 +6,11 @@ import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { useTranslations } from "next-intl";
-import { IHomeCMS } from "@/cms-models/home";
+import { IHomePage } from "@/cms-models/home";
 import React from "react";
 
 type Props = {
-  data: IHomeCMS;
+  data: IHomePage;
 }
 
 export const RealStoriesSection: React.FC<Props> = ({ data }) => {

@@ -1,9 +1,14 @@
 import Image from "next/image";
 import { SignUpInput } from "@/components/widgets";
-import { useTranslations } from "next-intl";
+import { IAboutPage } from "@/cms-models/about";
+import React from "react";
 
-export const TrustedPartnerSection = () => {
-  const t = useTranslations('About');
+type Props = {
+  data: IAboutPage;
+}
+
+export const TrustedPartnerSection: React.FC<Props> = ({ data }) => {
+  // const t = useTranslations('About');
 
   return (
     <section className="container mx-auto py-10">
@@ -13,19 +18,14 @@ export const TrustedPartnerSection = () => {
           <Image className="block md:hidden w-full" src="/images/trusted-partner-doctor-dog-mobile.png" width={327} height={240} alt="dog" />
         </div>
         <div className="flex flex-col">
-          <h1 className="heading mb-5 sm:mb-20 md:text-right">
-            {t('your')} <span className="text-primary">{t('trusted_partner')}</span> {t('in_pet_wellness')}
-          </h1>
+          <h1 className="heading mb-5 sm:mb-20 md:text-right" dangerouslySetInnerHTML={{ __html: data.section1_title }} />
           <div className="flex-1 flex justify-between w-full">
             <Image className="hidden xl:block" src="/images/trusted-partner-doctor-small-dog.png" width={301} height={365} alt="dog" />
 
             <div className="flex flex-col">
               <div className="body text-secondary max-w-[517px] mb-3 sm:mb-6">
                 <p className="mb-3">
-                  {t('premier_vet_alliance')}
-                </p>
-                <p>
-                  {t('we_provide_technology')}
+                  {data.section1_description}
                 </p>
               </div>
 

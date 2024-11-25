@@ -1,8 +1,14 @@
 import Image from "next/image";
 import { MdStarRate } from "react-icons/md";
 import { useTranslations } from "next-intl";
+import { IServicePage } from "@/cms-models/service";
+import React from "react";
 
-export const Vet2PetSection = () => {
+type Props = {
+  data: IServicePage;
+}
+
+export const Vet2PetSection: React.FC<Props> = ({ data }) => {
   const t = useTranslations('Services');
 
   return (
@@ -13,12 +19,12 @@ export const Vet2PetSection = () => {
             <span className="p-2.5 sm:p-4 rounded-2xl shadow-paper">
               <Image src="/images/vet2pet-logo.png" alt="vet2pet" width={61} height={61} />
             </span>
-            {t('vet2')}<span className="text-primary">{t('pet')}</span>
+            <div dangerouslySetInnerHTML={{ __html: data.section1_title }} />
           </h1>
           <div className="flex-1 flex">
             <div className="flex-1 flex flex-col">
               <p className="body text-secondary max-w-[517px] mb-3 sm:mb-6">
-                {t('the_perfect_addition_to_premier')}
+                {data.section1_description}
               </p>
 
               <div className="grid grid-cols-2 sm:flex gap-2">
@@ -55,7 +61,7 @@ export const Vet2PetSection = () => {
                 <div className="pt-4 pb-7 pl-8">
                   <MdStarRate className="text-warning ml-24 text-4xl -mb-5" />
                   <div className="head-value">4,5</div>
-                  <div className="text-secondary text-sm">{t('trusted_by_vets')}</div>
+                  <div className="text-secondary text-sm">{data.section1_rating_text}</div>
                 </div>
                 <Image className="absolute bottom-0 -right-4" src="/images/vet2pet-dog.png" width={151} height={187} alt="customer-dog" />
               </div>
@@ -66,13 +72,13 @@ export const Vet2PetSection = () => {
         <div className="flex-shrink-0 flex flex-col-reverse sm:flex-row sm:justify-end relative">
           <div className="shadow-paper rounded-2xl p-6 sm:p-8 w-full sm:max-w-[410px] -mt-10 sm:mt-0 sm:absolute bg-white -left-10 bottom-20">
             <div className="text-xl mb-4 sm:mb-12">
-              {t('vet2pet_has_streamlined')}
+              {data.section1_top_review_text}
             </div>
             <div className="flex items-center gap-4">
               <div className="w-[46px] h-[46px] rounded-full bg-gray-100"></div>
               <div>
-                <p className="font-semibold">Katie W.</p>
-                <p className="text-sm text-secondary">Anderson Vets.</p>
+                <p className="font-semibold">{data.section1_reviewer_name}</p>
+                <p className="text-sm text-secondary">{data.section1_reviewer_office}</p>
               </div>
             </div>
           </div>
