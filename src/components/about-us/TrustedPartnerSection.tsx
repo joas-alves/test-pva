@@ -2,6 +2,7 @@ import Image from "next/image";
 import { SignUpInput } from "@/components/widgets";
 import { IAboutPage } from "@/cms-models/about";
 import React from "react";
+import { imageUrl } from "@/utils";
 
 type Props = {
   data: IAboutPage;
@@ -9,18 +10,25 @@ type Props = {
 
 export const TrustedPartnerSection: React.FC<Props> = ({ data }) => {
   // const t = useTranslations('About');
+  const images = data.section1_image ? JSON.parse(data.section1_image) : null;
 
   return (
     <section className="container mx-auto py-10">
       <div className="flex flex-col-reverse md:flex-row gap-10 sm:gap-6">
         <div className="flex-shrink-0">
-          <Image className="hidden md:block" src="/images/trusted-partner-doctor-dog.png" width={302} height={624} alt="dog" />
-          <Image className="block md:hidden w-full" src="/images/trusted-partner-doctor-dog-mobile.png" width={327} height={240} alt="dog" />
+          <Image className="hidden md:block" src={imageUrl(images?.[1] ?? '')} width={302} height={624} alt="dog" />
+          <Image className="block md:hidden w-full" src={imageUrl(images?.[1] ?? '')} width={327} height={240} alt="dog" />
         </div>
         <div className="flex flex-col">
           <h1 className="heading mb-5 sm:mb-20 md:text-right" dangerouslySetInnerHTML={{ __html: data.section1_title }} />
           <div className="flex-1 flex justify-between w-full">
-            <Image className="hidden xl:block" src="/images/trusted-partner-doctor-small-dog.png" width={301} height={365} alt="dog" />
+            <Image
+              className="hidden xl:block"
+              src={imageUrl(images?.[0] ?? '')}
+              width={301}
+              height={365}
+              alt="dog"
+            />
 
             <div className="flex flex-col">
               <div className="body text-secondary max-w-[517px] mb-3 sm:mb-6">

@@ -3,6 +3,7 @@ import Image from "next/image";
 // import { useTranslations } from "next-intl";
 import { IAboutPage } from "@/cms-models/about";
 import React from "react";
+import { imageUrl } from "@/utils";
 
 type Props = {
   data: IAboutPage;
@@ -21,7 +22,7 @@ export const ExperienceUnderstandingSection: React.FC<Props> = ({ data }) => {
         <div className="md:col-span-3">
           <Image
             className="w-full"
-            src="/images/experience-understanding-doctors.png"
+            src={imageUrl(data.section3_image)}
             alt="doctors"
             width={737}
             height={836}

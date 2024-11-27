@@ -2,6 +2,7 @@ import Image from "next/image";
 // import { useTranslations } from "next-intl";
 import { IHomePage } from "@/cms-models/home";
 import React from "react";
+import { imageUrl } from "@/utils";
 
 type Props = {
   data: IHomePage;
@@ -19,7 +20,7 @@ export const AdvantagesSection: React.FC<Props> = ({ data }) => {
           <div className="text-center rounded-2xl shadow-paper w-[113px] md:w-[192px] flex flex-col items-center pt-4 absolute top-0 left-0 bg-white">
             <div className="text-info sub-value mb-2">{data.section4_experience_number}</div>
             <div className="text-xs sm:text-sm text-secondary mb-2">{data.section4_experience_text}</div>
-            <Image className="" src="/images/small-dog.png" alt="dog" width={149} height={116} />
+            <Image className="" src={imageUrl(data.section4_experience_image)} alt="dog" width={149} height={116} />
           </div>
           <Image src="/images/advantages-doctor.png" width={410} height={450} alt="doctor" />
           <div className="flex items-center justify-between flex-col md:flex-row rounded-2xl shadow-paper w-[113px] md:w-[302px] bg-white absolute bottom-0 right-0">
@@ -27,7 +28,7 @@ export const AdvantagesSection: React.FC<Props> = ({ data }) => {
               <div className="text-info sub-value mb-2">{data.section4_enrolled_number}</div>
               <div className="text-xs sm:text-sm text-secondary">{data.section4_enrolled_text}</div>
             </div>
-            <Image className="w-[80px] md:w-auto" src="/images/small-cat.png" alt="cat" width={130} height={139} />
+            <Image className="w-[80px] md:w-auto" src={imageUrl(data.section4_enrolled_image)} alt="cat" width={130} height={139} />
           </div>
         </div>
 

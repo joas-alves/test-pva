@@ -17,7 +17,7 @@ export const NewsGridSection: React.FC<Props> = ({ data }) => {
           <NewsCard
             key={index}
             id={item.id}
-            image="new-chart.png"
+            image={item.image}
             time={item.date}
             title={item.title}
             description={t('owners_who_must_collect')}

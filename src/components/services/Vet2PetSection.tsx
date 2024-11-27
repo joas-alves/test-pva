@@ -3,6 +3,7 @@ import { MdStarRate } from "react-icons/md";
 import { useTranslations } from "next-intl";
 import { IServicePage } from "@/cms-models/service";
 import React from "react";
+import { imageUrl } from "@/utils";
 
 type Props = {
   data: IServicePage;
@@ -63,7 +64,7 @@ export const Vet2PetSection: React.FC<Props> = ({ data }) => {
                   <div className="head-value">4,5</div>
                   <div className="text-secondary text-sm">{data.section1_rating_text}</div>
                 </div>
-                <Image className="absolute bottom-0 -right-4" src="/images/vet2pet-dog.png" width={151} height={187} alt="customer-dog" />
+                <Image className="absolute bottom-0 -right-4" src={imageUrl(data.section1_rating_image)} width={151} height={187} alt="customer-dog" />
               </div>
             </div>
           </div>
@@ -75,7 +76,7 @@ export const Vet2PetSection: React.FC<Props> = ({ data }) => {
               {data.section1_top_review_text}
             </div>
             <div className="flex items-center gap-4">
-              <div className="w-[46px] h-[46px] rounded-full bg-gray-100"></div>
+              <Image className="rounded-full bg-gray-100" width={46} height={46} src={imageUrl(data.section1_reviewer_image)} alt="reviewer" />
               <div>
                 <p className="font-semibold">{data.section1_reviewer_name}</p>
                 <p className="text-sm text-secondary">{data.section1_reviewer_office}</p>
@@ -84,14 +85,14 @@ export const Vet2PetSection: React.FC<Props> = ({ data }) => {
           </div>
           <Image
             className="hidden sm:block"
-            src="/images/vet2pet-woman-doctor-dog.png"
+            src={imageUrl(data.section1_logo)}
             width={411}
             height={600}
             alt="dog"
           />
           <Image
             className="block sm:hidden w-full"
-            src="/images/vet2pet-woman-doctor-dog-mobile.png"
+            src={imageUrl(data.section1_logo)}
             width={327}
             height={240}
             alt="dog"

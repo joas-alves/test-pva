@@ -2,10 +2,11 @@ import React from 'react';
 import Image from "next/image";
 import { CiClock2 } from "react-icons/ci";
 import Link from "next/link";
+import { imageUrl } from "@/utils";
 
 type Props = {
   id?: number;
-  image: string;
+  image: string | null;
   time: string;
   title: string;
   description: string;
@@ -18,12 +19,14 @@ export const NewsCard: React.FC<Props> = ({
   title,
   description
 }) => {
+  const images = image ? JSON.parse(image) : null;
+
   return (
     <Link href={`/news/${id}`}>
       <div className="rounded-2xl shadow-paper overflow-hidden">
         <Image
           className="w-full"
-          src={`/images/${image}`}
+          src={imageUrl(images?.[0] ?? '')}
           alt="chart"
           width={411}
           height={256}

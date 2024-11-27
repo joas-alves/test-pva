@@ -1,12 +1,28 @@
 import Image from "next/image";
 import { FiChevronDown } from "react-icons/fi";
 import { RiMenuLine } from "react-icons/ri";
-import { LanguageMenu } from "@/components/widgets";
+import { DropdownMenu, LanguageMenu } from "@/components/widgets";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { NextRouter, useRouter } from "next/router";
+import { IServicePage } from "@/cms-models/service";
 
 const Header = () => {
   const t = useTranslations('Header');
+  const router: NextRouter = useRouter();
+
+  const [services, setServices] = useState<IServicePage[]>([]);
+
+  useEffect(() => {
+    (async () => {
+      const response = await axios(`/api/${router.locale}/service-contents`);
+      if (response.status === 200) {
+        setServices(response.data);
+      }
+    })();
+  }, [router.locale]);
 
   return (
     <header className="container mx-auto flex items-center py-4">
@@ -18,12 +34,14 @@ const Header = () => {
         <Link href="/">
           <div className="">{t('home')}</div>
         </Link>
-        <Link href="/services">
-          <div className="flex items-center gap-0.5">
-            {t('service')}
-            <FiChevronDown />
-          </div>
-        </Link>
+        <DropdownMenu
+          label={t('service')}
+          options={services?.map((item) => ({
+            id: item.id,
+            label: `Service ${item.id}` // item.section1_title,
+          }))}
+          onChangeMenu={(id) => router.push(`/services/${id}`)}
+        />
         <Link href="/about-us">
           <div className="flex items-center gap-0.5">
             {t('about')}

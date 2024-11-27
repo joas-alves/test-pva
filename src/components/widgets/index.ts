@@ -9,3 +9,4 @@ export * from './FeatureCard';
 export * from './NewsCard';
 export * from './MeetingLink';
 export * from './ContactUsForm';
+export * from './DropdownMenu';

@@ -2,6 +2,7 @@ import { PracticeCard } from "@/components/widgets";
 // import { useTranslations } from "next-intl";
 import { IHomePage } from "@/cms-models/home";
 import React from "react";
+import { imageUrl } from "@/utils";
 
 type Props = {
   data: IHomePage;
@@ -34,7 +35,7 @@ export const PracticeSection: React.FC<Props> = ({ data }) => {
             image="Mask group_3.svg"
             title={data.section3_card2_title}
             description={data.section3_card2_description}
-            backgroundClassName="bg-[url('/images/post2pet-mobile.png')] md:bg-[url('/images/post2pet.png')] bg-right-top md:bg-right"
+            backgroundClassName={`bg-[url(${imageUrl(data.section3_card2_image)})] md:bg-[url('/images/post2pet.png')] bg-right-top md:bg-right`}
           />
         </div>
       </div>
@@ -44,7 +45,7 @@ export const PracticeSection: React.FC<Props> = ({ data }) => {
             image="Mask group_4.svg"
             title={data.section3_card3_title}
             description={data.section3_card3_description}
-            backgroundClassName="bg-[url('/images/vet2pet.png')] bg-right-top bg-57% md:bg-auto"
+            backgroundClassName={`bg-[url(${imageUrl(data.section3_card3_image)})] bg-right-top bg-57% md:bg-auto`}
           />
         </div>
         <div className="col-span-2">

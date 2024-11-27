@@ -4,6 +4,7 @@ import { RiGlobalLine } from "react-icons/ri";
 import { useTranslations } from "next-intl";
 import { IServicePage } from "@/cms-models/service";
 import React from "react";
+import { imageUrl } from "@/utils";
 
 type Props = {
   data: IServicePage;
@@ -34,7 +35,7 @@ export const EnhancedSection: React.FC<Props> = ({ data }) => {
               </span>
             </div>
           </div>
-          <Image className="w-[240px] md:w-auto" src="/images/man-dog.png" width={412} height={365} alt="cat" />
+          <Image className="w-[240px] md:w-auto" src={imageUrl(data.section2_image)} width={412} height={365} alt="cat" />
         </div>
 
         <div className="md:flex-1">

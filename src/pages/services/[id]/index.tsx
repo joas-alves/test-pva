@@ -5,20 +5,24 @@ import { NextRouter, useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { IServicePage } from "@/cms-models/service";
+import { useParams } from "next/navigation";
 
 export default function Services() {
   const router: NextRouter = useRouter();
+  const params = useParams();
 
   const [data, setData] = useState<IServicePage>({} as IServicePage);
 
   useEffect(() => {
     (async () => {
-      const response = await axios(`/api/${router.locale}/service-content/1`);
-      if (response.status === 200) {
-        setData(response.data);
+      if (params?.id) {
+        const response = await axios(`/api/${router.locale}/service-content/${params.id}`);
+        if (response.status === 200) {
+          setData(response.data);
+        }
       }
     })();
-  }, [router.locale]);
+  }, [router.locale, params]);
 
   return (
     <div className="flex flex-col gap-0 md:gap-20">
