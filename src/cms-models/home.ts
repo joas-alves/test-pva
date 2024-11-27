@@ -1,3 +1,5 @@
+import { IFaq } from "@/cms-models/faq";
+
 export interface IHomePage {
   id: number;
   section_title: string;
@@ -59,5 +61,5 @@ export interface IHomePage {
   updated_at: string;
   section4_image: string;
   reviews: string[];
-  questions: string[];
+  questions: IFaq[];
 }

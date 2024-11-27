@@ -7,7 +7,7 @@ export default function Investors() {
       <InvestHeroSection />
       <OurStorySection />
       <GeneralMeetingSection />
-      <DiscoverSection />
+      <DiscoverSection title="" description="" image="" />
     </div>
   )
 }
