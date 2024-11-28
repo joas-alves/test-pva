@@ -31,6 +31,10 @@
 /*  }*/
 /*}*/
 
+* {
+  word-break: break-word;
+}
+
 .container {
   max-width: 1328px;
   width: 100%;
