@@ -4,23 +4,30 @@ import { RiMenuLine } from "react-icons/ri";
 import { DropdownMenu, LanguageMenu } from "@/components/widgets";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useEffect } from "react";
 import { NextRouter, useRouter } from "next/router";
-import { IServicePage } from "@/cms-models/service";
+// import { IServicePage } from "@/cms-models/service";
+import {useServicesContext} from "../contexts/services.js";
 
 const Header = () => {
   const t = useTranslations('Header');
   const router: NextRouter = useRouter();
+  // @ts-ignore
+  const { services, setServices } = useServicesContext();
 
-  const [services, setServices] = useState<IServicePage[]>([]);
+
+    // const [services, setServices] = useState<IServicePage[]>([]);
 
   useEffect(() => {
     (async () => {
-      const response = await axios(`/api/${router.locale}/service-contents`);
-      if (response.status === 200) {
-        setServices(response.data);
-      }
+        try{
+          const response = await fetch(`/api/services?locale=${router.locale}`);
+          const result = await response.json();
+          setServices(result);
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        } catch (error) {
+            console.log({error})
+        }
     })();
   }, [router.locale]);
 

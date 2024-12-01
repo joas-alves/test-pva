@@ -2,9 +2,17 @@ import Image from "next/image";
 import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
+import {useServicesContext} from "../contexts/services.js";
+import {DropdownMenu} from "@/components/widgets";
+import {NextRouter} from "next/router";
 
-const Footer = () => {
+interface FooterProps {
+  router: NextRouter;
+}
+const Footer = ({router}: FooterProps) => {
   const t = useTranslations('Footer');
+  // @ts-ignore
+  const { services } = useServicesContext();
 
   return (
     <footer className="pt-10">
@@ -23,7 +31,17 @@ const Footer = () => {
         <div>
           <ul className="flex justify-between flex-row sm:flex-col gap-2 sm:gap-4 text-sm sm:text-base">
             <li><Link href="/investors">{t('investors')}</Link></li>
-            <li><Link href="/pet-owners">{t('services')}</Link></li>
+            {/*<li><Link href="/pet-owners">{t('services')}</Link></li>*/}
+            <li>
+              <DropdownMenu
+                  label={t('services')}
+                  options={services?.map((item) => ({
+                    id: item.id,
+                    label: `Service ${item.id}`
+                  }))}
+                  onChangeMenu={(id) => router.push(`/services/${id}`)}
+              />
+            </li>
             <li><Link href="/about-us">{t('about')}</Link></li>
             <li><Link href="/news">{t('news')}</Link></li>
           </ul>

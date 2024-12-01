@@ -8,10 +8,10 @@ type Props = {
   description: string;
   msgTitle: string;
   msgDescription: string;
-  msgIcon: string;
+  msgIcon: string | null | undefined;
   phoneTitle: string;
   phoneDescription: string;
-  phoneIcon: string;
+  phoneIcon: string | null | undefined;
   phoneNumber: string;
   image: string;
 }
@@ -30,6 +30,7 @@ export const NeedMoreHelpSection: React.FC<Props> = ({
 }) => {
   const t = useTranslations('About');
 
+  console.log({msgIcon})
   return (
     <section className="container mx-auto py-10">
       <div className="bg-info rounded-3xl bg-[url('/images/double-circles.png')] bg-no-repeat bg-center bg-contain">
@@ -44,7 +45,7 @@ export const NeedMoreHelpSection: React.FC<Props> = ({
           <div className="text-white flex flex-col items-center text-center pt-10 pb-0 md:pb-20">
             <Image
               className="mb-5 md:mb-8 w-12 md:w-auto"
-              src={imageUrl(msgIcon)}
+              src={msgIcon ? imageUrl(msgIcon) : "/images/icons/envelop-icon.svg"}
               alt="envelop-icon"
               width={80}
               height={80}
@@ -67,7 +68,7 @@ export const NeedMoreHelpSection: React.FC<Props> = ({
           <div className="text-white flex flex-col items-center text-center pt-10 pb-10 md:pb-20">
             <Image
               className="mb-5 md:mb-8 w-12 md:w-auto"
-              src={imageUrl(phoneIcon)}
+              src={phoneIcon ? imageUrl(phoneIcon) : "/images/icons/phone-icon.svg"}
               alt="envelop-icon"
               width={80}
               height={80}

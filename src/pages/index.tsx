@@ -9,7 +9,6 @@ import {
   RealStoriesSection,
   FAQSection
 } from "@/components/home";
-import axios from 'axios';
 import { useEffect, useState } from "react";
 import { IHomePage } from "@/cms-models/home";
 import { NextRouter, useRouter } from "next/router";
@@ -21,10 +20,15 @@ export default function Home() {
 
   useEffect(() => {
     (async () => {
-      const response = await axios(`/api/${router.locale}/homepage-content/1`);
-      if (response.status === 200) {
-        setData(response.data);
-      }
+        try{
+            const response = await fetch(`/api/home?locale=${router.locale}`);
+            const result = await response.json();
+            console.log({result});
+            setData(result);
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        } catch (error) {
+            console.log({error})
+        }
     })();
   }, [router.locale]);
 

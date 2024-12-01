@@ -3,7 +3,6 @@ import { FAQSection } from "@/components/home";
 import { NeedMoreHelpSection } from "@/components/about-us";
 import { NextRouter, useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { IServicePage } from "@/cms-models/service";
 import { useParams } from "next/navigation";
 
@@ -15,12 +14,16 @@ export default function Services() {
 
   useEffect(() => {
     (async () => {
-      if (params?.id) {
-        const response = await axios(`/api/${router.locale}/service-content/${params.id}`);
-        if (response.status === 200) {
-          setData(response.data);
+        try {
+          if (params?.id) {
+            const response = await fetch(`/api/services?locale=${router.locale}&id=${params?.id}`);
+            const result = await response.json();
+              console.log({result});
+            setData(result);
+          }
+        } catch (error) {
+            console.log({error})
         }
-      }
     })();
   }, [router.locale, params]);
 

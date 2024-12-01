@@ -11,6 +11,7 @@ import enUK from "@/i18n/en-UK.json";
 import es from "@/i18n/es.json";
 import de from "@/i18n/de.json";
 import fr from "@/i18n/fr.json";
+import {ServicesProvider} from "../contexts/services.js";
 
 setupAxios();
 
@@ -37,11 +38,13 @@ export default function App({ Component, pageProps }: AppProps) {
       messages={languages[router.locale as 'en-US' | 'en-UK' | 'es' | 'de' | 'fr']}
       timeZone={timeZone}
     >
-      <main className={manrope.className}>
-        <Header />
-        <Component {...pageProps} />
-        <Footer />
-      </main>
+      <ServicesProvider>
+        <main className={manrope.className}>
+          <Header />
+          <Component {...pageProps} />
+          <Footer router={router} />
+        </main>
+      </ServicesProvider>
     </NextIntlClientProvider>
   )
 }

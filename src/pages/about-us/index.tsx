@@ -19,10 +19,15 @@ export default function AboutUs() {
 
   useEffect(() => {
     (async () => {
-      const response = await axios(`/api/${router.locale}/about-content/1`);
-      if (response.status === 200) {
-        setData(response.data);
-      }
+        try{
+          const response = await axios(`/api/${router.locale}/about-content/1`);
+          if (response.status === 200) {
+            setData(response.data);
+          }
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        } catch (error) {
+            console.log({error})
+        }
     })();
   }, [router.locale]);
 

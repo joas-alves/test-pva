@@ -20,29 +20,29 @@ export const InvestHeroSection = () => {
               {t('explore_investment_opportunities')}
             </p>
 
-            <div className="w-full rounded-3xl shadow-paper p-8">
-              <div className="text-[32px] font-bold leading-10 mb-5">
-                {t('overview')} (PVG)
-              </div>
-              <div className="flex gap-6">
-                <div>
-                  <div className="text-sm text-secondary">{t('current_price')}:</div>
-                  <div className="head-value md:leading-[64px] mb-6 flex items-end">
-                    34.5 <sub className="text-xl font-semibold mb-2">GBX</sub>
-                  </div>
-                  <div className="text-sm text-secondary">{t('recent_price_shift')}:</div>
-                  <div className="text-xl font-semibold text-primary-light">
-                    +2,3% ↑
-                  </div>
-                </div>
-                <Image
-                  src="/images/pvg-chart.png"
-                  width={273}
-                  height={137.5}
-                  alt="chart"
-                />
-              </div>
-            </div>
+            {/*<div className="w-full rounded-3xl shadow-paper p-8">*/}
+            {/*  <div className="text-[32px] font-bold leading-10 mb-5">*/}
+            {/*    {t('overview')} (PVG)*/}
+            {/*  </div>*/}
+            {/*  <div className="flex gap-6">*/}
+            {/*    <div>*/}
+            {/*      <div className="text-sm text-secondary">{t('current_price')}:</div>*/}
+            {/*      <div className="head-value md:leading-[64px] mb-6 flex items-end">*/}
+            {/*        34.5 <sub className="text-xl font-semibold mb-2">GBX</sub>*/}
+            {/*      </div>*/}
+            {/*      <div className="text-sm text-secondary">{t('recent_price_shift')}:</div>*/}
+            {/*      <div className="text-xl font-semibold text-primary-light">*/}
+            {/*        +2,3% ↑*/}
+            {/*      </div>*/}
+            {/*    </div>*/}
+            {/*    <Image*/}
+            {/*      src="/images/pvg-chart.png"*/}
+            {/*      width={273}*/}
+            {/*      height={137.5}*/}
+            {/*      alt="chart"*/}
+            {/*    />*/}
+            {/*  </div>*/}
+            {/*</div>*/}
           </div>
         </div>
 
@@ -53,7 +53,7 @@ export const InvestHeroSection = () => {
             height={460}
             alt="invest-hero"
           />
-          <div className="w-[411px] p-8 bg-[url('/images/double-circles.png')] bg-no-repeat rounded-3xl shadow-paper bg-white absolute bottom-0 right-0">
+          <div className="w-[411px] p-8 bg-[url('/images/double-circles.png')] bg-no-repeat rounded-3xl shadow-paper bg-white absolute top-[160px] right-5">
             <div className="text-[32px] font-bold mb-3 text-primary leading-10">
               {t('premier_veterinary')}
             </div>
