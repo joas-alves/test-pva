@@ -1,18 +1,42 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import React from "react";
+import { imageUrl } from "@/utils";
 
-export const NeedMoreHelpSection = () => {
+type Props = {
+  title: string;
+  description: string;
+  msgTitle: string;
+  msgDescription: string;
+  msgIcon: string;
+  phoneTitle: string;
+  phoneDescription: string;
+  phoneIcon: string;
+  phoneNumber: string;
+  image: string;
+}
+
+export const NeedMoreHelpSection: React.FC<Props> = ({
+  title,
+  description,
+  msgTitle,
+  msgDescription,
+  msgIcon,
+  phoneTitle,
+  phoneDescription,
+  phoneIcon,
+  phoneNumber,
+  image,
+}) => {
   const t = useTranslations('About');
 
   return (
     <section className="container mx-auto py-10">
       <div className="bg-info rounded-3xl bg-[url('/images/double-circles.png')] bg-no-repeat bg-center bg-contain">
         <div className="px-6 pt-10 md:pt-20 mx-auto flex flex-col items-center">
-          <h2 className="sub-heading text-white max-w-[624px] mb-3 md:mb-6">
-            {t('need_more_help')}
-          </h2>
+          <h2 className="sub-heading text-white max-w-[624px] mb-3 md:mb-6" dangerouslySetInnerHTML={{ __html: title }} />
           <p className="text-white text-center body max-w-[383px] opacity-80">
-            {t('find_the_answers_you')}:
+            {description}:
           </p>
         </div>
 
@@ -20,16 +44,14 @@ export const NeedMoreHelpSection = () => {
           <div className="text-white flex flex-col items-center text-center pt-10 pb-0 md:pb-20">
             <Image
               className="mb-5 md:mb-8 w-12 md:w-auto"
-              src="/images/icons/envelop-icon.svg"
+              src={imageUrl(msgIcon)}
               alt="envelop-icon"
               width={80}
               height={80}
             />
-            <div className="text-lg md:text-2xl font-bold mb-3">
-              {t('send_us_message')}
-            </div>
+            <div className="text-lg md:text-2xl font-bold mb-3" dangerouslySetInnerHTML={{ __html: msgTitle }} />
             <p className="mb-5 md:mb-6 max-w-[335px] body opacity-80">
-              {t('use_our_contract_form')}
+              {msgDescription}
             </p>
             <button className="btn info-contained-btn h-12 px-11">
               {t('book_a_demo')}
@@ -37,7 +59,7 @@ export const NeedMoreHelpSection = () => {
           </div>
           <Image
             className="hidden lg:block flex-1"
-            src="/images/doctor-man.png"
+            src={imageUrl(image)}
             alt="doctor-man.png"
             width={264}
             height={360}
@@ -45,19 +67,17 @@ export const NeedMoreHelpSection = () => {
           <div className="text-white flex flex-col items-center text-center pt-10 pb-10 md:pb-20">
             <Image
               className="mb-5 md:mb-8 w-12 md:w-auto"
-              src="/images/icons/phone-icon.svg"
+              src={imageUrl(phoneIcon)}
               alt="envelop-icon"
               width={80}
               height={80}
             />
-            <div className="text-lg md:text-2xl font-bold mb-3">
-              {t('give_us_call')}
-            </div>
+            <div className="text-lg md:text-2xl font-bold mb-3" dangerouslySetInnerHTML={{ __html: phoneTitle }} />
             <p className="mb-5 md:mb-8 max-w-[335px] body opacity-80">
-              {t('call_us_directly')}
+              {phoneDescription}
             </p>
             <div className="text-lg md:text-2xl font-medium">
-              +44 117 472 5000
+              {phoneNumber}
             </div>
           </div>
         </div>

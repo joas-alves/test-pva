@@ -31,7 +31,18 @@ export default function Services() {
       <YouPracticeSection data={data} />
       {/*<RealStoriesSection />*/}
       <FAQSection data={[]} />
-      <NeedMoreHelpSection />
+      <NeedMoreHelpSection
+        title={data.section4_title}
+        description={data.section4_description}
+        msgTitle={data.section4_msg_title}
+        msgDescription={data.section4_msg_content}
+        msgIcon={data.section4_msg_icon}
+        phoneTitle={data.section4_phone_title}
+        phoneDescription={data.section4_phone_content}
+        phoneIcon={data.section4_phone_icon}
+        phoneNumber={data.section4_phone_number}
+        image={data.section4_image}
+      />
     </div>
   )
 }

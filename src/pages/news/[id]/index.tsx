@@ -1,7 +1,6 @@
 import { CiClock2 } from "react-icons/ci";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import { NeedMoreHelpSection } from "@/components/about-us";
 import { NewsCard } from "@/components/widgets";
 import { NextRouter, useRouter } from "next/router";
 import { useParams } from "next/navigation";
@@ -79,7 +78,7 @@ export default function NewsDetail() {
       </section>
 
       <section className="-mx-10">
-        <NeedMoreHelpSection />
+        {/*<NeedMoreHelpSection />*/}
       </section>
     </div>
   )

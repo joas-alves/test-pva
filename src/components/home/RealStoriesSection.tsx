@@ -44,7 +44,7 @@ export const RealStoriesSection: React.FC<Props> = ({ data }) => {
                 <GoStarFill />
                 <GoStarFill />
                 <GoStarFill />
-                <span className="text-dark-green text-sm mx-2">4.8(70)</span>
+                <span className="text-dark-green text-sm mx-2">{data.section5_social_rating}({data.section5_social_total_rating})</span>
               </div>
             </div>
           </div>

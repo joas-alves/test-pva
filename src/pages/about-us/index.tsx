@@ -34,7 +34,18 @@ export default function AboutUs() {
       <BuildingLegacySection data={data} />
       <TrustUsSection data={data} />
       <FAQSection data={[]} />
-      <NeedMoreHelpSection />
+      <NeedMoreHelpSection
+        title={data.section6_title}
+        description={data.section6_description}
+        msgTitle={data.section6_msg_title}
+        msgDescription={data.section6_msg_content}
+        msgIcon={data.section6_msg_icon}
+        phoneTitle={data.section6_phone_title}
+        phoneDescription={data.section6_phone_content}
+        phoneIcon={data.section6_phone_icon}
+        phoneNumber={data.section6_phone_number}
+        image={data.section6_image}
+      />
     </div>
   )
 }

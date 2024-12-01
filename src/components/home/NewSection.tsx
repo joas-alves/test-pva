@@ -1,15 +1,18 @@
 import { NewsCard } from "@/components/widgets";
 import { useTranslations } from "next-intl";
+import React from "react";
 
-export const NewSection = () => {
+type Props = {
+  title: string;
+}
+
+export const NewSection: React.FC<Props> = ({ title }) => {
   const t = useTranslations('Home');
 
   return (
     <section className="container mx-auto py-20 pb-10">
       <div className="flex items-center mb-12">
-        <h2 className="sub-heading">
-          <span className="text-primary">{t('what_new')}</span> {t('in_veterinary_care')}
-        </h2>
+        <h2 className="sub-heading" dangerouslySetInnerHTML={{ __html: title }} />
         <div className="flex-1" />
         <button className="hidden md:block btn primary-outline-btn">{t('discover_all')}</button>
       </div>

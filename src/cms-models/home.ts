@@ -30,6 +30,7 @@ export interface IHomePage {
   section3_card5_title: string;
   section3_card5_description: string;
   section4_title: string;
+  section4_image: string;
   section4_experience_number: string;
   section4_experience_text: string;
   section4_experience_image: string;
@@ -44,6 +45,8 @@ export interface IHomePage {
   section4_global_trust_description: string;
   section5_title: string;
   section5_description: string;
+  section5_social_rating: string;
+  section5_social_total_rating: string;
   section6_title: string;
   section6_description: string;
   section6_practices_text: string;
@@ -59,7 +62,6 @@ export interface IHomePage {
   section9_image: string;
   created_at: string;
   updated_at: string;
-  section4_image: string;
   reviews: string[];
   questions: IFaq[];
 }

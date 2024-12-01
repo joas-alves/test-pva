@@ -31,13 +31,14 @@ export default function Home() {
   return (
     <div className="flex flex-col gap-0 md:gap-20">
       <HeroSection data={data} /> {/* Section1 */}
-      <ElevatingSection data={data} />
-      <PracticeSection data={data} />
-      <AdvantagesSection data={data} />
-      <RealStoriesSection data={data} />
-      <MapSection data={data} />
-      <NewSection />
-      <FAQSection data={data.questions} />
+      <ElevatingSection data={data} /> {/* Section2 */}
+      <PracticeSection data={data} /> {/* Section3 */}
+      <AdvantagesSection data={data} /> {/* Section4 */}
+      <RealStoriesSection data={data} /> {/* Section5 */}
+      <MapSection data={data} /> {/* Section6 */}
+      <NewSection title={data.section7_title} /> {/* Section7 */}
+      <FAQSection data={data.questions} /> {/* Section8 */}
+      {/* Section9 */}
       <DiscoverSection
         title={data.section9_title}
         description={data.section9_description}

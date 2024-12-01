@@ -22,7 +22,7 @@ export const AdvantagesSection: React.FC<Props> = ({ data }) => {
             <div className="text-xs sm:text-sm text-secondary mb-2">{data.section4_experience_text}</div>
             <Image className="" src={imageUrl(data.section4_experience_image)} alt="dog" width={149} height={116} />
           </div>
-          <Image src="/images/advantages-doctor.png" width={410} height={450} alt="doctor" />
+          <Image src={imageUrl(data.section4_image)} width={410} height={450} alt="doctor" />
           <div className="flex items-center justify-between flex-col md:flex-row rounded-2xl shadow-paper w-[113px] md:w-[302px] bg-white absolute bottom-0 right-0">
             <div className="pb-2 p-5 px-2 md:p-8 md:pr-0 text-center md:text-left">
               <div className="text-info sub-value mb-2">{data.section4_enrolled_number}</div>
