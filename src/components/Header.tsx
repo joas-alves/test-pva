@@ -8,11 +8,12 @@ import { useEffect } from "react";
 import { NextRouter, useRouter } from "next/router";
 // import { IServicePage } from "@/cms-models/service";
 import {useServicesContext} from "../contexts/services.js";
+import {IServicePage} from "@/cms-models/service";
 
 const Header = () => {
   const t = useTranslations('Header');
   const router: NextRouter = useRouter();
-  // @ts-ignore
+  // @ts-expect-error contexts
   const { services, setServices } = useServicesContext();
 
 
@@ -43,7 +44,7 @@ const Header = () => {
         </Link>
         <DropdownMenu
           label={t('service')}
-          options={services?.map((item) => ({
+          options={services?.map((item: IServicePage) => ({
             id: item.id,
             label: `Service ${item.id}` // item.section1_title,
           }))}

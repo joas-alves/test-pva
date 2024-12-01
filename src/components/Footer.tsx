@@ -5,13 +5,14 @@ import Link from "next/link";
 import {useServicesContext} from "../contexts/services.js";
 import {DropdownMenu} from "@/components/widgets";
 import {NextRouter} from "next/router";
+import {IServicePage} from "@/cms-models/service";
 
 interface FooterProps {
   router: NextRouter;
 }
 const Footer = ({router}: FooterProps) => {
   const t = useTranslations('Footer');
-  // @ts-ignore
+  // @ts-expect-error contexts
   const { services } = useServicesContext();
 
   return (
@@ -35,7 +36,7 @@ const Footer = ({router}: FooterProps) => {
             <li>
               <DropdownMenu
                   label={t('services')}
-                  options={services?.map((item) => ({
+                  options={services?.map((item: IServicePage) => ({
                     id: item.id,
                     label: `Service ${item.id}`
                   }))}
