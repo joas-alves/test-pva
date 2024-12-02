@@ -5,6 +5,7 @@ import { NextRouter, useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { IServicePage } from "@/cms-models/service";
 import { useParams } from "next/navigation";
+import axios from "axios";
 
 export default function Services() {
   const router: NextRouter = useRouter();
@@ -16,13 +17,13 @@ export default function Services() {
     (async () => {
         try {
           if (params?.id) {
-            const response = await fetch(`/api/services?locale=${router.locale}&id=${params?.id}`);
-            const result = await response.json();
-              console.log({result});
-            setData(result);
+              const response = await axios.get(`/api/${router.locale}/service-content/${params?.id}`);
+              if (response.status === 200) {
+                  return setData(response.data);
+              }
           }
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
         } catch (error) {
-            console.log({error})
         }
     })();
   }, [router.locale, params]);

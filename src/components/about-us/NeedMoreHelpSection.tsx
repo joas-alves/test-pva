@@ -30,7 +30,6 @@ export const NeedMoreHelpSection: React.FC<Props> = ({
 }) => {
   const t = useTranslations('About');
 
-  console.log({msgIcon})
   return (
     <section className="container mx-auto py-10">
       <div className="bg-info rounded-3xl bg-[url('/images/double-circles.png')] bg-no-repeat bg-center bg-contain">

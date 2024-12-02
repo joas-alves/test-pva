@@ -9,6 +9,7 @@ import { NextRouter, useRouter } from "next/router";
 // import { IServicePage } from "@/cms-models/service";
 import {useServicesContext} from "../contexts/services.js";
 import {IServicePage} from "@/cms-models/service";
+import axios from "axios";
 
 const Header = () => {
   const t = useTranslations('Header');
@@ -16,18 +17,17 @@ const Header = () => {
   // @ts-expect-error contexts
   const { services, setServices } = useServicesContext();
 
-
     // const [services, setServices] = useState<IServicePage[]>([]);
 
   useEffect(() => {
     (async () => {
         try{
-          const response = await fetch(`/api/services?locale=${router.locale}`);
-          const result = await response.json();
-          setServices(result);
+            const response = await axios.get(`/api/${router.locale}/service-contents`);
+            if (response.status === 200) {
+                return setServices(response.data);
+            }
             // eslint-disable-next-line @typescript-eslint/no-unused-vars
         } catch (error) {
-            console.log({error})
         }
     })();
   }, [router.locale]);

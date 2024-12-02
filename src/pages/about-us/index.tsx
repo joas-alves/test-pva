@@ -26,7 +26,6 @@ export default function AboutUs() {
           }
             // eslint-disable-next-line @typescript-eslint/no-unused-vars
         } catch (error) {
-            console.log({error})
         }
     })();
   }, [router.locale]);

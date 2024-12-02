@@ -3,6 +3,7 @@ import { DiscoverSection } from "@/components/home";
 import {useEffect, useState} from "react";
 import {ITInvestorsPage} from "@/cms-models/investors";
 import {NextRouter, useRouter} from "next/router";
+import axios from "axios";
 
 export default function Investors() {
     const router: NextRouter = useRouter();
@@ -13,19 +14,18 @@ export default function Investors() {
     useEffect(() => {
         (async () => {
             try{
-                const response = await fetch(`/api/investors?locale=${router.locale}`);
-                const result = await response.json();
-                setData(result);
-                const imgs = JSON.parse(result?.section3_bg_image ?? []);
-                setDisImages(imgs)
+                const response = await axios(`/api/${router.locale}/investors-content/1`);
+                if (response.status === 200) {
+                    setData(response.data);
+                    const imgs = JSON.parse(response.data?.section3_bg_image ?? []);
+                    setDisImages(imgs)
+                }
                 // eslint-disable-next-line @typescript-eslint/no-unused-vars
             } catch (error) {
-                console.log({error})
             }
         })();
     }, [router.locale]);
 
-    console.log({data});
 
   return (
     <div className="flex flex-col gap-0 md:gap-20">

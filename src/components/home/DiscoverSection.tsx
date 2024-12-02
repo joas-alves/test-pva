@@ -15,7 +15,6 @@ export const DiscoverSection: React.FC<Props> = ({
   image
 }) => {
   const t = useTranslations('Home');
-  console.log({image});
 
   return (
     <section className="container mx-auto py-10">

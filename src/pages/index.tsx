@@ -12,6 +12,7 @@ import {
 import { useEffect, useState } from "react";
 import { IHomePage } from "@/cms-models/home";
 import { NextRouter, useRouter } from "next/router";
+import axios from "axios";
 
 export default function Home() {
   const router: NextRouter = useRouter();
@@ -21,13 +22,12 @@ export default function Home() {
   useEffect(() => {
     (async () => {
         try{
-            const response = await fetch(`/api/home?locale=${router.locale}`);
-            const result = await response.json();
-            console.log({result});
-            setData(result);
+            const response = await axios(`/api/${router.locale}/homepage-content/1`);
+            if (response.status === 200) {
+                setData(response.data);
+            }
             // eslint-disable-next-line @typescript-eslint/no-unused-vars
         } catch (error) {
-            console.log({error})
         }
     })();
   }, [router.locale]);
