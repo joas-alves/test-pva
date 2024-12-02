@@ -8,6 +8,7 @@ import "swiper/css";
 import { useTranslations } from "next-intl";
 import { IHomePage } from "@/cms-models/home";
 import React from "react";
+import Link from "next/link";
 
 type Props = {
   data: IHomePage;
@@ -15,9 +16,13 @@ type Props = {
 
 export const RealStoriesSection: React.FC<Props> = ({ data }) => {
   const t = useTranslations('Home');
+  const ct = useTranslations('Common');
 
   return (
-    <section className="container mx-auto py-10">
+    <section className="container mx-auto py-3">
+      <Link href="/book-demo" className={""}>
+        <button className="btn primary-outline-btn font-bold mb-[25px]">{ct('get_started')}</button>
+      </Link>
       <div className="flex">
         <div className="sub-heading mb-4 md:mb-12 flex-1" dangerouslySetInnerHTML={{ __html: data.section5_title }}></div>
         <div className="hidden md:flex justify-end gap-5 pb-8 mt-10">

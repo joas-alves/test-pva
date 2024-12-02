@@ -2,6 +2,7 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import React from "react";
 import { imageUrl } from "@/utils";
+import Link from "next/link";
 
 type Props = {
   title: string;
@@ -14,7 +15,7 @@ export const DiscoverSection: React.FC<Props> = ({
   description,
   image
 }) => {
-  const t = useTranslations('Home');
+  const ct = useTranslations('Common');
 
   return (
     <section className="container mx-auto py-10">
@@ -27,9 +28,11 @@ export const DiscoverSection: React.FC<Props> = ({
           <p className="mb-6 md:mb-8 text-white body max-w-[383px]">
             {description}
           </p>
-          <button className="btn info-contained-btn h-12 px-11">
-            {t('book_a_demo')}
-          </button>
+          <Link href="/book-demo">
+            <button className="btn info-contained-btn h-12 px-11">
+              {ct('get_in_touch')}
+            </button>
+          </Link>
         </div>
 
         <Image

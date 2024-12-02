@@ -18,7 +18,10 @@
     "enter_company_name": "Geben Sie Ihren Firmennamen ein",
     "country": "Land",
     "talk_to_us": "Sprechen Sie mit uns",
-    "e-mail": "E-Mail"
+    "e-mail": "E-Mail",
+    "pet_owner_click_here": "Haustierbesitzer? Hier klicken",
+    "get_started": "Loslegen"
+
   },
   "Header": {
     "home": "Home",

@@ -18,7 +18,9 @@
     "enter_company_name": "Ingresa el nombre de tu empresa",
     "country": "País",
     "talk_to_us": "Hable con nosotros",
-    "e-mail": "Correo electrónico"
+    "e-mail": "Correo electrónico",
+    "pet_owner_click_here": "¿Propietario de una mascota? Haz clic aquí",
+    "get_started": "Empieza ahora"
   },
   "Header": {
     "home": "Inicio",

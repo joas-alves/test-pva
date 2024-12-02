@@ -13,6 +13,7 @@ import axios from "axios";
 
 const Header = () => {
   const t = useTranslations('Header');
+  const ct = useTranslations('Common');
   const router: NextRouter = useRouter();
   // @ts-expect-error contexts
   const { services, setServices } = useServicesContext();
@@ -65,7 +66,7 @@ const Header = () => {
       </nav>
       <div className="flex-1" />
       <div className="flex items-center gap-8">
-        <div className="hidden md:block">{t('global_site')}</div>
+        <div className="hidden md:block">{ct('pet_owner_click_here')}</div>
         <span className="hidden md:block">
           <LanguageMenu />
         </span>

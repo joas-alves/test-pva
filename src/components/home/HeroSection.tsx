@@ -46,7 +46,10 @@ export const HeroSection: React.FC<Props> = ({ data }) => {
 
         <div className="flex-shrink-0">
           <Image className="hidden md:block" src={imageUrl(data.section1_image2)} width={302} height={624} alt="dog" />
-          <Image className="block md:hidden w-full" src={imageUrl(data.section1_image2)} width={327} height={240} alt="dog" />
+          <div className={"flex gap-3 lg:block "}>
+            <Image className="block md:hidden w-[40%] self-center lg:self-auto lg:w-full" src={imageUrl(data.section1_image2)} width={327} height={240} alt="dog" />
+            <Image className="w-[120px] h-[180px] lg:hidden" src={imageUrl(data.section1_image1)} width={301} height={365} alt="dog" />
+          </div>
 
           <div className="block md:hidden w-full rounded-3xl shadow-paper relative grid grid-cols-2 gap-7 mt-10">
             <div>

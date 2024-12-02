@@ -18,7 +18,9 @@
     "enter_company_name": "Enter your company name",
     "country": "Country",
     "talk_to_us": "Talk to us",
-    "e-mail": "E-mail"
+    "e-mail": "E-mail",
+    "pet_owner_click_here": "Pet Owner? Click here",
+    "get_started": "Get started"
   },
   "Header": {
     "home": "Home",

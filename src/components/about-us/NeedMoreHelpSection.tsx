@@ -2,6 +2,7 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import React from "react";
 import { imageUrl } from "@/utils";
+import Link from "next/link";
 
 type Props = {
   title: string;
@@ -29,6 +30,7 @@ export const NeedMoreHelpSection: React.FC<Props> = ({
   image,
 }) => {
   const t = useTranslations('About');
+  const ct = useTranslations('Common');
 
   return (
     <section className="container mx-auto py-10">
@@ -53,9 +55,11 @@ export const NeedMoreHelpSection: React.FC<Props> = ({
             <p className="mb-5 md:mb-6 max-w-[335px] body opacity-80">
               {msgDescription}
             </p>
-            <button className="btn info-contained-btn h-12 px-11">
-              {t('book_a_demo')}
-            </button>
+            <Link href="/book-demo">
+              <button className="btn info-contained-btn h-12 px-11">
+              {ct('get_in_touch')}
+              </button>
+            </Link>
           </div>
           <Image
             className="hidden lg:block flex-1"
