@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import {useServicesContext} from "../contexts/services.js";
@@ -55,8 +55,7 @@ const Footer = ({router}: FooterProps) => {
           </ul>
           <div className="flex-1" />
           <div className="gap-8 text-2xl flex">
-            <a href="#"><FaFacebook /></a>
-            <a href="#"><FaInstagram /></a>
+
             <a href="#"><FaLinkedin /></a>
           </div>
         </div>

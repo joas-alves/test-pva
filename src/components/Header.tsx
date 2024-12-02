@@ -45,7 +45,7 @@ const Header = () => {
           label={t('service')}
           options={services?.map((item: IServicePage) => ({
             id: item.id,
-            label: `Service ${item.id}` // item.section1_title,
+            label: `Service ${item.id}`
           }))}
           onChangeMenu={(id) => router.push(`/services/${id}`)}
         />
@@ -69,7 +69,7 @@ const Header = () => {
           <LanguageMenu />
         </span>
         <Link href="/book-demo">
-          <button className="btn primary-outline-btn">{t('book_a_demo')}</button>
+          <button className="btn primary-outline-btn">{ct('get_in_touch')}</button>
         </Link>
       </div>
     </header>

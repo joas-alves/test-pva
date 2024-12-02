@@ -1,11 +1,9 @@
-import Image from "next/image";
 import { GoStarFill } from "react-icons/go";
 
 export const SmallReviewCarouselCard = () => {
   return (
     <div className="shadow-paper rounded-3xl p-6 md:py-8 md:px-10">
       <div className="flex gap-1 mb-6">
-        <Image src="/images/google-icon.svg" alt="google-icon" width={44} height={44} />
         <div>
           <div className="text-dark-green">Reviews</div>
           <div className="text-warning flex items-center text-sm gap-1">

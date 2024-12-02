@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { GoStarFill } from "react-icons/go";
 import { ReviewCarouselCard } from "@/components/widgets";
 import { IoChevronForwardOutline, IoChevronBackOutline } from "react-icons/io5";
@@ -20,9 +19,11 @@ export const RealStoriesSection: React.FC<Props> = ({ data }) => {
 
   return (
     <section className="container mx-auto py-3">
-      <Link href="/book-demo" className={""}>
-        <button className="btn primary-outline-btn font-bold mb-[25px]">{ct('get_started')}</button>
-      </Link>
+      <div className="flex flex-col w-full justify-center items-center">
+        <Link href="/book-demo">
+          <button className="btn primary-outline-btn font-bold mb-[25px] px-10 self-center">{ct('get_started')}</button>
+        </Link>
+      </div>
       <div className="flex">
         <div className="sub-heading mb-4 md:mb-12 flex-1" dangerouslySetInnerHTML={{ __html: data.section5_title }}></div>
         <div className="hidden md:flex justify-end gap-5 pb-8 mt-10">
@@ -40,7 +41,6 @@ export const RealStoriesSection: React.FC<Props> = ({ data }) => {
             {data.section5_description}
           </p>
           <div className="border border-info rounded-2xl flex gap-1 p-4">
-            <Image src="/images/google-icon.svg" alt="google-icon" width={44} height={44} />
             <div>
               <div className="text-dark-green">{t('reviews')}</div>
               <div className="text-warning flex items-center text-sm gap-1">
@@ -49,7 +49,7 @@ export const RealStoriesSection: React.FC<Props> = ({ data }) => {
                 <GoStarFill />
                 <GoStarFill />
                 <GoStarFill />
-                <span className="text-dark-green text-sm mx-2">{data.section5_social_rating}({data.section5_social_total_rating})</span>
+                <span className="text-dark-green text-sm mx-2">{data.section5_social_rating}({data?.section5_social_total_rating ?? "5.0"})</span>
               </div>
             </div>
           </div>

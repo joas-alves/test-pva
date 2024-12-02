@@ -58,13 +58,13 @@ export const Vet2PetSection: React.FC<Props> = ({ data }) => {
 
               <div className="flex-1" />
 
-              <div className="hidden lg:grid w-full max-w-[302px] rounded-3xl shadow-paper relative grid-cols-2 gap-7">
+              <div className="hidden lg:grid w-full max-w-[250px] rounded-3xl shadow-paper relative grid-cols-1 gap-7 ">
                 <div className="pt-4 pb-7 pl-8">
                   <MdStarRate className="text-warning ml-24 text-4xl -mb-5" />
                   <div className="head-value">4,5</div>
                   <div className="text-secondary text-sm">{data.section1_rating_text}</div>
                 </div>
-                <Image className="absolute bottom-0 -right-4" src={imageUrl(data.section1_rating_image)} width={151} height={187} alt="customer-dog" />
+                {/*<Image className="absolute bottom-0 -right-4" src={imageUrl(data.section1_rating_image)} width={151} height={187} alt="customer-dog" />*/}
               </div>
             </div>
           </div>

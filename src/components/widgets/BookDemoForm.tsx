@@ -6,7 +6,7 @@ export const BookDemoForm = () => {
 
   return (
     <div className="shadow-paper rounded-3xl p-6 md:p-12 bg-white">
-      <h2 className="text-2xl md:text-[32px] font-bold text-primary mb-8">{t('book_a_demo')}</h2>
+      <h2 className="text-2xl md:text-[32px] font-bold text-primary mb-8">{t('get_in_touch')}</h2>
 
       <div className="grid grid-cols-2 gap-6">
         <div className="col-span-2">
