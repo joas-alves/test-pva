@@ -29,7 +29,6 @@ export const NeedMoreHelpSection: React.FC<Props> = ({
   phoneNumber,
   image,
 }) => {
-  const t = useTranslations('About');
   const ct = useTranslations('Common');
 
   return (
