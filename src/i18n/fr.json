@@ -239,6 +239,27 @@
     "give_us_call": "Appelez-nous",
     "call_us_directly": "Appelez-nous directement pour une assistance rapide concernant toutes vos questions."
   },
+  "CookiePolicy": {
+    "title": "Politique en matière de cookies",
+    "understading_cookie": "Ce site utilise des cookies – de petits fichiers texte placés sur votre ordinateur pour aider le site à offrir une meilleure expérience utilisateur. En général, les cookies sont utilisés pour conserver les préférences de l'utilisateur, stocker des informations telles que les paniers d'achat et fournir des données de suivi anonymisées à des applications tierces telles que Google Analytics.",
+    "cookie_management": "En règle générale, les cookies amélioreront votre expérience de navigation. Cependant, vous préférerez peut-être désactiver les cookies sur ce site et sur d'autres. Le moyen le plus efficace d'y parvenir est de désactiver les cookies dans votre navigateur. Nous vous suggérons de consulter la section Aide de votre navigateur ou de jeter un œil au site Web À propos des cookies qui propose des conseils pour tous les navigateurs modernes."
+  },
+  "TermsOfUse": {
+    "title": "Conditions d'utilisation",
+    "intro": "Premier Vet Alliance et/ou PVA est le nom commercial de Premier Vet Alliance Limited, et toute référence sur ce site web à 'Premier Vet Alliance', 'PVA', 'la Société', 'nous', 'notre' ou 'nos' fait référence à Premier Vet Alliance Limited. Nous sommes une société à responsabilité limitée enregistrée en Angleterre et au Pays de Galles, numéro 07267818, et notre siège social est situé à The Quorum, Bond Street, Bristol BS1 3AG.",
+    "alteration_title": "Conditions d'utilisation et leurs modifications",
+    "alteration_desc": "Ce document expose les conditions dans lesquelles vous pouvez utiliser notre site web sous le nom de domaine www.premiervetalliance.co.uk. Vous devez lire ce document attentivement, car en utilisant notre site web, vous acceptez ces conditions d'utilisation. Nous nous réservons le droit de réviser et de modifier ces conditions d'utilisation à tout moment ; tout changement prendra effet dès qu'il sera publié sur ce site web.",
+    "information_title": "Informations sur ce site web",
+    "information_desc": "Les informations fournies sur ce site web sont uniquement destinées à des fins d'information générale.",
+    "Liability_title": "Responsabilité",
+    "Liability_desc": "Nous n'acceptons aucune responsabilité pour toute perte ou dommage direct, indirect ou consécutif résultant de votre utilisation de notre site web ou de votre accès ou confiance dans les informations ou documents contenus ou disponibles sur notre site web. Nous ne serons pas responsables si, pour une raison quelconque, notre site web est indisponible à tout moment ou pour toute période. Aucun membre ou employé de la Société n'assumera de responsabilité personnelle en rapport avec le contenu de notre site web ou avec toute affaire dans laquelle ils sont engagés au nom de la Société.",
+    "intilectual_title": "Propriété intellectuelle",
+    "intilectual_desc": "Le contenu de notre site web, notre nom, notre logo et tous les documents contenus ou disponibles sur celui-ci nous appartiennent et sont protégés par des lois et conventions internationales. La copie, la reproduction ou l'utilisation de tout contenu de notre site web, en tout ou en partie, à des fins personnelles est autorisée, à condition que nous soyons reconnus comme auteurs, mais la copie, la reproduction ou l'utilisation de tout contenu de notre site web à des fins commerciales est interdite sans notre consentement préalable écrit.",
+    "jurisdiction_title": "Juridiction",
+    "jurisdiction_desc": "Les tribunaux anglais auront une juridiction exclusive sur toute affaire ou réclamation découlant de ou liée à l'utilisation de notre site web.",
+    "questions_title": "Questions",
+    "question_desc": "Si vous avez des questions sur notre site web et/ou son contenu, veuillez nous contacter à enquiries@premiervetalliance.co.uk ou au 0117 472 5000."
+  },
   "Footer": {
     "investors": "Investisseurs",
     "services": "Services",
