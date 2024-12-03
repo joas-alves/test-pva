@@ -67,6 +67,7 @@ const Footer = ({router}: FooterProps) => {
         <div className="flex gap-10 justify-between sm:justify-start pb-6 sm:pb-0 border-b border-b-gray-200 sm:border-none">
           <div><a href="#">{t('terms_of_use')}</a></div>
           <div><a href="/privacy-policy">{t('privacy_policy')}</a></div>
+          <div><a href="/cookie-policy">{t('cookie_policy')}</a></div>
           <div><a href="#">{t('cookie_policy')}</a></div>
         </div>
       </div>
