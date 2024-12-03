@@ -26,9 +26,9 @@ export const PracticeCard: React.FC<Props> = ({
       <div className="text-2xl md:text-[32px] font-bold leading-10 mb-3 md:mb-4">
         {title}
       </div>
-      <div className={clsx("body mb-6 md:mb-8 max-w-[455px] text-secondary", variant === 'info' && 'text-white')}>
-        {description}
-      </div>
+      <div className={clsx("body mb-6 md:mb-8 max-w-[455px] text-secondary", variant === 'info' && 'text-white')}
+       dangerouslySetInnerHTML={{ __html: description }}
+      />
 
       <span className={clsx("body text-info font-medium", variant === 'info' && 'text-white')}>{t('learn_more')}</span>
     </div>
