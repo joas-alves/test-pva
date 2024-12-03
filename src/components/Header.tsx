@@ -41,6 +41,7 @@ const Header = () => {
         <Link href="/">
           <div className="">{t('home')}</div>
         </Link>
+        <Link href="/services">
         <DropdownMenu
           label={t('service')}
           options={services?.map((item: IServicePage) => ({
@@ -49,6 +50,8 @@ const Header = () => {
           }))}
           onChangeMenu={(id) => router.push(`/services/${id}`)}
         />
+        </Link>
+       
         <Link href="/about-us">
           <div className="flex items-center gap-0.5">
             {t('about')}

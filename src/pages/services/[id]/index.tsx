@@ -7,7 +7,7 @@ import { IServicePage } from "@/cms-models/service";
 import { useParams } from "next/navigation";
 import axios from "axios";
 
-export default function Services() {
+export default function ServicePage() {
   const router: NextRouter = useRouter();
   const params = useParams();
 

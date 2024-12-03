@@ -1,0 +1,35 @@
+import { IHomePage } from "@/cms-models/home";
+import { NeedMoreHelpSection } from "@/components/about-us";
+import { FAQSection } from "@/components/home";
+import { EnhancedSection, Vet2PetSection, YouPracticeSection } from "@/components/services";
+import { ServicesList } from "@/components/services/ServicesList";
+import axios from "axios";
+import { useParams } from "next/navigation";
+import { NextRouter, useRouter } from "next/router";
+import { useEffect, useState } from "react";
+
+export default function ServicesPage() {
+  const router: NextRouter = useRouter();
+  const params = useParams();
+
+  const [data, setData] = useState<IHomePage>({} as IHomePage);
+
+  useEffect(() => {
+    (async () => {
+        try{
+            const response = await axios(`/api/${router.locale}/homepage-content/1`);
+            if (response.status === 200) {
+                setData(response.data);
+            }
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        } catch (error) {
+        }
+    })();
+  }, [router.locale]);
+
+  return (
+    <div className="flex flex-col gap-0 md:gap-20">
+     <ServicesList data={data} />
+    </div>
+  )
+}
