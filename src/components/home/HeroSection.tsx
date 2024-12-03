@@ -20,12 +20,12 @@ export const HeroSection: React.FC<Props> = ({ data }) => {
         <div className="flex flex-col">
           <h1 className="heading mb-5 sm:mb-8" dangerouslySetInnerHTML={{ __html: data.section1_title }} />
           <div className="flex-1 flex">
-            <div className="flex-1 flex flex-col">
+            <div className="flex flex-col">
               <p className="body text-secondary max-w-[517px] mb-3 sm:mb-6" dangerouslySetInnerHTML={{ __html: data.section1_description }}/>
 
               <SignUpInput />
 
-              <div className="flex-1" />
+              {/* <div className="flex-1" />
 
               <div className="hidden md:grid w-full max-w-[410px] rounded-3xl shadow-paper relative grid-cols-2 gap-7">
                 <div>
@@ -36,7 +36,7 @@ export const HeroSection: React.FC<Props> = ({ data }) => {
                   <div className="head-value">{data.section1_rating_number}</div>
                   <div className="text-secondary text-sm">{data.section1_rating_text}</div>
                 </div>
-              </div>
+              </div> */}
             </div>
             <Image className="hidden lg:block" src={imageUrl(data.section1_image1)} width={301} height={365} alt="dog" />
           </div>
