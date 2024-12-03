@@ -2,13 +2,11 @@ import { IHomePage } from "@/cms-models/home";
 import { FAQSection } from "@/components/home";
 import { ServicesList } from "@/components/services/ServicesList";
 import axios from "axios";
-import { useParams } from "next/navigation";
 import { NextRouter, useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 export default function ServicesPage() {
   const router: NextRouter = useRouter();
-  const params = useParams();
 
   const [data, setData] = useState<IHomePage>({} as IHomePage);
 
