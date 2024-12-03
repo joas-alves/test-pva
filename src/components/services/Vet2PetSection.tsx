@@ -7,10 +7,10 @@ import { imageUrl } from "@/utils";
 
 type Props = {
   data: IServicePage;
-}
+};
 
 export const Vet2PetSection: React.FC<Props> = ({ data }) => {
-  const t = useTranslations('Services');
+  const t = useTranslations("Services");
 
   return (
     <section className="container mx-auto pt-5 pb-10 sm:py-10">
@@ -18,7 +18,12 @@ export const Vet2PetSection: React.FC<Props> = ({ data }) => {
         <div className="flex flex-col">
           <h1 className="heading mb-5 sm:mb-8 flex items-center gap-5">
             <span className="p-2.5 sm:p-4 rounded-2xl shadow-paper">
-              <Image src="/images/vet2pet-logo.png" alt="vet2pet" width={61} height={61} />
+              <Image
+                src="/images/vet2pet-logo.png"
+                alt="vet2pet"
+                width={61}
+                height={61}
+              />
             </span>
             <div dangerouslySetInnerHTML={{ __html: data.section1_title }} />
           </h1>
@@ -28,44 +33,18 @@ export const Vet2PetSection: React.FC<Props> = ({ data }) => {
                 {data.section1_description}
               </p>
 
-              <div className="grid grid-cols-2 sm:flex gap-2">
-                <div className="rounded-2xl border border-primary py-3 sm:py-3.5 px-4 sm:px-6 flex items-center gap-2.5">
-                  <Image
-                    src="/images/icons/apple-store-icon.svg"
-                    alt="apple-store"
-                    width={27}
-                    height={27}
-                  />
-                  <div className="text-dark-blue-100">
-                    <p className="text-[10px] sm:text-xs">{t('download_on_the')}</p>
-                    <p className="text-sm sm:text-base font-bold">{t('app_store')}</p>
-                  </div>
-                </div>
-
-                <div className="rounded-2xl border border-primary py-3 sm:py-3.5 px-4 sm:px-6 flex items-center gap-2.5">
-                  <Image
-                    src="/images/icons/google-play-icon.svg"
-                    alt="google-play"
-                    width={27}
-                    height={27}
-                  />
-                  <div className="text-dark-blue-100">
-                    <p className="text-[10px] sm:text-xs">{t('download_on_the')}</p>
-                    <p className="text-sm sm:text-base font-bold">{t('google_play')}</p>
-                  </div>
-                </div>
-              </div>
-
               <div className="flex-1" />
 
-              <div className="hidden lg:grid w-full max-w-[250px] rounded-3xl shadow-paper relative grid-cols-1 gap-7 ">
-                <div className="pt-4 pb-7 pl-8">
+              {/* <div className="hidden lg:grid w-full max-w-[250px] rounded-3xl shadow-paper relative grid-cols-1 gap-7 "> */}
+              {/* <div className="pt-4 pb-7 pl-8">
                   <MdStarRate className="text-warning ml-24 text-4xl -mb-5" />
                   <div className="head-value">4,5</div>
-                  <div className="text-secondary text-sm">{data.section1_rating_text}</div>
-                </div>
-                {/*<Image className="absolute bottom-0 -right-4" src={imageUrl(data.section1_rating_image)} width={151} height={187} alt="customer-dog" />*/}
-              </div>
+                  <div className="text-secondary text-sm">
+                    {data.section1_rating_text}
+                  </div>
+                </div> */}
+              {/*<Image className="absolute bottom-0 -right-4" src={imageUrl(data.section1_rating_image)} width={151} height={187} alt="customer-dog" />*/}
+              {/* </div> */}
             </div>
           </div>
         </div>
@@ -76,10 +55,18 @@ export const Vet2PetSection: React.FC<Props> = ({ data }) => {
               {data.section1_top_review_text}
             </div>
             <div className="flex items-center gap-4">
-              <Image className="rounded-full bg-gray-100" width={46} height={46} src={imageUrl(data.section1_reviewer_image)} alt="reviewer" />
+              {/* <Image
+                className="rounded-full bg-gray-100"
+                width={46}
+                height={46}
+                src={imageUrl(data.section1_reviewer_image)}
+                alt="reviewer"
+              /> */}
               <div>
                 <p className="font-semibold">{data.section1_reviewer_name}</p>
-                <p className="text-sm text-secondary">{data.section1_reviewer_office}</p>
+                <p className="text-sm text-secondary">
+                  {data.section1_reviewer_office}
+                </p>
               </div>
             </div>
           </div>
@@ -100,5 +87,5 @@ export const Vet2PetSection: React.FC<Props> = ({ data }) => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};

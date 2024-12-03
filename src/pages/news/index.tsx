@@ -11,21 +11,20 @@ export default function News() {
 
   useEffect(() => {
     (async () => {
-      try{
+      try {
         const response = await axios(`/api/${router.locale}/news`);
         if (response.status === 200) {
           setData(response.data);
         }
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      } catch (error) {
-      }
+      } catch (error) {}
     })();
   }, [router.locale]);
 
   return (
     <>
-      <HeroSection />
+      <HeroSection data={data} />
       <NewsGridSection data={data} />
     </>
-  )
+  );
 }

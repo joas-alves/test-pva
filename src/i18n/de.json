@@ -238,6 +238,27 @@
     "give_us_call": "Rufen Sie uns an",
     "call_us_directly": "Rufen Sie uns direkt an, um umgehend Hilfe bei Ihren Fragen zu erhalten."
   },
+  "CookiePolicy": {
+    "title": "Cookie-Richtlinie",
+    "understading_cookie": "Diese Website verwendet Cookies – kleine Textdateien, die auf Ihrem Computer abgelegt werden, um der Website zu helfen, ein besseres Benutzererlebnis zu bieten. Im Allgemeinen werden Cookies verwendet, um Benutzerpräferenzen zu speichern, Informationen für Einkaufswagen zu speichern und anonymisierte Tracking-Daten an Drittanbieteranwendungen wie Google Analytics bereitzustellen.",
+    "cookie_management": "In der Regel verbessern Cookies Ihr Surferlebnis. Möglicherweise möchten Sie jedoch Cookies auf dieser und anderen Websites deaktivieren. Der effektivste Weg, dies zu tun, besteht darin, Cookies in Ihrem Browser zu deaktivieren. Wir empfehlen Ihnen, den Hilfebereich Ihres Browsers zu konsultieren oder einen Blick auf die Website „Über Cookies“ zu werfen, die Anleitungen für alle modernen Browser bietet."
+  },
+  "TermsOfUse": {
+    "title": "Nutzungsbedingungen",
+    "intro": "Premier Vet Alliance und/oder PVA ist der Handelsname von Premier Vet Alliance Limited und jede Bezugnahme auf dieser Website auf 'Premier Vet Alliance', 'PVA', 'das Unternehmen', 'wir', 'unser' oder 'uns' bezieht sich auf Premier Vet Alliance Limited. Wir sind eine in England und Wales registrierte Gesellschaft mit beschränkter Haftung, Nummer 07267818, und unser eingetragener Firmensitz befindet sich in The Quorum, Bond Street, Bristol BS1 3AG.",
+    "alteration_title": "Nutzungsbedingungen und ihre Änderungen",
+    "alteration_desc": "Dieses Dokument legt die Bedingungen fest, unter denen Sie unsere Website unter dem Domainnamen www.premiervetalliance.co.uk nutzen können. Sie sollten dieses Dokument sorgfältig lesen, da Sie durch die Nutzung unserer Website diese Nutzungsbedingungen akzeptieren. Wir behalten uns das Recht vor, diese Nutzungsbedingungen jederzeit zu überarbeiten und zu ändern; Änderungen treten in Kraft, sobald sie auf dieser Website veröffentlicht werden.",
+    "information_title": "Informationen auf dieser Website",
+    "information_desc": "Die auf dieser Website bereitgestellten Informationen dienen ausschließlich allgemeinen Informationszwecken.",
+    "Liability_title": "Haftung",
+    "Liability_desc": "Wir übernehmen keine Haftung für direkte, indirekte oder Folgeschäden, die durch die Nutzung unserer Website oder durch den Zugriff oder das Vertrauen auf die auf unserer Website enthaltenen oder verfügbaren Informationen oder Dokumente entstehen. Wir haften nicht, wenn unsere Website aus irgendeinem Grund zu irgendeinem Zeitpunkt oder für einen bestimmten Zeitraum nicht verfügbar ist. Kein Mitglied oder Mitarbeiter des Unternehmens übernimmt eine persönliche Haftung im Zusammenhang mit dem Inhalt unserer Website oder in Bezug auf Angelegenheiten, in die sie im Namen des Unternehmens involviert sind.",
+    "intilectual_title": "Geistiges Eigentum",
+    "intilectual_desc": "Der Inhalt unserer Website, unser Name, unser Logo und alle Dokumente, die auf oder über sie verfügbar sind, gehören uns und sind durch internationale Gesetze und Abkommen geschützt. Das Kopieren, Reproduzieren oder Verwenden von Inhalten unserer Website, ganz oder teilweise, für den persönlichen Gebrauch ist gestattet, sofern wir als Autor anerkannt werden, aber das Kopieren, Reproduzieren oder Verwenden von Inhalten unserer Website für kommerzielle Zwecke ist ohne unsere vorherige schriftliche Zustimmung untersagt.",
+    "jurisdiction_title": "Gerichtsbarkeit",
+    "jurisdiction_desc": "Die englischen Gerichte haben die ausschließliche Zuständigkeit für alle Angelegenheiten oder Ansprüche, die sich aus oder im Zusammenhang mit der Nutzung unserer Website ergeben.",
+    "questions_title": "Fragen",
+    "question_desc": "Wenn Sie Fragen zu unserer Website und/oder deren Inhalt haben, kontaktieren Sie uns bitte unter enquiries@premiervetalliance.co.uk oder unter 0117 472 5000."
+  },
   "Footer": {
     "investors": "Investoren",
     "services": "Dienstleistungen",
