@@ -83,13 +83,13 @@ export const Vet2PetSection: React.FC<Props> = ({ data }) => {
               {data.section1_top_review_text}
             </div>
             <div className="flex items-center gap-4">
-              <Image
+              {/* <Image
                 className="rounded-full bg-gray-100"
                 width={46}
                 height={46}
                 src={imageUrl(data.section1_reviewer_image)}
                 alt="reviewer"
-              />
+              /> */}
               <div>
                 <p className="font-semibold">{data.section1_reviewer_name}</p>
                 <p className="text-sm text-secondary">
