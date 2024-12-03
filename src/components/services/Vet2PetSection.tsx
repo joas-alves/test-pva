@@ -33,46 +33,18 @@ export const Vet2PetSection: React.FC<Props> = ({ data }) => {
                 {data.section1_description}
               </p>
 
-              {/* <div className="grid grid-cols-2 sm:flex gap-2">
-                <div className="rounded-2xl border border-primary py-3 sm:py-3.5 px-4 sm:px-6 flex items-center gap-2.5">
-                  <Image
-                    src="/images/icons/apple-store-icon.svg"
-                    alt="apple-store"
-                    width={27}
-                    height={27}
-                  />
-                  <div className="text-dark-blue-100">
-                    <p className="text-[10px] sm:text-xs">{t('download_on_the')}</p>
-                    <p className="text-sm sm:text-base font-bold">{t('app_store')}</p>
-                  </div>
-                </div>
-
-                <div className="rounded-2xl border border-primary py-3 sm:py-3.5 px-4 sm:px-6 flex items-center gap-2.5">
-                  <Image
-                    src="/images/icons/google-play-icon.svg"
-                    alt="google-play"
-                    width={27}
-                    height={27}
-                  />
-                  <div className="text-dark-blue-100">
-                    <p className="text-[10px] sm:text-xs">{t('download_on_the')}</p>
-                    <p className="text-sm sm:text-base font-bold">{t('google_play')}</p>
-                  </div>
-                </div>
-              </div> */}
-
               <div className="flex-1" />
 
-              <div className="hidden lg:grid w-full max-w-[250px] rounded-3xl shadow-paper relative grid-cols-1 gap-7 ">
-                <div className="pt-4 pb-7 pl-8">
+              {/* <div className="hidden lg:grid w-full max-w-[250px] rounded-3xl shadow-paper relative grid-cols-1 gap-7 "> */}
+              {/* <div className="pt-4 pb-7 pl-8">
                   <MdStarRate className="text-warning ml-24 text-4xl -mb-5" />
                   <div className="head-value">4,5</div>
                   <div className="text-secondary text-sm">
                     {data.section1_rating_text}
                   </div>
-                </div>
-                {/*<Image className="absolute bottom-0 -right-4" src={imageUrl(data.section1_rating_image)} width={151} height={187} alt="customer-dog" />*/}
-              </div>
+                </div> */}
+              {/*<Image className="absolute bottom-0 -right-4" src={imageUrl(data.section1_rating_image)} width={151} height={187} alt="customer-dog" />*/}
+              {/* </div> */}
             </div>
           </div>
         </div>
