@@ -13,14 +13,14 @@ export const Vet2PetSection: React.FC<Props> = ({ data }) => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
         <div className="flex flex-col">
           <h1 className="heading mb-5 sm:mb-8 flex items-center gap-5">
-            <span className="p-2.5 sm:p-4 rounded-2xl shadow-paper">
+            {/* <span className="p-2.5 sm:p-4 rounded-2xl shadow-paper">
               <Image
                 src="/images/vet2pet-logo.png"
                 alt="vet2pet"
                 width={61}
                 height={61}
               />
-            </span>
+            </span> */}
             <div dangerouslySetInnerHTML={{ __html: data.section1_title }} />
           </h1>
           <div className="flex-1 flex">
