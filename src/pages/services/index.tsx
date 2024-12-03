@@ -1,7 +1,5 @@
 import { IHomePage } from "@/cms-models/home";
-import { NeedMoreHelpSection } from "@/components/about-us";
 import { FAQSection } from "@/components/home";
-import { EnhancedSection, Vet2PetSection, YouPracticeSection } from "@/components/services";
 import { ServicesList } from "@/components/services/ServicesList";
 import axios from "axios";
 import { useParams } from "next/navigation";
@@ -30,6 +28,7 @@ export default function ServicesPage() {
   return (
     <div className="flex flex-col gap-0 md:gap-20">
      <ServicesList data={data} />
+     <FAQSection data={data.questions} />
     </div>
   )
 }
