@@ -238,6 +238,27 @@
     "give_us_call": "Give Us a Call",
     "call_us_directly": "Call us directly for prompt assistance with any of your questions."
   },
+  "CookiePolicy": {
+    "title": "Cookie Policy",
+    "understading_cookie": "This site uses cookies – small text files that are placed on your machine to help the site provide a better user experience. In general, cookies are used to retain user preferences, store information for thinks like shopping carts, and provide anonymised tracking data to third party applications like Google Analytics.",
+    "cookie_management": "As a rule, cookies will make your browsing experience better. However, you may prefer to disable cookies on this site and on others. The most effective way to do this is to disable cookies in your browser. We suggest consulting the Help section of your browser or taking a look at the About Cookies website which offers guidance for all modern browsers."
+  },
+  "TermsOfUse": {
+    "title": "Terms of use",
+    "intro": "Premier Vet Alliance and/or PVA is the business and trading name of Premier Vet Alliance Limited and any reference on this website to “Premier Vet Alliance”, “PVA”, “the Company”, “we”, “our” or “us” is to Premier Vet Alliance Limited. We are a limited company registered in England and Wales, number 07267818 and our registered office is at The Quorum, Bond Street, Bristol BS1 3AG.",
+    "alteration_title": "Terms of use and their alteration",
+    "alteration_desc": "This document sets out the terms under which you may use our website under the domain name www.premiervetalliance.co.uk. You should read this document carefully as by using our website you agree to accept these terms of use. We reserve the right to revise and alter these terms of use at any time, any changes shall take effect as soon as they are posted on this website.",
+    "information_title": "Information on this website",
+    "information_desc": "The information provided on this website is for general information purposes only",
+    "Liability_title": "Liability",
+    "Liability_desc": "WWe do not accept liability for any direct, indirect or consequential loss or damage incurred by your use of our website or by you accessing or placing reliance upon information or documents contained in or made available from our website. We will not be liable if for any reason our website in unavailable at any time or for any period. No personal liability will be assumed by any member or employee of the Company in relation to the content of our website or in relation to any matter in which they are engaged on behalf of the Company.",
+    "intilectual_title": "Intellectual property",
+    "intilectual_desc": "The content of our website, our name, logo and any documents contained in or made available from it are owned by us and are protected under international laws and conventions. The copying, reproduction or use of any content on our website, in part or whole, for personal use is permitted, provided always that we are acknowledged as the author, but the copying reproduction or use of any content of our website for commercial purposes is prohibited without our prior written consent.",
+    "jurisdiction_title": "Jurisdiction",
+    "jurisdiction_desc": "The English courts will have exclusive jurisdiction over any matter or claim arising from or relating to the use of our website.",
+    "questions_title": "Questions",
+    "question_desc": "If you have any questions about our website and/or its content please contact us at enquiries@premiervetalliance.co.uk or on 0117 472 5000."
+  },
   "Footer": {
     "investors": "Investors",
     "services": "Services",
