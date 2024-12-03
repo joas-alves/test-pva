@@ -1,5 +1,6 @@
 import { IHomePage } from "@/cms-models/home";
 import { FAQSection } from "@/components/home";
+import { ServiceBookingSection } from "@/components/services/BookingSection";
 import { ServicesList } from "@/components/services/ServicesList";
 import axios from "axios";
 import { NextRouter, useRouter } from "next/router";
@@ -26,6 +27,7 @@ export default function ServicesPage() {
   return (
     <div className="flex flex-col gap-0 md:gap-20">
      <ServicesList data={data} />
+     <ServiceBookingSection/>
      <FAQSection data={data.questions} />
     </div>
   )

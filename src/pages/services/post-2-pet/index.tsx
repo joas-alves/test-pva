@@ -2,7 +2,6 @@ import { IServicePage } from "@/cms-models/service";
 import { NeedMoreHelpSection } from "@/components/about-us";
 import { FAQSection } from "@/components/home";
 import { EnhancedSection, Vet2PetSection, YouPracticeSection } from "@/components/services";
-import { ServiceBookingSection } from "@/components/services/BookingSection";
 import axios from "axios";
 import { useParams } from "next/navigation";
 import { NextRouter, useRouter } from "next/router";
@@ -46,7 +45,6 @@ export default function ServicePage() {
         phoneNumber={data.section4_phone_number}
         image={data.section4_image}
       />
-      <ServiceBookingSection/>
     </div>
   )
 }
