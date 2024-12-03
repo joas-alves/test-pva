@@ -30,7 +30,7 @@ const Footer = ({ router }: FooterProps) => {
           </Link>
         </div>
         <div>
-          <ul className="flex justify-between flex-row sm:flex-col gap-2 sm:gap-4 text-sm sm:text-base">
+          <ul className="flex justify-between flex-wrap sm:flex-col gap-2 sm:gap-4 text-sm sm:text-base">
             <li>
               <Link href="/investors">{t("investors")}</Link>
             </li>
@@ -67,7 +67,7 @@ const Footer = ({ router }: FooterProps) => {
           </ul>
           <div className="flex-1" />
           <div className="gap-8 text-2xl flex">
-            <a href="#">
+            <a href="https://www.linkedin.com/company/premier-vet-alliance/" target="_blank" rel="noopener noreferrer">
               <FaLinkedin />
             </a>
           </div>

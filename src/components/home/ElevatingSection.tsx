@@ -23,9 +23,7 @@ export const ElevatingSection: React.FC<Props> = ({ data }) => {
           </div>
 
           <div className="max-w-[512px] mb-8">
-            <p className="text-secondary body mb-3">
-              {data.section2_description}
-            </p>
+          <p className="text-secondary body mb-3" dangerouslySetInnerHTML={{ __html: data.section2_description }} />
             {/*<p className="text-secondary body">*/}
             {/*  {t('with_over_a_decade_of_experience')}*/}
             {/*</p>*/}
