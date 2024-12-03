@@ -1,6 +1,3 @@
-import { ContactUsForm } from "@/components/widgets";
-import Image from "next/image";
-import { useTranslations } from "next-intl";
 import { PrivacyIntroduction } from "@/components/privacy-policy/Introduction";
 import { PrivacyWhoWeAre } from "@/components/privacy-policy/WhoWeAre";
 import { PrivacyPersonalData } from "@/components/privacy-policy/PersonalData";

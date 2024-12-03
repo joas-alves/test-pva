@@ -55,7 +55,7 @@ const Footer = ({ router }: FooterProps) => {
               <Link href="/cookie-policy">{t("cookie_policy")}</Link>
             </li>
             <li>
-              <Link href="/terms-and-conditions">{t("terms_of_use")}</Link>
+              <Link href="/terms-of-use">{t("terms_of_use")}</Link>
             </li>
           </ul>
         </div>
@@ -78,10 +78,9 @@ const Footer = ({ router }: FooterProps) => {
           © {t("copyright-1")} · {t("copyright-2")} · 07267818
         </div>
         <div className="flex gap-10 justify-between sm:justify-start pb-6 sm:pb-0 border-b border-b-gray-200 sm:border-none">
-          <div><a href="/terms-of-use">{t('terms_of_use')}</a></div>
-          <div><a href="/privacy-policy">{t('privacy_policy')}</a></div>
-          <div><a href="/cookie-policy">{t('cookie_policy')}</a></div>
-          <div><a href="#">{t('cookie_policy')}</a></div>
+          <div><Link href="/terms-of-use">{t('terms_of_use')}</Link></div>
+          <div><Link href="/privacy-policy">{t('privacy_policy')}</Link></div>
+          <div><Link href="/cookie-policy">{t('cookie_policy')}</Link></div>
         </div>
       </div>
     </footer>

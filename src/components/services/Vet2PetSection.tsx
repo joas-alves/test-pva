@@ -1,17 +1,13 @@
-import Image from "next/image";
-import { MdStarRate } from "react-icons/md";
-import { useTranslations } from "next-intl";
 import { IServicePage } from "@/cms-models/service";
-import React from "react";
 import { imageUrl } from "@/utils";
+import Image from "next/image";
+import React from "react";
 
 type Props = {
   data: IServicePage;
 };
 
 export const Vet2PetSection: React.FC<Props> = ({ data }) => {
-  const t = useTranslations("Services");
-
   return (
     <section className="container mx-auto pt-5 pb-10 sm:py-10">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
