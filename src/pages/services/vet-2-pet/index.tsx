@@ -16,11 +16,9 @@ export default function ServicePage() {
   useEffect(() => {
     (async () => {
         try {
-          if (params?.id) {
-              const response = await axios.get(`/api/${router.locale}/service-content/${params?.id}`);
-              if (response.status === 200) {
-                  return setData(response.data);
-              }
+          const response = await axios.get(`/api/${router.locale}/service-content/2`);
+          if (response.status === 200) {
+              return setData(response.data);
           }
             // eslint-disable-next-line @typescript-eslint/no-unused-vars
         } catch (error) {
