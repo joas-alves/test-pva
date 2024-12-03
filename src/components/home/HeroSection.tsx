@@ -13,7 +13,6 @@ type Props = {
 
 export const HeroSection: React.FC<Props> = ({ data }) => {
   // const t = useTranslations('Home');
-
   return (
     <section className="container mx-auto py-10">
       <div className="flex flex-col md:flex-row gap-10 sm:gap-6">
@@ -49,16 +48,16 @@ export const HeroSection: React.FC<Props> = ({ data }) => {
             <Image className="w-[120px] h-[160px] lg:hidden" src={imageUrl(data.section1_image1)} width={301} height={365} alt="dog" />
           </div>
 
-          <div className="block md:hidden w-full rounded-3xl shadow-paper relative grid grid-cols-2 gap-7 mt-10">
-            <div>
+          {/* <div className="block md:hidden w-full rounded-3xl shadow-paper relative grid grid-cols-2 gap-7 mt-10"> */}
+            {/* <div>
               <Image className="absolute bottom-0 left-6 w-[115px] md:w-auto" src={imageUrl(data.section1_rating_image)} width={151} height={187} alt="customer-dog" />
-            </div>
-            <div className="pt-4 pb-7">
+            </div> */}
+            {/* <div className="pt-4 pb-7">
               <MdStarRate className="text-warning ml-20 text-3xl" />
               <div className="head-value mb-4">{data.section1_rating_number}</div>
               <div className="text-secondary text-xs md:text-sm">{data.section1_rating_text}</div>
-            </div>
-          </div>
+            </div> */}
+          {/* </div> */}
         </div>
       </div>
     </section>

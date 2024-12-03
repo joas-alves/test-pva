@@ -67,7 +67,7 @@ const Footer = ({ router }: FooterProps) => {
           </ul>
           <div className="flex-1" />
           <div className="gap-8 text-2xl flex">
-            <a href="#">
+            <a href="https://www.linkedin.com/company/premier-vet-alliance/" target="_blank" rel="noopener noreferrer">
               <FaLinkedin />
             </a>
           </div>
