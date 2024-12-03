@@ -1,11 +1,10 @@
 // import { useTranslations } from 'next-intl';
 
-import Image from "next/image";
-import { SignUpInput } from "@/components/widgets";
-import { MdStarRate } from "react-icons/md";
 import { IHomePage } from "@/cms-models/home";
-import React from "react";
+import { SignUpInput } from "@/components/widgets";
 import { imageUrl } from "@/utils";
+import Image from "next/image";
+import React from "react";
 
 type Props = {
   data: IHomePage;
