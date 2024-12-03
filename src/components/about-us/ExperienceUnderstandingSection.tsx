@@ -42,6 +42,13 @@ export const ExperienceUnderstandingSection: React.FC<Props> = ({ data }) => {
             description={data.section3_card2_description}
             cms
           />
+          <FeatureCard
+            image="chart-icon.svg"
+            variant="info"
+            title={"Improve sign-ups"}
+            description={"You can achieve a 25% increase in net growth of pets on a health plan, when you offer your clients home delivery"}
+            cms
+          />
         </div>
       </div>
     </section>
