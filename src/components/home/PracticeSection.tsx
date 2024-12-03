@@ -3,10 +3,12 @@ import { PracticeCard } from "@/components/widgets";
 import { IHomePage } from "@/cms-models/home";
 import React from "react";
 import { imageUrl } from "@/utils";
+import Image from "next/image";
+import clsx from "clsx";
 
 type Props = {
   data: IHomePage;
-}
+};
 
 export const PracticeSection: React.FC<Props> = ({ data }) => {
   // const t = useTranslations('Home');
@@ -14,8 +16,10 @@ export const PracticeSection: React.FC<Props> = ({ data }) => {
   return (
     <section className="container mx-auto py-10">
       <div className="max-w-[954px] w-full mx-auto mb-12 text-left md:text-center">
-        <div className="sub-heading mb-6" dangerouslySetInnerHTML={{ __html: data.section3_title }}>
-        </div>
+        <div
+          className="sub-heading mb-6"
+          dangerouslySetInnerHTML={{ __html: data.section3_title }}
+        ></div>
         <p className="text-secondary max-w-[600px] w-full mx-auto">
           {data.section3_description}
         </p>
@@ -35,18 +39,27 @@ export const PracticeSection: React.FC<Props> = ({ data }) => {
             image="Mask group_3.svg"
             title={data.section3_card2_title}
             description={data.section3_card2_description}
-            backgroundClassName={`bg-[url(${imageUrl(data.section3_card2_image)})] md:bg-[url('/images/post2pet.png')] bg-right-top md:bg-right`}
+            backgroundClassName={`bg-[url(${imageUrl(
+              data.section3_card2_image
+            )})] md:bg-[url('/images/post2pet.png')] bg-right-top md:bg-right`}
           />
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-6 gap-6">
         <div className="col-span-2">
-          <PracticeCard
-            image="Mask group_4.svg"
-            title={data.section3_card3_title}
-            description={data.section3_card3_description}
-            backgroundClassName={`bg-[url(${imageUrl(data.section3_card3_image)})] bg-right-top bg-57% md:bg-auto`}
-          />
+          <div
+            className={clsx(
+              "relative p-8 rounded-2xl shadow-paper bg-no-repeat",
+              "bg-[url('images/dog.jpg')})] bg-right-top bg-100% md:bg-auto"
+            )}
+          >
+            <Image
+              className="absolute top-0 rounded-2xl left-0 w-full !h-[454px] object-cover opacity-50"
+              src={`/images/dog.jpg`}
+              alt="overlay"
+              layout="fill"
+            />
+          </div>
         </div>
         <div className="col-span-2">
           <PracticeCard
@@ -65,5 +78,5 @@ export const PracticeSection: React.FC<Props> = ({ data }) => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
