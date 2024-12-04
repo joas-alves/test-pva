@@ -10,13 +10,16 @@ import { useEffect } from "react";
 import { FiChevronDown } from "react-icons/fi";
 import { RiMenuLine } from "react-icons/ri";
 import { DropdownMenu, LanguageMenu } from "@/components/widgets";
+import { servicesRouteMapping } from "@/utils";
+import axios from "axios";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { NextRouter, useRouter } from "next/router";
+import { FiChevronDown } from "react-icons/fi";
+import { RiMenuLine } from "react-icons/ri";
 import { useServicesContext } from "../contexts/services.js";
-import { IServicePage } from "@/cms-models/service";
-import axios from "axios";
 import { Dialog } from "@headlessui/react";
 
 const Header = () => {
@@ -66,12 +69,10 @@ const Header = () => {
               label={""}
               options={services?.map((item: IServicePage) => ({
                 id: item.id,
-                label: `Service ${item.id}`,
+                label: servicesRouteMapping[item.id].name,
               }))}
               onChangeMenu={(id) =>
-                router.push(
-                  `/services/${id === 1 ? "post-2-pet" : "vet-2-pet"}`
-                )
+                router.push(`/services/${servicesRouteMapping[id].slug}`)
               }
             />
           </div>
@@ -130,12 +131,10 @@ const Header = () => {
                 label={""}
                 options={services?.map((item: IServicePage) => ({
                   id: item.id,
-                  label: `Service ${item.id}`,
+                  label: servicesRouteMapping[item.id].name,
                 }))}
                 onChangeMenu={(id) =>
-                  router.push(
-                    `/services/${id === 1 ? "post-2-pet" : "vet-2-pet"}`
-                  )
+                  router.push(`/services/${servicesRouteMapping[id].slug}`)
                 }
               />
             </div>
