@@ -55,23 +55,20 @@ export const ServicesList: React.FC<Props> = ({ data }) => {
       </div>
 
       <div className="space-y-8">
-        {/* Loop through services array to generate ServiceCards */}
         {services.map((service, index) => (
           <div
             key={index}
             className={clsx(
-              "w-full mx-auto", // Make sure cards are full-width on mobile
-              "md:w-[80%]", // Cards take 80% of the width on larger screens
-              index % 2 === 0 ? "md:text-left" : "md:text-right", // Alternate alignment based on index
-              index % 2 === 0 ? "md:pl-0" : "md:pr-0" // Adjust padding based on alignment
+              "w-full mx-auto",
+              "md:w-[80%]",
             )}
           >
             <ServiceCard
               image={service.image}
               title={service.title}
               description={service.description}
-              variant={index % 2 === 0 ? "info" : "white"} // Alternate variant
-              align={index % 2 === 0 ? "left" : "right"} // Alternate alignment
+              variant={index % 2 === 0 ? "info" : "white"}
+              align="left"
             />
           </div>
         ))}

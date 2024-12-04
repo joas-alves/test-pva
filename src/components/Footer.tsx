@@ -1,11 +1,12 @@
-import Image from "next/image";
-import { FaLinkedin } from "react-icons/fa";
-import { useTranslations } from "next-intl";
-import Link from "next/link";
-import { useServicesContext } from "../contexts/services.js";
-import { DropdownMenu } from "@/components/widgets";
-import { NextRouter } from "next/router";
 import { IServicePage } from "@/cms-models/service";
+import { DropdownMenu } from "@/components/widgets";
+import { servicesRouteMapping } from "@/utils";
+import { useTranslations } from "next-intl";
+import Image from "next/image";
+import Link from "next/link";
+import { NextRouter } from "next/router";
+import { FaLinkedin } from "react-icons/fa";
+import { useServicesContext } from "../contexts/services.js";
 
 interface FooterProps {
   router: NextRouter;
@@ -36,14 +37,19 @@ const Footer = ({ router }: FooterProps) => {
             </li>
             {/*<li><Link href="/pet-owners">{t('services')}</Link></li>*/}
             <li>
-              <DropdownMenu
-                label={t("services")}
-                options={services?.map((item: IServicePage) => ({
-                  id: item.id,
-                  label: `Service ${item.id}`,
-                }))}
-                onChangeMenu={(id) => router.push(`/services/${id}`)}
-              />
+              <div className="flex gap-2">
+                <Link href="/services">{t("services")}</Link>
+                <DropdownMenu
+                  label={""}
+                  options={services?.map((item: IServicePage) => ({
+                    id: item.id,
+                    label: servicesRouteMapping[item.id].name,
+                  }))}
+                  onChangeMenu={(id) =>
+                    router.push(`/services/${servicesRouteMapping[id].slug}`)
+                  }
+                />
+              </div>
             </li>
             <li>
               <Link href="/about-us">{t("about")}</Link>
@@ -78,9 +84,15 @@ const Footer = ({ router }: FooterProps) => {
           © {t("copyright-1")} · {t("copyright-2")} · 07267818
         </div>
         <div className="flex gap-10 justify-between sm:justify-start pb-6 sm:pb-0 border-b border-b-gray-200 sm:border-none">
-          <div><Link href="/terms-of-use">{t('terms_of_use')}</Link></div>
-          <div><Link href="/privacy-policy">{t('privacy_policy')}</Link></div>
-          <div><Link href="/cookie-policy">{t('cookie_policy')}</Link></div>
+          <div>
+            <Link href="/terms-of-use">{t("terms_of_use")}</Link>
+          </div>
+          <div>
+            <Link href="/privacy-policy">{t("privacy_policy")}</Link>
+          </div>
+          <div>
+            <Link href="/cookie-policy">{t("cookie_policy")}</Link>
+          </div>
         </div>
       </div>
     </footer>
