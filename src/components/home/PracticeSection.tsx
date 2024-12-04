@@ -54,7 +54,7 @@ export const PracticeSection: React.FC<Props> = ({ data }) => {
             )}
           >
             <Image
-              className="absolute top-0 rounded-2xl left-0 w-full !h-[454px] object-cover opacity-50"
+              className="absolute top-0 rounded-2xl left-0 w-full !h-[454px] object-cover opacity-50 hidden sm:block"
               src={`/images/dog.jpg`}
               alt="overlay"
               layout="fill"
