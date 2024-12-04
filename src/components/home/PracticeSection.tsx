@@ -32,7 +32,7 @@ export const PracticeSection: React.FC<Props> = ({ data }) => {
             variant="info"
             title={data.section3_card1_title}
             description={data.section3_card1_description}
-            link={"/premier-pet-care-plan"}
+            link={"/services/premier-pet-care-plan"}
           />
         </div>
         <div className="md:col-span-3">
@@ -43,12 +43,12 @@ export const PracticeSection: React.FC<Props> = ({ data }) => {
             backgroundClassName={`bg-[url(${imageUrl(
               data.section3_card2_image
             )})] md:bg-[url('/images/post2pet.png')] bg-right-top md:bg-right`}
-            link={"/post2pet"}
+            link={"/services/post2pet"}
           />
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-6 gap-6">
-        <div className="col-span-2">
+        <div className="col-span-2 hidden md:block">
           <div
             className={clsx(
               "relative p-8 rounded-2xl shadow-paper bg-no-repeat",
@@ -56,7 +56,7 @@ export const PracticeSection: React.FC<Props> = ({ data }) => {
             )}
           >
             <Image
-              className="absolute top-0 rounded-2xl left-0 w-full !h-[454px] object-cover opacity-50"
+              className="absolute top-0 rounded-2xl left-0 w-full !h-[454px] object-cover opacity-50 "
               src={`/images/dog.jpg`}
               alt="overlay"
               layout="fill"
@@ -68,7 +68,7 @@ export const PracticeSection: React.FC<Props> = ({ data }) => {
             image="Mask group_2.svg"
             title={data.section3_card4_title}
             description={data.section3_card4_description}
-            link={"/training"}
+            link={"/services/training"}
           />
         </div>
         <div className="col-span-2">
@@ -77,7 +77,7 @@ export const PracticeSection: React.FC<Props> = ({ data }) => {
             variant="info"
             title={data.section3_card5_title}
             description={data.section3_card5_description}
-            link={"/technology"}
+            link={"/services/technology"}
           />
         </div>
       </div>

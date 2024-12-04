@@ -34,7 +34,7 @@ export const ElevatingSection: React.FC<Props> = ({ data }) => {
             {/*</p>*/}
           </div>
 
-          <Link href="/premier-pet-care-plan">
+          <Link href="/services/premier-pet-care-plan">
             <button className="btn primary-outline-btn" type="button">
               {tc("learn_more")}
             </button>
