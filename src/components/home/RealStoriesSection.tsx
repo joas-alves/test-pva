@@ -20,7 +20,7 @@ export const RealStoriesSection: React.FC<Props> = ({ data }) => {
   return (
     <section className="container mx-auto py-3">
       <div className="flex flex-col w-full justify-center items-center">
-        <Link href="/book-demo">
+        <Link href="/get-in-touch">
           <button className="btn primary-outline-btn font-bold mb-[25px] px-10 self-center">{ct('get_started')}</button>
         </Link>
       </div>

@@ -28,7 +28,7 @@ export const DiscoverSection: React.FC<Props> = ({
           <p className="mb-6 md:mb-8 text-white body max-w-[383px]">
             {description}
           </p>
-          <Link href="/book-demo">
+          <Link href="/get-in-touch">
             <button className="btn info-contained-btn h-12 px-11">
               {ct('get_in_touch')}
             </button>

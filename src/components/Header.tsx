@@ -88,7 +88,7 @@ const Header = () => {
           <span className="hidden lg:block">
             <LanguageMenu />
           </span>
-          <Link href="/book-demo">
+          <Link href="/get-in-touch">
             <button className="btn primary-outline-btn lg:w-auto">
               {ct("get_in_touch")}
             </button>
@@ -150,7 +150,7 @@ const Header = () => {
                 <LanguageMenu />
               </span>
             </div>
-            <Link href="/book-demo">
+            <Link href="/get-in-touch">
               <button
                 className="btn primary-outline-btn"
                 onClick={() => setIsSidebarOpen(false)}

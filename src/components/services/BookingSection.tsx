@@ -8,7 +8,7 @@ const ServiceBookingSection = () => {
         Take the first steps towards better healthcare and reach out to a member
         of our team for a free, informal chat today.
       </p>
-      <Link href="/book-demo">
+      <Link href="/get-in-touch">
         <button className="btn primary-outline-btn font-bold mb-[25px] px-10 self-center">
           Get in touch
         </button>
