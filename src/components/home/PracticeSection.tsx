@@ -48,7 +48,7 @@ export const PracticeSection: React.FC<Props> = ({ data }) => {
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-6 gap-6">
-        <div className="col-span-2">
+        <div className="col-span-2 hidden md:block">
           <div
             className={clsx(
               "relative p-8 rounded-2xl shadow-paper bg-no-repeat",
@@ -56,7 +56,7 @@ export const PracticeSection: React.FC<Props> = ({ data }) => {
             )}
           >
             <Image
-              className="absolute top-0 rounded-2xl left-0 w-full !h-[454px] object-cover opacity-50"
+              className="absolute top-0 rounded-2xl left-0 w-full !h-[454px] object-cover opacity-50 "
               src={`/images/dog.jpg`}
               alt="overlay"
               layout="fill"

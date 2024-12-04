@@ -1,4 +1,12 @@
+import { IServicePage } from "@/cms-models/service";
+import { DropdownMenu, LanguageMenu } from "@/components/widgets";
+import { servicesRouteMapping } from "@/utils";
+import axios from "axios";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
+import Link from "next/link";
+import { NextRouter, useRouter } from "next/router";
+import { useEffect } from "react";
 import { FiChevronDown } from "react-icons/fi";
 import { RiMenuLine } from "react-icons/ri";
 import { DropdownMenu, LanguageMenu } from "@/components/widgets";
@@ -30,7 +38,7 @@ const Header = () => {
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
       } catch (error) {}
     })();
-  }, [router.locale]);
+  }, [router.locale]);  
 
   return (
     <>
