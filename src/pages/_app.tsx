@@ -40,7 +40,15 @@ export default function App({ Component, pageProps }: AppProps) {
       }
       timeZone={timeZone}
     >
-      <SnackbarProvider autoHideDuration={3000}>
+      <SnackbarProvider
+        autoHideDuration={3000}
+        maxSnack={3}
+        anchorOrigin={{
+          vertical: "top",
+          horizontal: "right",
+        }}
+        classes={{}}
+      >
         <ServicesProvider>
           <main className={manrope.className}>
             <Header />
