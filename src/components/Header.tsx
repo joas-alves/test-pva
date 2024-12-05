@@ -27,9 +27,9 @@ const Header = () => {
           return setServices(response.data);
         }
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      } catch (error) {}
+      } catch (error) { }
     })();
-  }, [router.locale,setServices]);
+  }, [router.locale, setServices]);
 
   return (
     <>
@@ -122,7 +122,15 @@ const Header = () => {
               </button>
               <nav className="flex flex-col gap-4 pt-10">
                 <Link href="/" onClick={() => setIsSidebarOpen(false)}>
-                  <div className="">{t("home")}</div>
+                  {/* <div className="">{t("home333")}</div> */}
+                  <Image
+                    className="mr-10 w-[100px] sm:w-auto"
+                    src="/images/logo.svg"
+                    width={170}
+                    height={70}
+                    alt="logo"
+                  />
+                  {/* src="/images/logo.svg" */}
                 </Link>
                 <ServicesDropdown />
 
