@@ -36,19 +36,11 @@ export const DiscoverSection: React.FC<Props> = ({
         </div>
 
         <Image
-          className="hidden lg:block absolute bottom-0 right-0"
+          className="absolute bottom-0 right-0"
           src={imageUrl(image)}
           alt="doctor-man.png"
           width={684}
           height={561}
-        />
-
-        <Image
-          className="block lg:hidden absolute bottom-0 right-0"
-          src="/images/doctor-man-mobile.png"
-          alt="doctor-man.png"
-          width={324}
-          height={266}
         />
       </div>
     </section>
