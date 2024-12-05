@@ -21,10 +21,10 @@ export const MeetingLink: React.FC<Props> = ({ name, downloadPdf }) => {
         <IoDocumentTextOutline />
         {name}
       </div>
-      <span className="w-10 md:w-[56px] h-10 md:h-[56px] rounded-lg md:rounded-2xl bg-info flex items-center justify-center text-white text-xl md:text-2xl">
+      <span className="w-10 md:w-[56px] h-10 md:h-[56px] rounded-lg md:rounded-2xl bg-info flex items-center justify-center text-white text-xl md:text-2xl cursor-pointer">
         <LuHardDriveDownload onClick={() => handleDownload(pdfUrl, true)} />
       </span>
-      <span className="w-10 md:w-[56px] h-10 md:h-[56px] rounded-lg md:rounded-2xl bg-info flex items-center justify-center text-white text-xl md:text-2xl">
+      <span className="w-10 md:w-[56px] h-10 md:h-[56px] rounded-lg md:rounded-2xl bg-info flex items-center justify-center text-white text-xl md:text-2xl cursor-pointer">
         <FiExternalLink onClick={() => handleDownload(pdfUrl, false)} />
       </span>
     </div>
