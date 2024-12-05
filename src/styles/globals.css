@@ -7,15 +7,15 @@
 @tailwind utilities;
 
 :root {
-  --primary: #00A593;
-  --primary-light: #00D972;
+  --primary: #00a593;
+  --primary-light: #00d972;
   --secondary: #656565;
-  --info: #1773C6;
-  --dark-blue: #0A2136;
-  --dark-blue-100: #061C25;
+  --info: #1773c6;
+  --dark-blue: #0a2136;
+  --dark-blue-100: #061c25;
   --dark-green: #135269;
-  --dark-info: #0E2F4C;
-  --yellow: #FCB000;
+  --dark-info: #0e2f4c;
+  --yellow: #fcb000;
   --background: #ffffff;
   --foreground: #171717;
 }
@@ -48,7 +48,7 @@ a:hover {
 }
 
 .bg-right-bottom {
-  background-position: right,bottom;
+  background-position: right, bottom;
 }
 
 .vertical-milestone:after {
@@ -61,4 +61,8 @@ a:hover {
   top: calc(50% + 5px);
 }
 
-
+@media (max-width: 640px) {
+  .hero-section-title {
+    font-size: 35px !important;
+  }
+}

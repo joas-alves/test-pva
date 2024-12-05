@@ -17,7 +17,7 @@ export const HeroSection: React.FC<Props> = ({ data }) => {
       <div className="flex flex-col md:flex-row gap-10 sm:gap-6">
         <div className="flex flex-col">
           <h1
-            className="heading mb-5 sm:mb-8"
+            className="heading mb-5 sm:mb-8 hero-section-title"
             dangerouslySetInnerHTML={{ __html: data.section1_title }}
           />
           <div className="flex-1 flex">
