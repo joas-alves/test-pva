@@ -5,14 +5,15 @@ import { FiExternalLink } from "react-icons/fi";
 
 type Props = {
   name: string;
-  downloadPdf: (download: boolean, link: string) => void;
+  pdfUrl: string;
+  downloadPdf: (download: boolean, link: string, name: string) => void;
 }
 
-export const MeetingLink: React.FC<Props> = ({ name, downloadPdf }) => {
-  const pdfUrl = '/pdfs/dummy.pdf'; 
+export const MeetingLink: React.FC<Props> = ({ name, pdfUrl, downloadPdf }) => {
+  // const pdfUrl = '/pdfs/dummy.pdf'; 
 
-  const handleDownload = (pdfUrl: string, download: boolean) => {
-    downloadPdf(download, pdfUrl);
+  const handleDownload = (pdfUrl: string, download: boolean, name: string) => {
+    downloadPdf(download, pdfUrl, name);
   };
 
   return (
@@ -22,10 +23,10 @@ export const MeetingLink: React.FC<Props> = ({ name, downloadPdf }) => {
         {name}
       </div>
       <span className="w-10 md:w-[56px] h-10 md:h-[56px] rounded-lg md:rounded-2xl bg-info flex items-center justify-center text-white text-xl md:text-2xl cursor-pointer">
-        <LuHardDriveDownload onClick={() => handleDownload(pdfUrl, true)} />
+        <LuHardDriveDownload onClick={() => handleDownload(pdfUrl, true, name)} />
       </span>
       <span className="w-10 md:w-[56px] h-10 md:h-[56px] rounded-lg md:rounded-2xl bg-info flex items-center justify-center text-white text-xl md:text-2xl cursor-pointer">
-        <FiExternalLink onClick={() => handleDownload(pdfUrl, false)} />
+        <FiExternalLink onClick={() => handleDownload(pdfUrl, false, name)} />
       </span>
     </div>
   );
