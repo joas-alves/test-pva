@@ -1,7 +1,4 @@
-import {
-  CustomSelect,
-  SelectOption
-} from "@/components/common";
+import { CustomInput, CustomSelect, SelectOption } from "@/components/common";
 import { useState } from "react";
 import { PetOwnerPaymentOptions, PetOwnerReasons } from "../constants";
 import { PetOwnerFormData } from "../types";
@@ -12,6 +9,7 @@ export const PetOwnerForm = () => {
   const initialValue: PetOwnerFormData = {
     reason: PetOwnerReasons.Cancellation,
     paymentReason: PetOwnerPaymentOptions.Late,
+    otherReason:''
   };
   const [formData, setFormData] = useState(initialValue);
 
@@ -22,25 +20,37 @@ export const PetOwnerForm = () => {
     });
   };
 
-  const reasons:SelectOption[]=Object.values(PetOwnerReasons).map((each)=>({label:each,value:each}))
-  const paymentReasons:SelectOption[]=Object.values(PetOwnerPaymentOptions).map((each)=>({label:each,value:each}))
+  const reasons: SelectOption[] = Object.values(PetOwnerReasons).map(
+    (each) => ({ label: each, value: each })
+  );
+  const paymentReasons: SelectOption[] = Object.values(
+    PetOwnerPaymentOptions
+  ).map((each) => ({ label: each, value: each }));
 
   return (
     <div className="flex flex-col gap-6 py-4">
+      <CustomSelect
+        label={"Please select one of the below options"}
+        options={reasons}
+        value={formData.reason}
+        onChange={(e) => handleChange("reason", e.target.value)}
+      />
+      {formData.reason === PetOwnerReasons.Payments && (
         <CustomSelect
-          label={"Please select one of the below options"}
-          options={reasons}
-          value={formData.reason}
-          onChange={(e) => handleChange("reason", e.target.value)}
+          label={"What is your payment query related to?"}
+          options={paymentReasons}
+          value={formData.paymentReason as PetOwnerPaymentOptions}
+          onChange={(e) => handleChange("paymentReason", e.target.value)}
         />
-        {formData.reason === PetOwnerReasons.Payments && (
-          <CustomSelect
-            label={"What is your payment query related to?"}
-            options={paymentReasons}
-            value={formData.paymentReason as PetOwnerPaymentOptions}
-            onChange={(e) => handleChange("paymentReason", e.target.value)}
-          />
-        )}
-      </div>
+      )}
+      {formData.reason === PetOwnerReasons.Other && (
+        <CustomInput
+          label="Please write down the reason"
+          placeholder="Other Reason"
+          value={formData.otherReason}
+          onChange={(e) => handleChange("otherReason", e.target.value)}
+        />
+      )}
+    </div>
   );
 };

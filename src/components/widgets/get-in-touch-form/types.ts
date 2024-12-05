@@ -16,6 +16,7 @@ import {
 
 export type VeteniraryNewCustomerFormData = {
   reason: NewCustomerReasons;
+  otherReason: string;
 };
 
 export type VeteniraryPvaCustomerFormData = {
@@ -28,11 +29,13 @@ export type VeteniraryPvaCustomerFormData = {
   validationReason: PvaCustomerValidationOptions | null;
   planStatusReason: PvaCustomerPlanStatusOptions | null;
   changeReason: PvaCustomerChangeOptions | null;
+  otherReason: string;
 };
 
 export type PetOwnerFormData = {
   reason: PetOwnerReasons;
   paymentReason: PetOwnerPaymentOptions | null;
+  otherReason: string;
 };
 
 export type GetInTouchFormType = {

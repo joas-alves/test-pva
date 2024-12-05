@@ -6,9 +6,10 @@ export enum PvaCustomerType {
 export enum PetOwnerReasons {
   Cancellation = "Cancellations & reinstatements",
   Refunds = "Refunds",
-  Transfers = "Transfers (Moving plan clinic To clinic)",
+  Transfers = "Transfer my plan",
   Change = "Change of details",
   Payments = "Payments",
+  Other = "Other",
 }
 
 export enum PetOwnerPaymentOptions {
@@ -20,6 +21,7 @@ export enum NewCustomerReasons {
   HealthPlan = "Starting a health plan",
   Moving = "Moving plans from existing provider",
   Transfers = "Avail services (Home Delivery and more)",
+  Other = "Other",
 }
 
 export enum PvaCustomerReasons {
@@ -31,6 +33,8 @@ export enum PvaCustomerReasons {
   Validation = "Account validation failed",
   PlanStatus = "Plan status",
   Change = "Change of client details",
+  V2P = "V2P - Setup or support",
+  Other = "Other",
 }
 
 export enum PvaCustomerCancelOptions {

@@ -1,4 +1,4 @@
-import { CustomSelect, SelectOption } from "@/components/common";
+import { CustomInput, CustomSelect, SelectOption } from "@/components/common";
 import { useState } from "react";
 import { NewCustomerReasons } from "../../constants";
 import { VeteniraryNewCustomerFormData } from "../../types";
@@ -6,6 +6,7 @@ import { VeteniraryNewCustomerFormData } from "../../types";
 export const NewCustomerForm = () => {
   const initialValue: VeteniraryNewCustomerFormData = {
     reason: NewCustomerReasons.HealthPlan,
+    otherReason:''
   };
   const [formData, setFormData] = useState(initialValue);
 
@@ -28,6 +29,14 @@ export const NewCustomerForm = () => {
         value={formData.reason}
         onChange={(e) => handleChange("reason", e.target.value)}
       />
+      {formData.reason === NewCustomerReasons.Other && (
+        <CustomInput
+          label="Please write down the reason"
+          placeholder="Other Reason"
+          value={formData.otherReason}
+          onChange={(e) => handleChange("otherReason", e.target.value)}
+        />
+      )}
     </div>
   );
 };

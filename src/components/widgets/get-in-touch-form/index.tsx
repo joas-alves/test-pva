@@ -6,7 +6,7 @@ import { PetOwnerReasons, PvaCustomerType } from "./constants";
 import { PetOwnerForm } from "./pet-owner";
 import { GetInTouchFormType, PetOwnerFormData, VeteniraryPvaCustomerFormData } from "./types";
 import { getCustomerType } from "./utils";
-import { VetDecisionForm } from "./vetenirary";
+import { VetDecisionForm } from "./veterinary";
 
 export const GetInTouchForm = () => {
   const t = useTranslations("Common");
