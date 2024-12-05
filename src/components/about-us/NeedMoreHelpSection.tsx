@@ -54,7 +54,7 @@ export const NeedMoreHelpSection: React.FC<Props> = ({
             <p className="mb-5 md:mb-6 max-w-[335px] body opacity-80">
               {msgDescription}
             </p>
-            <Link href="/book-demo">
+            <Link href="/get-in-touch">
               <button className="btn info-contained-btn h-12 px-11">
               {ct('get_in_touch')}
               </button>

@@ -5,8 +5,8 @@ import {
   CustomTextarea,
 } from "@/components/common";
 import { useTranslations } from "next-intl";
-import { useState } from "react";
 import { useSnackbar } from "notistack";
+import { useState } from "react";
 export const ContactUsForm = () => {
   const t = useTranslations("Common");
   const { enqueueSnackbar } = useSnackbar();
@@ -73,6 +73,7 @@ export const ContactUsForm = () => {
       />
       <div className="md:col-span-2">
         <CustomSelect
+          options={[]}
           label={t("topic_of_your_request")}
           value={formData.status}
           onChange={(e) => handleChange("status", e.target.value)}
