@@ -45,7 +45,7 @@ export const PetOwnerForm = () => {
       )}
       {formData.reason === PetOwnerReasons.Other && (
         <CustomInput
-          label="Please write down the reason"
+          label="Please write any comments below"
           placeholder="Other Reason"
           value={formData.otherReason}
           onChange={(e) => handleChange("otherReason", e.target.value)}
