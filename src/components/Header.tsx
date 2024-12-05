@@ -111,7 +111,10 @@ const Header = () => {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <div className="fixed inset-0 bg-black bg-opacity-30" />
+            <div
+              className="fixed inset-0 bg-black bg-opacity-30"
+              onClick={() => setIsSidebarOpen(false)}
+            />
           </Transition.Child>
 
           {/* Sidebar Content */}

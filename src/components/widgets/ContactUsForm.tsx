@@ -71,14 +71,14 @@ export const ContactUsForm = () => {
         value={formData.email}
         onChange={(e) => handleChange("email", e.target.value)}
       />
-      <div className="md:col-span-2">
+      {/* <div className="md:col-span-2">
         <CustomSelect
           options={[]}
           label={t("topic_of_your_request")}
           value={formData.status}
           onChange={(e) => handleChange("status", e.target.value)}
         />
-      </div>
+      </div> */}
       <div className="md:col-span-2">
         <CustomTextarea
           label={t("your_message")}

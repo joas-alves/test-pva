@@ -3,13 +3,14 @@ import { FeatureCard } from "@/components/widgets";
 import { useTranslations } from "next-intl";
 
 export const OurStorySection = () => {
-  const t = useTranslations('Investors');
+  const t = useTranslations("Investors");
 
   return (
-    <section className="container mx-auto py-10">
+    <section className="container mx-auto py-10 investor-store-section ">
       <div className="max-w-[954px] w-full mx-auto mb-12 text-left md:text-center">
         <h2 className="sub-heading">
-          <span className="text-primary">{t('experience_understanding')}</span> {t('you_can_trust')}
+          <span className="text-primary">{t("experience_understanding")}</span>{" "}
+          {t("you_can_trust")}
         </h2>
       </div>
 
@@ -17,14 +18,14 @@ export const OurStorySection = () => {
         <div className="md:col-span-2 flex flex-col gap-6">
           <FeatureCard
             image="hands-icon.svg"
-            title={t('about_us')}
-            description={t('our_industry')}
+            title={t("about_us")}
+            description={t("our_industry")}
           />
           <FeatureCard
             image="handshake-white-icon.svg"
             variant="info"
-            title={t('why_invest_in_us')}
-            description={t('with_over_partnerships')}
+            title={t("why_invest_in_us")}
+            description={t("with_over_partnerships")}
           />
         </div>
         <div className="md:col-span-3">
@@ -37,5 +38,5 @@ export const OurStorySection = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
