@@ -1,23 +1,21 @@
-import { IServicePage } from "@/cms-models/service";
-import { DropdownMenu, LanguageMenu } from "@/components/widgets";
-import { servicesRouteMapping } from "@/utils";
+import { LanguageMenu } from "@/components/widgets";
+import { Dialog, Transition } from "@headlessui/react";
 import axios from "axios";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
-import { Fragment, useEffect, useState } from "react";
 import { NextRouter, useRouter } from "next/router";
+import { Fragment, useEffect, useState } from "react";
 import { FiChevronDown } from "react-icons/fi";
 import { RiMenuLine } from "react-icons/ri";
-import { useServicesContext } from "../contexts/services.js";
-import { Dialog, Transition } from "@headlessui/react";
+import { useServicesContext } from "../contexts/services";
+import { ServicesDropdown } from "./widgets/services-dropdown";
 
 const Header = () => {
   const t = useTranslations("Header");
   const ct = useTranslations("Common");
   const router: NextRouter = useRouter();
-  // @ts-expect-error contexts
-  const { services, setServices } = useServicesContext();
+  const { setServices } = useServicesContext();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   useEffect(() => {
     (async () => {
@@ -31,7 +29,7 @@ const Header = () => {
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
       } catch (error) {}
     })();
-  }, [router.locale]);
+  }, [router.locale,setServices]);
 
   return (
     <>
@@ -53,19 +51,7 @@ const Header = () => {
           <Link href="/">
             <div className="">{t("home")}</div>
           </Link>
-          <div className="flex gap-2">
-            <Link href="/services">{t("service")}</Link>
-            <DropdownMenu
-              label={""}
-              options={services?.map((item: IServicePage) => ({
-                id: item.id,
-                label: servicesRouteMapping[item.id].name,
-              }))}
-              onChangeMenu={(id) =>
-                router.push(`/services/${servicesRouteMapping[id].slug}`)
-              }
-            />
-          </div>
+          <ServicesDropdown />
 
           <Link href="/about-us">
             <div className="flex items-center gap-0.5">
@@ -138,20 +124,8 @@ const Header = () => {
                 <Link href="/" onClick={() => setIsSidebarOpen(false)}>
                   <div className="">{t("home")}</div>
                 </Link>
-                <div className="flex gap-2">
-                  <Link href="/services">{t("service")}</Link>
-                  <DropdownMenu
-                    label={""}
-                    options={services?.map((item: IServicePage) => ({
-                      id: item.id,
-                      label: servicesRouteMapping[item.id].name,
-                    }))}
-                    onChangeMenu={(id) => {
-                      router.push(`/services/${servicesRouteMapping[id].slug}`);
-                      setIsSidebarOpen(false);
-                    }}
-                  />
-                </div>
+                <ServicesDropdown />
+
                 <Link href="/about-us" onClick={() => setIsSidebarOpen(false)}>
                   <div className="flex items-center gap-0.5">
                     {t("about")}

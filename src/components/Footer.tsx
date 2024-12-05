@@ -1,20 +1,11 @@
-import { IServicePage } from "@/cms-models/service";
-import { DropdownMenu } from "@/components/widgets";
-import { servicesRouteMapping } from "@/utils";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
-import { NextRouter } from "next/router";
 import { FaLinkedin } from "react-icons/fa";
-import { useServicesContext } from "../contexts/services.js";
+import { ServicesDropdown } from "./widgets/services-dropdown";
 
-interface FooterProps {
-  router: NextRouter;
-}
-const Footer = ({ router }: FooterProps) => {
+const Footer = () => {
   const t = useTranslations("Footer");
-  // @ts-expect-error contexts
-  const { services } = useServicesContext();
 
   return (
     <footer className="pt-10">
@@ -37,19 +28,7 @@ const Footer = ({ router }: FooterProps) => {
             </li>
             {/*<li><Link href="/pet-owners">{t('services')}</Link></li>*/}
             <li>
-              <div className="flex gap-2">
-                <Link href="/services">{t("services")}</Link>
-                <DropdownMenu
-                  label={""}
-                  options={services?.map((item: IServicePage) => ({
-                    id: item.id,
-                    label: servicesRouteMapping[item.id].name,
-                  }))}
-                  onChangeMenu={(id) =>
-                    router.push(`/services/${servicesRouteMapping[id].slug}`)
-                  }
-                />
-              </div>
+            <ServicesDropdown />
             </li>
             <li>
               <Link href="/about-us">{t("about")}</Link>
