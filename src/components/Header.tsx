@@ -5,12 +5,12 @@ import axios from "axios";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { NextRouter, useRouter } from "next/router";
 import { FiChevronDown } from "react-icons/fi";
 import { RiMenuLine } from "react-icons/ri";
 import { useServicesContext } from "../contexts/services.js";
-import { Dialog } from "@headlessui/react";
+import { Dialog, Transition } from "@headlessui/react";
 
 const Header = () => {
   const t = useTranslations("Header");
@@ -95,72 +95,96 @@ const Header = () => {
           </Link>
         </div>
       </header>
-      <Dialog
-        open={isSidebarOpen}
-        onClose={() => setIsSidebarOpen(false)}
-        className="fixed inset-0 z-50 flex"
-      >
-        {/* <Dialog className="fixed inset-0 bg-black opacity-30" /> */}
-        <div className="relative bg-white w-64 p-4">
-          <button
-            className="absolute top-4 right-4 font-bold"
-            onClick={() => setIsSidebarOpen(false)}
+      <Transition.Root show={isSidebarOpen} as={Fragment}>
+        <Dialog
+          as="div"
+          className="fixed inset-0 z-50 flex"
+          onClose={() => setIsSidebarOpen(false)}
+        >
+          {/* Overlay */}
+          <Transition.Child
+            as={Fragment}
+            enter="ease-out duration-300"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="ease-in duration-200"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
           >
-            X
-          </button>
-          <nav
-            className="flex flex-col gap-4"
-            onClick={() => setIsSidebarOpen(false)}
-          >
-            <Link href="/">
-              <div className="">{t("home")}</div>
-            </Link>
-            <div className="flex gap-2">
-              <Link href="/services">{t("service")}</Link>
-              <DropdownMenu
-                label={""}
-                options={services?.map((item: IServicePage) => ({
-                  id: item.id,
-                  label: servicesRouteMapping[item.id].name,
-                }))}
-                onChangeMenu={(id) =>
-                  router.push(`/services/${servicesRouteMapping[id].slug}`)
-                }
-              />
-            </div>
+            <div className="fixed inset-0 bg-black bg-opacity-30" />
+          </Transition.Child>
 
-            <Link href="/about-us">
-              <div className="flex items-center gap-0.5">
-                {t("about")}
-                <FiChevronDown />
-              </div>
-            </Link>
-            <Link href="/news">
-              <div>{t("news")}</div>
-            </Link>
-            <Link href="/contact-us">
-              <div>{t("contact")}</div>
-            </Link>
-          </nav>
-          {/* <div className="flex-1" /> */}
-          <div className="flex flex-col mt-10">
-            <div className="flex justify-between mb-3">
-              <div className="w-[140px]">{ct("pet_owner_click_here")}</div>
-              <span className="">
-                <LanguageMenu />
-              </span>
-            </div>
-            <Link href="/book-demo">
+          {/* Sidebar Content */}
+          <Transition.Child
+            as={Fragment}
+            enter="transform transition ease-out duration-300"
+            enterFrom="-translate-x-full"
+            enterTo="translate-x-0"
+            leave="transform transition ease-in duration-200"
+            leaveFrom="translate-x-0"
+            leaveTo="-translate-x-full"
+          >
+            <div className="relative bg-white w-64 p-4">
               <button
-                className="btn primary-outline-btn"
+                className="absolute top-4 right-4 font-bold"
                 onClick={() => setIsSidebarOpen(false)}
               >
-                {ct("get_in_touch")}
+                X
               </button>
-            </Link>
-          </div>
-        </div>
-      </Dialog>
+              <nav className="flex flex-col gap-4 pt-10">
+                <Link href="/" onClick={() => setIsSidebarOpen(false)}>
+                  <div className="">{t("home")}</div>
+                </Link>
+                <div className="flex gap-2">
+                  <Link href="/services">{t("service")}</Link>
+                  <DropdownMenu
+                    label={""}
+                    options={services?.map((item: IServicePage) => ({
+                      id: item.id,
+                      label: servicesRouteMapping[item.id].name,
+                    }))}
+                    onChangeMenu={(id) => {
+                      router.push(`/services/${servicesRouteMapping[id].slug}`);
+                      setIsSidebarOpen(false);
+                    }}
+                  />
+                </div>
+                <Link href="/about-us" onClick={() => setIsSidebarOpen(false)}>
+                  <div className="flex items-center gap-0.5">
+                    {t("about")}
+                    <FiChevronDown />
+                  </div>
+                </Link>
+                <Link href="/news" onClick={() => setIsSidebarOpen(false)}>
+                  <div>{t("news")}</div>
+                </Link>
+                <Link
+                  href="/contact-us"
+                  onClick={() => setIsSidebarOpen(false)}
+                >
+                  <div>{t("contact")}</div>
+                </Link>
+              </nav>
+              <div className="flex flex-col mt-10">
+                <div className="flex justify-between mb-3">
+                  <div className="w-[140px]">{ct("pet_owner_click_here")}</div>
+                  <span className="">
+                    <LanguageMenu />
+                  </span>
+                </div>
+                <Link href="/book-demo">
+                  <button
+                    className="btn primary-outline-btn"
+                    onClick={() => setIsSidebarOpen(false)}
+                  >
+                    {ct("get_in_touch")}
+                  </button>
+                </Link>
+              </div>
+            </div>
+          </Transition.Child>
+        </Dialog>
+      </Transition.Root>
     </>
   );
 };
