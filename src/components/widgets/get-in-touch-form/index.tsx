@@ -177,7 +177,7 @@ export const GetInTouchForm = () => {
         label="Please share any additional comments below"
         placeholder="Additional comments"
         value={allData.additionalComments}
-        onChange={(e) => handleChange("otherReason", e.target.value)}
+        onChange={(e) => handleChange("additionalComments", e.target.value)}
       />
       <div className="col-span-2 grid grid-cols-2 gap-3 pt-3 md:pt-6">
         <button
