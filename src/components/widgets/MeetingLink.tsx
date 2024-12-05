@@ -5,9 +5,16 @@ import { FiExternalLink } from "react-icons/fi";
 
 type Props = {
   name: string;
+  downloadPdf: (download: boolean, link: string) => void;
 }
 
-export const MeetingLink: React.FC<Props> = ({ name }) => {
+export const MeetingLink: React.FC<Props> = ({ name, downloadPdf }) => {
+  const pdfUrl = '/pdfs/dummy.pdf'; 
+
+  const handleDownload = (pdfUrl: string, download: boolean) => {
+    downloadPdf(download, pdfUrl);
+  };
+
   return (
     <div className="shadow-paper rounded-3xl p-3 flex items-center gap-2">
       <div className="flex-1 text-lg md:text-2xl flex gap-2.5 items-center pl-6">
@@ -15,11 +22,11 @@ export const MeetingLink: React.FC<Props> = ({ name }) => {
         {name}
       </div>
       <span className="w-10 md:w-[56px] h-10 md:h-[56px] rounded-lg md:rounded-2xl bg-info flex items-center justify-center text-white text-xl md:text-2xl">
-        <LuHardDriveDownload />
+        <LuHardDriveDownload onClick={() => handleDownload(pdfUrl, true)} />
       </span>
       <span className="w-10 md:w-[56px] h-10 md:h-[56px] rounded-lg md:rounded-2xl bg-info flex items-center justify-center text-white text-xl md:text-2xl">
-        <FiExternalLink />
+        <FiExternalLink onClick={() => handleDownload(pdfUrl, false)} />
       </span>
     </div>
-  )
-}
+  );
+};
