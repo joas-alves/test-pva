@@ -4,7 +4,11 @@ import { useSnackbar } from "notistack";
 import { useState } from "react";
 import { PetOwnerReasons, PvaCustomerType } from "./constants";
 import { PetOwnerForm } from "./pet-owner";
-import { GetInTouchFormType, PetOwnerFormData, VeteniraryPvaCustomerFormData } from "./types";
+import {
+  GetInTouchFormType,
+  PetOwnerFormData,
+  VeteniraryPvaCustomerFormData,
+} from "./types";
 import { getCustomerType } from "./utils";
 import { VetDecisionForm } from "./veterinary";
 
@@ -19,6 +23,7 @@ export const GetInTouchForm = () => {
     preference: t("veterinary_professional"),
     formData: null,
     customerType: null,
+    additionalComments: "",
   };
   const [allData, setFormData] = useState(initialValue);
 
@@ -33,19 +38,41 @@ export const GetInTouchForm = () => {
   const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
 
   // Phone validation regex (for example, international phone numbers like +44 123 456 7890)
-  const phoneRegex = /^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/;
+  const phoneRegex =
+    /^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-
+    if (allData.firstName.length <= 0) {
+      enqueueSnackbar("Please enter a valid first name.", { variant: "error" });
+      return;
+    }
+    if (allData.lastName.length <= 0) {
+      enqueueSnackbar("Please enter a valid last name.", { variant: "error" });
+      return;
+    }
     // Validate email and phone
-    if (!emailRegex.test(allData.email)) {
-      enqueueSnackbar("Please enter a valid email address.", { variant: "error" });
+
+    if (!phoneRegex.test(allData.phone)) {
+      enqueueSnackbar("Please enter a valid phone number.", {
+        variant: "error",
+      });
       return;
     }
 
-    if (!phoneRegex.test(allData.phone)) {
-      enqueueSnackbar("Please enter a valid phone number.", { variant: "error" });
+    if (!emailRegex.test(allData.email)) {
+      enqueueSnackbar("Please enter a valid email address.", {
+        variant: "error",
+      });
+      return;
+    }
+
+    // Check if form is complete
+    if (!isComplete()) {
+      enqueueSnackbar(
+        "Please complete all required fields before submitting.",
+        { variant: "error" }
+      );
       return;
     }
 
@@ -65,9 +92,13 @@ export const GetInTouchForm = () => {
     if (!isBasicInfoFilled) return false;
 
     if (customerType === PvaCustomerType.Existing) {
-      const { reason, ...secondaryReasons } = formData as VeteniraryPvaCustomerFormData;
+      const { reason, ...secondaryReasons } =
+        formData as VeteniraryPvaCustomerFormData;
       return !!(
-        reason.length && Object.values(secondaryReasons).some((value) => value !== null && value.length)
+        reason.length &&
+        Object.values(secondaryReasons).some(
+          (value) => value !== null && value.length
+        )
       );
     }
 
@@ -76,7 +107,9 @@ export const GetInTouchForm = () => {
       const isReasonFilled = !!(reason !== null && reason.length);
       if (!isReasonFilled) return false;
       if (reason === PetOwnerReasons.Payments) {
-        const isPaymentReasonFilled = !!(paymentReason !== null && paymentReason.length);
+        const isPaymentReasonFilled = !!(
+          paymentReason !== null && paymentReason.length
+        );
         if (isPaymentReasonFilled) return true;
         return false;
       }
@@ -94,7 +127,9 @@ export const GetInTouchForm = () => {
 
   return (
     <div className="shadow-paper rounded-3xl p-6 md:p-12 bg-white">
-      <h2 className="text-2xl md:text-[32px] font-bold text-primary mb-8">{t("get_in_touch")}</h2>
+      <h2 className="text-2xl md:text-[32px] font-bold text-primary mb-8">
+        {t("get_in_touch")}
+      </h2>
 
       <div className="grid grid-cols-2 gap-6">
         <div className="col-span-2">
@@ -138,11 +173,16 @@ export const GetInTouchForm = () => {
         </div>
       </div>
       {renderForm()}
+      <CustomInput
+        label="Please share any additional comments below"
+        placeholder="Additional comments"
+        value={allData.additionalComments}
+        onChange={(e) => handleChange("otherReason", e.target.value)}
+      />
       <div className="col-span-2 grid grid-cols-2 gap-3 pt-3 md:pt-6">
         <button
           className="btn primary-btn"
           type="button"
-          disabled={!isComplete()}
           onClick={handleSubmit}
         >
           {t("talk_to_us")}

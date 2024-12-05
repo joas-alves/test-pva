@@ -45,6 +45,7 @@ export type GetInTouchFormType = {
   phone: string;
   preference: string;
   customerType: PvaCustomerType | null;
+  additionalComments:string;
   formData:
     | PetOwnerFormData
     | VeteniraryNewCustomerFormData
