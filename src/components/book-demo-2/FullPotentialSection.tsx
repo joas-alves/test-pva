@@ -1,6 +1,6 @@
-import { BookDemoForm } from "@/components/widgets";
-import { PiSealCheckFill } from "react-icons/pi";
+import { GetInTouchForm } from "@/components/widgets";
 import Image from "next/image";
+import { PiSealCheckFill } from "react-icons/pi";
 
 export const FullPotentialSection = () => {
   return (
@@ -16,7 +16,7 @@ export const FullPotentialSection = () => {
             </div>
 
             <div className="block lg:hidden mb-10">
-              <BookDemoForm />
+              <GetInTouchForm />
             </div>
 
             <div className="relative md:pt-[260px] flex flex-col-reverse md:flex-row justify-end">
@@ -59,7 +59,7 @@ export const FullPotentialSection = () => {
             </div>
           </div>
           <div className="hidden lg:block">
-            <BookDemoForm />
+            <GetInTouchForm />
           </div>
         </div>
       </div>

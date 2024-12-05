@@ -1,13 +1,19 @@
-import React from 'react';
-import { SelectProps, Field, Label, Select } from '@headlessui/react'
-import { IoChevronDown } from "react-icons/io5";
+import { Field, Label, Select, SelectProps } from '@headlessui/react';
 import clsx from 'clsx';
+import React from 'react';
+import { IoChevronDown } from 'react-icons/io5';
+
+export type SelectOption = {
+  value: string;
+  label: string;
+};
 
 type Props = SelectProps & {
   label: string;
-}
+  options: SelectOption[]; // Options passed as a prop
+};
 
-export const CustomSelect: React.FC<Props> = ({ label, ...rest }) => {
+export const CustomSelect: React.FC<Props> = ({ label, options, ...rest }) => {
   return (
     <Field>
       <Label className="text-sm/6 font-medium">{label}</Label>
@@ -20,10 +26,11 @@ export const CustomSelect: React.FC<Props> = ({ label, ...rest }) => {
           )}
           {...rest}
         >
-          <option value="active">Active</option>
-          <option value="paused">Paused</option>
-          <option value="delayed">Delayed</option>
-          <option value="canceled">Canceled</option>
+          {options.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))}
         </Select>
         <IoChevronDown
           className="group pointer-events-none absolute top-4 right-2.5 size-4 fill-white/60"
@@ -31,5 +38,5 @@ export const CustomSelect: React.FC<Props> = ({ label, ...rest }) => {
         />
       </div>
     </Field>
-  )
-}
+  );
+};
