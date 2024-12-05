@@ -55,9 +55,9 @@ export const GeneralMeetingSection = () => {
       <div className="flex justify-between flex-col md:flex-row py-10">
         <div className="text-[32px] font-bold text-primary mb-2">AGM 2021</div>
         <div className="max-w-[847px] w-full flex flex-col gap-4">
-          <MeetingLink pdfUrl='/public/pdfs/2021-AGM-Notice-FINAL-web.pdf' name="2021-AGM-Notice-Final" downloadPdf={downloadPdf} />
-          <MeetingLink pdfUrl='/public/pdfs/2021-PVG-ARA-30-Sept-FINAL-web.pdf' name="2021-PVG-Annual-Report-FINAL" downloadPdf={downloadPdf} />
-          <MeetingLink pdfUrl='/public/pdfs/2021-AGM-Proxy-Results-for-Web-Site-1.pdf' name="2021-AGM-Votes-Final" downloadPdf={downloadPdf} />
+          <MeetingLink pdfUrl='/pdfs/2021-AGM-Notice-FINAL-web.pdf' name="2021-AGM-Notice-Final" downloadPdf={downloadPdf} />
+          <MeetingLink pdfUrl='/pdfs/2021-PVG-ARA-30-Sept-FINAL-web.pdf' name="2021-PVG-Annual-Report-FINAL" downloadPdf={downloadPdf} />
+          <MeetingLink pdfUrl='/pdfs/2021-AGM-Proxy-Results-for-Web-Site-1.pdf' name="2021-AGM-Votes-Final" downloadPdf={downloadPdf} />
         </div>
       </div>
     </section>
