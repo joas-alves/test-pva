@@ -1,7 +1,6 @@
 import {
   CustomInput,
   CustomRadioGroup,
-  CustomSelect,
   CustomTextarea,
 } from "@/components/common";
 import { useTranslations } from "next-intl";
