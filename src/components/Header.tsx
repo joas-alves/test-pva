@@ -69,7 +69,8 @@ const Header = () => {
         <div className="flex-1" />
         <div className="flex items-center gap-8">
           <div className="hidden lg:block lg:w-[175px] lg:whitespace-nowrap lg:overflow-ellipsis lg:overflow-hidden ">
-            {ct("pet_owner_click_here")}
+            <span>{ct('pet_owner')}?</span>
+            <Link href="/pet-owner" className="ml-2">{ct('click_here')}</Link>
           </div>
           <span className="hidden lg:block">
             <LanguageMenu />
@@ -152,7 +153,7 @@ const Header = () => {
               </nav>
               <div className="flex flex-col mt-10">
                 <div className="flex justify-between mb-3">
-                  <div className="w-[140px]">{ct("pet_owner_click_here")}</div>
+                  <div className="w-[140px]">{ct("click_here")}</div>
                   <span className="">
                     <LanguageMenu />
                   </span>
