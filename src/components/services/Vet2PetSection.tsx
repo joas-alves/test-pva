@@ -1,4 +1,5 @@
 import { IServicePage } from "@/cms-models/service";
+import useTextFormatter from "@/hooks/useTextFormatter";
 import { imageUrl } from "@/utils";
 import Image from "next/image";
 import React from "react";
@@ -8,6 +9,7 @@ type Props = {
 };
 
 export const Vet2PetSection: React.FC<Props> = ({ data }) => {
+  const {convertStringToParagraph}=useTextFormatter()
   return (
     <section className="container mx-auto pt-5 pb-10 sm:py-10">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
@@ -26,7 +28,7 @@ export const Vet2PetSection: React.FC<Props> = ({ data }) => {
           <div className="flex-1 flex">
             <div className="flex-1 flex flex-col">
               <p className="body text-secondary max-w-[517px] mb-3 sm:mb-6">
-                {data.section1_description}
+                {convertStringToParagraph(data.section1_description)}
               </p>
 
               <div className="flex-1" />
