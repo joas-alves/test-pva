@@ -13,7 +13,15 @@ import localFont from "next/font/local";
 import { NextRouter, useRouter } from "next/router";
 import { SnackbarProvider } from "notistack";
 import { ServicesProvider } from "../contexts/services";
+import { useEffect } from "react";
 setupAxios();
+
+declare global {
+  interface Window {
+    google: any;
+    googleTranslateElementInit: () => void;
+  }
+}
 
 const languages = {
   "en-US": enUS,
@@ -31,6 +39,23 @@ const manrope = localFont({
 
 export default function App({ Component, pageProps }: AppProps) {
   const router: NextRouter = useRouter();
+
+  useEffect(() => {
+    const googleTranslateElementInit = () => {
+      new window.google.translate.TranslateElement(
+        { pageLanguage: "en" },
+        "google_translate_element"
+      );
+    };
+
+    const script = document.createElement("script");
+    script.src =
+      "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+    script.async = true;
+    document.body.appendChild(script);
+
+    window.googleTranslateElementInit = googleTranslateElementInit;
+  }, []);
 
   return (
     <NextIntlClientProvider
@@ -52,8 +77,12 @@ export default function App({ Component, pageProps }: AppProps) {
         <ServicesProvider>
           <main className={manrope.className}>
             <Header />
+            <div
+              id="google_translate_element"
+              style={{ display: "none" }}
+            ></div>
             <Component {...pageProps} />
-            <Footer/>
+            <Footer />
           </main>
         </ServicesProvider>
       </SnackbarProvider>
