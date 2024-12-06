@@ -7,7 +7,7 @@ const useTextFormatter = () => {
     return <div className="flex flex-col gap-2">
       {paragraph
       .split("<NL>")
-      .map((eachSmallParagraph) => <p className="my-1">{eachSmallParagraph}</p>)}
+      .map((eachSmallParagraph,id) => <p key={id} className="my-1">{eachSmallParagraph}</p>)}
     </div>;
   };
 
