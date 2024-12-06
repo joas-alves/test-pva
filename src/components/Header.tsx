@@ -27,7 +27,7 @@ const Header = () => {
           return setServices(response.data);
         }
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      } catch (error) { }
+      } catch (error) {}
     })();
   }, [router.locale, setServices]);
 
@@ -69,8 +69,9 @@ const Header = () => {
         <div className="flex-1" />
         <div className="flex items-center gap-8">
           <div className="hidden lg:block lg:w-[175px] lg:whitespace-nowrap lg:overflow-ellipsis lg:overflow-hidden ">
-            <span>{ct('pet_owner')}?</span>
-            <Link href="/pet-owner" className="ml-2">{ct('click_here')}</Link>
+            <Link href="/pet-owner" className="ml-2">
+              {ct("pet_owner")}? {ct("click_here")}
+            </Link>
           </div>
           <span className="hidden lg:block">
             <LanguageMenu />

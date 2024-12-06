@@ -2,6 +2,7 @@ import { IServicePage } from "@/cms-models/service";
 import { NeedMoreHelpSection } from "@/components/about-us";
 import { FAQSection } from "@/components/home";
 import { EnhancedSection, Vet2PetSection, YouPracticeSection } from "@/components/services";
+import { faqsForPremierPetCarePlans } from "@/temp/faqs";
 import axios from "axios";
 import { useParams } from "next/navigation";
 import { NextRouter, useRouter } from "next/router";
@@ -32,7 +33,7 @@ export default function ServicePage() {
       <EnhancedSection data={data} />
       <YouPracticeSection data={data} />
       {/*<RealStoriesSection />*/}
-      <FAQSection data={[]} />
+      <FAQSection data={faqsForPremierPetCarePlans} />
       <NeedMoreHelpSection
         title={data.section4_title}
         description={data.section4_description}
