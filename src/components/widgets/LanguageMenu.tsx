@@ -1,47 +1,73 @@
 import Image from "next/image";
-import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
+import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import { FiChevronDown } from "react-icons/fi";
-import { NextRouter, useRouter } from 'next/router';
+// import { NextRouter, useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
 const languages = [
   {
-    label: 'Spanish',
-    flag: 'es.svg',
-    code: 'es',
+    label: "Spanish",
+    flag: "es.svg",
+    code: "es",
   },
   {
-    label: 'English-US',
-    flag: 'en-US.svg',
-    code: 'en-US',
+    label: "English-US",
+    flag: "en-US.svg",
+    code: "en",
   },
   {
-    label: 'English-UK',
-    flag: 'en-UK.svg',
-    code: 'en-UK',
+    label: "English-UK",
+    flag: "en-UK.svg",
+    code: "en",
   },
   {
-    label: 'Deutch',
-    flag: 'de.svg',
-    code: 'de',
+    label: "Deutch",
+    flag: "de.svg",
+    code: "de",
   },
   {
-    label: 'French',
-    flag: 'fr.svg',
-    code: 'fr',
+    label: "French",
+    flag: "fr.svg",
+    code: "fr",
   },
-]
+];
 
 export const LanguageMenu = () => {
-  const router: NextRouter = useRouter();
+  // const router: NextRouter = useRouter();
+  const [selectedLanguage, setSelectedLanguage] = useState(languages[1]);
 
-  const handleChangeLanguage = (value: string) => {
-    router.push(router.pathname, router.asPath, { locale: value });
+  useEffect(() => {
+    const select = document.querySelector("select.goog-te-combo");
+    if (select) {
+      (select as HTMLSelectElement).value = selectedLanguage.code;
+      select.dispatchEvent(new Event("change"));
+    }
+  }, [selectedLanguage]);
+
+  const handleChangeLanguage = (code: string) => {
+    // console.log("🚀 ~ handleChangeLanguage ~ value:", value);
+    // router.push(router.pathname, router.asPath, { locale: value });
+    // const select = document.querySelector("select.goog-te-combo");
+    // if (select) {
+    //   (select as HTMLSelectElement).value = value;
+    //   select.dispatchEvent(new Event("change"));
+    // }
+    const language = languages.find((lang) => lang.code === code);
+    if (language) {
+      setSelectedLanguage(language);
+    }
   };
 
   return (
     <Menu>
       <MenuButton className="inline-flex items-center gap-1">
-        <Image className="rounded-full" src={`/images/flags/${router.locale}.svg`} width={28} height={28} alt="flag" />
+        <Image
+          className="rounded-full"
+          src={`/images/flags/${selectedLanguage.flag}`}
+          width={28}
+          height={28}
+          alt="flag"
+        />
         <FiChevronDown />
       </MenuButton>
 
@@ -69,5 +95,5 @@ export const LanguageMenu = () => {
         ))}
       </MenuItems>
     </Menu>
-  )
-}
+  );
+};
