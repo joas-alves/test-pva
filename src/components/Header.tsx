@@ -133,7 +133,7 @@ const Header = () => {
                   />
                   {/* src="/images/logo.svg" */}
                 </Link>
-                <ServicesDropdown />
+                <ServicesDropdown onChange={() => { setIsSidebarOpen(false)}}/>
 
                 <Link href="/about-us" onClick={() => setIsSidebarOpen(false)}>
                   <div className="flex items-center gap-0.5">
