@@ -1,7 +1,12 @@
 import { IServicePage } from "@/cms-models/service";
 import { NeedMoreHelpSection } from "@/components/about-us";
 import { FAQSection } from "@/components/home";
-import { EnhancedSection, Vet2PetSection, YouPracticeSection } from "@/components/services";
+import {
+  EnhancedSection,
+  Vet2PetSection,
+  YouPracticeSection,
+} from "@/components/services";
+import { faqsForTraining } from "@/temp/faqs";
 import axios from "axios";
 import { useParams } from "next/navigation";
 import { NextRouter, useRouter } from "next/router";
@@ -15,14 +20,15 @@ export default function ServicePage() {
 
   useEffect(() => {
     (async () => {
-        try {
-          const response = await axios.get(`/api/${router.locale}/service-content/2`);
-          if (response.status === 200) {
-              return setData(response.data);
-          }
-            // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        } catch (error) {
+      try {
+        const response = await axios.get(
+          `/api/${router.locale}/service-content/2`
+        );
+        if (response.status === 200) {
+          return setData(response.data);
         }
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      } catch (error) {}
     })();
   }, [router.locale, params]);
 
@@ -32,7 +38,7 @@ export default function ServicePage() {
       <EnhancedSection data={data} />
       <YouPracticeSection data={data} />
       {/*<RealStoriesSection />*/}
-      <FAQSection data={[]} />
+      <FAQSection data={faqsForTraining} />
       <NeedMoreHelpSection
         title={data.section4_title}
         description={data.section4_description}
@@ -46,5 +52,5 @@ export default function ServicePage() {
         image={data.section4_image}
       />
     </div>
-  )
+  );
 }
