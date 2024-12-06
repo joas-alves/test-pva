@@ -3,10 +3,11 @@ import { servicesRouteMapping } from "@/utils";
 import { useRouter } from "next/navigation";
 import { DropdownMenu } from "./DropdownMenu";
 
-// export interf/ace ServiceDropdown {
-//   onChangel
-// }
-const ServicesDropdown = () => {
+export interface ServiceDropdown {
+  onChange?: () => void;
+}
+const ServicesDropdown = (props: ServiceDropdown) => {
+  const { onChange } = props;
   const { services } = useServicesContext();
   const router = useRouter();
   const preparedServices: Array<{
@@ -18,6 +19,7 @@ const ServicesDropdown = () => {
   }));
 
   const onClick = (id: number) => {
+    onChange?.();
     if (servicesRouteMapping?.[id]?.slug)
       return router.push(`/services/${servicesRouteMapping[id].slug}`);
 
