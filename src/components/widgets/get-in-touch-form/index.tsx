@@ -7,7 +7,7 @@ import { PetOwnerForm } from "./pet-owner";
 import { GetInTouchFormType } from "./types";
 import { getCustomerType, validateGetInTouchForm } from "./utils";
 import { VetDecisionForm } from "./veterinary";
-import axios, { AxiosError } from "axios";
+import axios from "axios";
 
 export const GetInTouchForm = () => {
   const t = useTranslations("Common");
@@ -73,10 +73,18 @@ export const GetInTouchForm = () => {
         });
         setFormData(initialValue);
       }
-    } catch (error: AxiosError | any) {
-      enqueueSnackbar(error.message, {
-        variant: "error",
-      });
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        // Handle Axios-specific error with message or response data
+        enqueueSnackbar(error.response?.data?.message || error.message, {
+          variant: "error",
+        });
+      } else {
+        // Handle generic errors
+        enqueueSnackbar("An unexpected error occurred.", {
+          variant: "error",
+        });
+      }
     }
   };
 
