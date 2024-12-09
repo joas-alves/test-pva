@@ -6,13 +6,6 @@ import {
 import { useTranslations } from "next-intl";
 import { useSnackbar } from "notistack";
 import { useState } from "react";
-
-// Email validation regex
-const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-// Phone validation regex
-const phoneRegex =
-  /^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/;
-
 export const ContactUsForm = () => {
   const t = useTranslations("Common");
   const { enqueueSnackbar } = useSnackbar();
@@ -36,42 +29,10 @@ export const ContactUsForm = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Validation
-    if (formData.firstName.trim().length === 0) {
-      enqueueSnackbar("Please enter a valid first name.", { variant: "error" });
-      return;
-    }
-
-    if (formData.lastName.trim().length === 0) {
-      enqueueSnackbar("Please enter a valid last name.", { variant: "error" });
-      return;
-    }
-
-    if (!phoneRegex.test(formData.phone)) {
-      enqueueSnackbar("Please enter a valid phone number.", {
-        variant: "error",
-      });
-      return;
-    }
-
-    if (!emailRegex.test(formData.email)) {
-      enqueueSnackbar("Please enter a valid email address.", {
-        variant: "error",
-      });
-      return;
-    }
-
-    if (formData.message.trim().length === 0) {
-      enqueueSnackbar("Please enter your message.", { variant: "error" });
-      return;
-    }
-
-    // If everything is valid, show success message
+    console.log(formData);
     enqueueSnackbar("Thank you for getting in touch!", {
       variant: "success",
     });
-
-    // Reset form data after successful submission
     setFormData(initialValue);
   };
 
@@ -85,7 +46,6 @@ export const ContactUsForm = () => {
           onChange={(value) => handleChange("preference", value)}
         />
       </div>
-
       <CustomInput
         label={t("first_name")}
         placeholder={t("enter_first_name")}
@@ -110,7 +70,14 @@ export const ContactUsForm = () => {
         value={formData.email}
         onChange={(e) => handleChange("email", e.target.value)}
       />
-
+      {/* <div className="md:col-span-2">
+        <CustomSelect
+          options={[]}
+          label={t("topic_of_your_request")}
+          value={formData.status}
+          onChange={(e) => handleChange("status", e.target.value)}
+        />
+      </div> */}
       <div className="md:col-span-2">
         <CustomTextarea
           label={t("your_message")}
@@ -124,6 +91,7 @@ export const ContactUsForm = () => {
         <button
           className="btn primary-btn"
           type="button"
+          disabled={!(formData.email && formData.phone)}
           onClick={handleSubmit}
         >
           {t("get_in_touch")}

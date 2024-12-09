@@ -3,6 +3,7 @@ import { NextRouter, useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { INewsPage } from "@/cms-models/news";
+import Head from "next/head";
 
 export default function News() {
   const router: NextRouter = useRouter();
@@ -23,6 +24,18 @@ export default function News() {
 
   return (
     <>
+    <Head>
+    <title>Premier Vet Alliance News - Premier Vet Alliance</title>
+    <meta name="description" content="Read all the latest news and blog posts from Premier Vet Alliance, and keep up to date with the latest developments."></meta>
+    <link rel="canonical" href="https://premiervetalliance.com/news/"></link>
+    <link rel="next" href="https://premiervetalliance.com/news/page/2/"></link>
+    <meta property="og:locale" content="en_US"></meta>
+    <meta property="og:type" content="website"></meta>
+    <meta property="og:title" content="Premier Vet Alliance News - Premier Vet Alliance"></meta>
+    <meta property="og:description" content="Read all the latest news and blog posts from Premier Vet Alliance, and keep up to date with the latest developments."></meta>
+    <meta property="og:url" content="https://premiervetalliance.com/news/"></meta>
+    <meta property="og:site_name" content="Premier Vet Alliance"></meta>
+    </Head>
       <HeroSection data={data} />
       <NewsGridSection data={data} />
     </>

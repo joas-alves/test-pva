@@ -8,6 +8,7 @@ import { INewsPage } from "@/cms-models/news";
 import axios from "axios";
 import moment from 'moment';
 import { imageUrl } from "@/utils";
+import Head from "next/head";
 
 export default function NewsDetail() {
   const router: NextRouter = useRouter();
@@ -30,6 +31,17 @@ export default function NewsDetail() {
 
   return (
     <div className="container mx-auto">
+      <Head>
+        <title>5 Things You Need To Do In Your Practice!</title>
+        <meta name="description" content="Read all the latest news and blog posts from Premier Vet Alliance, and keep up to date with the latest developments."></meta>
+        <link rel="canonical" href="https://premiervetalliance.com/practice-support/"/>        
+        <meta property="og:locale" content="en_US"></meta>
+        <meta property="og:type" content="article"></meta>
+        <meta property="og:title" content="5 Things You Need To Do In Your Practice!"></meta>
+        <meta property="og:description" content="Read all the latest news and blog posts from Premier Vet Alliance, and keep up to date with the latest developments."></meta>
+        <meta property="og:url" content="https://premiervetalliance.com/practice-support/"></meta>
+        <meta property="og:site_name" content="Premier Vet Alliance"></meta>
+      </Head>
       <section className="max-w-[846px] mx-auto text-base md:text-xl pt-6">
         <div className="flex justify-between md:items-center flex-col md:flex-row gap-6 mb-3 md:mb-0">
           <div className="text-secondary body">

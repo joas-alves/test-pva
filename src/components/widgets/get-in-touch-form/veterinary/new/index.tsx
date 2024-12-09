@@ -1,13 +1,22 @@
 import { CustomInput, CustomSelect, SelectOption } from "@/components/common";
+import { useState } from "react";
 import { NewCustomerReasons } from "../../constants";
-import { GetInTouchFormType } from "../../types";
+import { VeteniraryNewCustomerFormData } from "../../types";
 
-type Props = {
-  formData: GetInTouchFormType;
-  handleChange: (field: keyof GetInTouchFormType, value: string) => void;
-};
+export const NewCustomerForm = () => {
+  const initialValue: VeteniraryNewCustomerFormData = {
+    reason: NewCustomerReasons.HealthPlan,
+    otherReason:''
+  };
+  const [formData, setFormData] = useState(initialValue);
 
-export const NewCustomerForm = ({ formData, handleChange }: Props) => {
+  const handleChange = (field: string, value: string) => {
+    setFormData({
+      ...formData,
+      [field]: value,
+    });
+  };
+
   const reasons: SelectOption[] = Object.values(NewCustomerReasons).map(
     (each) => ({ label: each, value: each })
   );
@@ -17,15 +26,15 @@ export const NewCustomerForm = ({ formData, handleChange }: Props) => {
       <CustomSelect
         label={"Please select one of the below options"}
         options={reasons}
-        value={formData.primaryReason}
-        onChange={(e) => handleChange("primaryReason", e.target.value)}
+        value={formData.reason}
+        onChange={(e) => handleChange("reason", e.target.value)}
       />
-      {formData.primaryReason === NewCustomerReasons.Other && (
+      {formData.reason === NewCustomerReasons.Other && (
         <CustomInput
           label="Please write any comments below"
           placeholder="Other Reason"
-          value={formData.reasonComments}
-          onChange={(e) => handleChange("reasonComments", e.target.value)}
+          value={formData.otherReason}
+          onChange={(e) => handleChange("otherReason", e.target.value)}
         />
       )}
     </div>

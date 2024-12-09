@@ -39,7 +39,7 @@ const languages = [
 
 export const LanguageMenu = () => {
   const router: NextRouter = useRouter();
-  const [selectedLanguage, setSelectedLanguage] = useState(languages[1]);
+  const [selectedLanguage, setSelectedLanguage] = useState(languages[2]);
 
   useEffect(() => {
     const select = document.querySelector("select.goog-te-combo");

@@ -14,6 +14,7 @@ import { NextRouter, useRouter } from "next/router";
 import { SnackbarProvider } from "notistack";
 import { ServicesProvider } from "../contexts/services";
 import { useEffect } from "react";
+import { Metadata } from "next";
 setupAxios();
 
 declare global {
@@ -25,8 +26,8 @@ declare global {
 }
 
 const languages = {
-  "en-US": enUS,
   "en-UK": enUK,
+  "en-US": enUS,
   es,
   de,
   fr,
@@ -37,6 +38,14 @@ const manrope = localFont({
   src: "../assets/fonts/Manrope-VariableFont_wght.ttf",
   variable: "--font-manrope",
 });
+
+export const metadata = {
+  title: 'Acme',
+  openGraph: {
+    title: 'Acme',
+    description: 'Acme is a...',
+  },
+}
 
 export default function App({ Component, pageProps }: AppProps) {
   const router: NextRouter = useRouter();

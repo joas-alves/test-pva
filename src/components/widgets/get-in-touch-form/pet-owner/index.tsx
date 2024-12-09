@@ -1,12 +1,24 @@
 import { CustomInput, CustomSelect, SelectOption } from "@/components/common";
+import { useState } from "react";
 import { PetOwnerPaymentOptions, PetOwnerReasons } from "../constants";
-import { GetInTouchFormType } from "../types";
+import { PetOwnerFormData } from "../types";
 
-type Props={
-  formData:GetInTouchFormType
-  handleChange:  (field: keyof GetInTouchFormType, value: string) => void
-}
-export const PetOwnerForm = ({formData,handleChange}:Props) => {
+type FormState = PetOwnerFormData;
+
+export const PetOwnerForm = () => {
+  const initialValue: PetOwnerFormData = {
+    reason: PetOwnerReasons.Cancellation,
+    paymentReason: PetOwnerPaymentOptions.Late,
+    otherReason:''
+  };
+  const [formData, setFormData] = useState(initialValue);
+
+  const handleChange = (field: keyof FormState, value: string) => {
+    setFormData({
+      ...formData,
+      [field]: value,
+    });
+  };
 
   const reasons: SelectOption[] = Object.values(PetOwnerReasons).map(
     (each) => ({ label: each, value: each })
@@ -20,23 +32,23 @@ export const PetOwnerForm = ({formData,handleChange}:Props) => {
       <CustomSelect
         label={"Please select one of the below options"}
         options={reasons}
-        value={formData.primaryReason}
-        onChange={(e) => handleChange("primaryReason", e.target.value)}
+        value={formData.reason}
+        onChange={(e) => handleChange("reason", e.target.value)}
       />
-      {formData.primaryReason === PetOwnerReasons.Payments && (
+      {formData.reason === PetOwnerReasons.Payments && (
         <CustomSelect
           label={"What is your payment query related to?"}
           options={paymentReasons}
-          value={formData.secondaryReason as PetOwnerPaymentOptions}
-          onChange={(e) => handleChange("secondaryReason", e.target.value)}
+          value={formData.paymentReason as PetOwnerPaymentOptions}
+          onChange={(e) => handleChange("paymentReason", e.target.value)}
         />
       )}
-      {formData.primaryReason === PetOwnerReasons.Other && (
+      {formData.reason === PetOwnerReasons.Other && (
         <CustomInput
           label="Please write any comments below"
           placeholder="Other Reason"
-          value={formData.reasonComments}
-          onChange={(e) => handleChange("reasonComments", e.target.value)}
+          value={formData.otherReason}
+          onChange={(e) => handleChange("otherReason", e.target.value)}
         />
       )}
     </div>
