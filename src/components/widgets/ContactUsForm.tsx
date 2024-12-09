@@ -3,6 +3,7 @@ import {
   CustomRadioGroup,
   CustomTextarea,
 } from "@/components/common";
+import axios, { AxiosError } from "axios";
 import { useTranslations } from "next-intl";
 import { useSnackbar } from "notistack";
 import { useState } from "react";
@@ -22,7 +23,6 @@ export const ContactUsForm = () => {
     email: "",
     phone: "",
     message: "",
-    status: "active",
     preference: t("pet_owner"),
   };
   const [formData, setFormData] = useState(initialValue);
@@ -34,7 +34,7 @@ export const ContactUsForm = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     // Validation
     if (formData.firstName.trim().length === 0) {
@@ -66,13 +66,24 @@ export const ContactUsForm = () => {
       return;
     }
 
-    // If everything is valid, show success message
-    enqueueSnackbar("Thank you for getting in touch!", {
-      variant: "success",
-    });
+    try {
+      const response = await axios.post(`/api/api/contact-us`, formData);
 
-    // Reset form data after successful submission
-    setFormData(initialValue);
+      if (response.status === 201) {
+        // If everything is valid, show success message
+        enqueueSnackbar("Thank you for getting in touch!", {
+          variant: "success",
+        });
+
+        // Reset form data after successful submission
+        setFormData(initialValue);
+      }
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    } catch (error: AxiosError | any) {
+      enqueueSnackbar(error.message, {
+        variant: "error",
+      });
+    }
   };
 
   return (
