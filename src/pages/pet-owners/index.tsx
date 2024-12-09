@@ -1,6 +1,7 @@
 import { ContactUsForm } from "@/components/widgets";
 import Image from "next/image";
 import { FAQSection } from "@/components/home";
+import { faqsforPetOwner } from "@/temp/faqs";
 import { useTranslations } from "next-intl";
 
 export default function PetOwners() {
@@ -51,7 +52,7 @@ export default function PetOwners() {
         </div>
       </section>
 
-      <FAQSection data={[]} />
+      <FAQSection data={faqsforPetOwner} />
     </div>
   )
 }

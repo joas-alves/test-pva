@@ -24,9 +24,16 @@ export const FAQAccordionItem: React.FC<Props> = ({ data, onClick, active }) => 
       </div>
 
       {active && (
-        <div className="px-6 p-3 sm:px-9">
-          {data.description}
-        </div>
+        data.isHTML ? (
+          <div
+            className="px-6 p-3 sm:px-9 list-disc!"
+            dangerouslySetInnerHTML={{ __html: data.description }}
+          />
+        ) : (
+          <div className="px-6 p-3 sm:px-9">
+            {data.description}
+          </div>
+        )
       )}
     </div>
   )
