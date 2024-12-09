@@ -11,6 +11,7 @@ import { NextRouter, useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { IAboutPage } from "@/cms-models/about";
+import Head from "next/head";
 
 export default function AboutUs() {
   const router: NextRouter = useRouter();
@@ -32,6 +33,17 @@ export default function AboutUs() {
 
   return (
     <div className="flex flex-col gap-0 md:gap-20">
+      <Head>
+      <title>About PVA - Premier Vet Alliance</title>
+      <meta name="description" content="Learn more about PVA and our story to see how we can use our experience to help your veterinary practice in its operations."></meta>
+      <link rel="canonical" href="https://premiervetalliance.com/uk/who-we-are/"></link>
+      <meta property="og:locale" content="en_US"></meta>
+      <meta property="og:type" content="article"></meta>
+      <meta property="og:title" content="About PVA - Premier Vet Alliance"></meta>
+      <meta property="og:description" content="Learn more about PVA and our story to see how we can use our experience to help your veterinary practice in its operations."></meta>
+      <meta property="og:url" content="https://premiervetalliance.com/uk/who-we-are/"></meta>
+      <meta property="og:site_name" content="Premier Vet Alliance"></meta>
+      </Head>
       <TrustedPartnerSection data={data} />
       <PremierVetAllianceSection data={data} />
       <ExperienceUnderstandingSection data={data} />

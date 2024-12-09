@@ -11,12 +11,9 @@ export type SelectOption = {
 type Props = SelectProps & {
   label: string;
   options: SelectOption[]; // Options passed as a prop
-  defaultValue?: string; // Optional default value
 };
 
-export const CustomSelect: React.FC<Props> = ({ label, options, defaultValue, ...rest }) => {
-  const selectedValue = rest.value || defaultValue;
-
+export const CustomSelect: React.FC<Props> = ({ label, options, ...rest }) => {
   return (
     <Field>
       <Label className="text-sm/6 font-medium">{label}</Label>
@@ -29,13 +26,6 @@ export const CustomSelect: React.FC<Props> = ({ label, options, defaultValue, ..
           )}
           {...rest}
         >
-          {/* Default option when no value is selected */}
-          {!selectedValue && (
-            <option value="" disabled>
-              Select an option
-            </option>
-          )}
-          
           {options.map((option) => (
             <option key={option.value} value={option.value}>
               {option.label}

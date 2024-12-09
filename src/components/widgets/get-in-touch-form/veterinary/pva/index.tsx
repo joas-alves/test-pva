@@ -1,4 +1,5 @@
 import { CustomInput, CustomSelect, SelectOption } from "@/components/common";
+import { useState } from "react";
 import {
   PvaCustomerCancelOptions,
   PvaCustomerChangeOptions,
@@ -10,10 +11,10 @@ import {
   PvaCustomerRefundOptions,
   PvaCustomerValidationOptions,
 } from "../../constants";
-import { GetInTouchFormType } from "../../types";
+import { VeteniraryPvaCustomerFormData } from "../../types";
 
 // Mapping reasons to sub-options
-export const subOptionsMap: Record<PvaCustomerReasons, SelectOption[]> = {
+const subOptionsMap: Record<PvaCustomerReasons, SelectOption[]> = {
   [PvaCustomerReasons.Cancellation]: Object.values(
     PvaCustomerCancelOptions
   ).map((each) => ({ label: each, value: each })),
@@ -42,15 +43,42 @@ export const subOptionsMap: Record<PvaCustomerReasons, SelectOption[]> = {
 
   [PvaCustomerReasons.Other]: [],
 };
-type Props={
-  formData:GetInTouchFormType
-  handleChange: (field: keyof GetInTouchFormType, value: string) => void
-}
-export const ExistingPvaForm = ({formData,handleChange}:Props) => {
-  
-  // Get sub-options for the selected reason
-  const selectedSubOptions = subOptionsMap[formData.primaryReason as PvaCustomerReasons] || [];
 
+export const ExistingPvaForm = () => {
+  // Define the initial form data with explicit typing
+  const initialValue: VeteniraryPvaCustomerFormData = {
+    reason: PvaCustomerReasons.Cancellation,
+    cancelReason: null,
+    refundReason: null,
+    paymentReason: null,
+    homeDeliveryReason: null,
+    locateReason: null,
+    validationReason: null,
+    planStatusReason: null,
+    changeReason: null,
+    otherReason: "",
+  };
+
+  const [formData, setFormData] =
+    useState<VeteniraryPvaCustomerFormData>(initialValue);
+
+  // Typing the field name and value for better type safety
+  const handleChange = (
+    field: keyof VeteniraryPvaCustomerFormData,
+    value: string | null
+  ) => {
+    setFormData({
+      ...formData,
+      [field]: value,
+    });
+  };
+
+  // Get sub-options for the selected reason
+  const selectedSubOptions = subOptionsMap[formData.reason] || [];
+
+  // Generate the specific reason field dynamically based on the selected reason
+  const reasonField =
+    `${formData.reason.toLowerCase()}Reason` as keyof VeteniraryPvaCustomerFormData;
 
   return (
     <div className="flex flex-col gap-6 py-4">
@@ -61,30 +89,30 @@ export const ExistingPvaForm = ({formData,handleChange}:Props) => {
           label: each,
           value: each,
         }))}
-        value={formData.primaryReason}
+        value={formData.reason}
         onChange={(e) =>
-          handleChange("primaryReason", e.target.value as PvaCustomerReasons)
+          handleChange("reason", e.target.value as PvaCustomerReasons)
         }
       />
 
       {/* Select Sub-Reason */}
       {selectedSubOptions.length > 0 &&
-        ![PvaCustomerReasons.Other,PvaCustomerReasons.V2P].includes(formData.primaryReason as PvaCustomerReasons) && (
+        ![PvaCustomerReasons.Other,PvaCustomerReasons.V2P].includes(formData.reason) && (
           <CustomSelect
             label={"Please select a specific reason"}
             options={selectedSubOptions}
-            value={formData.secondaryReason || ""}
+            value={formData[reasonField] || ""}
             onChange={(e) =>
-              handleChange("secondaryReason", e.target.value as string)
+              handleChange(reasonField, e.target.value as string)
             }
           />
         )}
-      {formData.primaryReason === PvaCustomerReasons.Other && (
+      {formData.reason === PvaCustomerReasons.Other && (
         <CustomInput
           label="Please write any comments below"
           placeholder="Other Reason"
-          value={formData.reasonComments}
-          onChange={(e) => handleChange("reasonComments", e.target.value)}
+          value={formData.otherReason}
+          onChange={(e) => handleChange("otherReason", e.target.value)}
         />
       )}
     </div>

@@ -8,6 +8,7 @@ import {
 } from "@/components/services";
 import { faqsForPost2pet } from "@/temp/faqs";
 import axios from "axios";
+import Head from "next/head";
 import { useParams } from "next/navigation";
 import { NextRouter, useRouter } from "next/router";
 import { useEffect, useState } from "react";
@@ -34,6 +35,17 @@ export default function ServicePage() {
 
   return (
     <div className="flex flex-col gap-0 md:gap-20">
+      <Head>
+      <title>Post2Pet - Premier Vet Alliance</title>
+      <meta name="description" content="Learn more about Post2Pet, a home delivery service for pet prescription parasiticides allowing your practice to directly deliver products to your client."></meta>
+      <link rel="canonical" href="https://premiervetalliance.com/uk/services/post2pet/"></link>
+      <meta property="og:locale" content="en_US"></meta>
+      <meta property="og:type" content="article"></meta>
+      <meta property="og:title" content="Post2Pet - Premier Vet Alliance"></meta>
+      <meta property="og:description" content="Learn more about Post2Pet, a home delivery service for pet prescription parasiticides allowing your practice to directly deliver products to your client."></meta>
+      <meta property="og:url" content="https://premiervetalliance.com/uk/services/post2pet/"></meta>
+      <meta property="og:site_name" content="Premier Vet Alliance"></meta>
+      </Head>
       <Vet2PetSection data={data} />
       <EnhancedSection data={data} />
       <YouPracticeSection data={data} />

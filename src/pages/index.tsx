@@ -13,6 +13,7 @@ import { useEffect, useState } from "react";
 import { IHomePage } from "@/cms-models/home";
 import { NextRouter, useRouter } from "next/router";
 import axios from "axios";
+import Head from "next/head";
 
 export default function Home() {
   const router: NextRouter = useRouter();
@@ -34,6 +35,16 @@ export default function Home() {
 
   return (
     <div className="flex flex-col gap-0 md:gap-20">
+       <Head>
+       <title>Global Home - Premier Vet Alliance</title>
+       <link rel="canonical" href="https://premiervetalliance.com/"></link>
+       <meta property="og:locale" content="en_US"/>
+       <meta property="og:title" content="Global Home - Premier Vet Alliance"/>
+       <meta property="og:type" content="website"/>
+       <meta property="og:site_name" content="Premier Vet Alliance"/>
+       <meta property="og:updated_time" content="2023-11-14T11:25:01+00:00"/>
+       
+      </Head>
       <HeroSection data={data} /> {/* Section1 */}
       <ElevatingSection data={data} /> {/* Section2 */}
       <PracticeSection data={data} /> {/* Section3 */}

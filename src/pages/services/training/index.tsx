@@ -8,6 +8,7 @@ import {
 } from "@/components/services";
 import { faqsForTraining } from "@/temp/faqs";
 import axios from "axios";
+import Head from "next/head";
 import { useParams } from "next/navigation";
 import { NextRouter, useRouter } from "next/router";
 import { useEffect, useState } from "react";
@@ -28,12 +29,23 @@ export default function ServicePage() {
           return setData(response.data);
         }
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      } catch (error) {}
+      } catch (error) { }
     })();
   }, [router.locale, params]);
 
   return (
     <div className="flex flex-col gap-0 md:gap-20">
+      <Head>
+        <title>Premier Vet Alliance Training Academy</title>
+        <meta name="description" content="Welcome to the Premier Vet Alliance Training Academy, a tailored service to support you with a broad catalogue of content and training packages"></meta>
+        <link rel="canonical" href="https://premiervetalliance.com/uk/services/training/"></link>
+        <meta property="og:locale" content="en_US"></meta>
+        <meta property="og:type" content="article"></meta>
+        <meta property="og:title" content="Premier Vet Alliance Training Academy"></meta>
+        <meta property="og:description" content="Welcome to the Premier Vet Alliance Training Academy, a tailored service to support you with a broad catalogue of content and training packages"></meta>
+        <meta property="og:url" content="https://premiervetalliance.com/uk/services/training/"></meta>
+        <meta property="og:site_name" content="Premier Vet Alliance"></meta>
+      </Head>
       <Vet2PetSection data={data} />
       <EnhancedSection data={data} />
       <YouPracticeSection data={data} />

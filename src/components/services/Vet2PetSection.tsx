@@ -48,7 +48,7 @@ export const Vet2PetSection: React.FC<Props> = ({ data }) => {
         </div>
 
         <div className="flex-shrink-0 flex flex-col-reverse sm:flex-row sm:justify-end relative">
-          <div className="shadow-paper rounded-2xl p-6 sm:p-8 w-full sm:max-w-[410px] -mt-10 sm:mt-0 sm:absolute bg-white -left-10 bottom-20">
+          <div className="shadow-paper z-10 rounded-2xl p-6 sm:p-8 w-full sm:max-w-[410px] -mt-10 sm:mt-0 sm:absolute bg-white -left-10 bottom-20">
             <div className="text-xl mb-4 sm:mb-12">
               {data.section1_top_review_text}
             </div>
