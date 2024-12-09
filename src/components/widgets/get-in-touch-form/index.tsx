@@ -7,10 +7,12 @@ import { PetOwnerForm } from "./pet-owner";
 import { GetInTouchFormType } from "./types";
 import { getCustomerType, validateGetInTouchForm } from "./utils";
 import { VetDecisionForm } from "./veterinary";
+import axios, { AxiosError } from "axios";
 
 export const GetInTouchForm = () => {
   const t = useTranslations("Common");
   const { enqueueSnackbar } = useSnackbar();
+
   const initialValue: GetInTouchFormType = {
     firstName: "",
     lastName: "",
@@ -56,19 +58,26 @@ export const GetInTouchForm = () => {
     setFormData(modifiedData);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    console.log({ allData });
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     // Use validateForm function
     const isValid = validateGetInTouchForm(allData, enqueueSnackbar);
     if (!isValid) return;
 
-    console.log({ success: allData });
-    enqueueSnackbar("Thank you for getting in touch!", {
-      variant: "success",
-    });
-    setFormData(initialValue);
+    try {
+      const response = await axios.post(`/api/api/get-in-touch`, allData);
+      if (response.status === 201) {
+        enqueueSnackbar("Thank you for getting in touch!", {
+          variant: "success",
+        });
+        setFormData(initialValue);
+      }
+    } catch (error: AxiosError | any) {
+      enqueueSnackbar(error.message, {
+        variant: "error",
+      });
+    }
   };
 
   const renderForm = () => {
