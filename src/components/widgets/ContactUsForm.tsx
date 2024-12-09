@@ -29,6 +29,10 @@ export const ContactUsForm = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    const phoneRegex =
+      /^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/;
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+
     // Validation
     if (formData.firstName.trim().length === 0) {
       enqueueSnackbar("Please enter a valid first name.", { variant: "error" });
