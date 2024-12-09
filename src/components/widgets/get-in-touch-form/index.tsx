@@ -47,6 +47,8 @@ export const GetInTouchForm = () => {
       return;
     }
     // Validate email and phone
+    const phoneRegex =
+      /^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/;
 
     if (!phoneRegex.test(allData.phone)) {
       enqueueSnackbar("Please enter a valid phone number.", {
@@ -78,41 +80,41 @@ export const GetInTouchForm = () => {
     }
   };
 
-  const isComplete = (): boolean => {
-    const { customerType, formData, ...basicInfo } = allData;
-    const isBasicInfoFilled = Object.values(basicInfo).every(
-      (value) => value !== null && value?.length
-    );
+  // const isComplete = (): boolean => {
+  //   const { customerType, formData, ...basicInfo } = allData;
+  //   const isBasicInfoFilled = Object.values(basicInfo).every(
+  //     (value) => value !== null && value?.length
+  //   );
 
-    if (!isBasicInfoFilled) return false;
+  //   if (!isBasicInfoFilled) return false;
 
-    if (customerType === PvaCustomerType.Existing) {
-      const { reason, ...secondaryReasons } =
-        formData as VeteniraryPvaCustomerFormData;
-      return !!(
-        reason.length &&
-        Object.values(secondaryReasons).some(
-          (value) => value !== null && value.length
-        )
-      );
-    }
+  //   if (customerType === PvaCustomerType.Existing) {
+  //     const { reason, ...secondaryReasons } =
+  //       formData as VeteniraryPvaCustomerFormData;
+  //     return !!(
+  //       reason.length &&
+  //       Object.values(secondaryReasons).some(
+  //         (value) => value !== null && value.length
+  //       )
+  //     );
+  //   }
 
-    if (customerType === PvaCustomerType.New) {
-      const { reason, paymentReason } = formData as PetOwnerFormData;
-      const isReasonFilled = !!(reason !== null && reason.length);
-      if (!isReasonFilled) return false;
-      if (reason === PetOwnerReasons.Payments) {
-        const isPaymentReasonFilled = !!(
-          paymentReason !== null && paymentReason.length
-        );
-        if (isPaymentReasonFilled) return true;
-        return false;
-      }
-      return true;
-    }
+  //   if (customerType === PvaCustomerType.New) {
+  //     const { reason, paymentReason } = formData as PetOwnerFormData;
+  //     const isReasonFilled = !!(reason !== null && reason.length);
+  //     if (!isReasonFilled) return false;
+  //     if (reason === PetOwnerReasons.Payments) {
+  //       const isPaymentReasonFilled = !!(
+  //         paymentReason !== null && paymentReason.length
+  //       );
+  //       if (isPaymentReasonFilled) return true;
+  //       return false;
+  //     }
+  //     return true;
+  //   }
 
-    return true;
-  };
+  //   return true;
+  // };
 
   const renderForm = () => {
     const formType = getCustomerType(allData.preference);

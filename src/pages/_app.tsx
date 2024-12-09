@@ -14,7 +14,6 @@ import { NextRouter, useRouter } from "next/router";
 import { SnackbarProvider } from "notistack";
 import { ServicesProvider } from "../contexts/services";
 import { useEffect } from "react";
-import { Metadata } from "next";
 setupAxios();
 
 declare global {

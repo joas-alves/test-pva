@@ -1,7 +1,7 @@
 import { IServicePage } from "@/cms-models/service";
 import { NeedMoreHelpSection } from "@/components/about-us";
 import { FAQSection } from "@/components/home";
-import { EnhancedSection, Vet2PetSection, YouPracticeSection } from "@/components/services";
+import { YouPracticeSection } from "@/components/services";
 import { faqsForTechnology } from "@/temp/faqs";
 import axios from "axios";
 import Head from "next/head";
@@ -18,13 +18,14 @@ export default function ServicePage() {
   useEffect(() => {
     (async () => {
       try {
-        const response = await axios.get(`/api/${router.locale}/service-content/5`);
+        const response = await axios.get(
+          `/api/${router.locale}/service-content/5`
+        );
         if (response.status === 200) {
           return setData(response.data);
         }
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      } catch (error) {
-      }
+      } catch (error) {}
     })();
   }, [router.locale, params]);
 
@@ -32,11 +33,26 @@ export default function ServicePage() {
     <div className="flex flex-col gap-0 md:gap-20">
       <Head>
         <title>Technology at Premier Vet Alliance</title>
-        <meta name="description" content="Premier Vet Alliance's high quality financial technology platform provides a seamless way for veterinary practices to maximise business opportunities" />
-        <link rel="canonical" href="https://premiervetalliance.com/uk/services/our-technology/"/>
-        <meta property="og:title" content="Technology at Premier Vet Alliance"/>
-        <meta property="og:description" content="Premier Vet Alliance's high quality financial technology platform provides a seamless way for veterinary practices to maximise business opportunities"/>
-        <meta property="og:url" content="https://premiervetalliance.com/uk/services/our-technology/"/>
+        <meta
+          name="description"
+          content="Premier Vet Alliance's high quality financial technology platform provides a seamless way for veterinary practices to maximise business opportunities"
+        />
+        <link
+          rel="canonical"
+          href="https://premiervetalliance.com/uk/services/our-technology/"
+        />
+        <meta
+          property="og:title"
+          content="Technology at Premier Vet Alliance"
+        />
+        <meta
+          property="og:description"
+          content="Premier Vet Alliance's high quality financial technology platform provides a seamless way for veterinary practices to maximise business opportunities"
+        />
+        <meta
+          property="og:url"
+          content="https://premiervetalliance.com/uk/services/our-technology/"
+        />
       </Head>
       <YouPracticeSection data={data} />
       {/*<RealStoriesSection />*/}
@@ -54,5 +70,5 @@ export default function ServicePage() {
         image={data.section4_image}
       />
     </div>
-  )
+  );
 }
