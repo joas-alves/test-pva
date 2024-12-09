@@ -3,6 +3,7 @@ import { FAQSection, RealStoriesSection } from "@/components/home";
 import { PetOwnerHealthPlan } from "@/components/pet-owner/health-plan";
 import { PetOwnerHelp } from "@/components/pet-owner/help";
 import { PetOwnerIntroduction } from "@/components/pet-owner/introduction";
+import { faqsforPetOwner } from "@/temp/faqs";
 import axios from "axios";
 import { NextRouter, useRouter } from "next/router";
 
@@ -35,7 +36,7 @@ export default function PetOwnerPage() {
       <PetOwnerHealthPlan />
       <PetOwnerHelp />
       <RealStoriesSection data={data} />
-      <FAQSection data={data.questions} />
+      <FAQSection data={faqsforPetOwner} />
     </section>
   );
 }
