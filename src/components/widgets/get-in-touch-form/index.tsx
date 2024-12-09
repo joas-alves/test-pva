@@ -2,13 +2,8 @@ import { CustomInput, CustomRadioGroup } from "@/components/common";
 import { useTranslations } from "next-intl";
 import { useSnackbar } from "notistack";
 import { useState } from "react";
-import { PetOwnerReasons, PvaCustomerType } from "./constants";
 import { PetOwnerForm } from "./pet-owner";
-import {
-  GetInTouchFormType,
-  PetOwnerFormData,
-  VeteniraryPvaCustomerFormData,
-} from "./types";
+import { GetInTouchFormType } from "./types";
 import { getCustomerType } from "./utils";
 import { VetDecisionForm } from "./veterinary";
 import axios from "axios";
