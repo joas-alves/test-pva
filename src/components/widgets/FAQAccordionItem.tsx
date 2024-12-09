@@ -26,7 +26,7 @@ export const FAQAccordionItem: React.FC<Props> = ({ data, onClick, active }) => 
       {active && (
         data.isHTML ? (
           <div
-            className="px-6 p-3 sm:px-9 list-disc!"
+            className="px-6 p-3 sm:px-9"
             dangerouslySetInnerHTML={{ __html: data.description }}
           />
         ) : (
