@@ -3,7 +3,7 @@ import {
   CustomRadioGroup,
   CustomTextarea,
 } from "@/components/common";
-import axios, { AxiosError } from "axios";
+import axios from "axios";
 import { useTranslations } from "next-intl";
 import { useSnackbar } from "notistack";
 import { useState } from "react";
@@ -79,10 +79,18 @@ export const ContactUsForm = () => {
         setFormData(initialValue);
       }
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    } catch (error: AxiosError | any) {
-      enqueueSnackbar(error.message, {
-        variant: "error",
-      });
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        // Handle Axios-specific error with message or response data
+        enqueueSnackbar(error.response?.data?.message || error.message, {
+          variant: "error",
+        });
+      } else {
+        // Handle generic errors
+        enqueueSnackbar("An unexpected error occurred.", {
+          variant: "error",
+        });
+      }
     }
   };
 
