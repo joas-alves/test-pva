@@ -2,14 +2,10 @@ import { CustomInput, CustomRadioGroup } from "@/components/common";
 import { useTranslations } from "next-intl";
 import { useSnackbar } from "notistack";
 import { useState } from "react";
-import { PetOwnerReasons, PvaCustomerType } from "./constants";
+import { PvaCustomerType } from "./constants";
 import { PetOwnerForm } from "./pet-owner";
-import {
-  GetInTouchFormType,
-  PetOwnerFormData,
-  VeteniraryPvaCustomerFormData,
-} from "./types";
-import { getCustomerType } from "./utils";
+import { GetInTouchFormType } from "./types";
+import { getCustomerType, validateGetInTouchForm } from "./utils";
 import { VetDecisionForm } from "./veterinary";
 
 export const GetInTouchForm = () => {
@@ -21,108 +17,65 @@ export const GetInTouchForm = () => {
     email: "",
     phone: "",
     preference: t("veterinary_professional"),
-    formData: null,
-    customerType: null,
     additionalComments: "",
+    clinicName: "",
+    customerType: PvaCustomerType.New,
+    primaryReason: "",
+    secondaryReason: "",
+    reasonComments: "",
   };
   const [allData, setFormData] = useState(initialValue);
 
-  const handleChange = (field: string, value: string) => {
-    setFormData({
-      ...allData,
-      [field]: value,
-    });
+  const handleChange = (field: keyof GetInTouchFormType, value: string) => {
+    const modifiedData = { ...allData };
+
+    if (field === "preference") {
+      modifiedData.primaryReason = "";
+      modifiedData.secondaryReason = "";
+      modifiedData.reasonComments = "";
+
+      const customerType = getCustomerType(value);
+
+      if (customerType === "veterinary") {
+        modifiedData.customerType = PvaCustomerType.New;
+      } else {
+        modifiedData.customerType = "";
+      }
+    }
+    if (field === "customerType") {
+      modifiedData.primaryReason = "";
+      modifiedData.secondaryReason = "";
+      modifiedData.reasonComments = "";
+    }
+
+    if (field === "primaryReason" && value === "Other") {
+      modifiedData.secondaryReason = "";
+    }
+
+    modifiedData[field] = value;
+    setFormData(modifiedData);
   };
 
-  // Email validation regex
-  const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-
-  // Phone validation regex (for example, international phone numbers like +44 123 456 7890)
-  const phoneRegex =
-    /^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/;
-
   const handleSubmit = (e: React.FormEvent) => {
+    console.log({ allData });
     e.preventDefault();
-    if (allData.firstName.length <= 0) {
-      enqueueSnackbar("Please enter a valid first name.", { variant: "error" });
-      return;
-    }
-    if (allData.lastName.length <= 0) {
-      enqueueSnackbar("Please enter a valid last name.", { variant: "error" });
-      return;
-    }
-    // Validate email and phone
 
-    if (!phoneRegex.test(allData.phone)) {
-      enqueueSnackbar("Please enter a valid phone number.", {
-        variant: "error",
-      });
-      return;
-    }
+    // Use validateForm function
+    const isValid = validateGetInTouchForm(allData, enqueueSnackbar);
+    if (!isValid) return;
 
-    if (!emailRegex.test(allData.email)) {
-      enqueueSnackbar("Please enter a valid email address.", {
-        variant: "error",
-      });
-      return;
-    }
-
-    // Check if form is complete
-    if (!isComplete()) {
-      enqueueSnackbar(
-        "Please complete all required fields before submitting.",
-        { variant: "error" }
-      );
-      return;
-    }
-
-    console.log(allData);
+    console.log({ success: allData });
     enqueueSnackbar("Thank you for getting in touch!", {
       variant: "success",
     });
     setFormData(initialValue);
   };
 
-  const isComplete = (): boolean => {
-    const { customerType, formData, ...basicInfo } = allData;
-    const isBasicInfoFilled = Object.values(basicInfo).every(
-      (value) => value !== null && value?.length
-    );
-
-    if (!isBasicInfoFilled) return false;
-
-    if (customerType === PvaCustomerType.Existing) {
-      const { reason, ...secondaryReasons } =
-        formData as VeteniraryPvaCustomerFormData;
-      return !!(
-        reason.length &&
-        Object.values(secondaryReasons).some(
-          (value) => value !== null && value.length
-        )
-      );
-    }
-
-    if (customerType === PvaCustomerType.New) {
-      const { reason, paymentReason } = formData as PetOwnerFormData;
-      const isReasonFilled = !!(reason !== null && reason.length);
-      if (!isReasonFilled) return false;
-      if (reason === PetOwnerReasons.Payments) {
-        const isPaymentReasonFilled = !!(
-          paymentReason !== null && paymentReason.length
-        );
-        if (isPaymentReasonFilled) return true;
-        return false;
-      }
-      return true;
-    }
-
-    return true;
-  };
-
   const renderForm = () => {
     const formType = getCustomerType(allData.preference);
-    if (formType === "pet_owner") return <PetOwnerForm />;
-    return <VetDecisionForm />;
+    if (formType === "pet_owner")
+      return <PetOwnerForm formData={allData} handleChange={handleChange} />;
+    return <VetDecisionForm formData={allData} handleChange={handleChange} />;
   };
 
   return (
