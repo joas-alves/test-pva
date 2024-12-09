@@ -3,6 +3,7 @@ import {
   CustomRadioGroup,
   CustomTextarea,
 } from "@/components/common";
+import axios from "axios";
 import { useTranslations } from "next-intl";
 import { useSnackbar } from "notistack";
 import { useState } from "react";
@@ -15,7 +16,6 @@ export const ContactUsForm = () => {
     email: "",
     phone: "",
     message: "",
-    status: "active",
     preference: t("pet_owner"),
   };
   const [formData, setFormData] = useState(initialValue);
@@ -27,13 +27,64 @@ export const ContactUsForm = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(formData);
-    enqueueSnackbar("Thank you for getting in touch!", {
-      variant: "success",
-    });
-    setFormData(initialValue);
+    // Validation
+    if (formData.firstName.trim().length === 0) {
+      enqueueSnackbar("Please enter a valid first name.", { variant: "error" });
+      return;
+    }
+
+    if (formData.lastName.trim().length === 0) {
+      enqueueSnackbar("Please enter a valid last name.", { variant: "error" });
+      return;
+    }
+
+    if (!phoneRegex.test(formData.phone)) {
+      enqueueSnackbar("Please enter a valid phone number.", {
+        variant: "error",
+      });
+      return;
+    }
+
+    if (!emailRegex.test(formData.email)) {
+      enqueueSnackbar("Please enter a valid email address.", {
+        variant: "error",
+      });
+      return;
+    }
+
+    if (formData.message.trim().length === 0) {
+      enqueueSnackbar("Please enter your message.", { variant: "error" });
+      return;
+    }
+
+    try {
+      const response = await axios.post(`/api/api/contact-us`, formData);
+
+      if (response.status === 201) {
+        // If everything is valid, show success message
+        enqueueSnackbar("Thank you for getting in touch!", {
+          variant: "success",
+        });
+
+        // Reset form data after successful submission
+        setFormData(initialValue);
+      }
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        // Handle Axios-specific error with message or response data
+        enqueueSnackbar(error.response?.data?.message || error.message, {
+          variant: "error",
+        });
+      } else {
+        // Handle generic errors
+        enqueueSnackbar("An unexpected error occurred.", {
+          variant: "error",
+        });
+      }
+    }
   };
 
   return (

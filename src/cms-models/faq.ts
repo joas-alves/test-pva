@@ -5,4 +5,5 @@ export interface IFaq {
   homepage_id: string;
   created_at: string;
   updated_at: string;
+  isHTML?: boolean;
 }

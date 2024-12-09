@@ -178,3 +178,58 @@ export const faqsForTraining = [
     updated_at: "",
   },
 ];
+
+export const faqsforPetOwner = [
+  {
+    title: "What is included in a PVA plan?",
+    description: `<p>A PVA pet health plan offers a comprehensive approach to preventative pet healthcare, tailored to the individual needs of every practice, client and pet. We include offerings such as:</p>
+  <ul style="list-style-type: disc;padding-left: 2rem;">
+    <li>Annual vaccinations</li>
+    <li>Flea and worming treatments</li>
+    <li>Health checkups</li>
+    <li>Dental exams</li>
+    <li>And many more preventative health treatments</li>
+  </ul>
+  <p>With every plan completely customisable, we work very closely with our practices to ensure the highest level of care for your pet, keeping them happy and healthy all year round. Your veterinary practice will provide a breakdown of everything included, so you’ll know exactly what your plan covers.</p>`,
+    id: Math.random(),
+    homepage_id: "",
+    created_at: "",
+    updated_at: "",
+    isHTML: true,
+  },
+  {
+    title: "What are the benefits of pet health plans?",
+    description: `Pet health plans provide peace of mind to pet owners by spreading out the cost of essential preventative healthcare throughout the year, making for an affordable service, without skipping any of the steps to your pet’s overall health and welfare.
+Additionally, making the most of the regular checkups included in your pet health plan can increase the likelihood of detecting potentially serious health issues early, ensuring your pet receives timely care. Speak to your local vet to get started and find out more about their pet health plan offerings.`,
+    id: Math.random(),
+    homepage_id: "",
+    created_at: "",
+    updated_at: "",
+  },
+  {
+    title: "I already have a pet health plan. How can I tell if it is a PVA plan?",
+    description: `Wondering if your existing health plan is managed by PVA? Keep an eye out for the Premier Vet Alliance logo on the documentation, such as invoices and billing, that comes from your veterinary practice. Alternatively, ask your vet directly, who will be able to confirm who the provider of your pet health plan is.`,
+    id: Math.random(),
+    homepage_id: "",
+    created_at: "",
+    updated_at: "",
+  },
+  {
+    title: "How does home delivery work?",
+    description: `We work with practices to offer a home delivery service on parasiticides. This means that certain treatments, such as flea and worming medication, can be delivered directly to your home. This can cut down on unnecessary vet visits and affiliated travel expenses, so that you don’t forget another preventative treatment.
+Your vet will be able to advise you as to whether home delivery is an available service in your practice.`,
+    id: Math.random(),
+    homepage_id: "",
+    created_at: "",
+    updated_at: "",
+  },
+  {
+    title: "Is a pet health plan the same as insurance?",
+    description: `No, a pet health plan is not the same as pet health insurance, and the two are not interchangeable.
+Pet health plans focus on offering preventative care and routine treatments at a year-round, fixed cost each month. On the other hand, insurance helps to cover unexpected larger scale costs such as emergency medical treatments, surgery or unforeseen illnesses and vet stays. While both are usually paid in instalments, the two service different purposes and are purchased separately as standalone plans.`,
+    id: Math.random(),
+    homepage_id: "",
+    created_at: "",
+    updated_at: "",
+  },
+];

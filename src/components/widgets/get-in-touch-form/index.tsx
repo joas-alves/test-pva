@@ -11,10 +11,12 @@ import {
 } from "./types";
 import { getCustomerType } from "./utils";
 import { VetDecisionForm } from "./veterinary";
+import axios from "axios";
 
 export const GetInTouchForm = () => {
   const t = useTranslations("Common");
   const { enqueueSnackbar } = useSnackbar();
+
   const initialValue: GetInTouchFormType = {
     firstName: "",
     lastName: "",
@@ -34,14 +36,7 @@ export const GetInTouchForm = () => {
     });
   };
 
-  // Email validation regex
-  const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-
-  // Phone validation regex (for example, international phone numbers like +44 123 456 7890)
-  const phoneRegex =
-    /^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/;
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (allData.firstName.length <= 0) {
       enqueueSnackbar("Please enter a valid first name.", { variant: "error" });
@@ -60,27 +55,27 @@ export const GetInTouchForm = () => {
       return;
     }
 
-    if (!emailRegex.test(allData.email)) {
-      enqueueSnackbar("Please enter a valid email address.", {
-        variant: "error",
-      });
-      return;
+    try {
+      const response = await axios.post(`/api/api/get-in-touch`, allData);
+      if (response.status === 201) {
+        enqueueSnackbar("Thank you for getting in touch!", {
+          variant: "success",
+        });
+        setFormData(initialValue);
+      }
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        // Handle Axios-specific error with message or response data
+        enqueueSnackbar(error.response?.data?.message || error.message, {
+          variant: "error",
+        });
+      } else {
+        // Handle generic errors
+        enqueueSnackbar("An unexpected error occurred.", {
+          variant: "error",
+        });
+      }
     }
-
-    // Check if form is complete
-    if (!isComplete()) {
-      enqueueSnackbar(
-        "Please complete all required fields before submitting.",
-        { variant: "error" }
-      );
-      return;
-    }
-
-    console.log(allData);
-    enqueueSnackbar("Thank you for getting in touch!", {
-      variant: "success",
-    });
-    setFormData(initialValue);
   };
 
   const isComplete = (): boolean => {
