@@ -6,7 +6,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { NextRouter, useRouter } from "next/router";
 import { Fragment, useEffect, useState } from "react";
-import { FiChevronDown } from "react-icons/fi";
 import { RiMenuLine } from "react-icons/ri";
 import { useServicesContext } from "../contexts/services";
 import { ServicesDropdown } from "./widgets/services-dropdown";
@@ -54,10 +53,7 @@ const Header = () => {
           <ServicesDropdown />
 
           <Link href="/about-us">
-            <div className="flex items-center gap-0.5">
-              {t("about")}
-              <FiChevronDown />
-            </div>
+            <div className="flex items-center gap-0.5">{t("about")}</div>
           </Link>
           <Link href="/news">
             <div>{t("news")}</div>
@@ -122,7 +118,7 @@ const Header = () => {
               >
                 X
               </button>
-              <nav className="flex flex-col gap-4 pt-10">
+              <nav className="flex flex-col gap-4">
                 <Link href="/" onClick={() => setIsSidebarOpen(false)}>
                   {/* <div className="">{t("home333")}</div> */}
                   <Image
@@ -132,15 +128,15 @@ const Header = () => {
                     height={70}
                     alt="logo"
                   />
-                  {/* src="/images/logo.svg" */}
                 </Link>
-                <ServicesDropdown onChange={() => { setIsSidebarOpen(false)}}/>
+                <ServicesDropdown
+                  onChange={() => {
+                    setIsSidebarOpen(false);
+                  }}
+                />
 
                 <Link href="/about-us" onClick={() => setIsSidebarOpen(false)}>
-                  <div className="flex items-center gap-0.5">
-                    {t("about")}
-                    <FiChevronDown />
-                  </div>
+                  <div className="flex items-center gap-0.5">{t("about")}</div>
                 </Link>
                 <Link href="/news" onClick={() => setIsSidebarOpen(false)}>
                   <div>{t("news")}</div>
@@ -152,18 +148,15 @@ const Header = () => {
                   <div>{t("contact")}</div>
                 </Link>
               </nav>
-              <div className="flex flex-col mt-10">
-                <div className="flex justify-between mb-3">
-                  <div className="w-[140px]">{ct("click_here")}</div>
-                  <span className="">
-                    <LanguageMenu />
-                  </span>
+              <div className="flex flex-col gap-3 mt-10">
+                <Link href="/pet-owner" onClick={() => setIsSidebarOpen(false)}>
+                  {ct("pet_owner")}? {ct("click_here")}
+                </Link>
+                <div className="flex justify-between">
+                  <LanguageMenu />
                 </div>
-                <Link href="/book-demo">
-                  <button
-                    className="btn primary-outline-btn"
-                    onClick={() => setIsSidebarOpen(false)}
-                  >
+                <Link href="/get-in-touch">
+                  <button className="btn primary-outline-btn">
                     {ct("get_in_touch")}
                   </button>
                 </Link>
