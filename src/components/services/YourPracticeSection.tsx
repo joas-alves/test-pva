@@ -18,7 +18,7 @@ export const YouPracticeSection: React.FC<Props> = ({ data }) => {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-6 mb-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 lg:gap-6 mb-6">
         <FeatureCard
           image="chat-message-icon.svg"
           variant="info"
