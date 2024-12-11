@@ -26,19 +26,19 @@ export const PracticeCard: React.FC<Props> = ({
   return (
     <div
       className={clsx(
-        "p-8 rounded-2xl shadow-paper bg-no-repeat",
+        "p-4 lg:p-8 rounded-2xl shadow-paper bg-no-repeat",
         variant === "info" && "text-white bg-info",
         backgroundClassName
       )}
     >
       <Image
-        className="mb-12 md:mb-20 w-12 md:w-auto"
+        className="mb-6 lg:mb-8 w-12 md:w-auto"
         src={`/images/${image}`}
         alt="group"
         width={80}
         height={80}
       />
-      <div className="text-2xl md:text-[32px] font-bold leading-10 mb-3 md:mb-4">
+      <div className="text-lg md:text-2xl font-bold leading-10 mb-3 md:mb-4">
         {title}
       </div>
       <div

@@ -1,11 +1,11 @@
+import { IHomePage } from "@/cms-models/home";
+import { imageUrl } from "@/utils";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
+import Link from "next/link";
+import React from "react";
 import { PiChartLineUpLight } from "react-icons/pi";
 import { RiGlobalLine } from "react-icons/ri";
-import { useTranslations } from "next-intl";
-import { IHomePage } from "@/cms-models/home";
-import React from "react";
-import { imageUrl } from "@/utils";
-import Link from "next/link";
 
 type Props = {
   data: IHomePage;
@@ -16,7 +16,7 @@ export const ElevatingSection: React.FC<Props> = ({ data }) => {
   const tc = useTranslations("Common");
 
   return (
-    <section className="container mx-auto py-10">
+    <section className="container mx-auto">
       <div className="flex flex-col lg:flex-row gap-10">
         <div className="md:flex-1">
           <div
@@ -24,7 +24,7 @@ export const ElevatingSection: React.FC<Props> = ({ data }) => {
             dangerouslySetInnerHTML={{ __html: data.section2_title }}
           ></div>
 
-          <div className="max-w-[512px] mb-8">
+          <div className="lg:max-w-[512px] mb-8">
             <p
               className="text-secondary body mb-3"
               dangerouslySetInnerHTML={{ __html: data.section2_description }}
@@ -41,36 +41,37 @@ export const ElevatingSection: React.FC<Props> = ({ data }) => {
           </Link>
         </div>
 
-        <div className="flex items-start">
-          <div className="w-[154px] sm:w-[302px] flex-shrink-0 bg-[url('/images/double-circles.png')] bg-no-repeat rounded-3xl shadow-paper px-4 md:px-7 py-6 md:py-9 mt-10 md:mt-20 -mr-20 relative bg-white">
-            <div className="pl-5 md:pl-10">
-              <span className="w-8 md:w-[60px] h-8 md:h-[60px] rounded-lg md:rounded-2xl flex items-center justify-center bg-primary">
-                <PiChartLineUpLight className="text-white text-md md:text-2xl" />
+        <div className="flex flex-col gap-4 md:gap-0 md:flex-row items-center md:items-start">
+          <div className="bg-white rounded-3xl shadow-paper p-6 md:p-9 w-full max-w-[302px] flex-shrink-0 relative z-10 md:mt-20 md:-mr-20">
+            <div className="flex justify-start mb-4">
+              <span className="w-10 md:w-[60px] h-10 md:h-[60px] bg-primary rounded-lg md:rounded-2xl flex items-center justify-center">
+                <PiChartLineUpLight className="text-white text-xl md:text-2xl" />
               </span>
             </div>
-
-            <div className="text-center py-5 md:py-9">
-              <div className="sub-head-value mb-2">
+            <div className="text-center">
+              <div className="text-3xl font-bold text-gray-900 mb-2">
                 {data.section2_practice_number}
               </div>
-              <div className="text-xs md:text-sm text-secondary">
+              <div className="text-sm md:text-base text-secondary">
                 {data.section2_practice_text}
               </div>
             </div>
-
-            <div className="flex justify-end pr-5 md:pr-10">
-              <span className="w-8 md:w-[60px] h-8 md:h-[60px] rounded-lg md:rounded-2xl flex items-center justify-center bg-info">
-                <RiGlobalLine className="text-white text-md md:text-2xl" />
+            <div className="flex justify-end mt-4">
+              <span className="w-10 md:w-[60px] h-10 md:h-[60px] bg-info rounded-lg md:rounded-2xl flex items-center justify-center">
+                <RiGlobalLine className="text-white text-xl md:text-2xl" />
               </span>
             </div>
           </div>
-          <Image
-            className="w-[240px] md:w-auto"
-            src={imageUrl(data.section2_image)}
-            width={412}
-            height={365}
-            alt="cat"
-          />
+
+          <div className="relative z-0">
+            <Image
+              className="rounded-3xl w-full shadow-md"
+              src={imageUrl(data.section2_image)}
+              width={412}
+              height={365}
+              alt="dog"
+            />
+          </div>
         </div>
       </div>
     </section>

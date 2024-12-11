@@ -6,7 +6,7 @@ import { NextRouter, useRouter } from "next/router";
 import { useParams } from "next/navigation";
 import { INewsPage } from "@/cms-models/news";
 import axios from "axios";
-import moment from 'moment';
+import moment from "moment";
 import { imageUrl } from "@/utils";
 import Head from "next/head";
 
@@ -19,45 +19,78 @@ export default function NewsDetail() {
   useEffect(() => {
     (async () => {
       if (params?.id) {
-        const response = await axios(`/api/${router.locale}/news/${params.id}`);
-        if (response.status === 200) {
-          setData(response.data);
-        }
+        try {
+          const response = await axios(
+            `/api/${router.locale}/news/${params.id}`
+          );
+          if (response.status === 200) {
+            setData(response.data);
+          }
+        } catch (error) {}
       }
     })();
   }, [router.locale, params]);
 
-  const images = data.image ? JSON.parse(data.image) : '';
+  const images = data.image ? JSON.parse(data.image) : "";
 
   return (
     <div className="container mx-auto">
       <Head>
         <title>5 Things You Need To Do In Your Practice!</title>
-        <meta name="description" content="Read all the latest news and blog posts from Premier Vet Alliance, and keep up to date with the latest developments."></meta>
-        <link rel="canonical" href="https://premiervetalliance.com/practice-support/"/>        
+        <meta
+          name="description"
+          content="Read all the latest news and blog posts from Premier Vet Alliance, and keep up to date with the latest developments."
+        ></meta>
+        <link
+          rel="canonical"
+          href="https://premiervetalliance.com/practice-support/"
+        />
         <meta property="og:locale" content="en_US"></meta>
         <meta property="og:type" content="article"></meta>
-        <meta property="og:title" content="5 Things You Need To Do In Your Practice!"></meta>
-        <meta property="og:description" content="Read all the latest news and blog posts from Premier Vet Alliance, and keep up to date with the latest developments."></meta>
-        <meta property="og:url" content="https://premiervetalliance.com/practice-support/"></meta>
+        <meta
+          property="og:title"
+          content="5 Things You Need To Do In Your Practice!"
+        ></meta>
+        <meta
+          property="og:description"
+          content="Read all the latest news and blog posts from Premier Vet Alliance, and keep up to date with the latest developments."
+        ></meta>
+        <meta
+          property="og:url"
+          content="https://premiervetalliance.com/practice-support/"
+        ></meta>
         <meta property="og:site_name" content="Premier Vet Alliance"></meta>
       </Head>
       <section className="max-w-[846px] mx-auto text-base md:text-xl pt-6">
         <div className="flex justify-between md:items-center flex-col md:flex-row gap-6 mb-3 md:mb-0">
           <div className="text-secondary body">
-            News{' '}/{' '}<span className="text-primary">5 Things You Need To Do In Your Practice!</span>
+            News /{" "}
+            <span className="text-primary">
+              5 Things You Need To Do In Your Practice!
+            </span>
           </div>
 
           <div className="flex items-center text-secondary gap-1">
             <CiClock2 className="text-sm md:text-base sm:text-xl" />
-            <span className="text-xs sm:text-base">{moment(data.read_time).format('MMM DD, YYYY • mm')} read</span>
+            <span className="text-xs sm:text-base">
+              {moment(data.read_time).format("MMM DD, YYYY • mm")} read
+            </span>
           </div>
         </div>
 
         <div className="flex flex-col gap-6 md:gap-10">
-          <div className="sub-heading" dangerouslySetInnerHTML={{ __html: data.title }} />
+          <div
+            className="sub-heading"
+            dangerouslySetInnerHTML={{ __html: data.title }}
+          />
 
-          <Image className="w-full" src={imageUrl(images?.[0] ?? '')} alt="news-detail-top" width={846} height={500} />
+          <Image
+            className="w-full"
+            src={imageUrl(images?.[0] ?? "")}
+            alt="news-detail-top"
+            width={846}
+            height={500}
+          />
 
           <div dangerouslySetInnerHTML={{ __html: data.description }} />
         </div>
@@ -89,9 +122,7 @@ export default function NewsDetail() {
         </div>
       </section>
 
-      <section className="-mx-10">
-        {/*<NeedMoreHelpSection />*/}
-      </section>
+      <section className="-mx-10">{/*<NeedMoreHelpSection />*/}</section>
     </div>
-  )
+  );
 }
