@@ -8,6 +8,7 @@ import "swiper/css";
 import { INewsPage } from "@/cms-models/news";
 import { imageUrl } from "@/utils";
 import Link from "next/link";
+import { dateFormater } from "@/utils/dataConverter";
 
 type Props = {
   data: INewsPage[];
@@ -62,7 +63,7 @@ export const HeroSection: React.FC<Props> = ({ data }) => {
                       <div className="max-w-[680px]">
                         <div className="flex items-center text-white mb-4 gap-1 text-xs md:text-base">
                           <CiClock2 className="text-base sm:text-xl" />
-                          <span className="text-sm">{post.date}</span>
+                          <span className="text-sm">{dateFormater(post.date, 'YYYY-MM-DD')}</span>
                         </div>
                         <div className="text-white">
                           <div
