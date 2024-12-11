@@ -9,7 +9,7 @@ const Footer = () => {
 
   return (
     <footer className="pt-10">
-      <div className="container mx-auto grid grid-cols-1 gap-6 md:gap-4 md:grid-cols-4 mb-0 sm:mb-16">
+      <div className="container mx-auto grid grid-cols-1 gap-6 md:gap-4 md:grid-cols-4 md:mb-6">
         <div>
           <Link href="/">
             <Image
@@ -22,7 +22,7 @@ const Footer = () => {
           </Link>
         </div>
         <div>
-          <ul className="flex justify-between flex-wrap sm:flex-col gap-2 sm:gap-4 text-sm sm:text-base">
+          <ul className="flex justify-start sm:justify-between flex-wrap md:flex-col gap-2 md:gap-4 text-sm md:text-base">
             <li>
               <Link href="/investors">{t("investors")}</Link>
             </li>
@@ -44,8 +44,8 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-        <div className="md:col-span-2 flex flex-wrap gap-6 border-y sm:border-none border-y-gray-200 py-6 sm:py-0">
-          <ul className="flex flex-col gap-2 sm:gap-4 text-sm sm:text-base">
+        <div className="md:col-span-2 flex flex-wrap gap-6 border-y md:border-none border-y-gray-200 py-6 md:py-0">
+          <ul className="flex flex-col gap-2 md:gap-4 text-sm md:text-base">
             <li>{t("address")}</li>
             <li>pcp@premiervetalliance.co.uk</li>
             <li>+44 117 472 5000</li>
@@ -58,11 +58,11 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="container mx-auto border-t border-t-none sm:border-t-gray-300 py-6 sm:py-8 text-gray-400 flex flex-col flex-col-reverse sm:flex-row gap-6 text-xs sm:text-sm">
+      <div className="container mx-auto border-t border-t-none md:border-t-gray-300 py-6 md:py-8 text-gray-400 flex flex-col-reverse md:flex-row gap-6 text-xs md:text-sm">
         <div className="flex-1">
           © {t("copyright-1")} · {t("copyright-2")} · 07267818
         </div>
-        <div className="flex gap-10 justify-between sm:justify-start pb-6 sm:pb-0 border-b border-b-gray-200 sm:border-none">
+        <div className="flex gap-10 justify-between md:justify-start pb-6 md:pb-0 border-b border-b-gray-200 md:border-none">
           <div>
             <Link href="/terms-of-use">{t("terms_of_use")}</Link>
           </div>
