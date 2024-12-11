@@ -8,7 +8,7 @@ export default function ContactUs() {
   return (
     <section className="container mx-auto pt-10 pb-40">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <div className="max-w-[519px]">
+        <div className="">
           <h1 className="sub-heading mb-6">
             <span className="text-primary">{t('get_in')}</span> {t('touch')}
           </h1>
