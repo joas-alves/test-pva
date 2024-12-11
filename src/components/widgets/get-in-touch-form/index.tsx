@@ -149,7 +149,7 @@ export const GetInTouchForm = () => {
           />
         </div>
 
-        <div className="col-span-2 grid grid-cols-2 gap-3">
+        <div className="col-span-2 grid grid-cols-1 md:grid-cols-2 gap-3">
           <CustomInput
             label={t("phone_number")}
             placeholder="+44 123 456 7890"
