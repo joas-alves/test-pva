@@ -7,4 +7,5 @@ export interface INewsPage {
   image: string;
   created_at: string;
   updated_at: string;
+  newspage_id: number;
 }
