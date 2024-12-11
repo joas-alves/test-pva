@@ -3,6 +3,9 @@ import { NextRequest, NextResponse } from 'next/server'
 const PUBLIC_FILE = /\.(.*)$/
 
 export async function middleware(req: NextRequest) {
+  const cookieLocale = req.cookies.get('NEXT_LOCALE')?.value
+  const urlLocale = req.nextUrl.locale
+
   if (
     req.nextUrl.pathname.startsWith('/_next') ||
     req.nextUrl.pathname.includes('/api/') ||
@@ -11,11 +14,9 @@ export async function middleware(req: NextRequest) {
     return
   }
 
-  if (req.nextUrl.locale === 'default') {
-    const locale = req.cookies.get('NEXT_LOCALE')?.value || 'en'
-
+  if (urlLocale === 'default') {
     return NextResponse.redirect(
-      new URL(`/${locale}${req.nextUrl.pathname}${req.nextUrl.search}`, req.url)
+      new URL(`/${cookieLocale  || 'global'}${req.nextUrl.pathname}${req.nextUrl.search}`, req.url)
     )
   }
 }

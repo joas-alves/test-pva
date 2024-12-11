@@ -2,6 +2,8 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import de from "@/i18n/de.json";
 import enUK from "@/i18n/en-UK.json";
+import global from "@/i18n/global.json";
+
 import enUS from "@/i18n/en-US.json";
 import es from "@/i18n/es.json";
 import fr from "@/i18n/fr.json";
@@ -13,16 +15,8 @@ import localFont from "next/font/local";
 import { NextRouter, useRouter } from "next/router";
 import { SnackbarProvider } from "notistack";
 import { ServicesProvider } from "../contexts/services";
-import { useEffect } from "react";
-setupAxios();
 
-declare global {
-  interface Window {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    google: any;
-    googleTranslateElementInit: () => void;
-  }
-}
+setupAxios();
 
 const languages = {
   "en-UK": enUK,
@@ -30,7 +24,9 @@ const languages = {
   es,
   de,
   fr,
+  "global": enUK,
 };
+
 const timeZone = "Europe/Vienna";
 
 const manrope = localFont({
@@ -44,33 +40,16 @@ export const metadata = {
     title: 'Acme',
     description: 'Acme is a...',
   },
-}
+};
 
 export default function App({ Component, pageProps }: AppProps) {
   const router: NextRouter = useRouter();
-
-  useEffect(() => {
-    const googleTranslateElementInit = () => {
-      new window.google.translate.TranslateElement(
-        { pageLanguage: "en" },
-        "google_translate_element"
-      );
-    };
-
-    const script = document.createElement("script");
-    script.src =
-      "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
-    script.async = true;
-    document.body.appendChild(script);
-
-    window.googleTranslateElementInit = googleTranslateElementInit;
-  }, []);
 
   return (
     <NextIntlClientProvider
       locale={router.locale}
       messages={
-        languages[router.locale as "en-US" | "en-UK" | "es" | "de" | "fr"]
+        languages[router.locale as "en-US" | "en-UK" | "es" | "de" | "fr" | "global"] 
       }
       timeZone={timeZone}
     >
@@ -86,10 +65,6 @@ export default function App({ Component, pageProps }: AppProps) {
         <ServicesProvider>
           <main className={manrope.className}>
             <Header />
-            <div
-              id="google_translate_element"
-              style={{ display: "none" }}
-            ></div>
             <Component {...pageProps} />
             <Footer />
           </main>

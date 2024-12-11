@@ -3,8 +3,15 @@ import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import { FiChevronDown } from "react-icons/fi";
 import { NextRouter, useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import clsx from "clsx";
 
 const languages = [
+  {
+    label: "Global",
+    flag: "global.svg",
+    code: "global",
+    googleCode: "en",
+  },
   {
     label: "Spanish",
     flag: "es.svg",
@@ -39,24 +46,20 @@ const languages = [
 
 export const LanguageMenu = () => {
   const router: NextRouter = useRouter();
-  const [selectedLanguage, setSelectedLanguage] = useState(languages[2]);
+  const [selectedLanguage, setSelectedLanguage] = useState(() => {
+    return (
+      languages.find((lang) => lang.code === router.locale) || languages[2]
+    );
+  });
 
   useEffect(() => {
-    const select = document.querySelector("select.goog-te-combo");
-
-    if (select) {
-      (select as HTMLSelectElement).value = selectedLanguage.googleCode;
-      select.dispatchEvent(new Event("change"));
-    }
-  }, [selectedLanguage]);
+    const currentLanguage =
+      languages.find((lang) => lang.code === router.locale) || languages[2];
+    setSelectedLanguage(currentLanguage);
+  }, [router.locale]);
 
   const handleChangeLanguage = (code: string) => {
     router.push(router.pathname, router.asPath, { locale: code });
-    
-    const language = languages.find((lang) => lang.code === code);
-    if (language) {
-      setSelectedLanguage(language);
-    }
   };
 
   return (
@@ -80,7 +83,10 @@ export const LanguageMenu = () => {
         {languages.map((item, index) => (
           <MenuItem key={index}>
             <div
-              className="flex items-center gap-4 text-black p-2 cursor-pointer hover:bg-gray-100 rounded-xl"
+              className={clsx(
+                "flex items-center gap-4 text-black p-2 cursor-pointer hover:bg-gray-100 rounded-xl",
+                selectedLanguage.code === item.code && "bg-gray-100"
+              )}
               onClick={() => handleChangeLanguage(item.code)}
             >
               <Image

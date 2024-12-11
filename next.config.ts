@@ -5,8 +5,8 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   productionBrowserSourceMaps: true,
   i18n: {
-    locales: ['en-UK', 'en-US', 'de', 'es', 'fr'],
-    defaultLocale: 'en-UK',
+    locales: ['en-UK', 'en-US', 'de', 'es', 'fr','global'],
+    defaultLocale: 'global',
     localeDetection: false,
   },
   images: {
