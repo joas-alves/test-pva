@@ -6,7 +6,6 @@ import { PetOwnerIntroduction } from "@/components/pet-owner/introduction";
 import { faqsforPetOwner } from "@/temp/faqs";
 import axios from "axios";
 import { NextRouter, useRouter } from "next/router";
-
 import { useEffect, useState } from "react";
 
 export default function PetOwnerPage() {
@@ -23,20 +22,24 @@ export default function PetOwnerPage() {
         if (response.status === 200) {
           setData(response.data);
         }
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      } catch (error) {}
+      } catch (error) {
+        console.error("Failed to fetch homepage content:", error);
+      }
     })();
   }, [router.locale]);
+
   return (
-    <section className="container mx-auto pt-10 pb-40">
-      <h1 className="sub-heading mb-6">
+    <section className="container mx-auto pt-10 pb-20 px-4 sm:px-6 lg:px-8">
+      <h1 className="text-2xl sm:text-3xl font-bold mb-6">
         <span className="text-primary">Pet</span> Owners
       </h1>
-      <PetOwnerIntroduction />
-      <PetOwnerHealthPlan />
-      <PetOwnerHelp />
-      <RealStoriesSection data={data} />
-      <FAQSection data={faqsforPetOwner} />
+      <div className="space-y-10">
+        <PetOwnerIntroduction />
+        <PetOwnerHealthPlan />
+        <PetOwnerHelp />
+        <RealStoriesSection data={data} />
+        <FAQSection data={faqsforPetOwner} />
+      </div>
     </section>
   );
 }
