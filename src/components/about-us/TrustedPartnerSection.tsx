@@ -30,8 +30,8 @@ export const TrustedPartnerSection: React.FC<Props> = ({ data }) => {
               alt="dog"
             />
 
-            <div className="flex flex-col">
-              <div className="body text-secondary max-w-[517px] mb-3 sm:mb-6">
+            <div className="flex flex-col lg:pl-8">
+              <div className="body text-secondary mb-3 sm:mb-6">
                 <p className="mb-3">
                   {data.section1_description}
                 </p>
