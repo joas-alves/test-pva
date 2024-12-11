@@ -1,7 +1,6 @@
 import { CiClock2 } from "react-icons/ci";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import { NewsCard } from "@/components/widgets";
 import { NextRouter, useRouter } from "next/router";
 import { useParams } from "next/navigation";
 import { INewsPage } from "@/cms-models/news";

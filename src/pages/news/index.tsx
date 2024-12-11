@@ -17,7 +17,7 @@ export default function News() {
         if (response.status === 200) {
           if(response.data && response.data.length > 0){
             const blogs:INewsPage[]  = response.data
-            let sortedData = blogs.sort((a, b) => a.newspage_id - b.newspage_id);
+            const sortedData = blogs.sort((a, b) => a.newspage_id - b.newspage_id);
             setData(sortedData);
           }else
           setData(response.data);
