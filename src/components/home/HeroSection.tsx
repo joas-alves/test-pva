@@ -29,18 +29,18 @@ export const HeroSection: React.FC<Props> = ({ data }) => {
 
               <SignUpInput />
 
-              {/* <div className="flex-1" />
+              <div className="flex-1" />
 
-              <div className="hidden md:grid w-full max-w-[410px] rounded-3xl shadow-paper relative grid-cols-2 gap-7">
+              <div className="hidden md:grid w-full max-w-[410px] rounded-3xl shadow-paper relative grid-cols-1 gap-7">
                 <div>
-                  <Image className="absolute bottom-0 left-6" src={imageUrl(data.section1_rating_image)} width={151} height={187} alt="customer-dog" />
+                  <Image className="" src={imageUrl(data.section1_rating_image)} width={410} height={187} alt="customer-dog" />
                 </div>
-                <div className="pt-4 pb-7">
+                {/* <div className="pt-4 pb-7">
                   <MdStarRate className="text-warning ml-20 text-3xl" />
                   <div className="head-value">{data.section1_rating_number}</div>
                   <div className="text-secondary text-sm">{data.section1_rating_text}</div>
-                </div>
-              </div> */}
+                </div> */}
+              </div>
             </div>
             <Image
               className="hidden lg:block"

@@ -41,7 +41,7 @@ export const DropdownMenu: React.FC<Props> = ({
         <MenuItems
           transition
           anchor="bottom end"
-          className="origin-top-right rounded-xl p-1 text-sm/6 text-white bg-white shadow transition duration-100 ease-out [--anchor-gap:var(--spacing-1)] mt-2"
+          className="origin-top-right rounded-xl p-1 z-[2] text-sm/6 text-white bg-white shadow transition duration-100 ease-out [--anchor-gap:var(--spacing-1)] mt-2"
         >
           {options.map((item, index) => (
             <MenuItem key={index}>

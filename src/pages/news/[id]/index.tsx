@@ -9,6 +9,7 @@ import moment from "moment";
 import { imageUrl } from "@/utils";
 import Head from "next/head";
 import { NewsGridSection } from "@/components/news";
+import { dateFormater } from "@/utils/dataConverter";
 
 export default function NewsDetail() {
   const router: NextRouter = useRouter();
@@ -92,7 +93,7 @@ export default function NewsDetail() {
           <div className="flex items-center text-secondary gap-1">
             <CiClock2 className="text-sm md:text-base sm:text-xl" />
             <span className="text-xs sm:text-base">
-              {moment(data.read_time).format("MMM DD, YYYY • mm")} read
+              {dateFormater(data.read_time || data.date, "MMM DD, YYYY • mm")} read
             </span>
           </div>
         </div>
