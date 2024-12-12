@@ -1,4 +1,5 @@
 import { imageUrl } from "@/utils";
+import { dateFormater } from '@/utils/dataConverter';
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -37,7 +38,7 @@ export const NewsCard: React.FC<Props> = ({
         <div className="p-6 sm:p-8">
           <div className="flex items-center text-secondary mb-5 sm:mb-6 gap-1">
             <CiClock2 className="text-base sm:text-xl" />
-            <span className="text-sm sm:text-base">{time}</span>
+            <span className="text-sm sm:text-base">{dateFormater(time,'YYYY-MM-DD')}</span>
           </div>
           <div
             className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4"

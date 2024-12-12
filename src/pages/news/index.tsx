@@ -15,6 +15,11 @@ export default function News() {
       try {
         const response = await axios(`/api/${router.locale}/news`);
         if (response.status === 200) {
+          if(response.data && response.data.length > 0){
+            const blogs:INewsPage[]  = response.data
+            const sortedData = blogs.sort((a, b) => a.newspage_id - b.newspage_id);
+            setData(sortedData);
+          }else
           setData(response.data);
         }
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -36,7 +41,7 @@ export default function News() {
     <meta property="og:url" content="https://premiervetalliance.com/news/"></meta>
     <meta property="og:site_name" content="Premier Vet Alliance"></meta>
     </Head>
-      <HeroSection data={data} />
+      <HeroSection data={[...data]} />
       <NewsGridSection data={data} />
     </>
   );
