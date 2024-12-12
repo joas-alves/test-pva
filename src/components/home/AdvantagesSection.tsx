@@ -12,7 +12,7 @@ export const AdvantagesSection: React.FC<Props> = ({ data }) => {
   // const t = useTranslations('Home');
 
   return (
-    <section className="container mx-auto py-10">
+    <section className="container mx-auto">
       <div
         className="sub-heading mb-12 text-center"
         dangerouslySetInnerHTML={{

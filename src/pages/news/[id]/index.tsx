@@ -1,14 +1,14 @@
-import { CiClock2 } from "react-icons/ci";
-import React, { useEffect, useState } from "react";
-import Image from "next/image";
-import { NextRouter, useRouter } from "next/router";
-import { useParams } from "next/navigation";
 import { INewsPage } from "@/cms-models/news";
-import axios from "axios";
-import { imageUrl } from "@/utils";
-import Head from "next/head";
 import { NewsGridSection } from "@/components/news";
+import { imageUrl } from "@/utils";
 import { dateFormater } from "@/utils/dataConverter";
+import axios from "axios";
+import Head from "next/head";
+import Image from "next/image";
+import { useParams } from "next/navigation";
+import { NextRouter, useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import { CiClock2 } from "react-icons/ci";
 
 export default function NewsDetail() {
   const router: NextRouter = useRouter();
@@ -20,10 +20,14 @@ export default function NewsDetail() {
   useEffect(() => {
     (async () => {
       if (params?.id) {
-        const response = await axios(`/api/${router.locale}/news/${params.id}`);
-        if (response.status === 200) {
-          setData(response.data);
-        }
+        try {
+          const response = await axios(
+            `/api/${router.locale}/news/${params.id}`
+          );
+          if (response.status === 200) {
+            setData(response.data);
+          }
+        } catch (error) {}
       }
     })();
     (async () => {
