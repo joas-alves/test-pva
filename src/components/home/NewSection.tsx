@@ -38,12 +38,15 @@ const [relevantBlogs, setRelevantData] = useState<INewsPage[]>([]);
           } catch (error) {}
         })();
   }, [router.locale]);
+  const gotoNews = () => {
+    router.push('/news')
+  }
   return (
     <section className="container mx-auto py-20 pb-10">
       <div className="flex items-center mb-12">
         <h2 className="sub-heading" dangerouslySetInnerHTML={{ __html: title }} />
         <div className="flex-1" />
-        <button className="hidden md:block btn primary-outline-btn">{t('discover_all')}</button>
+        <button onClick={gotoNews} className="hidden md:block btn primary-outline-btn">{t('discover_all')}</button>
       </div>
       <NewsGridSection data={relevantBlogs} />
       <div className="md:hidden flex justify-center pt-6">
