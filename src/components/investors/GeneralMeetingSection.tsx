@@ -8,7 +8,6 @@ export const GeneralMeetingSection = () => {
 
   const downloadPdf = (download: boolean, link: string,name: string) => {
     if (download) {
-      console.log("linklink ", link)
       const linkElement = document.createElement('a');
       linkElement.href = link;
       linkElement.download = name + '.pdf';

@@ -14,7 +14,6 @@ export const SignUpInput = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(email);
     enqueueSnackbar("Thank you for getting in touch!", {
       variant: "success",
     });
