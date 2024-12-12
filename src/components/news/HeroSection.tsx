@@ -59,7 +59,7 @@ export const HeroSection: React.FC<Props> = ({ data }) => {
                       width={327}
                       height={200}
                     />
-                    <div className="absolute w-full h-full top-0 bottom-0 left-0 right-0 p-6 md:p-10 flex items-end">
+                    <div className="absolute w-full h-full bg-black bg-opacity-50 rounded-3xl top-0 bottom-0 left-0 right-0 p-6 md:p-10 flex items-end">
                       <div className="max-w-[680px]">
                         <div className="flex items-center text-white mb-4 gap-1 text-xs md:text-base">
                           <CiClock2 className="text-base sm:text-xl" />
