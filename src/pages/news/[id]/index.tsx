@@ -5,7 +5,6 @@ import { NextRouter, useRouter } from "next/router";
 import { useParams } from "next/navigation";
 import { INewsPage } from "@/cms-models/news";
 import axios from "axios";
-import moment from "moment";
 import { imageUrl } from "@/utils";
 import Head from "next/head";
 import { NewsGridSection } from "@/components/news";
