@@ -36,7 +36,7 @@ export const DiscoverSection: React.FC<Props> = ({
         </div>
 
         <Image
-          className="absolute bottom-0 right-0"
+          className="h-full w-fit max-h-[300px] lg:max-h-fit lg:h-fit object-contain absolute bottom-0 right-0"
           src={imageUrl(image)}
           alt="doctor-man.png"
           width={684}

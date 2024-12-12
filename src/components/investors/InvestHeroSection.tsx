@@ -21,41 +21,18 @@ export const InvestHeroSection = () => {
             <p className="body text-secondary mb-3 sm:mb-[110px]">
               {t("explore_investment_opportunities")}
             </p>
-
-            {/*<div className="w-full rounded-3xl shadow-paper p-8">*/}
-            {/*  <div className="text-[32px] font-bold leading-10 mb-5">*/}
-            {/*    {t('overview')} (PVG)*/}
-            {/*  </div>*/}
-            {/*  <div className="flex gap-6">*/}
-            {/*    <div>*/}
-            {/*      <div className="text-sm text-secondary">{t('current_price')}:</div>*/}
-            {/*      <div className="head-value md:leading-[64px] mb-6 flex items-end">*/}
-            {/*        34.5 <sub className="text-xl font-semibold mb-2">GBX</sub>*/}
-            {/*      </div>*/}
-            {/*      <div className="text-sm text-secondary">{t('recent_price_shift')}:</div>*/}
-            {/*      <div className="text-xl font-semibold text-primary-light">*/}
-            {/*        +2,3% ↑*/}
-            {/*      </div>*/}
-            {/*    </div>*/}
-            {/*    <Image*/}
-            {/*      src="/images/pvg-chart.png"*/}
-            {/*      width={273}*/}
-            {/*      height={137.5}*/}
-            {/*      alt="chart"*/}
-            {/*    />*/}
-            {/*  </div>*/}
-            {/*</div>*/}
           </div>
         </div>
 
-        <div className="relative">
+        <div className="relative lg:max-w-2xl mx-auto lg:mx-0 flex flex-col gap-4">
           <Image
+          className="w-full lg:w-fit lg:h-full  lg:max-h-96 lg:object-contain"
             src="/images/invest-hero.png"
             width={411}
             height={460}
             alt="invest-hero"
           />
-          <div className="w-[411px] p-8 bg-[url('/images/double-circles.png')] bg-no-repeat rounded-3xl shadow-paper bg-white absolute top-[160px] right-5 invest-hero-section">
+          <div className="w-[411px] p-8 bg-[url('/images/double-circles.png')] bg-no-repeat rounded-3xl shadow-paper bg-white lg:absolute top-[160px] right-5 invest-hero-section">
             <div className="text-[32px] font-bold mb-3 text-primary leading-10">
               {t("premier_veterinary")}
             </div>
