@@ -18,7 +18,7 @@ const ServicesDropdown = (props: ServiceDropdown) => {
   }> = services?.map((item) => ({
     id: item.id,
     label: servicesRouteMapping[item.id].name,
-  })).filter((item) => !(isEnUs && item.label.toLowerCase() === "post2pet"));;
+  })).filter((item) => !(isEnUs && item.label?.match(/delivery/i)));;
 
   const onClick = (id: number) => {
     onChange?.();

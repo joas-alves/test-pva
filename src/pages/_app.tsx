@@ -2,7 +2,6 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import de from "@/i18n/de.json";
 import enUK from "@/i18n/en-UK.json";
-import global from "@/i18n/global.json";
 
 import enUS from "@/i18n/en-US.json";
 import es from "@/i18n/es.json";
