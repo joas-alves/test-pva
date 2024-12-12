@@ -76,7 +76,7 @@ export const RealStoriesSection: React.FC<Props> = ({ data }) => {
   ];
 
   return (
-    <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <section className="container mx-auto sm:px-6 lg:px-8">
       {/* Get Started Button */}
       <div className="flex flex-col w-full justify-center items-center mb-6">
         <Link href="/get-in-touch">

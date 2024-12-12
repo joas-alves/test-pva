@@ -29,7 +29,7 @@ export default function PetOwnerPage() {
   }, [router.locale]);
 
   return (
-    <section className="container mx-auto pt-10 pb-20 px-4 sm:px-6 lg:px-8">
+    <section className="container mx-auto pt-10 pb-10 px-4 sm:px-6 lg:px-8">
       <h1 className="text-2xl sm:text-3xl font-bold mb-6">
         <span className="text-primary">Pet</span> Owners
       </h1>

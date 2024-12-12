@@ -171,7 +171,7 @@ export const GetInTouchForm = () => {
         value={allData.additionalComments}
         onChange={(e) => handleChange("additionalComments", e.target.value)}
       />
-      <div className="col-span-2 grid grid-cols-2 gap-3 pt-3 md:pt-6">
+      <div className=" w-fit pt-3 md:pt-6 mx-auto md:mx-0">
         <button
           className="btn primary-btn"
           type="button"
