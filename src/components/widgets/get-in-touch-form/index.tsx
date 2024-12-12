@@ -149,7 +149,7 @@ export const GetInTouchForm = () => {
           />
         </div>
 
-        <div className="col-span-2 grid grid-cols-2 gap-3">
+        <div className="col-span-2 grid grid-cols-1 md:grid-cols-2 gap-3">
           <CustomInput
             label={t("phone_number")}
             placeholder="+44 123 456 7890"
@@ -171,7 +171,7 @@ export const GetInTouchForm = () => {
         value={allData.additionalComments}
         onChange={(e) => handleChange("additionalComments", e.target.value)}
       />
-      <div className="col-span-2 grid grid-cols-2 gap-3 pt-3 md:pt-6">
+      <div className=" w-fit pt-3 md:pt-6 mx-auto md:mx-0">
         <button
           className="btn primary-btn"
           type="button"
