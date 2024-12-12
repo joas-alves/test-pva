@@ -38,7 +38,7 @@ export const NewSection: React.FC<Props> = ({ title }) => {
         />
       </div>
 
-      <div className="block md:hidden flex justify-center pt-6">
+      <div className="md:hidden flex justify-center pt-10">
         <button className="btn primary-outline-btn px-10">{t('discover_all')}</button>
       </div>
     </section>

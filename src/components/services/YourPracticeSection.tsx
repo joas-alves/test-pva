@@ -10,9 +10,9 @@ export const YouPracticeSection: React.FC<Props> = ({ data }) => {
   // const t = useTranslations('Services');
 
   return (
-    <section className="container mx-auto py-10">
+    <section className="container mx-auto pb-10">
       <div className="max-w-[954px] w-full mx-auto mb-8 md:mb-12 text-center">
-        <h2 className="sub-heading mb-6" dangerouslySetInnerHTML={{ __html: data.section3_title }} />
+        <h2 className="sub-heading mb-10" dangerouslySetInnerHTML={{ __html: data.section3_title }} />
         <p className="text-secondary max-w-[600px] w-full mx-auto">
           {data.section3_description}
         </p>

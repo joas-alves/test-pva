@@ -76,7 +76,7 @@ export const RealStoriesSection: React.FC<Props> = ({ data }) => {
   ];
 
   return (
-    <section className="container mx-auto sm:px-6 lg:px-8">
+    <section className="container mx-auto pb-10 sm:px-6 lg:px-8">
       {/* Get Started Button */}
       <div className="flex flex-col w-full justify-center items-center mb-6">
         <Link href="/get-in-touch">
@@ -112,7 +112,7 @@ export const RealStoriesSection: React.FC<Props> = ({ data }) => {
           <p className="text-secondary body mb-8 md:mb-10">
             {data.section5_description}
           </p>
-          <div className="border border-info rounded-2xl flex items-center gap-4 p-4">
+          <div className="border border-info rounded-2xl flex items-center gap-4 p-4 mx-auto md:mx-0">
             <div>
               <div className="text-dark-green">{t("reviews")}</div>
               <div className="text-warning flex items-center gap-1">
@@ -143,7 +143,7 @@ export const RealStoriesSection: React.FC<Props> = ({ data }) => {
           >
             {reviewData.map((review, index) => (
               <SwiperSlide key={index}>
-                <div className="mx-4">
+                <div>
                   <ReviewCarouselCard
                     rate={review.rate}
                     user={review.user}

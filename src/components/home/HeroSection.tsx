@@ -47,7 +47,7 @@ export const HeroSection: React.FC<Props> = ({ data }) => {
           />
           <div className="flex lg:hidden gap-3 self-center items-center justify-center max-h-96">
             <Image
-              className="w-full h-[300px] object-cover"
+              className="w-full h-[300px] object-contain"
               src={imageUrl(data.section1_image1)}
               width={301}
               height={365}

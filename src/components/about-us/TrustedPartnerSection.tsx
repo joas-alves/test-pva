@@ -17,7 +17,7 @@ export const TrustedPartnerSection: React.FC<Props> = ({ data }) => {
       <div className="flex flex-col-reverse md:flex-row gap-10 sm:gap-6">
         <div className="flex-shrink-0">
           <Image className="hidden md:block" src={imageUrl(images?.[1] ?? '')} width={302} height={624} alt="dog" />
-          <Image className="block md:hidden w-full" src={imageUrl(images?.[1] ?? '')} width={327} height={240} alt="dog" />
+          <Image className="block md:hidden h-full max-h-96 object-contain mx-auto" src={imageUrl(images?.[0] ?? '')} width={327} height={240} alt="dog" />
         </div>
         <div className="flex flex-col">
           <h1 className="heading mb-5 sm:mb-20 md:text-right" dangerouslySetInnerHTML={{ __html: data.section1_title }} />

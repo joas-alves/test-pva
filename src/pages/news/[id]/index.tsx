@@ -27,7 +27,9 @@ export default function NewsDetail() {
           if (response.status === 200) {
             setData(response.data);
           }
-        } catch (error) {}
+        } 
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        catch (error) {}
       }
     })();
     (async () => {

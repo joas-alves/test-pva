@@ -2,13 +2,16 @@ import { IHomePage } from "@/cms-models/home";
 import { clsx } from "clsx";
 import React from "react";
 import { ServiceCard } from "./ServiceCard";
+import { useRouter } from "next/router";
 
 type Props = {
   data: IHomePage;
 };
 
 export const ServicesList: React.FC<Props> = ({ data }) => {
-  // Array of services to reduce redundant code
+  const router = useRouter();
+  const isEnUs = router.locale?.toLowerCase().includes("en-us");
+
   const services = [
     {
       title: data.section3_card1_title,
@@ -18,7 +21,7 @@ export const ServicesList: React.FC<Props> = ({ data }) => {
     {
       title: data.section3_card2_title,
       description: data.section3_card2_description,
-      image:  "Mask group_3.svg",
+      image: "Mask group_3.svg",
     },
     {
       title: data.section3_card5_title,
@@ -30,8 +33,11 @@ export const ServicesList: React.FC<Props> = ({ data }) => {
       description: data.section3_card4_description,
       image: "Mask group_2.svg",
     },
-    
   ];
+
+  const filteredServices = isEnUs
+    ? services.filter(service => !service?.title?.match(/post2pet/i))
+    : services;
 
   return (
     <section className="container mx-auto py-10">
@@ -55,7 +61,7 @@ export const ServicesList: React.FC<Props> = ({ data }) => {
       </div>
 
       <div className="space-y-8">
-        {services.map((service, index) => (
+        {filteredServices.map((service, index) => (
           <div
             key={index}
             className={clsx(

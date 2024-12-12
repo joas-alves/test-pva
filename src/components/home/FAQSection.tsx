@@ -18,7 +18,7 @@ export const FAQSection: React.FC<Props> = ({ data }) => {
 
   return (
     <section className="container mx-auto pt-10 !p-0">
-      <h2 className="sub-heading mb-12 text-center">
+      <h2 className="sub-heading mb-12 text-center mx-4">
         <span className="text-primary">{t("frequently")}</span>{" "}
         {t("asked_questions")}
       </h2>
