@@ -59,13 +59,13 @@ export const HeroSection: React.FC<Props> = ({ data }) => {
                       width={327}
                       height={200}
                     />
-                    <div className="absolute w-full h-full bg-black bg-opacity-50 rounded-3xl top-0 bottom-0 left-0 right-0 p-6 md:p-10 flex items-end">
-                      <div className="max-w-[680px]">
-                        <div className="flex items-center text-white mb-4 gap-1 text-xs md:text-base">
+                    <div className="absolute w-full h-full rounded-3xl top-0 bottom-0 left-0 right-0 p-6 md:p-10 flex items-end">
+                      <div className="bg-white p-2 md:p-4 rounded-3xl max-w-[680px]">
+                        <div className="flex items-center text-black mb-4 gap-1 text-xs md:text-base">
                           <CiClock2 className="text-base sm:text-xl" />
                           <span className="text-sm">{dateFormater(post.date, 'YYYY-MM-DD')}</span>
                         </div>
-                        <div className="text-white">
+                        <div className="text-black">
                           <div
                             className="text-xl md:text-[32px] font-bold mb-3 leading-6 md:leading-10"
                             dangerouslySetInnerHTML={{ __html: post.title }}
