@@ -9,7 +9,7 @@ type Props = {
 };
 
 export const Vet2PetSection: React.FC<Props> = ({ data }) => {
-  const {convertStringToParagraph}=useTextFormatter()
+  const { convertStringToParagraph } = useTextFormatter()
   return (
     <section className="container mx-auto pt-5 pb-10 sm:py-10">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
@@ -23,11 +23,11 @@ export const Vet2PetSection: React.FC<Props> = ({ data }) => {
                 height={61}
               />
             </span> */}
-            <div dangerouslySetInnerHTML={{ __html: data.section1_title }} />
+            <div className="max-lg:flex max-lg:gap-5 max-[855px]:flex max-[855px]:gap-0 max-[855px]:flex-col max-md:flex max-md:gap-0 max-md:flex-row max-[500px]:flex max-[500px]:flex-col max-[500px]:gap-0" dangerouslySetInnerHTML={{ __html: data.section1_title }} />
           </h1>
           <div className="flex-1 flex">
             <div className="flex-1 flex flex-col">
-              <p className="body text-secondary max-w-[517px] mb-3 sm:mb-6">
+              <p className="body text-secondary min-[517px]-w-[517px] w-full mb-3 sm:mb-6">
                 {convertStringToParagraph(data.section1_description)}
               </p>
 
@@ -48,7 +48,7 @@ export const Vet2PetSection: React.FC<Props> = ({ data }) => {
         </div>
 
         <div className="flex-shrink-0 flex flex-col-reverse sm:flex-row sm:justify-end relative">
-          <div className="shadow-paper z-10 rounded-2xl p-6 sm:p-8 w-full sm:max-w-[410px] -mt-10 sm:mt-0 sm:absolute bg-white -left-10 bottom-20">
+          <div className="shadow-paper z-10 rounded-2xl p-6 sm:p-8 w-full sm:max-w-[410px] -mt-10 sm:mt-0 sm:absolute bg-white lg:-left-10 left-0 bottom-20">
             <div className="text-xl mb-4 sm:mb-12">
               {data.section1_top_review_text}
             </div>
