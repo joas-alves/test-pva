@@ -1,4 +1,4 @@
-import { GoStarFill } from "react-icons/go";
+import { GoStar, GoStarFill } from "react-icons/go";
 import { ReviewCarouselCard } from "@/components/widgets";
 import { IoChevronForwardOutline, IoChevronBackOutline } from "react-icons/io5";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
@@ -6,8 +6,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { useTranslations } from "next-intl";
 import { IHomePage } from "@/cms-models/home";
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
+import { Swiper as SwiperType } from "swiper";
+import Image from "next/image";
 
 type Props = {
   data: IHomePage;
@@ -73,8 +75,21 @@ export const RealStoriesSection: React.FC<Props> = ({ data }) => {
           "https://lh3.googleusercontent.com/a/ACg8ocKABJoP64cjb3E9ebn8oovbgnNgsjisZnUq6q9R6xaAEmdudQ=s40-c-rp-mo-br100",
       },
     },
+    {
+      rate: 4,
+      message: "",
+      user: {
+        name: "Rodney Torres",
+        username: "Rodney Torres",
+        image:
+          "https://lh3.googleusercontent.com/a/ACg8ocKAGU4luiEaPHQscyHNHtQQwKCwwIUkYoACjTLmN01c9SyMow=s40-c-rp-mo-br100",
+      },
+    },
   ];
-
+  const [currentSlide, setCurrentSlide] = useState(reviewData[0]);
+  const handleSlideChange = (swiper: SwiperType) => {
+    setCurrentSlide(reviewData[swiper.activeIndex]);
+  };
   return (
     <section className="container mx-auto pb-10 sm:px-6 lg:px-8">
       {/* Get Started Button */}
@@ -114,14 +129,31 @@ export const RealStoriesSection: React.FC<Props> = ({ data }) => {
           </p>
           <div className="border border-info rounded-2xl flex items-center gap-4 p-4 mx-auto md:mx-0">
             <div>
+              <Image
+                className="w-full md:w-auto"
+                src="/images/google-icon.svg"
+                width={50}
+                height={50}
+                alt="google"
+              />
+            </div>
+            <div>
               <div className="text-dark-green">{t("reviews")}</div>
               <div className="text-warning flex items-center gap-1">
-                {[...Array(5)].map((_, i) => (
-                  <GoStarFill key={i} />
-                ))}
+                {[...Array(5)].map((_, index) => {
+                  if (index < Math.floor(currentSlide.rate)) {
+                    return <GoStarFill key={index} />;
+                  } else if (index < currentSlide.rate) {
+                    return <GoStar key={index} className="text-gray-400" />;
+                  } else {
+                    return <GoStar key={index} className="text-gray-400" />;
+                  }
+                })}
                 <span className="text-dark-green ml-2">
                   {data.section5_social_rating} (
-                  {data.section5_social_total_rating ?? "5.0"})
+                  {data.section5_social_total_rating ??
+                    currentSlide.rate + ".0"}
+                  )
                 </span>
               </div>
             </div>
@@ -140,6 +172,7 @@ export const RealStoriesSection: React.FC<Props> = ({ data }) => {
             pagination
             modules={[Autoplay, Navigation, Pagination]}
             spaceBetween={24}
+            onSlideChange={handleSlideChange}
           >
             {reviewData.map((review, index) => (
               <SwiperSlide key={index}>

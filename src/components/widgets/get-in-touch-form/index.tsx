@@ -1,16 +1,21 @@
 import { CustomInput, CustomRadioGroup } from "@/components/common";
 import { useTranslations } from "next-intl";
 import { useSnackbar } from "notistack";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { PetOwnerForm } from "./pet-owner";
 import { GetInTouchFormType } from "./types";
 import { getCustomerType } from "./utils";
 import { VetDecisionForm } from "./veterinary";
 import axios from "axios";
+import { handleScrollToInput } from "@/utils/inputScrollFocus";
 
 export const GetInTouchForm = () => {
   const t = useTranslations("Common");
   const { enqueueSnackbar } = useSnackbar();
+  const firstNameInputRef = useRef<HTMLInputElement | null>(null);
+  const lastNameInputRef = useRef<HTMLInputElement | null>(null);
+  const phoneInputRef = useRef<HTMLInputElement | null>(null);
+  const emailInputRef = useRef<HTMLInputElement | null>(null);
 
   const initialValue: GetInTouchFormType = {
     firstName: "",
@@ -35,10 +40,12 @@ export const GetInTouchForm = () => {
     e.preventDefault();
     if (allData.firstName.length <= 0) {
       enqueueSnackbar("Please enter a valid first name.", { variant: "error" });
+      handleScrollToInput(firstNameInputRef)
       return;
     }
     if (allData.lastName.length <= 0) {
       enqueueSnackbar("Please enter a valid last name.", { variant: "error" });
+      handleScrollToInput(lastNameInputRef)
       return;
     }
     // Validate email and phone
@@ -49,6 +56,7 @@ export const GetInTouchForm = () => {
       enqueueSnackbar("Please enter a valid phone number.", {
         variant: "error",
       });
+      handleScrollToInput(phoneInputRef)
       return;
     }
 
@@ -134,6 +142,7 @@ export const GetInTouchForm = () => {
         </div>
         <div className="col-span-2">
           <CustomInput
+            ref={firstNameInputRef}
             label={t("first_name")}
             placeholder={t("enter_first_name")}
             value={allData.firstName}
@@ -142,6 +151,7 @@ export const GetInTouchForm = () => {
         </div>
         <div className="col-span-2">
           <CustomInput
+            ref={lastNameInputRef}
             label={t("last_name")}
             placeholder={t("enter_last_name")}
             value={allData.lastName}
@@ -151,12 +161,14 @@ export const GetInTouchForm = () => {
 
         <div className="col-span-2 grid grid-cols-1 md:grid-cols-2 gap-3">
           <CustomInput
+            ref={phoneInputRef}
             label={t("phone_number")}
             placeholder="+44 123 456 7890"
             value={allData.phone}
             onChange={(e) => handleChange("phone", e.target.value)}
           />
           <CustomInput
+            ref={emailInputRef}
             label={t("e-mail")}
             placeholder="email@example.com"
             value={allData.email}
