@@ -1,16 +1,19 @@
 import { CustomInput, CustomRadioGroup } from "@/components/common";
 import { useTranslations } from "next-intl";
 import { useSnackbar } from "notistack";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { PetOwnerForm } from "./pet-owner";
 import { GetInTouchFormType } from "./types";
 import { getCustomerType } from "./utils";
 import { VetDecisionForm } from "./veterinary";
 import axios from "axios";
+import { useRouter, useSearchParams } from "next/navigation";
 
 export const GetInTouchForm = () => {
   const t = useTranslations("Common");
   const { enqueueSnackbar } = useSnackbar();
+const searchParams=useSearchParams()
+const router=useRouter()
 
   const initialValue: GetInTouchFormType = {
     firstName: "",
@@ -30,6 +33,13 @@ export const GetInTouchForm = () => {
       [field]: value,
     });
   };
+
+  useEffect(() => {
+    if(!searchParams.get("default")) return
+    const initialPreference=searchParams.get("default")==='pet-owner'?t("pet_owner"):t("veterinary_professional")
+    handleChange('preference',initialPreference);
+    router.replace('/get-in-touch')
+  }, [searchParams]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
