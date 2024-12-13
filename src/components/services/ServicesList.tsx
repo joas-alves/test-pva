@@ -17,21 +17,25 @@ export const ServicesList: React.FC<Props> = ({ data }) => {
       title: data.section3_card1_title,
       description: data.section3_card1_description,
       image: "Mask group.svg",
+      link: `/services/` + data.section3_card1_title
     },
     {
       title: data.section3_card2_title,
       description: data.section3_card2_description,
       image: "Mask group_3.svg",
+      link: `/services/` + data.section3_card2_title
     },
     {
       title: data.section3_card5_title,
       description: data.section3_card5_description,
       image: "Mask group_5.svg",
+      link: `/services/` + data.section3_card5_title
     },
     {
       title: data.section3_card4_title,
       description: data.section3_card4_description,
       image: "Mask group_2.svg",
+      link: `/services/` + data.section3_card4_title
     },
   ];
 
@@ -73,8 +77,9 @@ export const ServicesList: React.FC<Props> = ({ data }) => {
               image={service.image}
               title={service.title}
               description={service.description}
+              link={service.link}
               variant={index % 2 === 0 ? "info" : "white"}
-              align="left"
+              align="center"
             />
           </div>
         ))}
