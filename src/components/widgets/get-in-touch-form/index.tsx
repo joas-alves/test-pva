@@ -1,7 +1,7 @@
+import { useRef, useState, useEffect } from "react";
 import { CustomInput, CustomRadioGroup } from "@/components/common";
 import { useTranslations } from "next-intl";
 import { useSnackbar } from "notistack";
-import { useRef, useState, useEffect } from "react";
 import { PetOwnerForm } from "./pet-owner";
 import { GetInTouchFormType } from "./types";
 import { getCustomerType } from "./utils";
@@ -17,8 +17,8 @@ export const GetInTouchForm = () => {
   const lastNameInputRef = useRef<HTMLInputElement | null>(null);
   const phoneInputRef = useRef<HTMLInputElement | null>(null);
   const emailInputRef = useRef<HTMLInputElement | null>(null);
-const searchParams=useSearchParams()
-const router=useRouter()
+  const searchParams=useSearchParams()
+  const router=useRouter()
 
   const initialValue: GetInTouchFormType = {
     firstName: "",

@@ -1,11 +1,10 @@
+import React, { useState } from "react";
 import { GoStar, GoStarFill } from "react-icons/go";
 import { IHomePage } from "@/cms-models/home";
 import { ReviewCarouselCard } from "@/components/widgets";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
-import React, { useState } from "react";
 import { IoChevronBackOutline, IoChevronForwardOutline } from "react-icons/io5";
-import "swiper/css";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
