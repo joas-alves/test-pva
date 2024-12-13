@@ -98,7 +98,7 @@ export default function NewsDetail() {
           <div className="flex items-center text-secondary gap-1">
             <CiClock2 className="text-sm md:text-base sm:text-xl" />
             <span className="text-xs sm:text-base">
-              {dateFormater(data.read_time || data.date, "MMM DD, YYYY • mm")} read
+              {dateFormater(data.read_time || data.date, "MMM DD, YYYY")}
             </span>
           </div>
         </div>

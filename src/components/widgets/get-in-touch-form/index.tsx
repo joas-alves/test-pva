@@ -1,19 +1,24 @@
+import { useRef, useState, useEffect } from "react";
 import { CustomInput, CustomRadioGroup } from "@/components/common";
 import { useTranslations } from "next-intl";
 import { useSnackbar } from "notistack";
-import { useEffect, useState } from "react";
 import { PetOwnerForm } from "./pet-owner";
 import { GetInTouchFormType } from "./types";
 import { getCustomerType } from "./utils";
 import { VetDecisionForm } from "./veterinary";
 import axios from "axios";
+import { handleScrollToInput } from "@/utils/inputScrollFocus";
 import { useRouter, useSearchParams } from "next/navigation";
 
 export const GetInTouchForm = () => {
   const t = useTranslations("Common");
   const { enqueueSnackbar } = useSnackbar();
-const searchParams=useSearchParams()
-const router=useRouter()
+  const firstNameInputRef = useRef<HTMLInputElement | null>(null);
+  const lastNameInputRef = useRef<HTMLInputElement | null>(null);
+  const phoneInputRef = useRef<HTMLInputElement | null>(null);
+  const emailInputRef = useRef<HTMLInputElement | null>(null);
+  const searchParams=useSearchParams()
+  const router=useRouter()
 
   const initialValue: GetInTouchFormType = {
     firstName: "",
@@ -45,10 +50,12 @@ const router=useRouter()
     e.preventDefault();
     if (allData.firstName.length <= 0) {
       enqueueSnackbar("Please enter a valid first name.", { variant: "error" });
+      handleScrollToInput(firstNameInputRef)
       return;
     }
     if (allData.lastName.length <= 0) {
       enqueueSnackbar("Please enter a valid last name.", { variant: "error" });
+      handleScrollToInput(lastNameInputRef)
       return;
     }
     // Validate email and phone
@@ -59,6 +66,7 @@ const router=useRouter()
       enqueueSnackbar("Please enter a valid phone number.", {
         variant: "error",
       });
+      handleScrollToInput(phoneInputRef)
       return;
     }
 
@@ -144,6 +152,7 @@ const router=useRouter()
         </div>
         <div className="col-span-2">
           <CustomInput
+            ref={firstNameInputRef}
             label={t("first_name")}
             placeholder={t("enter_first_name")}
             value={allData.firstName}
@@ -152,6 +161,7 @@ const router=useRouter()
         </div>
         <div className="col-span-2">
           <CustomInput
+            ref={lastNameInputRef}
             label={t("last_name")}
             placeholder={t("enter_last_name")}
             value={allData.lastName}
@@ -161,12 +171,14 @@ const router=useRouter()
 
         <div className="col-span-2 grid grid-cols-1 md:grid-cols-2 gap-3">
           <CustomInput
+            ref={phoneInputRef}
             label={t("phone_number")}
             placeholder="+44 123 456 7890"
             value={allData.phone}
             onChange={(e) => handleChange("phone", e.target.value)}
           />
           <CustomInput
+            ref={emailInputRef}
             label={t("e-mail")}
             placeholder="email@example.com"
             value={allData.email}
