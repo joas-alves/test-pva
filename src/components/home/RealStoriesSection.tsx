@@ -1,13 +1,14 @@
 import { GoStar, GoStarFill } from "react-icons/go";
+import { IHomePage } from "@/cms-models/home";
 import { ReviewCarouselCard } from "@/components/widgets";
-import { IoChevronForwardOutline, IoChevronBackOutline } from "react-icons/io5";
+import { useTranslations } from "next-intl";
+import Link from "next/link";
+import React, { useState } from "react";
+import { IoChevronBackOutline, IoChevronForwardOutline } from "react-icons/io5";
+import "swiper/css";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import { useTranslations } from "next-intl";
-import { IHomePage } from "@/cms-models/home";
-import React, { useState } from "react";
-import Link from "next/link";
 import { Swiper as SwiperType } from "swiper";
 import Image from "next/image";
 
@@ -16,9 +17,8 @@ type Props = {
 };
 
 export const RealStoriesSection: React.FC<Props> = ({ data }) => {
-  const t = useTranslations("Home");
-  const ct = useTranslations("Common");
-
+  const t = useTranslations('Home');
+  const ct = useTranslations('Common');
   const reviewData = [
     {
       rate: 5,
@@ -91,29 +91,18 @@ export const RealStoriesSection: React.FC<Props> = ({ data }) => {
     setCurrentSlide(reviewData[swiper.activeIndex]);
   };
   return (
-    <section className="container mx-auto pb-10 sm:px-6 lg:px-8">
-      {/* Get Started Button */}
-      <div className="flex flex-col w-full justify-center items-center mb-6">
-        <Link href="/get-in-touch">
-          <button className="btn primary-outline-btn font-bold px-8 py-2">
-            {ct("get_started")}
-          </button>
+    <section className="container mx-auto py-3">
+      <div className="flex flex-col w-full justify-center items-center">
+        <Link href={`/get-in-touch?default=pet-owner`} >
+          <button className="btn primary-outline-btn font-bold mb-[25px] px-10 self-center">{ct('get_in_touch')}</button>
         </Link>
       </div>
-
-      {/* Title & Navigation */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between mb-8">
-        <div className="flex-1">
-          <h2
-            className="sub-heading mb-4 md:mb-0"
-            dangerouslySetInnerHTML={{ __html: data.section5_title }}
-          ></h2>
-        </div>
-        {/* Navigation Buttons */}
-        <div className="hidden md:flex items-center gap-5">
-          <button className="w-[60px] h-[60px] rounded-2xl flex items-center justify-center text-primary border border-primary text-2xl swiper-button-prev">
+      <div className="flex">
+        <div className="sub-heading mb-4 md:mb-12 flex-1" dangerouslySetInnerHTML={{ __html: data.section5_title }}></div>
+        <div className="hidden md:flex justify-end gap-5 pb-8 mt-10">
+          <div className="w-[60px] h-[60px] rounded-2xl flex items-center justify-center text-primary border border-primary text-2xl swiper-button-prev cursor-pointer">
             <IoChevronBackOutline />
-          </button>
+      </div>
           <button className="w-[60px] h-[60px] rounded-2xl flex items-center justify-center text-primary border border-primary text-2xl swiper-button-next">
             <IoChevronForwardOutline />
           </button>
@@ -176,12 +165,8 @@ export const RealStoriesSection: React.FC<Props> = ({ data }) => {
           >
             {reviewData.map((review, index) => (
               <SwiperSlide key={index}>
-                <div>
-                  <ReviewCarouselCard
-                    rate={review.rate}
-                    user={review.user}
-                    message={review.message}
-                  />
+                <div className="mx-4">
+                  <ReviewCarouselCard rate={review.rate} user={review.user} message={review.message} />
                 </div>
               </SwiperSlide>
             ))}
