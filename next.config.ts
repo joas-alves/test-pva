@@ -17,7 +17,14 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'pva.21days.org.uk',
+        port: '',
+        pathname: '/**',
+      },
     ],
+    
   }
 };
 
