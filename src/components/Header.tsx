@@ -47,9 +47,6 @@ const Header = () => {
           />
         </Link>
         <nav className="hidden lg:flex gap-4 whitespace-nowrap">
-          <Link href="/">
-            <div className="">{t("home")}</div>
-          </Link>
           <ServicesDropdown />
 
           <Link href="/about-us">

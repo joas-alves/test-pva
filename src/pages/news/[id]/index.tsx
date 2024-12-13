@@ -5,6 +5,7 @@ import { dateFormater } from "@/utils/dataConverter";
 import axios from "axios";
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 import { useParams } from "next/navigation";
 import { NextRouter, useRouter } from "next/router";
 import { useEffect, useState } from "react";
@@ -88,10 +89,9 @@ export default function NewsDetail() {
       </Head>
       <section className="max-w-[846px] mx-auto text-base md:text-xl pt-6">
         <div className="flex justify-between md:items-center flex-col md:flex-row gap-6 mb-3 md:mb-0">
-          <div className="text-secondary body">
-            News /{" "}
-            <span className="text-primary">
-              5 Things You Need To Do In Your Practice!
+          <div className="text-secondary body flex gap-1">
+            <Link href="/news">News </Link>/{" "}
+            <span className="text-primary" dangerouslySetInnerHTML={{ __html: data.title }}>
             </span>
           </div>
 
