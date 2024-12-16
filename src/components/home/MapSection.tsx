@@ -25,8 +25,8 @@ export const MapSection: React.FC<Props> = ({ data }) => {
         </div>
 
         {/* Removed image div, as the image is now a background */}
-        <div className="flex gap-6 justify-between mx-auto w-full mb-10 sm:w-3/5 text-white">
-          <div className="flex flex-col items-center">
+        <div className="flex gap-6 justify-between mx-auto w-full mb-10 sm:w-3/5 text-white flex-wrap">
+          <div className="flex flex-col items-center mx-auto">
             <div className="text-[48px] lg:text-[120px] font-bold">
               {data.section6_practices_number}
             </div>
@@ -34,7 +34,7 @@ export const MapSection: React.FC<Props> = ({ data }) => {
               {data.section6_practices_text}
             </div>
           </div>
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center mx-auto">
             <div className="text-[48px] lg:text-[120px] font-bold">
               {data.section6_countries_number}
             </div>
@@ -42,7 +42,7 @@ export const MapSection: React.FC<Props> = ({ data }) => {
               {data.section6_countries_text}
             </div>
           </div>
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center mx-auto">
             <div className="text-[48px] lg:text-[120px] font-bold">
               {data.section6_continents_number}
             </div>
