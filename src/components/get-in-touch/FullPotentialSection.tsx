@@ -26,7 +26,7 @@ export const FullPotentialSection = () => {
           </div>
 
           <div className="relative flex flex-col-reverse md:flex-row justify-end md:pt-[180px]">
-            <div className="md:absolute top-0 left-0 z-1 w-full -mt-6 md:mt-0 md:w-[350px] lg:w-[400px] bg-[url('/images/double-circles.png')] bg-no-repeat rounded-xl md:rounded-2xl shadow-paper px-4 md:px-6 py-4 md:py-6 bg-white">
+            <div className="md:absolute top-0 left-0 z-1 w-full -mt-6 md:mt-0 md:w-[350px] lg:w-[400px] rounded-xl md:rounded-2xl shadow-paper px-4 md:px-6 py-4 md:py-6 bg-white">
               <div className="text-xl md:text-2xl font-bold mb-4">
                 {t("what_can_i_expect")}
               </div>

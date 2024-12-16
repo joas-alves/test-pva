@@ -1,10 +1,11 @@
+import { IAboutPage } from "@/cms-models/about";
 import { SmallReviewCarouselCard } from "@/components/widgets";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import { reviewData } from "@/temp/reviewDataForTestimonals";
+import React from "react";
 import { IoChevronBackOutline, IoChevronForwardOutline } from "react-icons/io5";
 import 'swiper/css';
-import { IAboutPage } from "@/cms-models/about";
-import React from "react";
+import { Navigation } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 type Props = {
   data: IAboutPage;
@@ -47,9 +48,9 @@ export const TrustUsSection: React.FC<Props> = ({ data }) => {
         pagination={false}
         modules={[Navigation]}
       >
-        {new Array(5).fill(0).map((_, index) => (
+        {reviewData.map((eachReview, index) => (
           <SwiperSlide key={index} className="px-2 py-6">
-            <SmallReviewCarouselCard />
+            <SmallReviewCarouselCard {...eachReview} />
           </SwiperSlide>
         ))}
       </Swiper>
