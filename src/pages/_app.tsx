@@ -10,27 +10,35 @@ import "@/styles/globals.css";
 import { NextIntlClientProvider } from "next-intl";
 import type { AppProps } from "next/app";
 import localFont from "next/font/local";
-import { NextRouter, useRouter } from "next/router";
+import { useRouter } from "next/router";
 import { SnackbarProvider } from "notistack";
 import { ServicesProvider } from "../contexts/services";
 import { useEffect } from "react";
 
+// Initialize Axios
 setupAxios();
 
 declare global {
   interface Window {
-    google: any;
-    googleTranslateElementInit: () => void;
+    google?: {
+      translate: {
+        TranslateElement: new (
+          config: { pageLanguage: string },
+          elementId: string
+        ) => void;
+      };
+    };
+    googleTranslateElementInit?: () => void;
   }
 }
 
-const languages = {
+const languages: Record<string, typeof enUK> = {
   "en-UK": enUK,
   "en-US": enUS,
   es,
   de,
   fr,
-  "global": enUK,
+  global: enUK,
 };
 
 const timeZone = "Europe/Vienna";
@@ -41,22 +49,24 @@ const manrope = localFont({
 });
 
 export const metadata = {
-  title: 'Acme',
+  title: "Acme",
   openGraph: {
-    title: 'Acme',
-    description: 'Acme is a...',
+    title: "Acme",
+    description: "Acme is a...",
   },
 };
 
 export default function App({ Component, pageProps }: AppProps) {
-  const router: NextRouter = useRouter();
+  const router = useRouter();
 
   useEffect(() => {
     const googleTranslateElementInit = () => {
-      new window.google.translate.TranslateElement(
-        { pageLanguage: "en" },
-        "google_translate_element"
-      );
+      if (window.google?.translate?.TranslateElement) {
+        new window.google.translate.TranslateElement(
+          { pageLanguage: "en" },
+          "google_translate_element"
+        );
+      }
     };
 
     const script = document.createElement("script");
@@ -68,12 +78,12 @@ export default function App({ Component, pageProps }: AppProps) {
     window.googleTranslateElementInit = googleTranslateElementInit;
   }, []);
 
+  const locale = router.locale as keyof typeof languages;
+
   return (
     <NextIntlClientProvider
-      locale={router.locale}
-      messages={
-        languages[router.locale as "en-US" | "en-UK" | "es" | "de" | "fr" | "global"]
-      }
+      locale={locale}
+      messages={languages[locale] || languages.global} // Fallback to 'global'
       timeZone={timeZone}
     >
       <SnackbarProvider
@@ -83,7 +93,6 @@ export default function App({ Component, pageProps }: AppProps) {
           vertical: "top",
           horizontal: "right",
         }}
-        classes={{}}
       >
         <ServicesProvider>
           <main className={manrope.className}>
