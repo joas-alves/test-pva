@@ -1,7 +1,11 @@
 import { IServicePage } from "@/cms-models/service";
 import { NeedMoreHelpSection } from "@/components/about-us";
 import { FAQSection } from "@/components/home";
-import { YouPracticeSection } from "@/components/services";
+import {
+  EnhancedSection,
+  Vet2PetSection,
+  YouPracticeSection 
+} from "@/components/services";
 import { faqsForTechnology } from "@/temp/faqs";
 import axios from "axios";
 import Head from "next/head";
@@ -54,6 +58,8 @@ export default function ServicePage() {
           content="https://premiervetalliance.com/uk/services/our-technology/"
         />
       </Head>
+      <Vet2PetSection data={data} />
+      <EnhancedSection data={data} />
       <YouPracticeSection data={data} />
       {/*<RealStoriesSection />*/}
       <FAQSection data={faqsForTechnology} />
