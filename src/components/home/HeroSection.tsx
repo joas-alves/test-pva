@@ -11,14 +11,14 @@ type Props = {
 export const HeroSection: React.FC<Props> = ({ data }) => {
   return (
     <section className="container mx-auto py-10">
-      <div className="flex flex-col lg:flex-row gap-10 sm:gap-6">
-        <div className="flex flex-col">
+      <div className="flex flex-col lg:flex-row gap-10 sm:gap-6 lg:items-start">
+        <div className="flex flex-col items-start">
           <h1
             className="heading mb-5 sm:mb-8 hero-section-title"
             dangerouslySetInnerHTML={{ __html: data.section1_title }}
           />
-          <div className="flex-1 flex justify-between w-full">
-            <div className="flex flex-col w-full">
+          <div className="flex-1 flex justify-between w-full items-start">
+            <div className="flex flex-col w-full gap-8">
               <p
                 className="body text-secondary lg:max-w-[517px] mb-3 sm:mb-6"
                 dangerouslySetInnerHTML={{ __html: data.section1_description }}
@@ -26,12 +26,15 @@ export const HeroSection: React.FC<Props> = ({ data }) => {
               <div className="flex justify-center lg:justify-start">
                 <SignUpInput />
               </div>
-              <div className="hidden md:grid w-full max-w-[410px] rounded-3xl shadow-paper relative grid-cols-1 gap-7">
-                <div>
-                  <Image className="" src={imageUrl(data.section1_rating_image)} width={410} height={187} alt="customer-dog" />
-                </div>
-                
-              </div>
+              <div className="mx-auto lg:mx-0">
+                <Image
+                  className=""
+                  src={imageUrl(data.section1_rating_image)}
+                  width={410}
+                  height={187}
+                  alt="generate extra euro 350,000"
+                />
+              </div>
             </div>
             <Image
               className="hidden xl:block w-full max-w-96 object-contain -mt-6"
