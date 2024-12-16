@@ -29,13 +29,16 @@ export const AdvantagesSection: React.FC<Props> = ({ data }) => {
             <div className="text-xs sm:text-sm text-secondary mb-2">
               {data.section4_experience_text}
             </div>
-            <Image
+            {data.section4_experience_image && (
+              <Image
               className=""
               src={imageUrl(data.section4_experience_image)}
               alt="dog"
               width={149}
               height={116}
             />
+            )}
+            
           </div>
           <Image
             src={imageUrl(data.section4_image)}
