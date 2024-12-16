@@ -26,6 +26,12 @@ export const HeroSection: React.FC<Props> = ({ data }) => {
               <div className="flex justify-center lg:justify-start">
                 <SignUpInput />
               </div>
+              <div className="hidden md:grid w-full max-w-[410px] rounded-3xl shadow-paper relative grid-cols-1 gap-7">
+                <div>
+                  <Image className="" src={imageUrl(data.section1_rating_image)} width={410} height={187} alt="customer-dog" />
+                </div>
+                
+              </div>
             </div>
             <Image
               className="hidden xl:block w-full max-w-96 object-contain -mt-6"
