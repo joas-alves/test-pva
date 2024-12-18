@@ -4,6 +4,7 @@ import {useEffect, useState} from "react";
 import {ITInvestorsPage} from "@/cms-models/investors";
 import {NextRouter, useRouter} from "next/router";
 import axios from "axios";
+import { StrategicReviewSection } from "@/components/investors/StrategicReview";
 
 export default function Investors() {
     const router: NextRouter = useRouter();
@@ -32,6 +33,7 @@ export default function Investors() {
       <InvestHeroSection />
       <OurStorySection />
       <GeneralMeetingSection />
+      <StrategicReviewSection />
       <DiscoverSection
           title={data.section3_title}
           description={data.section3_description}
