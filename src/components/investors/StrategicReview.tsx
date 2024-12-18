@@ -94,7 +94,7 @@ export const StrategicReviewSection = () => {
   return (
     <section className="container mx-auto py-10">
       <div className="sub-heading mb-2">
-        {t('strategic_Review')}
+        {t('strategic_review')}
       </div>
       {investors && investors.length > 0 && investors.map((investor, index) => (
         <div key={index} className="flex justify-between flex-col md:flex-row border-b border-b-gray-200 py-10">
