@@ -1,3 +1,4 @@
+import { globalLanguageConfig, languagesList } from "@/utils";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import clsx from "clsx";
 import Image from "next/image";
@@ -5,56 +6,17 @@ import { NextRouter, useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { FiChevronDown } from "react-icons/fi";
 
-const languages = [
-  {
-    label: "Global",
-    flag: "global.svg",
-    code: "global",
-    googleCode: "en",
-  },
-  {
-    label: "Spanish",
-    flag: "es.svg",
-    code: "es",
-    googleCode: "es",
-  },
-  {
-    label: "English-US",
-    flag: "en-US.svg",
-    code: "en-US",
-    googleCode: "en",
-  },
-  {
-    label: "English-UK",
-    flag: "en-UK.svg",
-    code: "en-UK",
-    googleCode: "en",
-  },
-  {
-    label: "Deutch",
-    flag: "de.svg",
-    code: "de",
-    googleCode: "de",
-  },
-  {
-    label: "French",
-    flag: "fr.svg",
-    code: "fr",
-    googleCode: "fr",
-  },
-];
-
 export const LanguageMenu = () => {
   const router: NextRouter = useRouter();
   const [selectedLanguage, setSelectedLanguage] = useState(() => {
     return (
-      languages.find((lang) => lang.code === router.locale) || languages[2]
+      languagesList.find((lang) => lang.code === router.locale) || globalLanguageConfig
     );
   });
 
   useEffect(() => {
     const currentLanguage =
-      languages.find((lang) => lang.code === router.locale) || languages[2];
+    languagesList.find((lang) => lang.code === router.locale) || globalLanguageConfig
     setSelectedLanguage(currentLanguage);
   }, [router.locale]);
 
@@ -65,7 +27,7 @@ export const LanguageMenu = () => {
       (select as HTMLSelectElement).value = selectedLanguage.googleCode;
       select.dispatchEvent(new Event("change"));
     }
-  }, [selectedLanguage]);
+  }, [selectedLanguage,router]);
 
   const handleChangeLanguage = (code: string) => {
     router.push(router.pathname, router.asPath, { locale: code });
@@ -89,7 +51,7 @@ export const LanguageMenu = () => {
         anchor="bottom end"
         className="origin-top-right rounded-xl p-1 text-sm/6 text-white bg-white shadow transition duration-100 ease-out [--anchor-gap:var(--spacing-1)] mt-2"
       >
-        {languages.map((item, index) => (
+        {languagesList.map((item, index) => (
           <MenuItem key={index}>
             <div
               className={clsx(

@@ -62,8 +62,9 @@ const Header = () => {
         <div className="flex-1" />
         <div className="flex items-center gap-8">
           <div className="hidden lg:block lg:w-[175px] lg:whitespace-nowrap lg:overflow-ellipsis lg:overflow-hidden ">
-            <Link href="/pet-owner" className="ml-2">
-              {ct("pet_owner")}? {ct("click_here")}
+            <Link href="/pet-owner" className="ml-2 flex gap-1">
+              <p>{ct("pet_owner")}</p>
+              <p>{ct("click_here")}</p>
             </Link>
           </div>
           <span className="hidden lg:block">
