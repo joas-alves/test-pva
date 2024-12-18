@@ -1,22 +1,23 @@
+import { useEffect } from "react";
+import { useRouter } from "next/router";
+import { NextIntlClientProvider } from "next-intl";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import de from "@/i18n/de.json";
-import enUK from "@/i18n/en-UK.json";
-import enUS from "@/i18n/en-US.json";
-import es from "@/i18n/es.json";
-import fr from "@/i18n/fr.json";
 import setupAxios from "@/setupAxios";
 import "@/styles/globals.css";
-import { NextIntlClientProvider } from "next-intl";
-import type { AppProps } from "next/app";
 import localFont from "next/font/local";
-import { useRouter } from "next/router";
 import { SnackbarProvider } from "notistack";
 import { ServicesProvider } from "../contexts/services";
-import { useEffect } from "react";
+import { languagesConfig } from "@/utils";
+import { AppProps } from "next/app";
 
 // Initialize Axios
 setupAxios();
+
+const manrope = localFont({
+  src: "../assets/fonts/Manrope-VariableFont_wght.ttf",
+  variable: "--font-manrope",
+});
 
 declare global {
   interface Window {
@@ -32,35 +33,13 @@ declare global {
   }
 }
 
-const languages: Record<string, typeof enUK> = {
-  "en-UK": enUK,
-  "en-US": enUS,
-  es,
-  de,
-  fr,
-  global: enUK,
-};
-
 const timeZone = "Europe/Vienna";
-
-const manrope = localFont({
-  src: "../assets/fonts/Manrope-VariableFont_wght.ttf",
-  variable: "--font-manrope",
-});
-
-export const metadata = {
-  title: "Acme",
-  openGraph: {
-    title: "Acme",
-    description: "Acme is a...",
-  },
-};
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
-
+  const locale = router.locale as keyof typeof languagesConfig;
   useEffect(() => {
-    const googleTranslateElementInit = () => {
+    const initializeGoogleTranslate = () => {
       if (window.google?.translate?.TranslateElement) {
         new window.google.translate.TranslateElement(
           { pageLanguage: "en" },
@@ -73,17 +52,25 @@ export default function App({ Component, pageProps }: AppProps) {
     script.src =
       "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
     script.async = true;
+    script.onload = () => {
+      // Ensure re-initialization after script load
+      if (window.googleTranslateElementInit) {
+        window.googleTranslateElementInit();
+      } else {
+        initializeGoogleTranslate();
+      }
+    };
     document.body.appendChild(script);
 
-    window.googleTranslateElementInit = googleTranslateElementInit;
+    // Expose the init function globally
+    window.googleTranslateElementInit = initializeGoogleTranslate;
   }, []);
 
-  const locale = router.locale as keyof typeof languages;
 
   return (
     <NextIntlClientProvider
       locale={locale}
-      messages={languages[locale] || languages.global} // Fallback to 'global'
+      messages={languagesConfig[locale] || languagesConfig.global}
       timeZone={timeZone}
     >
       <SnackbarProvider
@@ -97,10 +84,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <ServicesProvider>
           <main className={manrope.className}>
             <Header />
-            <div
-              id="google_translate_element"
-              style={{ display: "none" }}
-            ></div>
+            <div id="google_translate_element" style={{ display: "none" }}></div>
             <Component {...pageProps} />
             <Footer />
           </main>
