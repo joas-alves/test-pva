@@ -27,7 +27,7 @@ export const LanguageMenu = () => {
       (select as HTMLSelectElement).value = selectedLanguage.googleCode;
       select.dispatchEvent(new Event("change"));
     }
-  }, [selectedLanguage]);
+  }, [selectedLanguage,router]);
 
   const handleChangeLanguage = (code: string) => {
     router.push(router.pathname, router.asPath, { locale: code });
