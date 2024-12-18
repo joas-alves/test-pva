@@ -5,17 +5,18 @@ import es from "@/i18n/es.json";
 import fr from "@/i18n/fr.json";
 
 export const imageUrl = (url: string) => {
-  return process.env.NEXT_PUBLIC_APP_ASSET_ENDPOINT + '/' + url;
-}
+  return process.env.NEXT_PUBLIC_APP_ASSET_ENDPOINT + "/" + url;
+};
 
-
-export const servicesRouteMapping: Record<number, { name: string; slug: string }> = {
+export const servicesRouteMapping: Record<
+  number,
+  { name: string; slug: string }
+> = {
   1: { name: "Premier Pet Care Plan", slug: "premier-pet-care-plan" },
   2: { name: "Training", slug: "training" },
   4: { name: "Home Delivery", slug: "post2pet" },
   5: { name: "Technology", slug: "technology" },
 };
-
 
 // --------------------------- Localization ------------------------------
 export enum LanguageCode {
@@ -34,7 +35,7 @@ export enum GoogleLanguageCode {
   French = "fr",
 }
 
-type Translation = typeof enUK;
+type Translation = Record<string, Record<string, string>>;
 
 export type LanguageConfig = {
   label: string;
@@ -101,7 +102,8 @@ export const languagesList: LanguageConfig[] = [
   frenchLanguageConfig,
 ];
 
-export const languagesConfig: Record<LanguageCode, Translation> = languagesList.reduce((acc, lang) => {
-  acc[lang.code] = lang.translation;
-  return acc;
-}, {} as Record<LanguageCode, Translation>);
+export const languagesConfig: Record<LanguageCode, Translation> =
+  languagesList.reduce((acc, lang) => {
+    acc[lang.code] = lang.translation;
+    return acc;
+  }, {} as Record<LanguageCode, Translation>);
