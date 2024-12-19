@@ -13,6 +13,7 @@ export default function Investors() {
     const [disImages, setDisImages] = useState([]);
 
     useEffect(() => {
+      if (!router.isReady) return;
         (async () => {
             try{
                 const response = await axios(`/api/${router.locale}/investors-content/1`);
@@ -26,6 +27,10 @@ export default function Investors() {
             }
         })();
     }, [router.locale]);
+
+    if (!data || Object.keys(data).length === 0) {
+      return <div>Loading...</div>;
+    }
 
 
   return (

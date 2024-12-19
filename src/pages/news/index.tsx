@@ -11,6 +11,7 @@ export default function News() {
   const [data, setData] = useState<INewsPage[]>([]);
 
   useEffect(() => {
+    if (!router.isReady) return;
     (async () => {
       try {
         const response = await axios(`/api/${router.locale}/news`);
@@ -26,6 +27,10 @@ export default function News() {
       } catch (error) {}
     })();
   }, [router.locale]);
+
+  if (!data || Object.keys(data).length === 0) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <>
