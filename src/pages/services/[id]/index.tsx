@@ -14,6 +14,7 @@ export default function ServicePage() {
   const [data, setData] = useState<IServicePage>({} as IServicePage);
 
   useEffect(() => {
+    if (!router.isReady) return;
     (async () => {
         try {
           if (params?.id) {
@@ -27,6 +28,10 @@ export default function ServicePage() {
         }
     })();
   }, [router.locale, params]);
+
+  if (!data || Object.keys(data).length === 0) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className="flex flex-col gap-0 md:gap-20">

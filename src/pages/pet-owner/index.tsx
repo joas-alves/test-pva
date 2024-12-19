@@ -15,6 +15,7 @@ export default function PetOwnerPage() {
   const [data, setData] = useState<IHomePage>({} as IHomePage);
 
   useEffect(() => {
+    if (!router.isReady) return;
     (async () => {
       try {
         const response = await axios(
@@ -27,6 +28,11 @@ export default function PetOwnerPage() {
       } catch (error) {}
     })();
   }, [router.locale]);
+
+  if (!data || Object.keys(data).length === 0) {
+    return <div>Loading...</div>;
+  }
+  
   return (
     <section className="container mx-auto pt-10 pb-40">
       <h1 className="sub-heading mb-6">

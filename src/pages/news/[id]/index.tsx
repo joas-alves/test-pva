@@ -19,6 +19,7 @@ export default function NewsDetail() {
   const [relevantBlogs, setRelevantData] = useState<INewsPage[]>([]);
 
   useEffect(() => {
+    if (!router.isReady) return;
     (async () => {
       if (params?.id) {
         try {
@@ -56,6 +57,10 @@ export default function NewsDetail() {
       } catch (error) {}
     })();
   }, [router.locale, params]);
+
+  if (!data || Object.keys(data).length === 0) {
+    return <div>Loading...</div>;
+  }
 
   const images = data.image ? JSON.parse(data.image) : "";
 
