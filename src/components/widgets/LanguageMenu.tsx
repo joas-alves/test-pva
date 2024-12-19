@@ -35,7 +35,7 @@ export const LanguageMenu = () => {
 
   return (
     <Menu>
-      <MenuButton className="inline-flex items-center gap-1">
+      <MenuButton className="inline-flex items-center gap-1 z-10">
         <Image
           className="rounded-full"
           src={`/images/flags/${selectedLanguage.flag}`}
@@ -49,7 +49,7 @@ export const LanguageMenu = () => {
       <MenuItems
         transition
         anchor="bottom end"
-        className="origin-top-right rounded-xl p-1 text-sm/6 text-white bg-white shadow transition duration-100 ease-out [--anchor-gap:var(--spacing-1)] mt-2"
+        className="origin-top-right rounded-xl p-1 text-sm/6 text-white bg-white shadow transition duration-100 ease-out [--anchor-gap:var(--spacing-1)] mt-2 z-10"
       >
         {languagesList.map((item, index) => (
           <MenuItem key={index}>

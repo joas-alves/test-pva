@@ -32,7 +32,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="container mx-auto flex items-center py-4">
+      <header className="container mx-auto flex items-center relative py-4">
         <RiMenuLine
           className="cursor-pointer mr-5 flex-shrink-0 block lg:hidden"
           onClick={() => setIsSidebarOpen(true)}
