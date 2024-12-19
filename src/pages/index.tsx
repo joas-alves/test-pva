@@ -21,6 +21,7 @@ export default function Home() {
   const [data, setData] = useState<IHomePage>({} as IHomePage);
 
   useEffect(() => {
+    if (!router.isReady) return;
     (async () => {
         try{
             const response = await axios(`/api/${router.locale}/homepage-content/1`);
@@ -32,6 +33,10 @@ export default function Home() {
         }
     })();
   }, [router.locale]);
+
+  if (!data || Object.keys(data).length === 0) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className="flex flex-col gap-0 md:gap-20">

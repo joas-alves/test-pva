@@ -19,6 +19,7 @@ export default function AboutUs() {
   const [data, setData] = useState<IAboutPage>({} as IAboutPage);
 
   useEffect(() => {
+    if (!router.isReady) return;
     (async () => {
         try{
           const response = await axios(`/api/${router.locale}/about-content/1`);
@@ -30,6 +31,10 @@ export default function AboutUs() {
         }
     })();
   }, [router.locale]);
+
+  if (!data || Object.keys(data).length === 0) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className="flex flex-col gap-0 md:gap-20">
