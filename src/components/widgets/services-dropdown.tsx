@@ -1,6 +1,6 @@
 import { useServicesContext } from "@/contexts/services";
 import { servicesRouteMapping } from "@/utils";
-import {  useRouter } from "next/router";
+import { useRouter } from "next/router";
 import { DropdownMenu } from "./DropdownMenu";
 
 export interface ServiceDropdown {
@@ -11,18 +11,22 @@ const ServicesDropdown = (props: ServiceDropdown) => {
   const { services } = useServicesContext();
 
   const router = useRouter();
-  const isEnUs = router.locale?.toLowerCase().includes("en-us");
+  const isEnUK = router.locale?.toLowerCase().includes("en-uk");
+  const isglobal = router.locale?.toLowerCase().includes("global");
+
   const preparedServices: Array<{
     id: number;
     label: string;
-  }> = services?.map((item) => ({
-    id: item.id,
-    label: servicesRouteMapping[item.id].name,
-  })).filter((item) => !(isEnUs && item.label?.match(/delivery/i)));;
+  }> = services
+    ?.map((item) => ({
+      id: item.id,
+      label: servicesRouteMapping[item.id].name,
+    }))
+    .filter((item) => isEnUK || isglobal || !item.label?.match(/delivery/i));
 
   const onClick = (id: number) => {
     onChange?.();
-    if (servicesRouteMapping?.[id]?.slug )
+    if (servicesRouteMapping?.[id]?.slug)
       return router.push(`/services/${servicesRouteMapping[id].slug}`);
 
     router.push(`/services`);

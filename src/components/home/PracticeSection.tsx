@@ -14,6 +14,8 @@ export const PracticeSection: React.FC<Props> = ({ data }) => {
   const router = useRouter();
 
   const isEnUs = router.locale?.toLowerCase().includes("en-us");
+  const isEnUK = router.locale?.toLowerCase().includes("en-uk");
+  const isglobal = router.locale?.toLowerCase().includes("global");
 
   return (
     <section className="container mx-auto py-10">
@@ -42,7 +44,7 @@ export const PracticeSection: React.FC<Props> = ({ data }) => {
             backgroundClassName="w-full"
           />
         </div>
-        {!isEnUs && (
+        {(isEnUK || isglobal) && (
           <div className="md:w-3/5">
             <PracticeCard
               image="Mask group_3.svg"

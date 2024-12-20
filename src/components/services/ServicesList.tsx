@@ -10,38 +10,40 @@ type Props = {
 
 export const ServicesList: React.FC<Props> = ({ data }) => {
   const router = useRouter();
-  const isEnUs = router.locale?.toLowerCase().includes("en-us");
+  const isEnUK = router.locale?.toLowerCase().includes("en-uk");
+  const isglobal = router.locale?.toLowerCase().includes("global");
 
   const services = [
     {
       title: data.section3_card1_title,
       description: data.section3_card1_description,
       image: "Mask group.svg",
-      link: `/services/` + data.section3_card1_title
+      link: `/services/` + data.section3_card1_title,
     },
     {
       title: data.section3_card2_title,
       description: data.section3_card2_description,
       image: "Mask group_3.svg",
-      link: `/services/` + data.section3_card2_title
+      link: `/services/` + data.section3_card2_title,
     },
     {
       title: data.section3_card5_title,
       description: data.section3_card5_description,
       image: "Mask group_5.svg",
-      link: `/services/` + data.section3_card5_title
+      link: `/services/` + data.section3_card5_title,
     },
     {
       title: data.section3_card4_title,
       description: data.section3_card4_description,
       image: "Mask group_2.svg",
-      link: `/services/` + data.section3_card4_title
+      link: `/services/` + data.section3_card4_title,
     },
   ];
 
-  const filteredServices = isEnUs
-    ? services.filter(service => !service?.title?.match(/post2pet/i))
-    : services;
+  const filteredServices =
+    isEnUK || isglobal
+      ? services
+      : services.filter((service) => !service?.title?.match(/post2pet/i));
 
   return (
     <section className="container mx-auto py-10">
@@ -66,13 +68,7 @@ export const ServicesList: React.FC<Props> = ({ data }) => {
 
       <div className="space-y-8">
         {filteredServices.map((service, index) => (
-          <div
-            key={index}
-            className={clsx(
-              "w-full mx-auto",
-              "md:w-[80%]",
-            )}
-          >
+          <div key={index} className={clsx("w-full mx-auto", "md:w-[80%]")}>
             <ServiceCard
               image={service.image}
               title={service.title}
