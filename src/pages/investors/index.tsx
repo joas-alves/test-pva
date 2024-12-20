@@ -5,14 +5,28 @@ import {ITInvestorsPage} from "@/cms-models/investors";
 import {NextRouter, useRouter} from "next/router";
 import axios from "axios";
 import { StrategicReviewSection } from "@/components/investors/StrategicReview";
+import { BasicModal } from "@/components/modals/basic";
 
 export default function Investors() {
     const router: NextRouter = useRouter();
 
     const [data, setData] = useState<ITInvestorsPage>({} as ITInvestorsPage);
     const [disImages, setDisImages] = useState([]);
-
+    const [isOpen, setIsOpen] = useState(false);
+    const onAction = (value: string) => {
+      if(value === 'disagree'){
+        setIsOpen(false)
+        router.push("/")
+      }else{
+        localStorage.setItem("investorAgree", "true")
+        setIsOpen(false)
+      }
+      
+    }
     useEffect(() => {
+      if(!localStorage.getItem('investorAgree')){
+        setIsOpen(true)
+      }
       if (!router.isReady) return;
         (async () => {
             try{
@@ -44,6 +58,7 @@ export default function Investors() {
           description={data.section3_description}
           image={`${disImages[disImages.length - 1]}`}
       />
+      <BasicModal setIsOpen={setIsOpen} isOpen={isOpen} onAction={onAction} />
     </div>
   )
 }

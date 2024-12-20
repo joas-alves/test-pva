@@ -148,7 +148,7 @@ const Header = () => {
               </nav>
               <div className="flex flex-col gap-3 mt-10">
                 <Link href="/pet-owner" onClick={() => setIsSidebarOpen(false)}>
-                  {ct("pet_owner")}? {ct("click_here")}
+                  {ct("pet_owner")} {ct("click_here")}
                 </Link>
                 <div className="flex justify-between">
                   <LanguageMenu />
