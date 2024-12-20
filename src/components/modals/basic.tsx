@@ -1,18 +1,14 @@
-import { useState } from "react";
 import {
   Dialog,
   DialogBackdrop,
   DialogPanel,
-  DialogTitle,
 } from "@headlessui/react";
 type Props = {
   isOpen: boolean;
-  setIsOpen: (value: boolean) => void;
   onAction: (action: string) => void;
 };
 export const BasicModal: React.FC<Props> = ({
   isOpen,
-  setIsOpen,
   onAction,
 }) => {
   return (

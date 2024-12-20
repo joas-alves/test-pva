@@ -58,7 +58,7 @@ export default function Investors() {
           description={data.section3_description}
           image={`${disImages[disImages.length - 1]}`}
       />
-      <BasicModal setIsOpen={setIsOpen} isOpen={isOpen} onAction={onAction} />
+      <BasicModal  isOpen={isOpen} onAction={onAction} />
     </div>
   )
 }
