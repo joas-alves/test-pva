@@ -2,8 +2,6 @@ import axios from 'axios';
 
 const setupAxios = () => {
   axios.defaults.baseURL = process.env.NEXT_PUBLIC_APP_API_ENDPOINT;
-   axios.defaults.headers.common['Accept'] = 'application/json';
-   axios.defaults.headers.common['Content-Type'] = 'application/json';
    axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
 };
 
