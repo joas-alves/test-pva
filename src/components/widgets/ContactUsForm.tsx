@@ -64,7 +64,7 @@ export const ContactUsForm = () => {
     }
 
     try {
-      const response = await axios.post(`/api/api/contact-us`, formData);
+      const response = await axios.post(`/api/contact-us`, formData);
 
       if (response.status === 201) {
         // If everything is valid, show success message

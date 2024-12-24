@@ -19,7 +19,7 @@ export default function PetOwnerPage() {
     (async () => {
       try {
         const response = await axios(
-          `/api/${router.locale}/homepage-content/1`
+          `/${router.locale}/homepage-content/1`
         );
         if (response.status === 200) {
           setData(response.data);

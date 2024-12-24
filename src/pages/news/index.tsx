@@ -14,7 +14,7 @@ export default function News() {
     if (!router.isReady) return;
     (async () => {
       try {
-        const response = await axios(`/api/${router.locale}/news`);
+        const response = await axios(`/${router.locale}/news`);
         if (response.status === 200) {
           if(response.data && response.data.length > 0){
             const blogs:INewsPage[]  = response.data

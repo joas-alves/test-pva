@@ -30,7 +30,7 @@ export default function Investors() {
       if (!router.isReady) return;
         (async () => {
             try{
-                const response = await axios(`/api/${router.locale}/investors-content/1`);
+                const response = await axios(`/${router.locale}/investors-content/1`);
                 if (response.status === 200) {
                     setData(response.data);
                     const imgs = JSON.parse(response.data?.section3_bg_image ?? []);

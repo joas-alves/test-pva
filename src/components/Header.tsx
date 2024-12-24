@@ -20,7 +20,7 @@ const Header = () => {
     (async () => {
       try {
         const response = await axios.get(
-          `/api/en-UK/service-contents`
+          `/en-UK/service-contents`
         );
         if (response.status === 200) {
           return setServices(response.data);
