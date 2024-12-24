@@ -14,10 +14,11 @@ export default function ServicePage() {
   const [data, setData] = useState<IServicePage>({} as IServicePage);
 
   useEffect(() => {
+    if (!router.isReady) return;
     (async () => {
         try {
           if (params?.id) {
-              const response = await axios.get(`/api/${router.locale}/service-content/${params?.id}`);
+              const response = await axios.get(`/${router.locale}/service-content/${params?.id}`);
               if (response.status === 200) {
                   return setData(response.data);
               }
@@ -27,6 +28,10 @@ export default function ServicePage() {
         }
     })();
   }, [router.locale, params]);
+
+  if (!data || Object.keys(data).length === 0) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className="flex flex-col gap-0 md:gap-20">

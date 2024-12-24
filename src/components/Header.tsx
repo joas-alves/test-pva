@@ -20,7 +20,7 @@ const Header = () => {
     (async () => {
       try {
         const response = await axios.get(
-          `/api/${router.locale}/service-contents`
+          `/en-UK/service-contents`
         );
         if (response.status === 200) {
           return setServices(response.data);
@@ -32,7 +32,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="container mx-auto flex items-center py-4">
+      <header className="container mx-auto flex items-center relative py-4">
         <RiMenuLine
           className="cursor-pointer mr-5 flex-shrink-0 block lg:hidden"
           onClick={() => setIsSidebarOpen(true)}
@@ -62,8 +62,9 @@ const Header = () => {
         <div className="flex-1" />
         <div className="flex items-center gap-8">
           <div className="hidden lg:block lg:w-[175px] lg:whitespace-nowrap lg:overflow-ellipsis lg:overflow-hidden ">
-            <Link href="/pet-owner" className="ml-2">
-              {ct("pet_owner")}? {ct("click_here")}
+            <Link href="/pet-owner" className="ml-2 flex gap-1">
+              <p>{ct("pet_owner")}</p>
+              <p>{ct("click_here")}</p>
             </Link>
           </div>
           <span className="hidden lg:block">
@@ -147,7 +148,7 @@ const Header = () => {
               </nav>
               <div className="flex flex-col gap-3 mt-10">
                 <Link href="/pet-owner" onClick={() => setIsSidebarOpen(false)}>
-                  {ct("pet_owner")}? {ct("click_here")}
+                  {ct("pet_owner")} {ct("click_here")}
                 </Link>
                 <div className="flex justify-between">
                   <LanguageMenu />

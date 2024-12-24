@@ -15,7 +15,9 @@ export const HeroSection: React.FC<Props> = ({ data }) => {
         <div className="flex flex-col items-start">
           <h1
             className="heading mb-5 sm:mb-8 hero-section-title"
-            dangerouslySetInnerHTML={{ __html: data.section1_title }}
+            dangerouslySetInnerHTML={{
+              __html: (data.section1_title || "").replace(/<p>&nbsp;<\/p>/g, ""),
+            }}
           />
           <div className="flex-1 flex justify-between w-full items-start">
             <div className="flex flex-col w-full gap-8">

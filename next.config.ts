@@ -29,6 +29,12 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'admin.21days.org.uk',
+        port: '',
+        pathname: '/**',
+      },
     ],
     
   }

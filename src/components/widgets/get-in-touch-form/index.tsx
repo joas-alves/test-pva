@@ -71,7 +71,7 @@ export const GetInTouchForm = () => {
     }
 
     try {
-      const response = await axios.post(`/api/api/get-in-touch`, allData);
+      const response = await axios.post(`/api/get-in-touch`, allData);
       if (response.status === 201) {
         enqueueSnackbar("Thank you for getting in touch!", {
           variant: "success",

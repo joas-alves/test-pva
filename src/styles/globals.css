@@ -93,3 +93,14 @@ a:hover {
     width: 100% !important;
   } */
 }
+
+
+.goog-te-gadget img{
+  display:none !important;
+}
+body > .skiptranslate {
+  display: none;
+}
+body {
+  top: 0px !important;
+}
