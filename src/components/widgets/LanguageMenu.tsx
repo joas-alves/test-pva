@@ -1,4 +1,4 @@
-import { globalLanguageConfig, languagesList } from "@/utils";
+import { globalLanguageConfig, LanguageConfig, languagesList } from "@/utils";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import clsx from "clsx";
 import Image from "next/image";
@@ -8,22 +8,18 @@ import { FiChevronDown } from "react-icons/fi";
 
 export const LanguageMenu = () => {
   const router: NextRouter = useRouter();
-  const [selectedLanguage, setSelectedLanguage] = useState(() => {
-    return (
-      languagesList.find((lang) => lang.code === router.locale) || globalLanguageConfig
-    );
-  });
+  const [selectedLanguage, setSelectedLanguage] = useState<LanguageConfig | null>(null);
 
   useEffect(() => {
     const currentLanguage =
     languagesList.find((lang) => lang.code === router.locale) || globalLanguageConfig
-    setSelectedLanguage(currentLanguage);
+    if(currentLanguage)setSelectedLanguage(currentLanguage)
   }, [router.locale]);
 
   useEffect(() => {
     const select = document.querySelector("select.goog-te-combo");
 
-    if (select) {
+    if (select && selectedLanguage) {
       (select as HTMLSelectElement).value = selectedLanguage.googleCode;
       select.dispatchEvent(new Event("change"));
     }
@@ -32,6 +28,8 @@ export const LanguageMenu = () => {
   const handleChangeLanguage = (code: string) => {
     router.push(router.pathname, router.asPath, { locale: code });
   };
+
+  if(!selectedLanguage) return null
 
   return (
     <Menu>

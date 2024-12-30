@@ -1,15 +1,15 @@
-import { useEffect } from "react";
-import { useRouter } from "next/router";
-import { NextIntlClientProvider } from "next-intl";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import setupAxios from "@/setupAxios";
 import "@/styles/globals.css";
-import localFont from "next/font/local";
-import { SnackbarProvider } from "notistack";
-import { ServicesProvider } from "../contexts/services";
-import { languagesConfig } from "@/utils";
+import { languagesConfig, languagesList } from "@/utils";
+import { NextIntlClientProvider } from "next-intl";
 import { AppProps } from "next/app";
+import localFont from "next/font/local";
+import { useRouter } from "next/router";
+import { SnackbarProvider } from "notistack";
+import { useEffect } from "react";
+import { ServicesProvider } from "../contexts/services";
 
 // Initialize Axios
 setupAxios();
@@ -38,11 +38,12 @@ const timeZone = "Europe/Vienna";
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
   const locale = router.locale as keyof typeof languagesConfig;
+  const languageConfig=languagesList.find((each)=>each.code===locale)
   useEffect(() => {
     const initializeGoogleTranslate = () => {
       if (window.google?.translate?.TranslateElement) {
         new window.google.translate.TranslateElement(
-          { pageLanguage: "en" },
+          { pageLanguage: languageConfig?.code || 'en' },
           "google_translate_element"
         );
       }
