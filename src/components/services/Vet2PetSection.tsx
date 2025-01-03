@@ -9,9 +9,9 @@ type Props = {
 };
 
 export const Vet2PetSection: React.FC<Props> = ({ data }) => {
-  const { convertStringToParagraph } = useTextFormatter()
+  const { convertStringToParagraph } = useTextFormatter();
   return (
-    <section className="container mx-auto pt-5 pb-10 sm:py-10">
+    <section className="container mx-auto pt-5 pb-10 sm:py-10 flex flex-col gap-8">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
         <div className="flex flex-col">
           <h1 className="heading mb-5 sm:mb-8 flex items-center gap-5">
@@ -23,7 +23,10 @@ export const Vet2PetSection: React.FC<Props> = ({ data }) => {
                 height={61}
               />
             </span> */}
-            <div className="max-lg:flex max-lg:gap-5 max-[855px]:flex max-[855px]:gap-0 max-[855px]:flex-col max-md:flex max-md:gap-0 max-md:flex-row max-[500px]:flex max-[500px]:flex-col max-[500px]:gap-0" dangerouslySetInnerHTML={{ __html: data.section1_title }} />
+            <div
+              className="max-lg:flex max-lg:gap-5 max-[855px]:flex max-[855px]:gap-0 max-[855px]:flex-col max-md:flex max-md:gap-0 max-md:flex-row max-[500px]:flex max-[500px]:flex-col max-[500px]:gap-0"
+              dangerouslySetInnerHTML={{ __html: data.section1_title }}
+            />
           </h1>
           <div className="flex-1 flex">
             <div className="flex-1 flex flex-col">
@@ -48,26 +51,6 @@ export const Vet2PetSection: React.FC<Props> = ({ data }) => {
         </div>
 
         <div className="flex-shrink-0 flex flex-col-reverse sm:flex-row sm:justify-end relative">
-          <div className="shadow-paper z-10 rounded-2xl p-6 sm:p-8 w-full sm:max-w-[410px] -mt-10 sm:mt-0 sm:absolute bg-white lg:-left-10 left-0 bottom-20">
-            <div className="text-xl mb-4 sm:mb-12">
-              {data.section1_top_review_text}
-            </div>
-            <div className="flex items-center gap-4">
-              {/* <Image
-                className="rounded-full bg-gray-100"
-                width={46}
-                height={46}
-                src={imageUrl(data.section1_reviewer_image)}
-                alt="reviewer"
-              /> */}
-              <div>
-                <p className="font-semibold">{data.section1_reviewer_name}</p>
-                <p className="text-sm text-secondary">
-                  {data.section1_reviewer_office}
-                </p>
-              </div>
-            </div>
-          </div>
           <Image
             className="hidden sm:block"
             src={imageUrl(data.section1_logo)}
@@ -82,6 +65,19 @@ export const Vet2PetSection: React.FC<Props> = ({ data }) => {
             height={240}
             alt="dog"
           />
+        </div>
+      </div>
+      <div className="border shadow-paper rounded-2xl p-6 w-full bg-white">
+        <div className="text-xl mb-4 sm:mb-12">
+          {data.section1_top_review_text}
+        </div>
+        <div className="flex items-center">
+          <div>
+            <p className="font-semibold">{data.section1_reviewer_name}</p>
+            <p className="text-sm text-secondary">
+              {data.section1_reviewer_office}
+            </p>
+          </div>
         </div>
       </div>
     </section>

@@ -30,7 +30,8 @@
     "news": "News",
     "contact": "Contact",
     "global_site": "Global Site",
-    "book_a_demo": "Book A Demo"
+    "book_a_demo": "Book A Demo",
+    "investors":"Investors"
   },
   "Home": {
     "global_leader_in_preventative": "Global Leader in Preventative",
@@ -228,7 +229,7 @@
     "pva_extended_its_reach": "PVA extended its reach to Ireland, the Netherlands, and Germany, establishing a solid European presence.",
     "global_veterinary_partner": "Global Veterinary Partner",
     "now_partnering_with": "Now partnering with 3,000+ practices, PVA provides solutions for pet health and practice growth worldwide.",
-    "success_stories_from": "Success Stories from",
+    "success_stories_from": "Success stories from",
     "those_who_trust_us": "Those Who Trust Us",
     "see_how_our_tailored_solutions": "See how our tailored solutions have helped clients worldwide boost efficiency and improve outcomes, directly from their experiences.",
     "need_more_help": "Need More Help?",
@@ -262,6 +263,7 @@
   },
   "Footer": {
     "investors": "Investors",
+    "strategic_review": "Strategic Review",
     "services": "Services",
     "about": "About",
     "news": "News",

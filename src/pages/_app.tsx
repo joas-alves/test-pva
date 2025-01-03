@@ -38,12 +38,12 @@ const timeZone = "Europe/Vienna";
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
   const locale = router.locale as keyof typeof languagesConfig;
-  const languageConfig=languagesList.find((each)=>each.code===locale)
+  const languageConfig = languagesList.find((each) => each.code === locale);
   useEffect(() => {
     const initializeGoogleTranslate = () => {
       if (window.google?.translate?.TranslateElement) {
         new window.google.translate.TranslateElement(
-          { pageLanguage: languageConfig?.code || 'en' },
+          { pageLanguage: languageConfig?.code || "en" },
           "google_translate_element"
         );
       }
@@ -67,7 +67,6 @@ export default function App({ Component, pageProps }: AppProps) {
     window.googleTranslateElementInit = initializeGoogleTranslate;
   }, []);
 
-
   return (
     <NextIntlClientProvider
       locale={locale}
@@ -85,7 +84,10 @@ export default function App({ Component, pageProps }: AppProps) {
         <ServicesProvider>
           <main className={manrope.className}>
             <Header />
-            <div id="google_translate_element" style={{ display: "none" }}></div>
+            <div
+              id="google_translate_element"
+              style={{ display: "none" }}
+            ></div>
             <Component {...pageProps} />
             <Footer />
           </main>

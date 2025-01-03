@@ -1,22 +1,20 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 
-export const InvestHeroSection = () => {
+type Props = {
+  title: string;
+};
+export const InvestHeroSection: React.FC<Props> = ({ title }) => {
   const t = useTranslations("Investors");
-
   return (
     <section className="container mx-auto py-10 sm:mb-20 xs:mb-20">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
         <div>
           <div className="flex flex-col max-w-[519px]">
-            <h1 className="sub-heading">
-              {t("invest_in_the")}{" "}
-              <span className="text-primary">{t("future")}</span>
-            </h1>
-            <h1 className="sub-heading mb-5 sm:mb-8">
-              <span className="text-primary">{t("of_veterinary")}</span>{" "}
-              {t("care")}
-            </h1>
+            <h1
+              className="sub-heading"
+              dangerouslySetInnerHTML={{ __html: title }}
+            />
 
             <p className="body text-secondary mb-3 sm:mb-[110px]">
               {t("explore_investment_opportunities")}
@@ -26,7 +24,7 @@ export const InvestHeroSection = () => {
 
         <div className="relative w-full sm:w-auto lg:max-w-2xl mx-auto lg:mx-0 flex flex-col gap-4">
           <Image
-          className="w-full lg:w-fit lg:h-full  lg:max-h-96 lg:object-contain"
+            className="w-full lg:w-fit lg:h-full lg:max-h-96 lg:object-contain"
             src="/images/invest-hero.png"
             width={411}
             height={460}
@@ -39,7 +37,9 @@ export const InvestHeroSection = () => {
             <p className="text-sm text-secondary mb-5">{t("registered_no")}</p>
             <div className="mb-6">
               <p className="font-semibold text-primary mb-2">{t("email_us")}</p>
-              <p className="break-words">investorrelations@premiervetgroup.co.uk</p>
+              <p className="break-words">
+                investorrelations@premiervetgroup.co.uk
+              </p>
             </div>
             <div className="mb-6">
               <p className="font-semibold text-primary mb-2">{t("call_us")}</p>

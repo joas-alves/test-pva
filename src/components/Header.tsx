@@ -19,9 +19,7 @@ const Header = () => {
   useEffect(() => {
     (async () => {
       try {
-        const response = await axios.get(
-          `/en-UK/service-contents`
-        );
+        const response = await axios.get(`/en-UK/service-contents`);
         if (response.status === 200) {
           return setServices(response.data);
         }
@@ -58,10 +56,16 @@ const Header = () => {
           <Link href="/contact-us">
             <div>{t("contact")}</div>
           </Link>
+
+          {router.locale === "global" && (
+            <Link href="/investors">
+              <div>{t("investors")}</div>
+            </Link>
+          )}
         </nav>
         <div className="flex-1" />
         <div className="flex items-center gap-8">
-          <div className="hidden lg:block lg:w-[175px] lg:whitespace-nowrap lg:overflow-ellipsis lg:overflow-hidden ">
+          <div className="hidden lg:block lg:w-fit lg:whitespace-nowrap lg:overflow-ellipsis lg:overflow-hidden ">
             <Link href="/pet-owner" className="ml-2 flex gap-1">
               <p>{ct("pet_owner")}</p>
               <p>{ct("click_here")}</p>
