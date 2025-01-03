@@ -16,7 +16,10 @@ export const HeroSection: React.FC<Props> = ({ data }) => {
           <h1
             className="heading mb-5 sm:mb-8 hero-section-title"
             dangerouslySetInnerHTML={{
-              __html: (data.section1_title || "").replace(/<p>&nbsp;<\/p>/g, ""),
+              __html: (data.section1_title || "").replace(
+                /<p>&nbsp;<\/p>/g,
+                ""
+              ),
             }}
           />
           <div className="flex-1 flex justify-between w-full items-start">
@@ -28,18 +31,6 @@ export const HeroSection: React.FC<Props> = ({ data }) => {
               <div className="flex justify-center lg:justify-start">
                 <SignUpInput />
               </div>
-              {data.section1_rating_image && (
-                <div className="mx-auto lg:mx-0">
-                  <Image
-                    className=""
-                    src={imageUrl(data.section1_rating_image)}
-                    width={410}
-                    height={187}
-                    alt="generate extra euro 350,000"
-                  />
-              </div>
-              ) }
-              
             </div>
             <Image
               className="hidden xl:block w-full max-w-96 object-contain -mt-6"

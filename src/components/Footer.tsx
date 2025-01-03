@@ -26,9 +26,12 @@ const Footer = () => {
             <li>
               <Link href="/investors">{t("investors")}</Link>
             </li>
+            <li>
+              <Link href="/strategic-review">{t("strategic_review")}</Link>
+            </li>
             {/*<li><Link href="/pet-owners">{t('services')}</Link></li>*/}
             <li>
-            <ServicesDropdown />
+              <ServicesDropdown />
             </li>
             <li>
               <Link href="/about-us">{t("about")}</Link>
@@ -47,12 +50,18 @@ const Footer = () => {
         <div className="md:col-span-2 flex flex-wrap gap-6 border-y md:border-none border-y-gray-200 py-6 md:py-0">
           <ul className="flex flex-col gap-2 md:gap-4 text-sm md:text-base">
             <li>{t("address")}</li>
-            <li>pcp@premiervetalliance.co.uk</li>
-            <li>+44 117 472 5000</li>
+            <a href="mailto:pcp@premiervetalliance.co.uk">pcp@premiervetalliance.co.uk</a>
+            <li>
+              <a href="tel:+441174725000">+44 117 472 5000</a>
+            </li>
           </ul>
           <div className="flex-1" />
           <div className="gap-8 text-2xl flex">
-            <a href="https://www.linkedin.com/company/premier-vet-alliance/" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://www.linkedin.com/company/premier-vet-alliance/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <FaLinkedin />
             </a>
           </div>
