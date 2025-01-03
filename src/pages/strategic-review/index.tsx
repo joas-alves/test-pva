@@ -11,13 +11,13 @@ export default function StrategicReview() {
       setIsOpen(false);
       router.push("/");
     } else {
-      localStorage.setItem("investorAgree", "true");
+      localStorage.setItem("strategicReviewAgree", "true");
       setIsOpen(false);
     }
   };
 
   useEffect(() => {
-    if (!localStorage.getItem("investorAgree")) {
+    if (!localStorage.getItem("strategicReviewAgree")) {
       setIsOpen(true);
     }
   }, []);
