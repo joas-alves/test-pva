@@ -18,7 +18,7 @@ export default function ServicePage() {
     (async () => {
         try {
           if (params?.id) {
-              const response = await axios.get(`/${router.locale}/service-content/${params?.id}`);
+              const response = await axios.get(`/en-UK/service-content/${params?.id}`);
               if (response.status === 200) {
                   return setData(response.data);
               }

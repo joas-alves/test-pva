@@ -24,7 +24,7 @@ export default function ServicePage() {
     (async () => {
       try {
         const response = await axios.get(
-          `/${router.locale}/service-content/2`
+          `/en-UK/service-content/2`
         );
         if (response.status === 200) {
           return setData(response.data);

@@ -30,9 +30,9 @@ export const Vet2PetSection: React.FC<Props> = ({ data }) => {
           </h1>
           <div className="flex-1 flex">
             <div className="flex-1 flex flex-col">
-              <p className="body text-secondary min-[517px]-w-[517px] w-full mb-3 sm:mb-6">
+              <div className="body text-secondary min-[517px]-w-[517px] w-full mb-3 sm:mb-6">
                 {convertStringToParagraph(data.section1_description)}
-              </p>
+              </div>
 
               <div className="flex-1" />
 
