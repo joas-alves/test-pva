@@ -20,11 +20,15 @@ export default function Home() {
 
   const [data, setData] = useState<IHomePage>({} as IHomePage);
 
+  const url = `/en-UK/${
+    router.locale === "global" ? "globalpage-content" : "homepage-content"
+  }/1`;
+
   useEffect(() => {
     if (!router.isReady) return;
     (async () => {
       try {
-        const response = await axios(`/en-UK/homepage-content/1`);
+        const response = await axios(url);
         if (response.status === 200) {
           setData(response.data);
         }
