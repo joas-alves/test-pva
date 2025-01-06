@@ -30,7 +30,7 @@ export const InvestHeroSection: React.FC<Props> = ({ title }) => {
             height={460}
             alt="invest-hero"
           />
-          <div className="w-full sm:w-auto w-[411px] p-8 bg-[url('/images/double-circles.png')] bg-no-repeat rounded-3xl shadow-paper bg-white lg:absolute top-[160px] right-5 invest-hero-section">
+          <div className="w-full sm:w-auto w-[411px] p-8 bg-[url('/images/double-circles.png')] bg-no-repeat rounded-3xl shadow-paper bg-white lg:absolute top-[150px] right-5 invest-hero-section">
             <div className="text-[32px] font-bold mb-3 text-primary leading-10">
               {t("premier_veterinary")}
             </div>
