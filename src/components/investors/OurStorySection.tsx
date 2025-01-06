@@ -6,7 +6,7 @@ export const OurStorySection = () => {
   const t = useTranslations("Investors");
 
   return (
-    <section className="container mx-auto ">
+    <section className="container mx-auto mt-10">
       <div className="max-w-[954px] w-full mx-auto mb-12 text-left md:text-center">
         <h2 className="sub-heading">
           <span className="text-primary">{t("experience_understanding")}</span>{" "}
