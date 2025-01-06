@@ -7,7 +7,7 @@ import {
   NewSection,
   PracticeSection,
   RealStoriesSection,
-  FAQSection
+  FAQSection,
 } from "@/components/home";
 import { useEffect, useState } from "react";
 import { IHomePage } from "@/cms-models/home";
@@ -20,17 +20,20 @@ export default function Home() {
 
   const [data, setData] = useState<IHomePage>({} as IHomePage);
 
+  const url = `/en-UK/${
+    router.locale !== "global" ? "homepage-content" : "globalpage-content"
+  }/1`;
+
   useEffect(() => {
     if (!router.isReady) return;
     (async () => {
-        try{
-            const response = await axios(`/en-UK/homepage-content/1`);
-            if (response.status === 200) {
-                setData(response.data);
-            }
-            // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        } catch (error) {
+      try {
+        const response = await axios(url);
+        if (response.status === 200) {
+          setData(response.data);
         }
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      } catch (error) {}
     })();
   }, [router.locale]);
 
@@ -40,15 +43,17 @@ export default function Home() {
 
   return (
     <div className="flex flex-col gap-0 md:gap-20">
-       <Head>
-       <title>Global Home - Premier Vet Alliance</title>
-       <link rel="canonical" href="https://premiervetalliance.com/"></link>
-       <meta property="og:locale" content="en_US"/>
-       <meta property="og:title" content="Global Home - Premier Vet Alliance"/>
-       <meta property="og:type" content="website"/>
-       <meta property="og:site_name" content="Premier Vet Alliance"/>
-       <meta property="og:updated_time" content="2023-11-14T11:25:01+00:00"/>
-       
+      <Head>
+        <title>Global Home - Premier Vet Alliance</title>
+        <link rel="canonical" href="https://premiervetalliance.com/"></link>
+        <meta property="og:locale" content="en_US" />
+        <meta
+          property="og:title"
+          content="Global Home - Premier Vet Alliance"
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Premier Vet Alliance" />
+        <meta property="og:updated_time" content="2023-11-14T11:25:01+00:00" />
       </Head>
       <HeroSection data={data} /> {/* Section1 */}
       <ElevatingSection data={data} /> {/* Section2 */}
