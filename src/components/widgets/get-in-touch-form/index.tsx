@@ -80,7 +80,6 @@ export const GetInTouchForm = () => {
         ...allData,
         locale: nextRouter.locale,
       });
-      console.log(response);
       if (response.status === 201) {
         enqueueSnackbar("Thank you for getting in touch!", {
           variant: "success",
