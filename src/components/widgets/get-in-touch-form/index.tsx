@@ -9,6 +9,7 @@ import { VetDecisionForm } from "./veterinary";
 import axios from "axios";
 import { handleScrollToInput } from "@/utils/inputScrollFocus";
 import { useRouter, useSearchParams } from "next/navigation";
+import { NextRouter, useRouter as useNextRouter } from "next/router";
 
 export const GetInTouchForm = () => {
   const t = useTranslations("Common");
@@ -17,8 +18,9 @@ export const GetInTouchForm = () => {
   const lastNameInputRef = useRef<HTMLInputElement | null>(null);
   const phoneInputRef = useRef<HTMLInputElement | null>(null);
   const emailInputRef = useRef<HTMLInputElement | null>(null);
-  const searchParams=useSearchParams()
-  const router=useRouter()
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const nextRouter: NextRouter = useNextRouter();
 
   const initialValue: GetInTouchFormType = {
     firstName: "",
@@ -40,22 +42,25 @@ export const GetInTouchForm = () => {
   };
 
   useEffect(() => {
-    if(!searchParams.get("default")) return
-    const initialPreference=searchParams.get("default")==='pet-owner'?t("pet_owner"):t("veterinary_professional")
-    handleChange('preference',initialPreference);
-    router.replace('/get-in-touch')
+    if (!searchParams.get("default")) return;
+    const initialPreference =
+      searchParams.get("default") === "pet-owner"
+        ? t("pet_owner")
+        : t("veterinary_professional");
+    handleChange("preference", initialPreference);
+    router.replace("/get-in-touch");
   }, [searchParams]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (allData.firstName.length <= 0) {
       enqueueSnackbar("Please enter a valid first name.", { variant: "error" });
-      handleScrollToInput(firstNameInputRef)
+      handleScrollToInput(firstNameInputRef);
       return;
     }
     if (allData.lastName.length <= 0) {
       enqueueSnackbar("Please enter a valid last name.", { variant: "error" });
-      handleScrollToInput(lastNameInputRef)
+      handleScrollToInput(lastNameInputRef);
       return;
     }
     // Validate email and phone
@@ -66,12 +71,16 @@ export const GetInTouchForm = () => {
       enqueueSnackbar("Please enter a valid phone number.", {
         variant: "error",
       });
-      handleScrollToInput(phoneInputRef)
+      handleScrollToInput(phoneInputRef);
       return;
     }
 
     try {
-      const response = await axios.post(`/api/get-in-touch`, allData);
+      const response = await axios.post(`/api/get-in-touch`, {
+        ...allData,
+        locale: nextRouter.locale,
+      });
+      console.log(response);
       if (response.status === 201) {
         enqueueSnackbar("Thank you for getting in touch!", {
           variant: "success",
