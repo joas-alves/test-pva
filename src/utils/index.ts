@@ -107,3 +107,18 @@ export const languagesConfig: Record<LanguageCode, Translation> =
     acc[lang.code] = lang.translation;
     return acc;
   }, {} as Record<LanguageCode, Translation>);
+
+export const getLocaleSiteInfo = (locale: LanguageCode) => {
+  const localeToPhoneNumber = {
+    "en-UK": "+44 117 472 5000",
+    "en-US": "+1 470-509-5111",
+    es: "+44 117 472 5000",
+    fr: "+44 (0)117 370 0300",
+    de: "+44 (0)117 370 0300",
+    global: "+44 117 472 5000",
+  };
+
+  // Return the phone number for the given locale
+  // If the locale is not found, return the global number
+  return localeToPhoneNumber[locale] || localeToPhoneNumber["global"];
+};

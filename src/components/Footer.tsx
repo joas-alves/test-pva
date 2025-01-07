@@ -3,9 +3,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaLinkedin } from "react-icons/fa";
 import { ServicesDropdown } from "./widgets/services-dropdown";
+import { getLocaleSiteInfo, LanguageCode } from "@/utils";
+import { NextRouter, useRouter } from "next/router";
 
 const Footer = () => {
   const t = useTranslations("Footer");
+  const router: NextRouter = useRouter();
+
+  const phoneNumber = getLocaleSiteInfo(router.locale as LanguageCode);
 
   return (
     <footer className="pt-10">
@@ -50,9 +55,11 @@ const Footer = () => {
         <div className="md:col-span-2 flex flex-wrap gap-6 border-y md:border-none border-y-gray-200 py-6 md:py-0">
           <ul className="flex flex-col gap-2 md:gap-4 text-sm md:text-base">
             <li>{t("address")}</li>
-            <a href="mailto:pcp@premiervetalliance.co.uk">pcp@premiervetalliance.co.uk</a>
+            <a href="mailto:pcp@premiervetalliance.co.uk">
+              pcp@premiervetalliance.co.uk
+            </a>
             <li>
-              <a href="tel:+441174725000">+44 117 472 5000</a>
+              <a href={`tel:${phoneNumber}`}>{phoneNumber}</a>
             </li>
           </ul>
           <div className="flex-1" />
