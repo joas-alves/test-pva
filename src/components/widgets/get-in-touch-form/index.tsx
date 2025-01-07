@@ -10,6 +10,7 @@ import axios from "axios";
 import { handleScrollToInput } from "@/utils/inputScrollFocus";
 import { useRouter, useSearchParams } from "next/navigation";
 import { NextRouter, useRouter as useNextRouter } from "next/router";
+import { LanguageCode } from "@/utils";
 
 export const GetInTouchForm = () => {
   const t = useTranslations("Common");
@@ -76,10 +77,10 @@ export const GetInTouchForm = () => {
     }
 
     try {
-      const response = await axios.post(`/api/get-in-touch`, {
-        ...allData,
-        locale: nextRouter.locale,
-      });
+      const response = await axios.post(
+        `/api/${nextRouter.locale || LanguageCode.Global}/get-in-touch`,
+        allData
+      );
       if (response.status === 201) {
         enqueueSnackbar("Thank you for getting in touch!", {
           variant: "success",
