@@ -23,9 +23,7 @@ export default function ServicePage() {
     if (!router.isReady) return;
     (async () => {
       try {
-        const response = await axios.get(
-          `/en-UK/service-content/4`
-        );
+        const response = await axios.get(`/en-UK/service-content/4`);
         if (response.status === 200) {
           return setData(response.data);
         }
@@ -41,15 +39,30 @@ export default function ServicePage() {
   return (
     <div className="flex flex-col gap-0 md:gap-20">
       <Head>
-      <title>Post2Pet - Premier Vet Alliance</title>
-      <meta name="description" content="Learn more about Post2Pet, a home delivery service for pet prescription parasiticides allowing your practice to directly deliver products to your client."></meta>
-      <link rel="canonical" href="https://premiervetalliance.com/uk/services/post2pet/"></link>
-      <meta property="og:locale" content="en_US"></meta>
-      <meta property="og:type" content="article"></meta>
-      <meta property="og:title" content="Post2Pet - Premier Vet Alliance"></meta>
-      <meta property="og:description" content="Learn more about Post2Pet, a home delivery service for pet prescription parasiticides allowing your practice to directly deliver products to your client."></meta>
-      <meta property="og:url" content="https://premiervetalliance.com/uk/services/post2pet/"></meta>
-      <meta property="og:site_name" content="Premier Vet Alliance"></meta>
+        <title>Post2Pet - Premier Vet Alliance</title>
+        <meta
+          name="description"
+          content="Learn more about Post2Pet, a home delivery service for pet prescription parasiticides allowing your practice to directly deliver products to your client."
+        ></meta>
+        <link
+          rel="canonical"
+          href="https://premiervetalliance.com/uk/services/post2pet/"
+        ></link>
+        <meta property="og:locale" content="en_US"></meta>
+        <meta property="og:type" content="article"></meta>
+        <meta
+          property="og:title"
+          content="Post2Pet - Premier Vet Alliance"
+        ></meta>
+        <meta
+          property="og:description"
+          content="Learn more about Post2Pet, a home delivery service for pet prescription parasiticides allowing your practice to directly deliver products to your client."
+        ></meta>
+        <meta
+          property="og:url"
+          content="https://premiervetalliance.com/uk/services/post2pet/"
+        ></meta>
+        <meta property="og:site_name" content="Premier Vet Alliance"></meta>
       </Head>
       <Vet2PetSection data={data} />
       <EnhancedSection data={data} />
@@ -65,7 +78,6 @@ export default function ServicePage() {
         phoneTitle={data.section4_phone_title}
         phoneDescription={data.section4_phone_content}
         phoneIcon={data.section4_phone_icon}
-        phoneNumber={data.section4_phone_number}
         image={data.section4_image}
       />
     </div>

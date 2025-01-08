@@ -122,3 +122,12 @@ export const getLocaleSiteInfo = (locale: LanguageCode) => {
   // If the locale is not found, return the global number
   return localeToPhoneNumber[locale] || localeToPhoneNumber["global"];
 };
+
+export const phoneNumberPlaceholders: Record<LanguageCode, string> = {
+  [LanguageCode.Global]: "+1 (123) 123-1234",
+  [LanguageCode.Spanish]: "+34 123 123 123",
+  [LanguageCode.EnglishUS]: "+1 (123) 123-1234",
+  [LanguageCode.EnglishUK]: "+44 1234 123 123",
+  [LanguageCode.German]: "+49 1234 1234567",
+  [LanguageCode.French]: "+33 1 23 45 67 89",
+};
