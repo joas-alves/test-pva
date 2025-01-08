@@ -4,7 +4,7 @@ import {
   NeedMoreHelpSection,
   PremierVetAllianceSection,
   TrustedPartnerSection,
-  TrustUsSection
+  TrustUsSection,
 } from "@/components/about-us";
 import { FAQSection } from "@/components/home";
 import { NextRouter, useRouter } from "next/router";
@@ -21,14 +21,13 @@ export default function AboutUs() {
   useEffect(() => {
     if (!router.isReady) return;
     (async () => {
-        try{
-          const response = await axios(`/en-UK/about-content/1`);
-          if (response.status === 200) {
-            setData(response.data);
-          }
-            // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        } catch (error) {
+      try {
+        const response = await axios(`/en-UK/about-content/1`);
+        if (response.status === 200) {
+          setData(response.data);
         }
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      } catch (error) {}
     })();
   }, [router.locale]);
 
@@ -39,15 +38,30 @@ export default function AboutUs() {
   return (
     <div className="flex flex-col gap-0 md:gap-20">
       <Head>
-      <title>About PVA - Premier Vet Alliance</title>
-      <meta name="description" content="Learn more about PVA and our story to see how we can use our experience to help your veterinary practice in its operations."></meta>
-      <link rel="canonical" href="https://premiervetalliance.com/uk/who-we-are/"></link>
-      <meta property="og:locale" content="en_US"></meta>
-      <meta property="og:type" content="article"></meta>
-      <meta property="og:title" content="About PVA - Premier Vet Alliance"></meta>
-      <meta property="og:description" content="Learn more about PVA and our story to see how we can use our experience to help your veterinary practice in its operations."></meta>
-      <meta property="og:url" content="https://premiervetalliance.com/uk/who-we-are/"></meta>
-      <meta property="og:site_name" content="Premier Vet Alliance"></meta>
+        <title>About PVA - Premier Vet Alliance</title>
+        <meta
+          name="description"
+          content="Learn more about PVA and our story to see how we can use our experience to help your veterinary practice in its operations."
+        ></meta>
+        <link
+          rel="canonical"
+          href="https://premiervetalliance.com/uk/who-we-are/"
+        ></link>
+        <meta property="og:locale" content="en_US"></meta>
+        <meta property="og:type" content="article"></meta>
+        <meta
+          property="og:title"
+          content="About PVA - Premier Vet Alliance"
+        ></meta>
+        <meta
+          property="og:description"
+          content="Learn more about PVA and our story to see how we can use our experience to help your veterinary practice in its operations."
+        ></meta>
+        <meta
+          property="og:url"
+          content="https://premiervetalliance.com/uk/who-we-are/"
+        ></meta>
+        <meta property="og:site_name" content="Premier Vet Alliance"></meta>
       </Head>
       <TrustedPartnerSection data={data} />
       <PremierVetAllianceSection data={data} />
@@ -64,9 +78,8 @@ export default function AboutUs() {
         phoneTitle={data.section6_phone_title}
         phoneDescription={data.section6_phone_content}
         phoneIcon={data.section6_phone_icon}
-        phoneNumber={data.section6_phone_number}
         image={data.section6_image}
       />
     </div>
-  )
+  );
 }

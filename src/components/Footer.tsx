@@ -54,8 +54,11 @@ const Footer = () => {
         </div>
         <div className="md:col-span-2 flex flex-wrap gap-6 border-y md:border-none border-y-gray-200 py-6 md:py-0">
           <ul className="flex flex-col gap-2 md:gap-4 text-sm md:text-base">
-            <li>{t("address")}</li>
-            <a href="mailto:pcp@premiervetalliance.co.uk">
+            <li className="notranslate">{t("address")}</li>
+            <a
+              className="notranslate"
+              href="mailto:pcp@premiervetalliance.co.uk"
+            >
               pcp@premiervetalliance.co.uk
             </a>
             <li>

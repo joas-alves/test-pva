@@ -1,7 +1,11 @@
 import { IServicePage } from "@/cms-models/service";
 import { NeedMoreHelpSection } from "@/components/about-us";
 import { FAQSection } from "@/components/home";
-import { EnhancedSection, Vet2PetSection, YouPracticeSection } from "@/components/services";
+import {
+  EnhancedSection,
+  Vet2PetSection,
+  YouPracticeSection,
+} from "@/components/services";
 import { faqsForPremierPetCarePlans } from "@/temp/faqs";
 import axios from "axios";
 import Head from "next/head";
@@ -24,8 +28,7 @@ export default function ServicePage() {
           return setData(response.data);
         }
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      } catch (error) {
-      }
+      } catch (error) {}
     })();
   }, [router.locale, params]);
 
@@ -37,15 +40,33 @@ export default function ServicePage() {
     <div className="flex flex-col gap-0 md:gap-20">
       <Head>
         <title>Premier Pet Care Plan - Premier Vet Alliance</title>
-        <meta name="description" content="Learn more about our market leading Premier Pet Care Plan, a simple, affordable and user friendly solution to preventative pet healthcare."></meta>
-        <link rel="canonical" href="https://premiervetalliance.com/uk/services/premier-pet-care-plan/"/>
-        <meta property="og:locale" content="en_US"/>
-        <meta property="og:type" content="article"/>
-        <meta property="og:title" content="Premier Pet Care Plan - Premier Vet Alliance"/>
-        <meta property="og:description" content="Learn more about our market leading Premier Pet Care Plan, a simple, affordable and user friendly solution to preventative pet healthcare."/>
-        <meta property="og:url" content="https://premiervetalliance.com/uk/services/premier-pet-care-plan/"></meta>
+        <meta
+          name="description"
+          content="Learn more about our market leading Premier Pet Care Plan, a simple, affordable and user friendly solution to preventative pet healthcare."
+        ></meta>
+        <link
+          rel="canonical"
+          href="https://premiervetalliance.com/uk/services/premier-pet-care-plan/"
+        />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:type" content="article" />
+        <meta
+          property="og:title"
+          content="Premier Pet Care Plan - Premier Vet Alliance"
+        />
+        <meta
+          property="og:description"
+          content="Learn more about our market leading Premier Pet Care Plan, a simple, affordable and user friendly solution to preventative pet healthcare."
+        />
+        <meta
+          property="og:url"
+          content="https://premiervetalliance.com/uk/services/premier-pet-care-plan/"
+        ></meta>
         <meta property="og:site_name" content="Premier Vet Alliance"></meta>
-        <meta property="og:updated_time" content="2023-11-30T09:41:37+00:00"></meta>
+        <meta
+          property="og:updated_time"
+          content="2023-11-30T09:41:37+00:00"
+        ></meta>
       </Head>
       <Vet2PetSection data={data} />
       <EnhancedSection data={data} />
@@ -61,9 +82,8 @@ export default function ServicePage() {
         phoneTitle={data.section4_phone_title}
         phoneDescription={data.section4_phone_content}
         phoneIcon={data.section4_phone_icon}
-        phoneNumber={data.section4_phone_number}
         image={data.section4_image}
       />
     </div>
-  )
+  );
 }
