@@ -21,6 +21,13 @@ export default function StrategicReview() {
       setIsOpen(true);
     }
   }, []);
+
+  useEffect(() => {
+    if (router.locale !== "global") {
+      // Redirect to the homepage if locale is not allowed
+      router.replace("/");
+    }
+  }, [router.locale]);
   return (
     <div className="flex flex-col gap-0 md:gap-20">
       <StrategicReviewSection />

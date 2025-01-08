@@ -28,12 +28,16 @@ const Footer = () => {
         </div>
         <div>
           <ul className="flex justify-start sm:justify-between flex-wrap md:flex-col gap-2 md:gap-4 text-sm md:text-base">
-            <li>
-              <Link href="/investors">{t("investors")}</Link>
-            </li>
-            <li>
-              <Link href="/strategic-review">{t("strategic_review")}</Link>
-            </li>
+            {router.locale === "global" && (
+              <>
+                <li>
+                  <Link href="/investors">{t("investors")}</Link>
+                </li>
+                <li>
+                  <Link href="/strategic-review">{t("strategic_review")}</Link>
+                </li>
+              </>
+            )}
             {/*<li><Link href="/pet-owners">{t('services')}</Link></li>*/}
             <li>
               <ServicesDropdown />
