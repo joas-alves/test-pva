@@ -37,7 +37,7 @@ export const InvestHeroSection: React.FC<Props> = ({ title }) => {
             <p className="text-sm text-secondary mb-5">{t("registered_no")}</p>
             <div className="mb-6">
               <p className="font-semibold text-primary mb-2">{t("email_us")}</p>
-              <p className="break-words">
+              <p className="break-words notranslate">
                 investorrelations@premiervetgroup.co.uk
               </p>
             </div>
