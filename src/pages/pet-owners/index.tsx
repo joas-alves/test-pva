@@ -51,9 +51,7 @@ export default function PetOwners() {
                 <p className="font-semibold text-primary mb-2">
                   {t("visiting_us")}
                 </p>
-                <p className="notranslate">
-                  The Quorum, Bond Street, Bristol, BS1 3AE
-                </p>
+                <p>The Quorum, Bond Street, Bristol, BS1 3AE</p>
               </div>
             </div>
           </div>
