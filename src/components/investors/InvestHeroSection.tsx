@@ -38,7 +38,7 @@ export const InvestHeroSection: React.FC<Props> = ({ title }) => {
             <div className="mb-6">
               <p className="font-semibold text-primary mb-2">{t("email_us")}</p>
               <p className="break-words notranslate">
-                investorrelations@premiervetgroup.co.uk
+                pcp@premiervetalliance.co.uk
               </p>
             </div>
             <div className="mb-6">
@@ -49,7 +49,9 @@ export const InvestHeroSection: React.FC<Props> = ({ title }) => {
               <p className="font-semibold text-primary mb-2">
                 {t("visiting_us")}
               </p>
-              <p>The Quorum, Bond Street, Bristol, BS1 3AE</p>
+              <p className="notranslate">
+                The Quorum, Bond Street, Bristol, BS1 3AE
+              </p>
             </div>
           </div>
         </div>
