@@ -108,50 +108,49 @@ export const languagesConfig: Record<LanguageCode, Translation> =
     return acc;
   }, {} as Record<LanguageCode, Translation>);
 
-  export const getLocaleSiteInfo = (
-    locale: LanguageCode
-  ): { phone: string; email: string; currency: string } => {
-    const localeInfo: Record<
-      LanguageCode,
-      { phone: string; email: string; currency: string }
-    > = {
-      [LanguageCode.EnglishUK]: {
-        phone: "+44 117 472 5000",
-        email: "pcp@premiervetalliance.co.uk",
-        currency: "£",
-      },
-      [LanguageCode.EnglishUS]: {
-        phone: "+1 470-509-5111",
-        email: "pcp@premiervetalliance.com",
-        currency: "$",
-      },
-      [LanguageCode.Spanish]: {
-        phone: "+44 117 472 5000",
-        email: "pcp@premiervetalliance.co.uk",
-        currency: "€",
-      },
-      [LanguageCode.French]: {
-        phone: "+44 (0)117 370 0300 ",
-        email: "pcp@premiervetalliance.co.uk",
-        currency: "€",
-      },
-      [LanguageCode.German]: {
-        phone: "+44 (0)117 370 0300",
-        email: "pcp@premiervetalliance.co.uk",
-        currency: "€",
-      },
-      [LanguageCode.Global]: {
-        phone: "+44 117 472 5000",
-        email: "pcp@premiervetalliance.co.uk",
-        currency: "£",
-      },
-    };
-  
-    // Return the info for the given locale
-    // Default to Global if the locale is not found
-    return localeInfo[locale] || localeInfo[LanguageCode.Global];
+export const getLocaleSiteInfo = (
+  locale: LanguageCode
+): { phone: string; email: string; currency: string } => {
+  const localeInfo: Record<
+    LanguageCode,
+    { phone: string; email: string; currency: string }
+  > = {
+    [LanguageCode.EnglishUK]: {
+      phone: "+44 117 472 5000",
+      email: "pcp@premiervetalliance.co.uk",
+      currency: "£",
+    },
+    [LanguageCode.EnglishUS]: {
+      phone: "+1 470-509-5111",
+      email: "pcp@premiervetalliance.com",
+      currency: "$",
+    },
+    [LanguageCode.Spanish]: {
+      phone: "+44 117 472 5000",
+      email: "pcp@premiervetalliance.co.uk",
+      currency: "€",
+    },
+    [LanguageCode.French]: {
+      phone: "+44 (0)117 370 0300 ",
+      email: "pcp@premiervetalliance.co.uk",
+      currency: "€",
+    },
+    [LanguageCode.German]: {
+      phone: "+44 (0)117 370 0300",
+      email: "pcp@premiervetalliance.co.uk",
+      currency: "€",
+    },
+    [LanguageCode.Global]: {
+      phone: "+44 117 472 5000",
+      email: "pcp@premiervetalliance.co.uk",
+      currency: "£",
+    },
   };
-  
+
+  // Return the info for the given locale
+  // Default to Global if the locale is not found
+  return localeInfo[locale] || localeInfo[LanguageCode.Global];
+};
 
 export const phoneNumberPlaceholders: Record<LanguageCode, string> = {
   [LanguageCode.Global]: "+1 (123) 123-1234",
@@ -173,3 +172,12 @@ export const replaceCurrency = (
   );
   return updatedAmount.trim();
 };
+export function cleanText(input: string): string {
+  if (!input) return "";
+  // Remove HTML tags
+  const withoutHtml = input.replace(/<\/?[^>]+(>|$)/g, "");
+  // Remove non-alphanumeric characters except spaces
+  const alphanumericAndSpacesOnly = withoutHtml.replace(/[^a-zA-Z0-9\s]/g, "");
+  // Trim extra spaces and return
+  return alphanumericAndSpacesOnly.trim();
+}

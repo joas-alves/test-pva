@@ -1,5 +1,5 @@
-import { imageUrl } from "@/utils";
-import { dateFormater } from '@/utils/dataConverter';
+import { imageUrl, cleanText } from "@/utils";
+import { dateFormater } from "@/utils/dataConverter";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -22,8 +22,15 @@ export const NewsCard: React.FC<Props> = ({
 }) => {
   const images = image ? JSON.parse(image) : null;
 
+  const slug = cleanText(title)
+  .toLowerCase()
+  .replace(/[^a-z0-9]+/g, "-") // Replace spaces and special characters with dashes
+  .replace(/^-+|-+$/g, ""); // Trim leading or trailing dashes
+
+const link = `${slug}?id=${encodeURIComponent(id)}`;
+
   return (
-    <Link href={`/news/${id}`}>
+    <Link href={`/news/${link}`}>
       <div className="rounded-2xl shadow-paper overflow-hidden">
         {images && (
           <Image
@@ -38,7 +45,9 @@ export const NewsCard: React.FC<Props> = ({
         <div className="p-6 sm:p-8">
           <div className="flex items-center text-secondary mb-5 sm:mb-6 gap-1">
             <CiClock2 className="text-base sm:text-xl" />
-            <span className="text-sm sm:text-base">{dateFormater(time,'YYYY-MM-DD')}</span>
+            <span className="text-sm sm:text-base">
+              {dateFormater(time, "YYYY-MM-DD")}
+            </span>
           </div>
           <div
             className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4"
