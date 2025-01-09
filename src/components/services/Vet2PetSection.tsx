@@ -15,18 +15,7 @@ export const Vet2PetSection: React.FC<Props> = ({ data }) => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
         <div className="flex flex-col">
           <h1 className="heading mb-5 sm:mb-8 flex items-center gap-5">
-            {/* <span className="p-2.5 sm:p-4 rounded-2xl shadow-paper">
-              <Image
-                src="/images/vet2pet-logo.png"
-                alt="vet2pet"
-                width={61}
-                height={61}
-              />
-            </span> */}
-            <div
-              className="max-lg:flex max-lg:gap-5 max-[855px]:flex max-[855px]:gap-0 max-[855px]:flex-col max-md:flex max-md:gap-0 max-md:flex-row max-[500px]:flex max-[500px]:flex-col max-[500px]:gap-0"
-              dangerouslySetInnerHTML={{ __html: data.section1_title }}
-            />
+            <div dangerouslySetInnerHTML={{ __html: data.section1_title }} />
           </h1>
           <div className="flex-1 flex">
             <div className="flex-1 flex flex-col">
@@ -50,11 +39,12 @@ export const Vet2PetSection: React.FC<Props> = ({ data }) => {
           </div>
         </div>
 
-        <div className="flex-shrink-0 flex flex-col-reverse sm:flex-row sm:justify-end relative">
+        <div className="flex-shrink-0 flex flex-col-reverse sm:flex-row  items-start justify-center sm:justify-end relative">
           <Image
-            className="hidden sm:block"
+            className="hidden sm:block object-contain mx-auto lg:mx-0"
             src={imageUrl(data.section1_logo)}
             width={411}
+            // objectFit="contain"
             height={600}
             alt="dog"
           />

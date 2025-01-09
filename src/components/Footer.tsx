@@ -10,7 +10,9 @@ const Footer = () => {
   const t = useTranslations("Footer");
   const router: NextRouter = useRouter();
 
-  const {phone:phoneNumber} = getLocaleSiteInfo(router.locale as LanguageCode);
+  const { phone: phoneNumber, email } = getLocaleSiteInfo(
+    router.locale as LanguageCode
+  );
 
   return (
     <footer className="pt-10">
@@ -63,14 +65,14 @@ const Footer = () => {
               className="notranslate"
               href="mailto:pcp@premiervetalliance.co.uk"
             >
-              pcp@premiervetalliance.co.uk
+              {email}
             </a>
             <li>
               <a href={`tel:${phoneNumber}`}>{phoneNumber}</a>
             </li>
           </ul>
           <div className="flex-1" />
-          <div className="gap-8 text-2xl flex">
+          <div className="gap-8 text-2xl flex notranslate">
             <a
               href="https://www.linkedin.com/company/premier-vet-alliance/"
               target="_blank"

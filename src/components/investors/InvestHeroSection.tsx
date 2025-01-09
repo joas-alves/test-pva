@@ -46,7 +46,7 @@ export const InvestHeroSection: React.FC<Props> = ({ title }) => {
               <p>+44 117 370 0300</p>
             </div>
             <div>
-              <p className="font-semibold text-primary mb-2">
+              <p className="font-semibold text-primary mb-2 notranslate">
                 {t("visiting_us")}
               </p>
               <p>The Quorum, Bond Street, Bristol, BS1 3AE</p>
