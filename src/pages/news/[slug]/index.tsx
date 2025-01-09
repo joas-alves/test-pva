@@ -20,7 +20,6 @@ export default function NewsDetail() {
 
   useEffect(() => {
     if (!router.isReady) return;
-    console.log({id});
     
     (async () => {
       if (id) {
