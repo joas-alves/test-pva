@@ -1,17 +1,19 @@
 import { IServicePage } from "@/cms-models/service";
-import { imageUrl } from "@/utils";
+import { imageUrl, LanguageCode, replaceCurrency } from "@/utils";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import React from "react";
 import { PiChartLineUpLight } from "react-icons/pi";
 import { RiGlobalLine } from "react-icons/ri";
+import { NextRouter, useRouter } from "next/router";
 
 type Props = {
   data: IServicePage;
-}
+};
 
 export const EnhancedSection: React.FC<Props> = ({ data }) => {
-  const t = useTranslations('Services');
+  const t = useTranslations("Services");
+  const router: NextRouter = useRouter();
 
   return (
     <section className="container mx-auto py-10 flex flex-col gap-20">
@@ -29,7 +31,7 @@ export const EnhancedSection: React.FC<Props> = ({ data }) => {
                   {data.section2_practice_number}
                 </div>
                 <div className="text-sm md:text-base text-secondary">
-                  {t('number_of_practices_we_operate_in')}
+                  {t("number_of_practices_we_operate_in")}
                 </div>
               </div>
               <div className="flex justify-end mt-4">
@@ -47,17 +49,15 @@ export const EnhancedSection: React.FC<Props> = ({ data }) => {
                 alt="dog"
               />
             </div>
-          </div></div>
+          </div>
+        </div>
         <div className="w-full lg:w-1/2">
-        <div className="flex flex-col gap-4">
-          <h2 dangerouslySetInnerHTML={{__html:data.section2_title}}/>
-          <p>{data.section2_description}</p>
-
+          <div className="flex flex-col gap-4">
+            <h2 dangerouslySetInnerHTML={{ __html: data.section2_title }} />
+            <p>{data.section2_description}</p>
+          </div>
         </div>
-        </div>
-
       </div>
-
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 md:gap-6">
         <div className="shadow-paper rounded-2xl p-6 md:p-7">
@@ -98,8 +98,11 @@ export const EnhancedSection: React.FC<Props> = ({ data }) => {
             width={32}
             height={32}
           />
-          <div className="text-[32px] md:text-[52px] leading-10 md:leading-12 font-medium mb-1">
-            {data.section2_card3_amount}
+          <div className="text-[32px] md:text-[52px] leading-10 md:leading-12 font-medium mb-1 notranslate">
+            {replaceCurrency(
+              data.section2_card3_amount,
+              router.locale as LanguageCode
+            )}
           </div>
           <div className="text-sm md:text-base text-secondary">
             {data.section2_card3_amount_desc}
@@ -107,5 +110,5 @@ export const EnhancedSection: React.FC<Props> = ({ data }) => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};

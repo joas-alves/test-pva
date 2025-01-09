@@ -10,7 +10,7 @@ const Footer = () => {
   const t = useTranslations("Footer");
   const router: NextRouter = useRouter();
 
-  const phoneNumber = getLocaleSiteInfo(router.locale as LanguageCode);
+  const {phone:phoneNumber} = getLocaleSiteInfo(router.locale as LanguageCode);
 
   return (
     <footer className="pt-10">

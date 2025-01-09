@@ -31,7 +31,7 @@ export const NeedMoreHelpSection: React.FC<Props> = ({
   const ct = useTranslations("Common");
   const router: NextRouter = useRouter();
 
-  const phoneNumber = getLocaleSiteInfo(router.locale as LanguageCode);
+  const {phone:phoneNumber} = getLocaleSiteInfo(router.locale as LanguageCode);
 
   return (
     <section className="container mx-auto py-10">
