@@ -2,9 +2,14 @@ import { ContactUsForm } from "@/components/widgets";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import Head from "next/head";
+import { NextRouter, useRouter } from "next/router";
+import { getLocaleSiteInfo, LanguageCode } from "@/utils";
 
 export default function ContactUs() {
   const t = useTranslations("Contact");
+  const router: NextRouter = useRouter();
+
+  const { phone, email } = getLocaleSiteInfo(router.locale as LanguageCode);
 
   return (
     <section className="container mx-auto pt-10 pb-40">
@@ -61,11 +66,11 @@ export default function ContactUs() {
             </p>
             <div className="mb-6">
               <p className="font-semibold text-primary mb-2">{t("email_us")}</p>
-              <p className="notranslate">pcp@premiervetalliance.co.uk</p>
+              <p className="notranslate">{email}</p>
             </div>
             <div className="mb-6">
               <p className="font-semibold text-primary mb-2">{t("call_us")}</p>
-              <p>+44 117 370 0300</p>
+              <p>{phone}</p>
             </div>
             <div>
               <p className="font-semibold text-primary mb-2">

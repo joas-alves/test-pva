@@ -108,20 +108,50 @@ export const languagesConfig: Record<LanguageCode, Translation> =
     return acc;
   }, {} as Record<LanguageCode, Translation>);
 
-export const getLocaleSiteInfo = (locale: LanguageCode) => {
-  const localeToPhoneNumber = {
-    "en-UK": "+44 117 472 5000",
-    "en-US": "+1 470-509-5111",
-    es: "+44 117 472 5000",
-    fr: "+44 (0)117 370 0300",
-    de: "+44 (0)117 370 0300",
-    global: "+44 117 472 5000",
+  export const getLocaleSiteInfo = (
+    locale: LanguageCode
+  ): { phone: string; email: string; currency: string } => {
+    const localeInfo: Record<
+      LanguageCode,
+      { phone: string; email: string; currency: string }
+    > = {
+      [LanguageCode.EnglishUK]: {
+        phone: "+44 117 472 5000",
+        email: "pcp@premiervetalliance.co.uk",
+        currency: "£",
+      },
+      [LanguageCode.EnglishUS]: {
+        phone: "+1 470-509-5111",
+        email: "pcp@premiervetalliance.com",
+        currency: "$",
+      },
+      [LanguageCode.Spanish]: {
+        phone: "+44 117 472 5000",
+        email: "pcp@premiervetalliance.co.uk",
+        currency: "€",
+      },
+      [LanguageCode.French]: {
+        phone: "+44 (0)117 370 0300 ",
+        email: "pcp@premiervetalliance.co.uk",
+        currency: "€",
+      },
+      [LanguageCode.German]: {
+        phone: "+44 (0)117 370 0300",
+        email: "pcp@premiervetalliance.co.uk",
+        currency: "€",
+      },
+      [LanguageCode.Global]: {
+        phone: "+44 117 472 5000",
+        email: "pcp@premiervetalliance.co.uk",
+        currency: "£",
+      },
+    };
+  
+    // Return the info for the given locale
+    // Default to Global if the locale is not found
+    return localeInfo[locale] || localeInfo[LanguageCode.Global];
   };
-
-  // Return the phone number for the given locale
-  // If the locale is not found, return the global number
-  return localeToPhoneNumber[locale] || localeToPhoneNumber["global"];
-};
+  
 
 export const phoneNumberPlaceholders: Record<LanguageCode, string> = {
   [LanguageCode.Global]: "+1 (123) 123-1234",
@@ -130,4 +160,16 @@ export const phoneNumberPlaceholders: Record<LanguageCode, string> = {
   [LanguageCode.EnglishUK]: "+44 1234 123 123",
   [LanguageCode.German]: "+49 1234 1234567",
   [LanguageCode.French]: "+33 1 23 45 67 89",
+};
+
+export const replaceCurrency = (
+  amount: string,
+  languageCode: LanguageCode
+): string => {
+  // Regular expression to identify the first non-digit character (the currency symbol)
+  const updatedAmount = amount.replace(
+    /^\D+/,
+    getLocaleSiteInfo(languageCode).currency + ""
+  );
+  return updatedAmount.trim();
 };
