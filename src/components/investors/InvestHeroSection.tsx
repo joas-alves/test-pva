@@ -37,13 +37,16 @@ export const InvestHeroSection: React.FC<Props> = ({ title }) => {
             <p className="text-sm text-secondary mb-5">{t("registered_no")}</p>
             <div className="mb-6">
               <p className="font-semibold text-primary mb-2">{t("email_us")}</p>
-              <p className="break-words notranslate">
+              <a
+                className="notranslate"
+                href="mailto:investorrelations@premiervetgroup.co.uk"
+              >
                 investorrelations@premiervetgroup.co.uk
-              </p>
+              </a>
             </div>
             <div className="mb-6">
               <p className="font-semibold text-primary mb-2">{t("call_us")}</p>
-              <p>+44 117 370 0300</p>
+              <a href={`tel:+44 117 370 0300`}>+44 117 370 0300</a>
             </div>
             <div>
               <p className="font-semibold text-primary mb-2 notranslate">
