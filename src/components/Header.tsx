@@ -150,7 +150,7 @@ const Header = () => {
                   <div>{t("contact")}</div>
                 </Link>
                 {router.locale === "global" && (
-                  <Link href="/investors">
+                  <Link href="/investors" onClick={() => setIsSidebarOpen(false)}>
                     <div>{t("investors")}</div>
                   </Link>
                 )}
@@ -160,9 +160,9 @@ const Header = () => {
                   {ct("pet_owner")} {ct("click_here")}
                 </Link>
                 <div className="flex justify-between">
-                  <LanguageMenu />
+                  <LanguageMenu onClick={() => setIsSidebarOpen(false)}/>
                 </div>
-                <Link href="/get-in-touch">
+                <Link href="/get-in-touch" onClick={() => setIsSidebarOpen(false)}>
                   <button className="btn primary-outline-btn">
                     {ct("get_in_touch")}
                   </button>
