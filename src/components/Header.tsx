@@ -149,6 +149,11 @@ const Header = () => {
                 >
                   <div>{t("contact")}</div>
                 </Link>
+                {router.locale === "global" && (
+                  <Link href="/investors">
+                    <div>{t("investors")}</div>
+                  </Link>
+                )}
               </nav>
               <div className="flex flex-col gap-3 mt-10">
                 <Link href="/pet-owner" onClick={() => setIsSidebarOpen(false)}>
