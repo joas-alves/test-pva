@@ -9,7 +9,7 @@ export default function ContactUs() {
   const t = useTranslations("Contact");
   const router: NextRouter = useRouter();
 
-  const { phone, email } = getLocaleSiteInfo(router.locale as LanguageCode);
+  const { phone, email, address } = getLocaleSiteInfo(router.locale as LanguageCode);
 
   return (
     <section className="container mx-auto pt-10 pb-40">
@@ -76,7 +76,7 @@ export default function ContactUs() {
               <p className="font-semibold text-primary mb-2">
                 {t("visiting_us")}
               </p>
-              <p>The Quorum, Bond Street, Bristol, BS1 3AE</p>
+              <p>{address}</p>
             </div>
           </div>
         </div>

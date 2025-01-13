@@ -3,9 +3,14 @@ import Image from "next/image";
 import { FAQSection } from "@/components/home";
 import { faqsforPetOwner } from "@/temp/faqs";
 import { useTranslations } from "next-intl";
+import { getLocaleSiteInfo, LanguageCode } from "@/utils";
+import { NextRouter, useRouter } from "next/router";
 
 export default function PetOwners() {
   const t = useTranslations("Owners");
+
+  const router: NextRouter = useRouter();
+  const {  address } = getLocaleSiteInfo(router.locale as LanguageCode);
 
   return (
     <div>
@@ -51,7 +56,7 @@ export default function PetOwners() {
                 <p className="font-semibold text-primary mb-2">
                   {t("visiting_us")}
                 </p>
-                <p>The Quorum, Bond Street, Bristol, BS1 3AE</p>
+                <p>{address}</p>
               </div>
             </div>
           </div>
