@@ -2,7 +2,7 @@ import React from 'react'
 
 const DetailsOfTermsAndConditions = () => {
     return (
-        <ol className='list-decimal list-inside text-lg mt-4' start={2}>
+        <ol className='list-decimal list-inside text-lg mt-4 text-primary' start={2}>
             <li>
                 The terms of this Agreement set out the whole agreement between us for the supply to you of the services set out in our promotional literature (copies of which have been provided by us to you)including the provision of veterinary treatment, home delivery of Products, Instalment Plans and other ancillary services (Services).
             </li>
