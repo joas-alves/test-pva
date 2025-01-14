@@ -19,23 +19,41 @@ export default function Home() {
   const router: NextRouter = useRouter();
 
   const [data, setData] = useState<IHomePage>({} as IHomePage);
+  const [globalData, setGlobalData] = useState<IHomePage | null>(null);
 
   const url = `/en-UK/${
     router.locale === "global" ? "globalpage-content" : "homepage-content"
   }/1`;
+  const globalUrl = `/en-UK/globalpage-content/1`;
 
   useEffect(() => {
     if (!router.isReady) return;
-    (async () => {
+
+    const fetchData = async () => {
       try {
-        const response = await axios(url);
-        if (response.status === 200) {
-          setData(response.data);
+        const pageResponse = axios(url);
+        const globalResponse =
+          router.locale === "en-US" ? axios(globalUrl) : null;
+
+        const [pageData, globalPageData] = await Promise.all([
+          pageResponse,
+          globalResponse,
+        ]);
+
+        if (pageData.status === 200) {
+          setData(pageData.data);
         }
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      } catch (error) {}
-    })();
-  }, [router.locale]);
+
+        if (globalPageData?.status === 200) {
+          setGlobalData(globalPageData.data);
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, [router.locale, router.isReady]);
 
   if (!data || Object.keys(data).length === 0) {
     return <div>Loading...</div>;
@@ -55,15 +73,14 @@ export default function Home() {
         <meta property="og:site_name" content="Premier Vet Alliance" />
         <meta property="og:updated_time" content="2023-11-14T11:25:01+00:00" />
       </Head>
-      <HeroSection data={data} /> {/* Section1 */}
-      <ElevatingSection data={data} /> {/* Section2 */}
-      <PracticeSection data={data} /> {/* Section3 */}
-      <AdvantagesSection data={data} /> {/* Section4 */}
-      <RealStoriesSection data={data} /> {/* Section5 */}
-      <MapSection data={data} /> {/* Section6 */}
-      <NewSection title={data.section7_title} /> {/* Section7 */}
-      <FAQSection data={data.questions} /> {/* Section8 */}
-      {/* Section9 */}
+      <HeroSection data={data} globaldata={globalData} /> {/* Updated */}
+      <ElevatingSection data={data} />
+      <PracticeSection data={data} />
+      <AdvantagesSection data={data} />
+      <RealStoriesSection data={data} />
+      <MapSection data={data} />
+      <NewSection title={data.section7_title} />
+      <FAQSection data={data.questions} />
       <DiscoverSection
         title={data.section9_title}
         description={data.section9_description}
