@@ -54,7 +54,7 @@ const Footer = () => {
               <Link href="/cookie-policy">{t("cookie_policy")}</Link>
             </li>
             <li>
-              <Link href="/terms-of-use">{t("terms_of_use")}</Link>
+              <Link href="/pet-owner-terms-conditions">{t("terms_of_use")}</Link>
             </li>
           </ul>
         </div>
@@ -89,7 +89,7 @@ const Footer = () => {
         </div>
         <div className="flex gap-10 justify-between md:justify-start pb-6 md:pb-0 border-b border-b-gray-200 md:border-none">
           <div>
-            <Link href="/terms-of-use">{t("terms_of_use")}</Link>
+            <Link href="/pet-owner-terms-conditions">{t("terms_of_use")}</Link>
           </div>
           <div>
             <Link href="/privacy-policy">{t("privacy_policy")}</Link>
