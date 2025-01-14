@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function PrivacyPolicy() {
+export default function AHCPetOwner() {
   return (
     <section className="container mx-auto pt-10 pb-40">
       <div className="col-md-8 m-auto">
@@ -10,7 +10,12 @@ export default function PrivacyPolicy() {
           Conditions
         </h1>
         <p className="text-lg mb-4">
-          <Link href={"/"}>
+          <Link
+            className="font-bold text-primary hover:underline"
+            href="/pdfs/AHC-Pet-Owner-Ts-Cs-Feb-2022.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             You can download the AHC Pet Owner Terms and Conditions here
           </Link>
         </p>
