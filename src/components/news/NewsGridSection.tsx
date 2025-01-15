@@ -20,7 +20,7 @@ export const NewsGridSection: React.FC<Props> = ({ data }) => {
             image={item.image}
             time={item.date}
             title={item.title}
-            description={t('owners_who_must_collect')}
+            description={item.description}
           />
         ))}
       </div>

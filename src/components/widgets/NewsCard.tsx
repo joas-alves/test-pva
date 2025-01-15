@@ -27,7 +27,16 @@ export const NewsCard: React.FC<Props> = ({
   .replace(/[^a-z0-9]+/g, "-") // Replace spaces and special characters with dashes
   .replace(/^-+|-+$/g, ""); // Trim leading or trailing dashes
 
-const link = `${slug}?id=${encodeURIComponent(id)}`;
+  const link = `${slug}?id=${encodeURIComponent(id)}`;
+
+  const removeHtmlTagsAndExtractWords = (text: string, wordLimit: number = 60): string => {
+    const textWithoutNbsp = text.replace(/&nbsp;/g, ' ');
+    const strippedText = textWithoutNbsp.replace(/<[^>]*>/g, '');
+    const normalizedText = strippedText.replace(/\s+/g, ' ').trim();
+    const words = normalizedText.split(' ');
+    const firstWords = words.slice(0, wordLimit).join(' ');
+    return firstWords;
+  }
 
   return (
     <Link href={`/news/${link}`}>
@@ -53,7 +62,7 @@ const link = `${slug}?id=${encodeURIComponent(id)}`;
             className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4"
             dangerouslySetInnerHTML={{ __html: title }}
           />
-          <p className="text-sm mb-5 sm:mb-6 text-secondary">{description}</p>
+          <p className="text-sm mb-5 sm:mb-6 text-secondary" dangerouslySetInnerHTML={{ __html: removeHtmlTagsAndExtractWords(description) }}/>
           <span className="font-medium text-info cursor-pointer text-sm sm:text-base">
             LEARN MORE
           </span>
