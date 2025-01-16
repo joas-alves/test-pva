@@ -1,4 +1,5 @@
 import { Input } from "@headlessui/react";
+import axios from "axios";
 import clsx from "clsx";
 import { useTranslations } from "next-intl";
 import { useSnackbar } from "notistack";
@@ -11,13 +12,33 @@ export const SignUpInput = () => {
   const handleChange = (value: string) => {
     setEmail(value);
   };
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    enqueueSnackbar("Thank you for getting in touch!", {
-      variant: "success",
-    });
-    setEmail("");
+    if (!emailRegex.test(email)) {
+      enqueueSnackbar("Please enter a valid email address.", {
+        variant: "error",
+      });
+      return;
+    }
+
+    try {
+      const response = await axios.post(`/api/ready-to-grow`, { email });
+      if (response.status === 201) {
+        enqueueSnackbar(
+          "Thank you for getting in touch! Our representative will contact you via email",
+          {
+            variant: "success",
+          }
+        );
+        setEmail("");
+      }
+    } catch (error) {
+      console.error(error);
+      enqueueSnackbar("An unexpected error occurred. Please try again later", {
+        variant: "error",
+      });
+    }
   };
 
   return (
