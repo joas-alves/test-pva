@@ -1,32 +1,18 @@
 import { CustomInput, CustomRadioGroup } from "@/components/common";
-import { useState } from "react";
 import { PvaCustomerType } from "../constants";
+import { GetInTouchFormType } from "../types";
 import { NewCustomerForm } from "./new";
 import { ExistingPvaForm } from "./pva";
-
-type FormState = { customerType: PvaCustomerType; clinicName: string };
-
-export const VetDecisionForm = () => {
-  const initialValue: FormState = {
-    customerType: PvaCustomerType.New,
-    clinicName: "",
-  };
-  const [formData, setFormData] = useState(initialValue);
-
-  const handleChange = (
-    field: keyof FormState,
-    value: PvaCustomerType | string
-  ) => {
-    setFormData({
-      ...formData,
-      [field]: value,
-    });
-  };
+type Props={
+  formData:GetInTouchFormType
+  handleChange: (field: keyof GetInTouchFormType, value: string) => void
+}
+export const VetDecisionForm = ({formData,handleChange}:Props) => {
   const pvaCustomerTypes: PvaCustomerType[] = Object.values(PvaCustomerType);
   const renderForm = () => {
     if (formData.customerType === PvaCustomerType.Existing)
-      return <ExistingPvaForm />;
-    return <NewCustomerForm />;
+      return <ExistingPvaForm formData={formData} handleChange={handleChange} />;
+    return <NewCustomerForm formData={formData} handleChange={handleChange} />;
   };
   return (
     <div className="flex flex-col gap-6 py-4">
