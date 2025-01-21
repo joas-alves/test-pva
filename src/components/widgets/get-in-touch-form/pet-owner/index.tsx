@@ -1,11 +1,11 @@
 import { CustomInput, CustomSelect, SelectOption } from "@/components/common";
 import { PetOwnerPaymentOptions, PetOwnerReasons } from "../constants";
 import { GetInTouchFormType } from "../types";
-type Props={
-  formData:GetInTouchFormType
-  handleChange:  (field: keyof GetInTouchFormType, value: string) => void
+type Props = {
+  formData: GetInTouchFormType
+  handleChange: (field: keyof GetInTouchFormType, value: string) => void
 }
-export const PetOwnerForm = ({formData,handleChange}:Props) => {
+export const PetOwnerForm = ({ formData, handleChange }: Props) => {
   const reasons: SelectOption[] = Object.values(PetOwnerReasons).map(
     (each) => ({ label: each, value: each })
   );
@@ -14,6 +14,31 @@ export const PetOwnerForm = ({formData,handleChange}:Props) => {
   ).map((each) => ({ label: each, value: each }));
   return (
     <div className="flex flex-col gap-6 py-4">
+      <div className="col-span-2">
+        <CustomInput
+          label='Clinic Name'
+          placeholder='Clinic Name'
+          value={formData.clinicName}
+          onChange={(e) => handleChange("clinicName", e.target.value)}
+        />
+      </div>
+      <div className="col-span-2">
+        <CustomInput
+          label='Plan Reference'
+          placeholder='Plan Reference'
+          value={formData.planReference}
+          onChange={(e) => handleChange("planReference", e.target.value)}
+        />
+      </div>
+      <div className="col-span-2">
+        <CustomInput
+          type="number"
+          label='Postal Code'
+          placeholder='Postal Code'
+          value={formData.postCode}
+          onChange={(e) => handleChange("postCode", e.target.value)}
+        />
+      </div>
       <CustomSelect
         label={"Please select one of the below options"}
         options={reasons}

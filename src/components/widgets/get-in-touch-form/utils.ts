@@ -68,6 +68,18 @@ export const validateGetInTouchForm = (
       enqueueSnackbar("Please select a payment query", { variant: "error" });
       return false;
     }
+    if (allData.clinicName.length <= 0) {
+      enqueueSnackbar("Please enter a valid clinic name.", { variant: "error" });
+      return false;
+    }
+    if (allData.planReference.length <= 0) {
+      enqueueSnackbar("Please enter a valid plan reference.", { variant: "error" });
+      return false;
+    }
+    if (allData.postCode.length <= 0) {
+      enqueueSnackbar("Please enter a valid post code.", { variant: "error" });
+      return false;
+    }
   }
   if (customerType === "veterinary") {
     if (allData.customerType === PvaCustomerType.Existing) {

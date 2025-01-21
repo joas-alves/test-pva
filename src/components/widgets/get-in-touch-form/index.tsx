@@ -26,6 +26,8 @@ export const GetInTouchForm = () => {
     preference: t("veterinary_professional"),
     additionalComments: "",
     clinicName: "",
+    postCode: "",
+    planReference: "",
     customerType: PvaCustomerType.New,
     primaryReason: "",
     secondaryReason: "",
@@ -165,7 +167,7 @@ export const GetInTouchForm = () => {
           type="button"
           onClick={handleSubmit}
         >
-          {t("talk_to_us")}
+          Send
         </button>
       </div>
     </div>

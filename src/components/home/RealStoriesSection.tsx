@@ -3,7 +3,6 @@ import { ReviewCarouselCard } from "@/components/widgets";
 import { reviewData } from "@/temp/reviewDataForTestimonals";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import Link from "next/link";
 import React, { useState } from "react";
 import { GoStar, GoStarFill } from "react-icons/go";
 import { IoChevronBackOutline, IoChevronForwardOutline } from "react-icons/io5";
@@ -18,7 +17,6 @@ type Props = {
 
 export const RealStoriesSection: React.FC<Props> = ({ data }) => {
   const t = useTranslations('Home');
-  const ct = useTranslations('Common');
   
   const [currentSlide, setCurrentSlide] = useState(reviewData[0]);
   const handleSlideChange = (swiper: SwiperType) => {
@@ -26,11 +24,6 @@ export const RealStoriesSection: React.FC<Props> = ({ data }) => {
   };
   return (
     <section className="container mx-auto py-3">
-      <div className="flex flex-col w-full justify-center items-center">
-        <Link href={`/get-in-touch?default=pet-owner`} >
-          <button className="btn primary-outline-btn font-bold mb-[25px] px-10 self-center">{ct('get_in_touch')}</button>
-        </Link>
-      </div>
       <div className="flex">
         <div className="sub-heading mb-4 md:mb-12 flex-1" dangerouslySetInnerHTML={{ __html: data.section5_title }}></div>
         <div className="hidden md:flex justify-end gap-5 pb-8 mt-10">

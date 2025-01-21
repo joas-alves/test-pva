@@ -42,6 +42,8 @@ export type GetInTouchFormType = {
   lastName: string;
   email: string;
   phone: string;
+  planReference:string;
+  postCode:string;
   preference: string;
   clinicName: string;
   customerType: string;
