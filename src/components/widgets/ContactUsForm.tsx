@@ -3,8 +3,10 @@ import {
   CustomRadioGroup,
   CustomTextarea,
 } from "@/components/common";
+import { LanguageCode } from "@/utils";
 import axios from "axios";
 import { useTranslations } from "next-intl";
+import { NextRouter, useRouter } from "next/router";
 import { useSnackbar } from "notistack";
 import { useState } from "react";
 export const ContactUsForm = () => {
@@ -19,6 +21,7 @@ export const ContactUsForm = () => {
     preference: t("pet_owner"),
   };
   const [formData, setFormData] = useState(initialValue);
+  const nextRouter: NextRouter = useRouter();
 
   const handleChange = (field: string, value: string) => {
     setFormData({
@@ -64,7 +67,7 @@ export const ContactUsForm = () => {
     }
 
     try {
-      const response = await axios.post(`/api/contact-us`, formData);
+      const response = await axios.post(`/api/${nextRouter.locale || LanguageCode.Global}/contact-us`, formData);
 
       if (response.status === 201) {
         // If everything is valid, show success message

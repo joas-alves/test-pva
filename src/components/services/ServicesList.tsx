@@ -44,7 +44,11 @@ export const ServicesList: React.FC<Props> = ({ data }) => {
     isEnUK || isglobal
       ? services
       : services.filter((service) => !service?.title?.match(/post2pet/i));
-
+  // Place the last service in the second position
+  if (filteredServices.length > 1 && !isEnUK && !isglobal) {
+    const lastService = filteredServices.pop(); // Remove the last service
+    filteredServices.splice(1, 0, lastService!); // Insert the last service at index 1
+  }
   return (
     <section className="container mx-auto py-10">
       <div className="max-w-[954px] w-full mx-auto mb-12 text-left md:text-center">

@@ -6,9 +6,15 @@ import React from "react";
 
 type Props = {
   data: IHomePage;
+  globaldata?: IHomePage | null; // Optional prop
 };
 
-export const HeroSection: React.FC<Props> = ({ data }) => {
+export const HeroSection: React.FC<Props> = ({ data, globaldata }) => {
+  const description =
+    globaldata && globaldata.section1_description
+      ? globaldata.section1_description
+      : data.section1_description;
+
   return (
     <section className="container mx-auto py-10">
       <div className="flex flex-col lg:flex-row gap-10 sm:gap-6 lg:items-start">
@@ -26,7 +32,7 @@ export const HeroSection: React.FC<Props> = ({ data }) => {
             <div className="flex flex-col w-full gap-8">
               <p
                 className="body text-secondary lg:max-w-[517px] mb-3 sm:mb-6"
-                dangerouslySetInnerHTML={{ __html: data.section1_description }}
+                dangerouslySetInnerHTML={{ __html: description }}
               />
               <div className="flex justify-center lg:justify-start">
                 <SignUpInput />

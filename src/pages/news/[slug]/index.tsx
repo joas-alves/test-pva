@@ -6,25 +6,26 @@ import axios from "axios";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import { useParams } from "next/navigation";
 import { NextRouter, useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { CiClock2 } from "react-icons/ci";
+import { useRouter as useRtRouter} from "next/router";
 
 export default function NewsDetail() {
   const router: NextRouter = useRouter();
-  const params = useParams();
-
+  const rt=useRtRouter()
+  const { id } = rt.query;
   const [data, setData] = useState<INewsPage>({} as INewsPage);
   const [relevantBlogs, setRelevantData] = useState<INewsPage[]>([]);
 
   useEffect(() => {
     if (!router.isReady) return;
+    
     (async () => {
-      if (params?.id) {
+      if (id) {
         try {
           const response = await axios(
-            `/en-UK/news/${params.id}`
+            `/en-UK/news/${id}`
           );
           if (response.status === 200) {
             setData(response.data);
@@ -56,7 +57,7 @@ export default function NewsDetail() {
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
       } catch (error) {}
     })();
-  }, [router.locale, params]);
+  }, [router.locale, router.query]);
 
   if (!data || Object.keys(data).length === 0) {
     return <div>Loading...</div>;

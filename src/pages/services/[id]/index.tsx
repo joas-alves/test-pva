@@ -1,7 +1,11 @@
 import { IServicePage } from "@/cms-models/service";
 import { NeedMoreHelpSection } from "@/components/about-us";
 import { FAQSection } from "@/components/home";
-import { EnhancedSection, Vet2PetSection, YouPracticeSection } from "@/components/services";
+import {
+  EnhancedSection,
+  Vet2PetSection,
+  YouPracticeSection,
+} from "@/components/services";
 import axios from "axios";
 import { useParams } from "next/navigation";
 import { NextRouter, useRouter } from "next/router";
@@ -16,16 +20,17 @@ export default function ServicePage() {
   useEffect(() => {
     if (!router.isReady) return;
     (async () => {
-        try {
-          if (params?.id) {
-              const response = await axios.get(`/en-UK/service-content/${params?.id}`);
-              if (response.status === 200) {
-                  return setData(response.data);
-              }
+      try {
+        if (params?.id) {
+          const response = await axios.get(
+            `/en-UK/service-content/${params?.id}`
+          );
+          if (response.status === 200) {
+            return setData(response.data);
           }
-            // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        } catch (error) {
         }
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      } catch (error) {}
     })();
   }, [router.locale, params]);
 
@@ -49,9 +54,8 @@ export default function ServicePage() {
         phoneTitle={data.section4_phone_title}
         phoneDescription={data.section4_phone_content}
         phoneIcon={data.section4_phone_icon}
-        phoneNumber={data.section4_phone_number}
         image={data.section4_image}
       />
     </div>
-  )
+  );
 }

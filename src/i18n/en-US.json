@@ -3,7 +3,7 @@
     "signup": "Sign up",
     "learn_more": "Learn More",
     "veterinary_professional": "Veterinary Professional",
-    "pet_owner": "Pet Owner?",
+    "pet_owner": "Pet Owner",
     "first_name": "First Name",
     "enter_first_name": "Enter your first name",
     "last_name": "Last Name",
@@ -184,8 +184,8 @@
   },
   "Book": {
     "unlock_the": "Unlock the",
-    "full_potential": "Full Potential",
-    "of_your_veterinary": "of Your Veterinary Practice",
+    "full_potential": "full potential",
+    "of_your_veterinary": "of your veterinary practice",
     "discover_how_premier": "Discover how Premier Vet Alliance‘s tailored solutions can enhance pet care and streamline your clinic’s operations. Book a personalized demo to see how our services can support the growth of your practice.",
     "what_can_i_expect": "What can I expect?",
     "tailored_health_plans": "Tailored health plans to enhance client retention.",
@@ -194,7 +194,7 @@
     "trusted_by_veterinary": "Trusted by 3,000+ veterinary clinics worldwide.",
     "tailored_for": "Tailored for",
     "veterinary": "Veterinary",
-    "and_efficiency": "and Efficiency",
+    "and_efficiency": "Efficiency",
     "see_how_our_tailored": "See how our tailored solutions have helped clients worldwide boost efficiency and improve outcomes, directly from their experiences."
   },
   "About": {
@@ -266,7 +266,7 @@
     "services": "Services",
     "about": "About",
     "news": "News",
-    "address": "The Quorum, Bond Street, Bristol, BS1 3AE",
+    "address": "Suite 3B, 10882 Crabapple Rd, Roswell, GA 30075",
     "terms_of_use": "Terms of use",
     "privacy_policy": "Privacy policy",
     "cookie_policy": "Cookie policy",

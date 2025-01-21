@@ -3,9 +3,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaLinkedin } from "react-icons/fa";
 import { ServicesDropdown } from "./widgets/services-dropdown";
+import { getLocaleSiteInfo, LanguageCode } from "@/utils";
+import { NextRouter, useRouter } from "next/router";
 
 const Footer = () => {
   const t = useTranslations("Footer");
+  const router: NextRouter = useRouter();
+
+  const { phone: phoneNumber, email,address } = getLocaleSiteInfo(
+    router.locale as LanguageCode
+  );
 
   return (
     <footer className="pt-10">
@@ -23,12 +30,16 @@ const Footer = () => {
         </div>
         <div>
           <ul className="flex justify-start sm:justify-between flex-wrap md:flex-col gap-2 md:gap-4 text-sm md:text-base">
-            <li>
-              <Link href="/investors">{t("investors")}</Link>
-            </li>
-            <li>
-              <Link href="/strategic-review">{t("strategic_review")}</Link>
-            </li>
+            {router.locale === "global" && (
+              <>
+                <li>
+                  <Link href="/investors">{t("investors")}</Link>
+                </li>
+                <li>
+                  <Link href="/strategic-review">{t("strategic_review")}</Link>
+                </li>
+              </>
+            )}
             {/*<li><Link href="/pet-owners">{t('services')}</Link></li>*/}
             <li>
               <ServicesDropdown />
@@ -43,20 +54,25 @@ const Footer = () => {
               <Link href="/cookie-policy">{t("cookie_policy")}</Link>
             </li>
             <li>
-              <Link href="/terms-of-use">{t("terms_of_use")}</Link>
+              <Link href="/pet-owner-terms-conditions">{t("terms_of_use")}</Link>
             </li>
           </ul>
         </div>
         <div className="md:col-span-2 flex flex-wrap gap-6 border-y md:border-none border-y-gray-200 py-6 md:py-0">
           <ul className="flex flex-col gap-2 md:gap-4 text-sm md:text-base">
-            <li>{t("address")}</li>
-            <a href="mailto:pcp@premiervetalliance.co.uk">pcp@premiervetalliance.co.uk</a>
+            <li className="notranslate">{address}</li>
+            <a
+              className="notranslate"
+              href={`mailto:${email}`}
+            >
+              {email}
+            </a>
             <li>
-              <a href="tel:+441174725000">+44 117 472 5000</a>
+              <a href={`tel:${phoneNumber}`}>{phoneNumber}</a>
             </li>
           </ul>
           <div className="flex-1" />
-          <div className="gap-8 text-2xl flex">
+          <div className="gap-8 text-2xl flex notranslate">
             <a
               href="https://www.linkedin.com/company/premier-vet-alliance/"
               target="_blank"
@@ -73,7 +89,7 @@ const Footer = () => {
         </div>
         <div className="flex gap-10 justify-between md:justify-start pb-6 md:pb-0 border-b border-b-gray-200 md:border-none">
           <div>
-            <Link href="/terms-of-use">{t("terms_of_use")}</Link>
+            <Link href="/pet-owner-terms-conditions">{t("terms_of_use")}</Link>
           </div>
           <div>
             <Link href="/privacy-policy">{t("privacy_policy")}</Link>

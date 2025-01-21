@@ -4,7 +4,7 @@ import { FAQSection } from "@/components/home";
 import {
   EnhancedSection,
   Vet2PetSection,
-  YouPracticeSection 
+  YouPracticeSection,
 } from "@/components/services";
 import { faqsForTechnology } from "@/temp/faqs";
 import axios from "axios";
@@ -23,9 +23,7 @@ export default function ServicePage() {
     if (!router.isReady) return;
     (async () => {
       try {
-        const response = await axios.get(
-          `/en-UK/service-content/5`
-        );
+        const response = await axios.get(`/en-UK/service-content/5`);
         if (response.status === 200) {
           return setData(response.data);
         }
@@ -77,7 +75,6 @@ export default function ServicePage() {
         phoneTitle={data.section4_phone_title}
         phoneDescription={data.section4_phone_content}
         phoneIcon={data.section4_phone_icon}
-        phoneNumber={data.section4_phone_number}
         image={data.section4_image}
       />
     </div>

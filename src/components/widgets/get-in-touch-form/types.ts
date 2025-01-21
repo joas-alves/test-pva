@@ -10,8 +10,7 @@ import {
   PvaCustomerPlanStatusOptions,
   PvaCustomerReasons,
   PvaCustomerRefundOptions,
-  PvaCustomerType,
-  PvaCustomerValidationOptions,
+  PvaCustomerValidationOptions
 } from "./constants";
 
 export type VeteniraryNewCustomerFormData = {
@@ -43,12 +42,13 @@ export type GetInTouchFormType = {
   lastName: string;
   email: string;
   phone: string;
+  planReference:string;
+  postCode:string;
   preference: string;
-  customerType: PvaCustomerType | null;
-  additionalComments:string;
-  formData:
-    | PetOwnerFormData
-    | VeteniraryNewCustomerFormData
-    | VeteniraryPvaCustomerFormData
-    | null;
+  clinicName: string;
+  customerType: string;
+  primaryReason: string;
+  secondaryReason: string;
+  reasonComments: string;
+  additionalComments: string;
 };

@@ -1,5 +1,4 @@
 import { NewsCard } from "@/components/widgets";
-import { useTranslations } from "next-intl";
 import { INewsPage } from "@/cms-models/news";
 import React from "react";
 
@@ -8,8 +7,6 @@ type Props = {
 }
 
 export const NewsGridSection: React.FC<Props> = ({ data }) => {
-  const t = useTranslations('Home');
-
   return (
     <section className="container mx-auto py-10">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-8">
@@ -20,7 +17,7 @@ export const NewsGridSection: React.FC<Props> = ({ data }) => {
             image={item.image}
             time={item.date}
             title={item.title}
-            description={t('owners_who_must_collect')}
+            description={item.description}
           />
         ))}
       </div>

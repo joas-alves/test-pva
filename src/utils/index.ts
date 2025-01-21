@@ -107,3 +107,83 @@ export const languagesConfig: Record<LanguageCode, Translation> =
     acc[lang.code] = lang.translation;
     return acc;
   }, {} as Record<LanguageCode, Translation>);
+
+export const getLocaleSiteInfo = (
+  locale: LanguageCode
+): { phone: string; email: string; currency: string, address:string } => {
+  const localeInfo: Record<
+    LanguageCode,
+    { phone: string; email: string; currency: string, address:string }
+  > = {
+    [LanguageCode.EnglishUK]: {
+      phone: "+44 117 472 5000",
+      email: "pcp@premiervetalliance.co.uk",
+      currency: "£",
+      address:"The Quorum, Bond Street, Bristol, BS1 3AE"
+    },
+    [LanguageCode.EnglishUS]: {
+      phone: "+1 470-509-5111",
+      email: "pcp@premiervetalliance.com",
+      currency: "$",
+      address:"207 Tanner Williams Ct. Suite D Mobile, AL 36608"
+    },
+    [LanguageCode.Spanish]: {
+      phone: "+44 117 472 5000",
+      email: "pcp@premiervetalliance.co.uk",
+      currency: "€",
+      address:"The Quorum, Bond Street, Bristol, BS1 3AE"
+    },
+    [LanguageCode.French]: {
+      phone: "+44 (0)117 370 0300 ",
+      email: "pcp@premiervetalliance.co.uk",
+      currency: "€",
+      address:"The Quorum, Bond Street, Bristol, BS1 3AE"
+    },
+    [LanguageCode.German]: {
+      phone: "+44 (0)117 370 0300",
+      email: "pcp@premiervetalliance.co.uk",
+      currency: "€",
+      address:"The Quorum, Bond Street, Bristol, BS1 3AE"
+    },
+    [LanguageCode.Global]: {
+      phone: "+44 117 472 5000",
+      email: "pcp@premiervetalliance.co.uk",
+      currency: "£",
+      address:"The Quorum, Bond Street, Bristol, BS1 3AE"
+    },
+  };
+
+  // Return the info for the given locale
+  // Default to Global if the locale is not found
+  return localeInfo[locale] || localeInfo[LanguageCode.Global];
+};
+
+export const phoneNumberPlaceholders: Record<LanguageCode, string> = {
+  [LanguageCode.Global]: "+1 (123) 123-1234",
+  [LanguageCode.Spanish]: "+34 123 123 123",
+  [LanguageCode.EnglishUS]: "+1 (123) 123-1234",
+  [LanguageCode.EnglishUK]: "+44 1234 123 123",
+  [LanguageCode.German]: "+49 1234 1234567",
+  [LanguageCode.French]: "+33 1 23 45 67 89",
+};
+
+export const replaceCurrency = (
+  amount: string,
+  languageCode: LanguageCode
+): string => {
+  // Regular expression to identify the first non-digit character (the currency symbol)
+  const updatedAmount = amount.replace(
+    /^\D+/,
+    getLocaleSiteInfo(languageCode).currency + ""
+  );
+  return updatedAmount.trim();
+};
+export function cleanText(input: string): string {
+  if (!input) return "";
+  // Remove HTML tags
+  const withoutHtml = input.replace(/<\/?[^>]+(>|$)/g, "");
+  // Remove non-alphanumeric characters except spaces
+  const alphanumericAndSpacesOnly = withoutHtml.replace(/[^a-zA-Z0-9\s]/g, "");
+  // Trim extra spaces and return
+  return alphanumericAndSpacesOnly.trim();
+}

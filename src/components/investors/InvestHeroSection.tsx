@@ -1,11 +1,17 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { NextRouter, useRouter } from "next/router";
+import { getLocaleSiteInfo, LanguageCode } from "@/utils";
 
 type Props = {
   title: string;
 };
 export const InvestHeroSection: React.FC<Props> = ({ title }) => {
   const t = useTranslations("Investors");
+
+  const router: NextRouter = useRouter();
+  const {  address } = getLocaleSiteInfo(router.locale as LanguageCode);
+
   return (
     <section className="container mx-auto py-10 sm:mb-20 xs:mb-20">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
@@ -37,19 +43,22 @@ export const InvestHeroSection: React.FC<Props> = ({ title }) => {
             <p className="text-sm text-secondary mb-5">{t("registered_no")}</p>
             <div className="mb-6">
               <p className="font-semibold text-primary mb-2">{t("email_us")}</p>
-              <p className="break-words">
+              <a
+                className="notranslate"
+                href="mailto:investorrelations@premiervetgroup.co.uk"
+              >
                 investorrelations@premiervetgroup.co.uk
-              </p>
+              </a>
             </div>
             <div className="mb-6">
               <p className="font-semibold text-primary mb-2">{t("call_us")}</p>
-              <p>+44 117 370 0300</p>
+              <a href={`tel:+44 117 370 0300`}>+44 117 370 0300</a>
             </div>
             <div>
-              <p className="font-semibold text-primary mb-2">
+              <p className="font-semibold text-primary mb-2 notranslate">
                 {t("visiting_us")}
               </p>
-              <p>The Quorum, Bond Street, Bristol, BS1 3AE</p>
+              <p>{address}</p>
             </div>
           </div>
         </div>

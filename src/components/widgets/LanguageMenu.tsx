@@ -5,8 +5,10 @@ import Image from "next/image";
 import { NextRouter, useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { FiChevronDown } from "react-icons/fi";
-
-export const LanguageMenu = () => {
+type LanguageMenuProps = {
+  onClick?:()=>void;
+}
+export const LanguageMenu = ({onClick}:LanguageMenuProps) => {
   const router: NextRouter = useRouter();
   const [selectedLanguage, setSelectedLanguage] = useState<LanguageConfig | null>(null);
 
@@ -26,6 +28,7 @@ export const LanguageMenu = () => {
   }, [selectedLanguage,router]);
 
   const handleChangeLanguage = (code: string) => {
+    onClick?.()
     router.push(router.pathname, router.asPath, { locale: code });
   };
 
