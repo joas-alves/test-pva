@@ -13,10 +13,14 @@ import { PetOwnerForm } from "./pet-owner";
 import { GetInTouchFormType } from "./types";
 import { getCustomerType, validateGetInTouchForm } from "./utils";
 import { VetDecisionForm } from "./veterinary";
+import { LanguageCode } from "@/utils";
+import { NextRouter, useRouter } from "next/router";
 export const GetInTouchForm = () => {
   const t = useTranslations("Common");
   const { enqueueSnackbar } = useSnackbar();
   const searchParams = useSearchParams();
+  const nextRouter: NextRouter = useRouter();
+
   // const router = useRouter();
   const initialValue: GetInTouchFormType = {
     firstName: "",
@@ -43,7 +47,6 @@ export const GetInTouchForm = () => {
   }, [searchParams]);
 
   const handleChange = (field: keyof GetInTouchFormType, value: string) => {
-    console.log({field,value})
     const modifiedData = { ...allData };
     if (field === "preference") {
       modifiedData.primaryReason = "";
@@ -82,7 +85,10 @@ export const GetInTouchForm = () => {
     const isValid = validateGetInTouchForm(allData, enqueueSnackbar);
     if (!isValid) return;
     try {
-      const response = await axios.post(`/api/get-in-touch`, allData);
+      const response = await axios.post(
+        `/api/${nextRouter.locale || LanguageCode.Global}/get-in-touch`,
+        allData
+      );
       if (response.status === 201) {
         enqueueSnackbar("Thank you for getting in touch!", {
           variant: "success",

@@ -1,7 +1,9 @@
+import { LanguageCode } from "@/utils";
 import { Input } from "@headlessui/react";
 import axios from "axios";
 import clsx from "clsx";
 import { useTranslations } from "next-intl";
+import { NextRouter, useRouter } from "next/router";
 import { useSnackbar } from "notistack";
 import { useState } from "react";
 
@@ -9,6 +11,7 @@ export const SignUpInput = () => {
   const t = useTranslations("Common");
   const { enqueueSnackbar } = useSnackbar();
   const [email, setEmail] = useState("");
+  const nextRouter: NextRouter = useRouter();
   const handleChange = (value: string) => {
     setEmail(value);
   };
@@ -23,7 +26,7 @@ export const SignUpInput = () => {
     }
 
     try {
-      const response = await axios.post(`/api/ready-to-grow`, { email });
+      const response = await axios.post(`/api/${nextRouter.locale || LanguageCode.Global}/ready-to-grow`, { email });
       if (response.status === 201) {
         enqueueSnackbar(
           "Thank you for getting in touch! Our representative will contact you via email",
