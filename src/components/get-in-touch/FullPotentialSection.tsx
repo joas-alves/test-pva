@@ -1,36 +1,12 @@
-import { IHomePage } from "@/cms-models/home";
 import { GetInTouchForm } from "@/components/widgets";
-import { imageUrl } from "@/utils";
-import axios from "axios";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import { useEffect, useState } from "react";
 import { PiSealCheckFill } from "react-icons/pi";
+import getintouchimage from "../../../public/images/get-in-touch-dog-doctor.jpeg"
 
 export const FullPotentialSection = () => {
   const t = useTranslations("Book");
 
-  const [data, setData] = useState<IHomePage | null>(null);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios("/en-UK/homepage-content/1");
-
-        if (response.status === 200) {
-          setData(response.data);
-        }
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  if (!data) {
-    return <div>Loading...</div>;
-  }
   return (
     <section className="container mx-auto py-6 md:py-10 px-4 sm:px-6 lg:px-8">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-[80px]">
@@ -70,8 +46,8 @@ export const FullPotentialSection = () => {
               </div>
             </div>
             <Image
-              className="w-full md:w-2/3"
-              src={imageUrl(data.section1_image1)}
+              className="w-full md:w-2/3 rounded-[40px]"
+              src={getintouchimage}
               width={410}
               height={362}
               alt="cat"
