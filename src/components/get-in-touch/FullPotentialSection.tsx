@@ -46,7 +46,7 @@ export const FullPotentialSection = () => {
               </div>
             </div>
             <Image
-              className="w-full md:w-2/3 rounded-[40px]"
+              className="w-full md:w-2/3 lg:relative lg:top-28 lg:right-7 z-[-10] rounded-[40px]"
               src={getintouchimage}
               width={410}
               height={362}
