@@ -6,7 +6,7 @@ import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { INewsPage } from "@/cms-models/news";
-import { imageUrl } from "@/utils";
+import { createNewsSlug, imageUrl } from "@/utils";
 import Link from "next/link";
 import { dateFormater } from "@/utils/dataConverter";
 
@@ -43,7 +43,7 @@ export const HeroSection: React.FC<Props> = ({ data }) => {
             const images = post.image ? JSON.parse(post.image) : null;
             return (
               <SwiperSlide key={index}>
-                <Link href={`/news/${post.id}`}>
+                <Link href={`/news/${createNewsSlug(post.title, post.id)}`}>
                   <div className="relative">
                     <Image
                       className="rounded-3xl hidden md:block"
@@ -63,7 +63,9 @@ export const HeroSection: React.FC<Props> = ({ data }) => {
                       <div className="bg-white p-2 md:p-4 rounded-3xl max-w-[680px]">
                         <div className="flex items-center text-black mb-4 gap-1 text-xs md:text-base">
                           <CiClock2 className="text-base sm:text-xl" />
-                          <span className="text-sm">{dateFormater(post.date, 'YYYY-MM-DD')}</span>
+                          <span className="text-sm">
+                            {dateFormater(post.date, "YYYY-MM-DD")}
+                          </span>
                         </div>
                         <div className="text-black">
                           <div
