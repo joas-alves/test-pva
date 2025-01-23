@@ -1,7 +1,6 @@
 import {
   CustomInput,
-  CustomRadioGroup,
-  CustomTextarea,
+  CustomTextarea
 } from "@/components/common";
 import { LanguageCode } from "@/utils";
 import axios from "axios";
@@ -96,13 +95,9 @@ export const ContactUsForm = () => {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-y-6 gap-x-3">
-      <div className="md:col-span-2">
-        <CustomRadioGroup
-          wrapperClassName="grid grid-cols-1 md:grid-cols-2 gap-3 "
-          options={[t("veterinary_professional"), t("pet_owner")]}
-          value={formData.preference}
-          onChange={(value) => handleChange("preference", value)}
-        />
+      <div className="md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-2">
+        <p>{t("veterinary_professional")}</p>
+        <p>{t("pet_owner")}</p>
       </div>
       <CustomInput
         label={t("first_name")}
@@ -152,7 +147,7 @@ export const ContactUsForm = () => {
           disabled={!(formData.email && formData.phone)}
           onClick={handleSubmit}
         >
-          {t("get_in_touch")}
+          Send
         </button>
       </div>
     </div>

@@ -32,7 +32,7 @@ export const PetOwnerForm = ({ formData, handleChange }: Props) => {
       </div>
       <div className="col-span-2">
         <CustomInput
-          type="number"
+          type="text"
           label='Postal Code'
           placeholder='Postal Code'
           value={formData.postCode}

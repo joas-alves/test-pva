@@ -42,7 +42,7 @@ export default function ContactUs() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <div className="">
           <h1 className="sub-heading mb-6">
-            <span className="text-primary">{t("get_in")}</span> {t("touch")}
+            <span className="text-primary">Contact</span> us
           </h1>
           <p className="body text-secondary max-w-[465px] mb-10">
             {t("have_question_need_assistance")}
