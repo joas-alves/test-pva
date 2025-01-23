@@ -1,6 +1,6 @@
 export enum PvaCustomerType {
   New = "New Customer",
-  Existing = "Existing PVA Customer",
+  Existing = "Existing Customer",
 }
 //Pet owner values
 export enum PetOwnerReasons {
