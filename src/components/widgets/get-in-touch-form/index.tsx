@@ -33,7 +33,7 @@ export const GetInTouchForm = () => {
     postCode: "",
     planReference: "",
     customerType: PvaCustomerType.New,
-    primaryReason: "",
+    primaryReason: NewCustomerReasons.HealthPlan,
     secondaryReason: "",
     reasonComments: "",
   };
