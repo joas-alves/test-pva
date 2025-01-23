@@ -6,6 +6,7 @@ import { useSnackbar } from "notistack";
 import { useEffect, useState } from "react";
 import {
   NewCustomerReasons,
+  PvaCustomerCancelOptions,
   PvaCustomerReasons,
   PvaCustomerType,
 } from "./constants";
@@ -59,7 +60,8 @@ export const GetInTouchForm = () => {
       }
       if (customerType === "pet_owner") {
         modifiedData.customerType = PvaCustomerType.New;
-        modifiedData.primaryReason = NewCustomerReasons.HealthPlan;
+        modifiedData.primaryReason = PvaCustomerReasons.Cancellation;
+        modifiedData.secondaryReason = "";
       }
     }
     if (field === "customerType") {
@@ -69,8 +71,11 @@ export const GetInTouchForm = () => {
 
       if (value === PvaCustomerType.Existing) {
         modifiedData.primaryReason = PvaCustomerReasons.Cancellation;
+        modifiedData.secondaryReason =
+          PvaCustomerCancelOptions.CancellationQuery;
       } else {
         modifiedData.primaryReason = NewCustomerReasons.HealthPlan;
+        modifiedData.secondaryReason = "";
       }
     }
     if (field === "primaryReason" && value === "Other") {
