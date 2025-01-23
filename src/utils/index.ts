@@ -110,46 +110,46 @@ export const languagesConfig: Record<LanguageCode, Translation> =
 
 export const getLocaleSiteInfo = (
   locale: LanguageCode
-): { phone: string; email: string; currency: string, address:string } => {
+): { phone: string; email: string; currency: string; address: string } => {
   const localeInfo: Record<
     LanguageCode,
-    { phone: string; email: string; currency: string, address:string }
+    { phone: string; email: string; currency: string; address: string }
   > = {
     [LanguageCode.EnglishUK]: {
       phone: "+44 117 472 5000",
       email: "pcp@premiervetalliance.co.uk",
       currency: "£",
-      address:"The Quorum, Bond Street, Bristol, BS1 3AE"
+      address: "The Quorum, Bond Street, Bristol, BS1 3AE",
     },
     [LanguageCode.EnglishUS]: {
       phone: "+1 470-509-5111",
       email: "pcp@premiervetalliance.com",
       currency: "$",
-      address:"207 Tanner Williams Ct. Suite D Mobile, AL 36608"
+      address: "207 Tanner Williams Ct. Suite D Mobile, AL 36608",
     },
     [LanguageCode.Spanish]: {
       phone: "+44 117 472 5000",
       email: "pcp@premiervetalliance.co.uk",
       currency: "€",
-      address:"The Quorum, Bond Street, Bristol, BS1 3AE"
+      address: "The Quorum, Bond Street, Bristol, BS1 3AE",
     },
     [LanguageCode.French]: {
       phone: "+44 (0)117 370 0300 ",
       email: "pcp@premiervetalliance.co.uk",
       currency: "€",
-      address:"The Quorum, Bond Street, Bristol, BS1 3AE"
+      address: "The Quorum, Bond Street, Bristol, BS1 3AE",
     },
     [LanguageCode.German]: {
       phone: "+44 (0)117 370 0300",
       email: "pcp@premiervetalliance.co.uk",
       currency: "€",
-      address:"The Quorum, Bond Street, Bristol, BS1 3AE"
+      address: "The Quorum, Bond Street, Bristol, BS1 3AE",
     },
     [LanguageCode.Global]: {
       phone: "+44 117 472 5000",
       email: "pcp@premiervetalliance.co.uk",
       currency: "£",
-      address:"The Quorum, Bond Street, Bristol, BS1 3AE"
+      address: "The Quorum, Bond Street, Bristol, BS1 3AE",
     },
   };
 
@@ -186,4 +186,13 @@ export function cleanText(input: string): string {
   const alphanumericAndSpacesOnly = withoutHtml.replace(/[^a-zA-Z0-9\s]/g, "");
   // Trim extra spaces and return
   return alphanumericAndSpacesOnly.trim();
+}
+
+export function createNewsSlug(title: string, id: string | number) {
+  const slug = cleanText(title)
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-") // Replace spaces and special characters with dashes
+    .replace(/^-+|-+$/g, ""); // Trim leading or trailing dashes
+
+  return `${slug}?id=${encodeURIComponent(id)}`;
 }

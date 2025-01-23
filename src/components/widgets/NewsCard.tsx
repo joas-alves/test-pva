@@ -1,4 +1,4 @@
-import { imageUrl, cleanText } from "@/utils";
+import { createNewsSlug, imageUrl } from "@/utils";
 import { dateFormater } from "@/utils/dataConverter";
 import Image from "next/image";
 import Link from "next/link";
@@ -22,24 +22,20 @@ export const NewsCard: React.FC<Props> = ({
 }) => {
   const images = image ? JSON.parse(image) : null;
 
-  const slug = cleanText(title)
-  .toLowerCase()
-  .replace(/[^a-z0-9]+/g, "-") // Replace spaces and special characters with dashes
-  .replace(/^-+|-+$/g, ""); // Trim leading or trailing dashes
-
-  const link = `${slug}?id=${encodeURIComponent(id)}`;
-
-  const removeHtmlTagsAndExtractWords = (text: string, wordLimit: number = 60): string => {
-    const textWithoutNbsp = text.replace(/&nbsp;/g, ' ');
-    const strippedText = textWithoutNbsp.replace(/<[^>]*>/g, '');
-    const normalizedText = strippedText.replace(/\s+/g, ' ').trim();
-    const words = normalizedText.split(' ');
-    const firstWords = words.slice(0, wordLimit).join(' ');
+  const removeHtmlTagsAndExtractWords = (
+    text: string,
+    wordLimit: number = 60
+  ): string => {
+    const textWithoutNbsp = text.replace(/&nbsp;/g, " ");
+    const strippedText = textWithoutNbsp.replace(/<[^>]*>/g, "");
+    const normalizedText = strippedText.replace(/\s+/g, " ").trim();
+    const words = normalizedText.split(" ");
+    const firstWords = words.slice(0, wordLimit).join(" ");
     return firstWords;
-  }
+  };
 
   return (
-    <Link href={`/news/${link}`}>
+    <Link href={`/news/${createNewsSlug(title, id)}`}>
       <div className="rounded-2xl shadow-paper overflow-hidden">
         {images && (
           <Image
@@ -62,7 +58,12 @@ export const NewsCard: React.FC<Props> = ({
             className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4"
             dangerouslySetInnerHTML={{ __html: title }}
           />
-          <p className="text-sm mb-5 sm:mb-6 text-secondary" dangerouslySetInnerHTML={{ __html: removeHtmlTagsAndExtractWords(description) }}/>
+          <p
+            className="text-sm mb-5 sm:mb-6 text-secondary"
+            dangerouslySetInnerHTML={{
+              __html: removeHtmlTagsAndExtractWords(description),
+            }}
+          />
           <span className="font-medium text-info cursor-pointer text-sm sm:text-base">
             LEARN MORE
           </span>
