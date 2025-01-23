@@ -124,7 +124,7 @@ export const GetInTouchForm = () => {
         <div className="col-span-2">
           <CustomRadioGroup
             wrapperClassName="grid grid-cols-1 md:grid-cols-2 gap-3"
-            options={[t("veterinary_professional"), t("pet_owner")]}
+            options={["Veterinary Professional", "Pet Owner"]}
             value={allData.preference}
             onChange={(value) => handleChange("preference", value)}
           />
