@@ -73,7 +73,7 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/uk/services/vet2pet",
-        destination: "/en-UK",
+        destination: "/en-UK/services/vet2pet",
         permanent: true,
       },
       {
