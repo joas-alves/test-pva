@@ -52,6 +52,11 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/voyager-practice-terms-conditions",
+        destination: "/voyager-pet-owner-terms-conditions",
+        permanent: true,
+      },
+      {
         source: "/uk/contact",
         destination: "/en-UK/contact-us",
         permanent: true,
