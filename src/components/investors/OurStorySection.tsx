@@ -1,8 +1,6 @@
-import Image from "next/image";
 import { FeatureCard } from "@/components/widgets";
 import { useTranslations } from "next-intl";
-import Link from "next/link";
-import { FaExternalLinkAlt } from "react-icons/fa";
+import Image from "next/image";
 
 export const OurStorySection = () => {
   const t = useTranslations("Investors");
@@ -38,7 +36,7 @@ export const OurStorySection = () => {
             height={780}
           />
         </div>
-        <Link href='/strategic-review'><button className="flex gap-5 px-5 items-center justify-center py-4 border border-primary text-primary rounded-xl whitespace-nowrap">Strategic Review<span><FaExternalLinkAlt /></span></button></Link>
+        {/* <Link href='/strategic-review'><button className="flex gap-5 px-5 items-center justify-center py-4 border border-primary text-primary rounded-xl whitespace-nowrap">Strategic Review<span><FaExternalLinkAlt /></span></button></Link> */}
       </div>
     </section>
   );

@@ -35,9 +35,9 @@ const Footer = () => {
                 <li>
                   <Link href="/investors">{t("investors")}</Link>
                 </li>
-                <li>
+                {/* <li>
                   <Link href="/strategic-review">{t("strategic_review")}</Link>
-                </li>
+                </li> */}
               </>
             )}
             {/*<li><Link href="/pet-owners">{t('services')}</Link></li>*/}
