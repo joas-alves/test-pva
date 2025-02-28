@@ -1,14 +1,10 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
-import Image from 'next/image'
-import React from 'react'
-import simplyHealth from '../../../public/images/simplyhealth.jpg'
 
 const SimplyHealth = () => {
     return (
-        <section>
-            <div className='relative'>
-                <Image alt='simplyhealth' src={simplyHealth} width={1920} height={1080} className='wfull sm:h-96 h-52 object-cover' />
-                <h1 className='mx-auto container text-3xl font-bold text-primary absolute bottom-1/3'>Looking for SimplyHealth?</h1>
+        <section className="w-full">
+            <div className='bg-image h-96 relative'>
+                <h1 className='text-3xl font-bold text-primary absolute bottom-1/3 left-[5%]'>Looking for SimplyHealth?</h1>
             </div>
             <div className='mx-auto container text-center flex flex-col gap-4 items-center mt-10 text-xl'>
                 <h4 className='text-black text-center font-bold text-primary'>Simplyhealth recently made the decision to withdraw from the Animal Health sector. As part of their overall strategic review, they looked carefully to identify an existing supplier in the market who had the scale and resources to provide continuity of service to their customers and as a consequence, Simplyhealth took the decision to sell the veterinary side of their business to Premier Vet Alliance (PVA).</h4>
