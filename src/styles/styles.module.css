@@ -1,0 +1,16 @@
+.safe_html h1 {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.safe_html h2 {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.safe_html a{
+    color: var(--primary);
+}
+.safe_html a:hover{
+    text-decoration: underline;
+}

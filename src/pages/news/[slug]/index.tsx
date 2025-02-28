@@ -10,6 +10,7 @@ import { NextRouter, useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { CiClock2 } from "react-icons/ci";
 import { useRouter as useRtRouter} from "next/router";
+import styles from '@/styles/styles.module.css'
 
 export default function NewsDetail() {
   const router: NextRouter = useRouter();
@@ -111,7 +112,7 @@ export default function NewsDetail() {
 
         <div className="flex flex-col gap-6 md:gap-10">
           <div
-            className="sub-heading"
+            className='sub-heading'
             dangerouslySetInnerHTML={{ __html: data.title }}
           />
 
@@ -123,7 +124,7 @@ export default function NewsDetail() {
             height={500}
           />
 
-          <div dangerouslySetInnerHTML={{ __html: data.description }} />
+          <div className={styles.safe_html} dangerouslySetInnerHTML={{ __html: data.description }} />
         </div>
       </section>
 
