@@ -1,11 +1,13 @@
 .safe_html h1 {
     font-size: 32px;
+    line-height: 1.5;
     font-weight: bold;
 }
 
 .safe_html h2 {
     font-size: 28px;
     font-weight: bold;
+    line-height: 1.5;
 }
 
 .safe_html a{
