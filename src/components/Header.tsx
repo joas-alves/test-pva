@@ -53,9 +53,9 @@ const Header = () => {
           <Link href="/news">
             <div>{t("news")}</div>
           </Link>
-          <Link href="/contact-us">
+          {/* <Link href="/contact-us">
             <div>{t("contact")}</div>
-          </Link>
+          </Link> */}
 
           {router.locale === "global" && (
             <Link href="/investors">
@@ -143,12 +143,12 @@ const Header = () => {
                 <Link href="/news" onClick={() => setIsSidebarOpen(false)}>
                   <div>{t("news")}</div>
                 </Link>
-                <Link
+                {/* <Link
                   href="/contact-us"
                   onClick={() => setIsSidebarOpen(false)}
                 >
                   <div>{t("contact")}</div>
-                </Link>
+                </Link> */}
                 {router.locale === "global" && (
                   <Link href="/investors" onClick={() => setIsSidebarOpen(false)}>
                     <div>{t("investors")}</div>
