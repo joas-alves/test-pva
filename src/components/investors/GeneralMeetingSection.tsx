@@ -22,6 +22,14 @@ export const GeneralMeetingSection = () => {
       Annual Report and Annual General Meetings
       </div>
       <div className="flex justify-between flex-col md:flex-row border-b border-b-gray-200 py-10">
+        <div className="text-[32px] font-bold text-primary mb-2">AGM 2025</div>
+        <div className="max-w-[847px] w-full flex flex-col gap-4">
+          <MeetingLink pdfUrl='/pdfs/2025-AGM-Notice-Final.pdf' name="2025-AGM-Notice-Final" downloadPdf={downloadPdf}/>
+          <MeetingLink pdfUrl='/pdfs/2024-PVG-Annual-Report-FINAL.pdf' name="2024-PVG-Annual-Report-FINAL" downloadPdf={downloadPdf} />
+          {/* <MeetingLink pdfUrl='' name="2025-AGM-Votes-Final" downloadPdf={downloadPdf} /> */}
+        </div>
+      </div>
+      <div className="flex justify-between flex-col md:flex-row border-b border-b-gray-200 py-10">
         <div className="text-[32px] font-bold text-primary mb-2">AGM 2024</div>
         <div className="max-w-[847px] w-full flex flex-col gap-4">
           <MeetingLink pdfUrl='/pdfs/2024-AGM-Notice-FINAL.pdf' name="2024-AGM-Notice-Final" downloadPdf={downloadPdf}/>
