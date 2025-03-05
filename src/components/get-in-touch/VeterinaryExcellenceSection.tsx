@@ -20,7 +20,7 @@ export const VeterinaryExcellenceSection = () => {
     })();
   }, [router.locale]);
   return (
-    <section className="container mx-auto py-20">
+    <section className="container mx-auto pb-20">
       <RealStoriesSection data={data} />
     </section>
   )
