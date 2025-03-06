@@ -12,6 +12,15 @@ export enum PetOwnerReasons {
   Other = "Other",
 }
 
+export enum locale {
+  SelectCountry = "Select country",
+  Spanish = "Spanish",
+  EnglishUS = "English-US",
+  EnglishUK = "English-UK",
+  Deutch = "Deutch",
+  French = "French",
+}
+
 export enum PetOwnerPaymentOptions {
   Late = "Late payment fees",
   Phone = "Payments taken over phone",

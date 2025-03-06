@@ -1,26 +1,29 @@
-import { CustomInput, CustomRadioGroup } from "@/components/common";
+import { CustomInput, CustomRadioGroup, CustomSelect, SelectOption } from "@/components/common";
+import { LanguageCode } from "@/utils";
 import axios from "axios";
 import { useTranslations } from "next-intl";
 import { useSearchParams } from "next/navigation";
+import { NextRouter, useRouter } from "next/router";
 import { useSnackbar } from "notistack";
 import { useEffect, useState } from "react";
 import {
+  locale,
   NewCustomerReasons,
   PvaCustomerCancelOptions,
   PvaCustomerReasons,
-  PvaCustomerType,
+  PvaCustomerType
 } from "./constants";
 import { PetOwnerForm } from "./pet-owner";
 import { GetInTouchFormType } from "./types";
 import { getCustomerType, validateGetInTouchForm } from "./utils";
 import { VetDecisionForm } from "./veterinary";
-import { LanguageCode } from "@/utils";
-import { NextRouter, useRouter } from "next/router";
 export const GetInTouchForm = () => {
   const t = useTranslations("Common");
   const { enqueueSnackbar } = useSnackbar();
   const searchParams = useSearchParams();
   const nextRouter: NextRouter = useRouter();
+  const router = useRouter();
+  const [selectedOption, setSelectedOption] = useState<string>();
 
   // const router = useRouter();
   const initialValue: GetInTouchFormType = {
@@ -45,7 +48,9 @@ export const GetInTouchForm = () => {
         ? t("pet_owner")
         : t("veterinary_professional");
     handleChange("preference", initialPreference);
-  }, [searchParams]);
+
+   if(router?.locale) setSelectedOption(router.locale==="global"?undefined:router.locale)
+  }, [searchParams, router.locale]);
 
   const handleChange = (field: keyof GetInTouchFormType, value: string) => {
     const modifiedData = { ...allData };
@@ -114,6 +119,38 @@ export const GetInTouchForm = () => {
       }
     }
   };
+  const handleSelectChange = (value: string) => {
+    setSelectedOption(value);
+
+    let newLocale = "en"; // Default locale
+
+    switch (value) {
+      case locale.Spanish:
+        newLocale = "es"; // Spanish locale
+        break;
+      case locale.EnglishUS:
+        newLocale = "en-US"; // English (US)
+        break;
+      case locale.EnglishUK:
+        newLocale = "en-UK"; // English (UK)
+        break;
+      case locale.Deutch:
+        newLocale = "de"; // German (Deutch)
+        break;
+      case locale.French:
+        newLocale = "fr"; // French
+        break;
+      default:
+        newLocale = ""; // Default to English
+    }
+
+    router.push(router.pathname, router.asPath, { locale: newLocale });
+  };
+
+
+  const reasons: SelectOption[] = Object.values(locale).map(
+    (each) => ({ label: each, value: each })
+  );
   const renderForm = () => {
     const formType = getCustomerType(allData.preference);
     if (formType === "pet_owner")
@@ -125,62 +162,74 @@ export const GetInTouchForm = () => {
       <h2 className="text-2xl md:text-[32px] font-bold text-primary mb-8">
         {t("get_in_touch")}
       </h2>
-      <div className="grid grid-cols-2 gap-6">
-        <div className="col-span-2">
-          <CustomRadioGroup
-            wrapperClassName="grid grid-cols-1 md:grid-cols-2 gap-3"
-            options={["Veterinary Professional", "Pet Owner"]}
-            value={allData.preference}
-            onChange={(value) => handleChange("preference", value)}
-          />
+      {nextRouter.locale === 'global' && <div className="flex flex-col gap-6 mb-5">
+        <CustomSelect
+          label={"Please select one of the below options"}
+          options={reasons}
+          value={selectedOption}
+          onChange={(e) => handleSelectChange(e.target.value)}
+        />
+
+      </div>}
+      <div className={selectedOption === undefined && nextRouter.locale === 'global' ? "opacity-50 pointer-events-none" : ""}>
+        <div className="grid grid-cols-2 gap-6">
+          <div className="col-span-2">
+            <CustomRadioGroup
+              wrapperClassName="grid grid-cols-1 md:grid-cols-2 gap-3"
+              options={["Veterinary Professional", "Pet Owner"]}
+              value={allData.preference}
+              onChange={(value) => handleChange("preference", value)}
+            />
+          </div>
+          <div className="col-span-2">
+            <CustomInput
+              label={t("first_name")}
+              placeholder={t("enter_first_name")}
+              value={allData.firstName}
+              onChange={(e) => handleChange("firstName", e.target.value)}
+            />
+          </div>
+          <div className="col-span-2">
+            <CustomInput
+              label={t("last_name")}
+              placeholder={t("enter_last_name")}
+              value={allData.lastName}
+              onChange={(e) => handleChange("lastName", e.target.value)}
+            />
+          </div>
+          <div className="col-span-2 grid grid-cols-2 gap-3">
+            <CustomInput
+              label={t("phone_number")}
+              placeholder="+44 123 456 7890"
+              value={allData.phone}
+              onChange={(e) => handleChange("phone", e.target.value)}
+            />
+            <CustomInput
+              label={t("e-mail")}
+              placeholder="email@example.com"
+              value={allData.email}
+              onChange={(e) => handleChange("email", e.target.value)}
+            />
+          </div>
         </div>
-        <div className="col-span-2">
-          <CustomInput
-            label={t("first_name")}
-            placeholder={t("enter_first_name")}
-            value={allData.firstName}
-            onChange={(e) => handleChange("firstName", e.target.value)}
-          />
-        </div>
-        <div className="col-span-2">
-          <CustomInput
-            label={t("last_name")}
-            placeholder={t("enter_last_name")}
-            value={allData.lastName}
-            onChange={(e) => handleChange("lastName", e.target.value)}
-          />
-        </div>
-        <div className="col-span-2 grid grid-cols-2 gap-3">
-          <CustomInput
-            label={t("phone_number")}
-            placeholder="+44 123 456 7890"
-            value={allData.phone}
-            onChange={(e) => handleChange("phone", e.target.value)}
-          />
-          <CustomInput
-            label={t("e-mail")}
-            placeholder="email@example.com"
-            value={allData.email}
-            onChange={(e) => handleChange("email", e.target.value)}
-          />
+        {renderForm()}
+        <CustomInput
+          label="Please share any additional comments below"
+          placeholder="Additional comments"
+          value={allData.additionalComments}
+          onChange={(e) => handleChange("additionalComments", e.target.value)}
+        />
+        <div className="col-span-2 grid grid-cols-2 gap-3 pt-3 md:pt-6">
+          <button
+            className="btn primary-btn"
+            type="button"
+            onClick={handleSubmit}
+          >
+            Send
+          </button>
         </div>
       </div>
-      {renderForm()}
-      <CustomInput
-        label="Please share any additional comments below"
-        placeholder="Additional comments"
-        value={allData.additionalComments}
-        onChange={(e) => handleChange("additionalComments", e.target.value)}
-      />
-      <div className="col-span-2 grid grid-cols-2 gap-3 pt-3 md:pt-6">
-        <button
-          className="btn primary-btn"
-          type="button"
-          onClick={handleSubmit}
-        >
-          Send
-        </button>
-      </div>
+
     </div>
   );
 };
