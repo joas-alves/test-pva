@@ -9,9 +9,9 @@ import { getLocaleSiteInfo, LanguageCode } from "@/utils";
 export const FullPotentialSection = () => {
   const t = useTranslations("Book");
   const t2 = useTranslations("Contact");
-    const router: NextRouter = useRouter();
-  
-    const { phone, email, address } = getLocaleSiteInfo(router.locale as LanguageCode);
+  const router: NextRouter = useRouter();
+
+  const { phone, email, address } = getLocaleSiteInfo(router.locale as LanguageCode);
 
   return (
     <section className="container mx-auto py-6 md:py-10 px-4 sm:px-6 lg:px-8">
@@ -19,9 +19,9 @@ export const FullPotentialSection = () => {
         <div>
           <div className="mb-4 md:mb-6">
             <h2 className="text-lg md:text-xl lg:text-2xl font-bold leading-tight">
-              {t("unlock_the")}{" "}
-              <span className="text-primary">{t("full_potential")}</span>{" "}
-              {t("of_your_veterinary")}
+              <span className="inline-block">{t("unlock_the")}</span>&nbsp;
+              <span className="text-primary inline-block">{t("full_potential")}</span>&nbsp;
+              <span className="inline-block">{t("of_your_veterinary")}</span>
             </h2>
           </div>
           <div className="text-sm md:text-base text-secondary mb-6 md:mb-10">
@@ -61,27 +61,27 @@ export const FullPotentialSection = () => {
           </div>
 
           <div className="w-full p-6 md:p-8 bg-[url('/images/double-circles.png')] bg-no-repeat rounded-3xl shadow-paper bg-white relative mt-5 lg:mt-32">
-              <div className="text-[32px] font-bold mb-3 text-primary leading-10">
-                {t2("contact_us")}
-              </div>
-              <p className="text-sm text-secondary mb-5">
-                {t2("we_work_with_practice")}
-              </p>
-              <div className="mb-6">
-                <p className="font-semibold text-primary mb-2">{t2("email_us")}</p>
-                <p className="notranslate">{email}</p>
-              </div>
-              <div className="mb-6">
-                <p className="font-semibold text-primary mb-2">{t2("call_us")}</p>
-                <p>{phone}</p>
-              </div>
-              <div>
-                <p className="font-semibold text-primary mb-2">
-                  {t2("visiting_us")}
-                </p>
-                <p>{address}</p>
-              </div>
+            <div className="text-[32px] font-bold mb-3 text-primary leading-10">
+              {t2("contact_us")}
             </div>
+            <p className="text-sm text-secondary mb-5">
+              {t2("we_work_with_practice")}
+            </p>
+            <div className="mb-6">
+              <p className="font-semibold text-primary mb-2">{t2("email_us")}</p>
+              <p className="notranslate">{email}</p>
+            </div>
+            <div className="mb-6">
+              <p className="font-semibold text-primary mb-2">{t2("call_us")}</p>
+              <p>{phone}</p>
+            </div>
+            <div>
+              <p className="font-semibold text-primary mb-2">
+                {t2("visiting_us")}
+              </p>
+              <p>{address}</p>
+            </div>
+          </div>
         </div>
         <div className="hidden lg:block">
           <GetInTouchForm />
