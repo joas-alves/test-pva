@@ -12,22 +12,31 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { IAboutPage } from "@/cms-models/about";
 import Head from "next/head";
+import { IFaq } from "@/cms-models/faq";
 
 export default function AboutUs() {
   const router: NextRouter = useRouter();
 
   const [data, setData] = useState<IAboutPage>({} as IAboutPage);
+  const [faqsData, setFaqsData] = useState<IFaq[]>()
+
+  const url = `/en-UK/${router.locale === "global" ? "globalpage-content" : "homepage-content"
+    }/1`;
 
   useEffect(() => {
     if (!router.isReady) return;
     (async () => {
       try {
-        const response = await axios(`/en-UK/about-content/1`);
+        const [response, response2] = await Promise.all([
+          axios.get(`/en-UK/about-content/1`),
+          axios.get(url)
+        ]);
         if (response.status === 200) {
           setData(response.data);
         }
+        if (response2.status === 200) setFaqsData(response2.data.questions)
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      } catch (error) {}
+      } catch (error) { }
     })();
   }, [router.locale]);
 
@@ -68,7 +77,7 @@ export default function AboutUs() {
       <ExperienceUnderstandingSection data={data} />
       <BuildingLegacySection data={data} />
       <TrustUsSection data={data} />
-      <FAQSection data={[]} />
+      <FAQSection data={faqsData} />
       <NeedMoreHelpSection
         title={data.section6_title}
         description={data.section6_description}

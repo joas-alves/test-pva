@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl";
 import { IFaq } from "@/cms-models/faq";
 
 type Props = {
-  data: IFaq[];
+  data: IFaq[] | undefined;
 };
 
 export const FAQSection: React.FC<Props> = ({ data }) => {
