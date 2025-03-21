@@ -2,6 +2,7 @@ import { IHomePage } from "@/cms-models/home";
 import { SignUpInput } from "@/components/widgets";
 import { imageUrl } from "@/utils";
 import Image from "next/image";
+import { NextRouter, useRouter } from "next/router";
 import React from "react";
 
 type Props = {
@@ -10,6 +11,7 @@ type Props = {
 };
 
 export const HeroSection: React.FC<Props> = ({ data, globaldata }) => {
+  const router: NextRouter = useRouter();
   const description =
     globaldata && globaldata.section1_description
       ? globaldata.section1_description
@@ -30,10 +32,13 @@ export const HeroSection: React.FC<Props> = ({ data, globaldata }) => {
           />
           <div className="flex-1 flex justify-between w-full items-start">
             <div className="flex flex-col w-full gap-8">
-              <p
+              {router.locale === 'en-US' ?<div className="body text-secondary lg:max-w-[517px] mb-3 sm:mb-6">
+                <p className="text-sm" dir="ltr"><strong>Premier Vet Alliance</strong> is the leading pet health plan provider to practices across the UK, Europe and USA.</p>
+                <p dir="ltr">&nbsp;</p>
+                <p dir="ltr">With our tailored plans, advanced technology and comprehensive support, we can maximise your practice potential today.&nbsp;</p></div> :  <p
                 className="body text-secondary lg:max-w-[517px] mb-3 sm:mb-6"
                 dangerouslySetInnerHTML={{ __html: description }}
-              />
+              />}
               <div className="flex justify-center lg:justify-start">
                 <SignUpInput />
               </div>
