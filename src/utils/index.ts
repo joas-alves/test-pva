@@ -135,7 +135,7 @@ export const getLocaleSiteInfo = (
     },
     [LanguageCode.French]: {
       phone: "+44 (0)117 370 0300 ",
-      email: "pcp@premiervetalliance.co.uk",
+      email: "administratie@huisdierenzorgplan.nl",
       currency: "€",
       address: "The Quorum, Bond Street, Bristol, BS1 3AE",
     },

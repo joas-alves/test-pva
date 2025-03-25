@@ -1,8 +1,6 @@
-import Image from "next/image";
 import { useTranslations } from "next-intl";
-import React from "react";
-import { imageUrl } from "@/utils";
 import Link from "next/link";
+import React from "react";
 
 type Props = {
   title: string;
@@ -13,7 +11,6 @@ type Props = {
 export const DiscoverSection: React.FC<Props> = ({
   title,
   description,
-  image
 }) => {
   const ct = useTranslations('Common');
 
@@ -35,13 +32,13 @@ export const DiscoverSection: React.FC<Props> = ({
           </Link>
         </div>
 
-        <Image
+        {/* <Image
           className="h-full w-fit max-h-[300px] lg:max-h-fit lg:h-fit object-contain absolute bottom-0 right-0"
           src={imageUrl(image)}
           alt="doctor-man.png"
           width={684}
           height={561}
-        />
+        /> */}
       </div>
     </section>
   )
