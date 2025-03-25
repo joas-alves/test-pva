@@ -69,11 +69,11 @@ export const FullPotentialSection = () => {
             </p>
             <div className="mb-6">
               <p className="font-semibold text-primary mb-2">{t2("email_us")}</p>
-              <p className="notranslate">{email}</p>
+              <a className="notranslate" href={`mailto:${email}`}>{email}</a>
             </div>
             <div className="mb-6">
               <p className="font-semibold text-primary mb-2">{t2("call_us")}</p>
-              <p>{phone}</p>
+              <a href={`tel:${phone}`}>{phone}</a>
             </div>
             <div>
               <p className="font-semibold text-primary mb-2">
