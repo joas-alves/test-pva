@@ -12,6 +12,7 @@ const ServicesDropdown = (props: ServiceDropdown) => {
 
   const router = useRouter();
   const isEnUK = router.locale?.toLowerCase().includes("en-uk");
+  const isEnUS = router.locale?.toLowerCase().includes("en-us");
   const isglobal = router.locale?.toLowerCase().includes("global");
 
   const preparedServices: Array<{
@@ -22,7 +23,7 @@ const ServicesDropdown = (props: ServiceDropdown) => {
       id: item.id,
       label: servicesRouteMapping[item.id].name,
     }))
-    .filter((item) => isEnUK || isglobal || !item.label?.match(/delivery/i));
+    .filter((item) => isEnUK || isEnUS || isglobal || !item.label?.match(/delivery/i));
 
   const onClick = (id: number) => {
     onChange?.();
