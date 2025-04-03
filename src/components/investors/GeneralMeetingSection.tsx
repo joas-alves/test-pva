@@ -26,7 +26,8 @@ export const GeneralMeetingSection = () => {
         <div className="max-w-[847px] w-full flex flex-col gap-4">
           <MeetingLink pdfUrl='/pdfs/2025-AGM-Notice-Final.pdf' name="2025-AGM-Notice-Final" downloadPdf={downloadPdf}/>
           <MeetingLink pdfUrl='/pdfs/2024-PVG-Annual-Report-FINAL.pdf' name="2024-PVG-Annual-Report-FINAL" downloadPdf={downloadPdf} />
-          {/* <MeetingLink pdfUrl='' name="2025-AGM-Votes-Final" downloadPdf={downloadPdf} /> */}
+          <MeetingLink pdfUrl='/pdfs/2025-AGM-Votes-FINAL.pdf' name="2025-AGM-Votes-FINAL" downloadPdf={downloadPdf}/>
+          <MeetingLink pdfUrl='/pdfs/2025-AGM-QA-FINAL.pdf' name="2025-AGM-QA-FINAL" downloadPdf={downloadPdf}/>
         </div>
       </div>
       <div className="flex justify-between flex-col md:flex-row border-b border-b-gray-200 py-10">
