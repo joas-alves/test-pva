@@ -6,6 +6,7 @@ import { useSearchParams } from "next/navigation";
 import { NextRouter, useRouter } from "next/router";
 import { useSnackbar } from "notistack";
 import { useEffect, useState } from "react";
+import { usePathname } from 'next/navigation';
 import {
   locale,
   NewCustomerReasons,
@@ -17,6 +18,7 @@ import { PetOwnerForm } from "./pet-owner";
 import { GetInTouchFormType } from "./types";
 import { getCustomerType, validateGetInTouchForm } from "./utils";
 import { VetDecisionForm } from "./veterinary";
+import Link from "next/link";
 export const GetInTouchForm = () => {
   const t = useTranslations("Common");
   const { enqueueSnackbar } = useSnackbar();
@@ -24,8 +26,8 @@ export const GetInTouchForm = () => {
   const nextRouter: NextRouter = useRouter();
   const router = useRouter();
   const [selectedOption, setSelectedOption] = useState<string>();
-
-  // const router = useRouter();
+  const [isAgreed, setIsAgreed] = useState(false);
+  const pathname = usePathname();
   const initialValue: GetInTouchFormType = {
     firstName: "",
     lastName: "",
@@ -49,7 +51,7 @@ export const GetInTouchForm = () => {
         : t("veterinary_professional");
     handleChange("preference", initialPreference);
 
-   if(router?.locale) setSelectedOption(router.locale==="global"?undefined:router.locale)
+    if(router?.locale) setSelectedOption(router.locale==="global"?undefined:router.locale)
   }, [searchParams, router.locale]);
 
   const handleChange = (field: keyof GetInTouchFormType, value: string) => {
@@ -158,7 +160,7 @@ export const GetInTouchForm = () => {
     return <VetDecisionForm formData={allData} handleChange={handleChange} />;
   };
   return (
-    <div className="shadow-paper rounded-3xl p-6 md:p-12 bg-white">
+    <div className={`shadow-paper rounded-3xl p-6 md:p-12 bg-white ${pathname === '/get-in-touch-online' ? 'pointer-events-none opacity-50' : ''}`}>
       <h2 className="text-2xl md:text-[32px] font-bold text-primary mb-8">
         {t("get_in_touch")}
       </h2>
@@ -219,6 +221,23 @@ export const GetInTouchForm = () => {
           value={allData.additionalComments}
           onChange={(e) => handleChange("additionalComments", e.target.value)}
         />
+        {pathname === "/get-in-touch-online" && (
+          <div className="col-span-2 mt-4">
+            <label className="flex items-start gap-2 text-sm text-gray-700">
+              <input
+                type="checkbox"
+                className="mt-1"
+                checked={isAgreed}
+                onChange={() => setIsAgreed(!isAgreed)}
+              />
+              <span>
+                By submitting this form, you agree to receive email and text messages from Premier Vet Alliance related to your service and marketing. View our{" "}
+                <Link href="/pet-owner-terms-conditions" target="_blank" className="underline text-blue-600">Terms of Service</Link> and{" "}
+                <Link href="/privacy-policy" target="_blank" className="underline text-blue-600">Privacy Policy</Link> for details.
+              </span>
+            </label>
+          </div>
+        )}
         <div className="col-span-2 grid grid-cols-2 gap-3 pt-3 md:pt-6">
           <button
             className="btn primary-btn"
