@@ -28,20 +28,12 @@ export enum LanguageCode {
   French = "fr",
 }
 
-export enum GoogleLanguageCode {
-  English = "en",
-  Spanish = "es",
-  German = "de",
-  French = "fr",
-}
-
 type Translation = Record<string, Record<string, string>>;
 
 export type LanguageConfig = {
   label: string;
   flag: string;
   code: LanguageCode;
-  googleCode: GoogleLanguageCode;
   translation: Translation;
 };
 
@@ -49,7 +41,6 @@ export const globalLanguageConfig: LanguageConfig = {
   label: "Global",
   flag: "global.svg",
   code: LanguageCode.Global,
-  googleCode: GoogleLanguageCode.English,
   translation: enUK,
 };
 
@@ -57,7 +48,6 @@ export const spanishLanguageConfig: LanguageConfig = {
   label: "Spanish",
   flag: "es.svg",
   code: LanguageCode.Spanish,
-  googleCode: GoogleLanguageCode.Spanish,
   translation: es,
 };
 
@@ -65,7 +55,6 @@ export const englishUSLanguageConfig: LanguageConfig = {
   label: "English-US",
   flag: "en-US.svg",
   code: LanguageCode.EnglishUS,
-  googleCode: GoogleLanguageCode.English,
   translation: enUS,
 };
 
@@ -73,7 +62,6 @@ export const englishUKLanguageConfig: LanguageConfig = {
   label: "English-UK",
   flag: "en-UK.svg",
   code: LanguageCode.EnglishUK,
-  googleCode: GoogleLanguageCode.English,
   translation: enUK,
 };
 
@@ -81,7 +69,6 @@ export const germanLanguageConfig: LanguageConfig = {
   label: "Deutch",
   flag: "de.svg",
   code: LanguageCode.German,
-  googleCode: GoogleLanguageCode.German,
   translation: de,
 };
 
@@ -89,7 +76,6 @@ export const frenchLanguageConfig: LanguageConfig = {
   label: "French",
   flag: "fr.svg",
   code: LanguageCode.French,
-  googleCode: GoogleLanguageCode.French,
   translation: fr,
 };
 

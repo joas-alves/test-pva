@@ -104,20 +104,6 @@ a:hover {
   } */
 }
 
-.goog-te-gadget img {
-  display: none !important;
-}
-body > .skiptranslate {
-  display: none;
-}
-body {
-  top: 0px !important;
-}
-
-#goog-gt-tt {
-  display: none !important;
-}
-
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;

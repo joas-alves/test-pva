@@ -55,7 +55,7 @@ export const InvestHeroSection: React.FC<Props> = ({ title }) => {
               <a href={`tel:+44 117 370 0300`}>+44 117 370 0300</a>
             </div>
             <div>
-              <p className="font-semibold text-primary mb-2 notranslate">
+              <p className="font-semibold text-primary mb-2">
                 {t("visiting_us")}
               </p>
               <p>{address}</p>

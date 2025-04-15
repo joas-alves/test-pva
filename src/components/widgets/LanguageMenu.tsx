@@ -5,9 +5,11 @@ import Image from "next/image";
 import { NextRouter, useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { FiChevronDown } from "react-icons/fi";
+
 type LanguageMenuProps = {
   onClick?:()=>void;
 }
+
 export const LanguageMenu = ({onClick}:LanguageMenuProps) => {
   const router: NextRouter = useRouter();
   const [selectedLanguage, setSelectedLanguage] = useState<LanguageConfig | null>(null);
@@ -17,15 +19,6 @@ export const LanguageMenu = ({onClick}:LanguageMenuProps) => {
     languagesList.find((lang) => lang.code === router.locale) || globalLanguageConfig
     if(currentLanguage)setSelectedLanguage(currentLanguage)
   }, [router.locale]);
-
-  useEffect(() => {
-    const select = document.querySelector("select.goog-te-combo");
-
-    if (select && selectedLanguage) {
-      (select as HTMLSelectElement).value = selectedLanguage.googleCode;
-      select.dispatchEvent(new Event("change"));
-    }
-  }, [selectedLanguage,router]);
 
   const handleChangeLanguage = (code: string) => {
     onClick?.()

@@ -44,7 +44,7 @@ export default function PetOwners() {
                 <p className="font-semibold text-primary mb-2">
                   {t("email_us")}
                 </p>
-                <p className="notranslate">pcp@premiervetalliance.co.uk</p>
+                <p>pcp@premiervetalliance.co.uk</p>
               </div>
               <div className="mb-6">
                 <p className="font-semibold text-primary mb-2">

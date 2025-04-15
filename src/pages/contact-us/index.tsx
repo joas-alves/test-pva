@@ -66,7 +66,7 @@ export default function ContactUs() {
             </p>
             <div className="mb-6">
               <p className="font-semibold text-primary mb-2">{t("email_us")}</p>
-              <p className="notranslate">{email}</p>
+              <p>{email}</p>
             </div>
             <div className="mb-6">
               <p className="font-semibold text-primary mb-2">{t("call_us")}</p>

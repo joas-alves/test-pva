@@ -60,9 +60,9 @@ const Footer = () => {
         </div>
         <div className="md:col-span-2 flex flex-wrap gap-6 border-y md:border-none border-y-gray-200 py-6 md:py-0">
           <ul className="flex flex-col gap-2 md:gap-4 text-sm md:text-base">
-            <li className="notranslate">{address}</li>
+            <li>{address}</li>
             <a
-              className="notranslate"
+              className=""
               href={`mailto:${email}`}
             >
               {email}
@@ -72,7 +72,7 @@ const Footer = () => {
             </li>
           </ul>
           <div className="flex-1" />
-          <div className="gap-8 text-2xl flex notranslate">
+          <div className="gap-8 text-2xl flex">
             <a
               href="https://www.linkedin.com/company/premier-vet-alliance/"
               target="_blank"
