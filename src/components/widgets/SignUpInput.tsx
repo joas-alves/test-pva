@@ -19,7 +19,7 @@ export const SignUpInput = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!emailRegex.test(email)) {
-      enqueueSnackbar("Please enter a valid email address.", {
+      enqueueSnackbar(t("please_enter_a_valid_email_address"), {
         variant: "error",
       });
       return;
@@ -29,7 +29,7 @@ export const SignUpInput = () => {
       const response = await axios.post(`/api/${nextRouter.locale || LanguageCode.Global}/ready-to-grow`, { email });
       if (response.status === 201) {
         enqueueSnackbar(
-          "Thank you for getting in touch! Our representative will contact you via email",
+          t("thank_you_for_getting_in_touch"),
           {
             variant: "success",
           }
@@ -38,7 +38,7 @@ export const SignUpInput = () => {
       }
     } catch (error) {
       console.error(error);
-      enqueueSnackbar("An unexpected error occurred. Please try again later", {
+      enqueueSnackbar(t("an_unexpected_error_occurred_please_try_again_later"), {
         variant: "error",
       });
     }
@@ -51,7 +51,7 @@ export const SignUpInput = () => {
           "block w-full rounded-xl px-6 h-12 md:h-[50px] text-xs sm:text-lg",
           "focus:outline-none"
         )}
-        placeholder="Please enter your E-mail"
+        placeholder={t("please_enter_your_e_mail")}
         value={email}
         onChange={(e) => handleChange(e.target.value)}
       />

@@ -21,7 +21,11 @@
     "e-mail": "E-mail",
     "click_here": "Click here",
     "get_started": "Get started",
-    "ready_to_grow": "Ready to grow"
+    "ready_to_grow": "Ready to grow",
+    "please_enter_a_valid_email_address": "Please enter a valid email address.",
+    "thank_you_for_getting_in_touch": "Thank you for getting in touch! Our representative will contact you via email",
+    "an_unexpected_error_occurred_please_try_again_later": "An unexpected error occurred. Please try again later.",
+    "please_enter_your_e_mail": "Please enter your e-mail"
   },
   "Header": {
     "home": "Home",

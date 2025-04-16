@@ -21,7 +21,11 @@
     "e-mail": "E-Mail",
     "click_here": "Hier klicken",
     "get_started": "Loslegen",
-    "ready_to_grow": "Bereit zu wachsen"
+    "ready_to_grow": "Bereit zu wachsen",
+    "please_enter_a_valid_email_address": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+    "thank_you_for_getting_in_touch": "Vielen Dank für Ihre Nachricht! Unser Vertreter wird sich per E-Mail an Sie wenden.",
+    "an_unexpected_error_occurred_please_try_again_later": "Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie es erneut.",
+    "please_enter_your_e_mail": "Bitte geben Sie Ihre E-Mail-Adresse ein"
   },
   "Header": {
     "home": "Home",

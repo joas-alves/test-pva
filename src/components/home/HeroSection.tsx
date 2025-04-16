@@ -1,10 +1,10 @@
 import { IHomePage } from "@/cms-models/home";
 import { SignUpInput } from "@/components/widgets";
-import { imageUrl } from "@/utils";
-import { useTranslations } from "next-intl";
+import { imageUrl} from "@/utils";
+import { translateHtmlContent } from "@/utils/translateHTML";
 import Image from "next/image";
 import { NextRouter, useRouter } from "next/router";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 type Props = {
   data: IHomePage;
@@ -13,11 +13,25 @@ type Props = {
 
 export const HeroSection: React.FC<Props> = ({ data, globaldata }) => {
   const router: NextRouter = useRouter();
-  const description =
-    globaldata && globaldata.section1_description
-      ? globaldata.section1_description
-      : data.section1_description;
-  const t = useTranslations("Home");
+    
+  const [title, setTitle] = useState<string>("");
+  const [description, setDescription] = useState<string>(globaldata && globaldata.section1_description
+    ? globaldata.section1_description
+    : data.section1_description);
+
+  useEffect(() => {
+    const translateTitle = async () => {
+      const translatedTitle = await translateHtmlContent(data.section1_title || "", router.locale || "en-US");
+      setTitle(() => translatedTitle.replace("<p>&nbsp;</p>", ""));
+    };
+    const translateDescription = async () => {
+      const translatedDescription = await translateHtmlContent(data.section1_description || "", router.locale || "en-US");
+      setDescription(() => translatedDescription.replace("<p>&nbsp;</p>", ""));
+    };
+    translateTitle();
+    translateDescription();
+  }, [router.locale]);
+  
   return (
     <section className="container mx-auto py-10">
       <div className="flex flex-col lg:flex-row gap-10 sm:gap-6 lg:items-start">
@@ -25,17 +39,13 @@ export const HeroSection: React.FC<Props> = ({ data, globaldata }) => {
           <h1
             className="heading mb-5 sm:mb-8 hero-section-title"
             dangerouslySetInnerHTML={{
-              __html: (data.section1_title || "").replace(
-                /<p>&nbsp;<\/p>/g,
-                ""
-              ),
+              __html: title,
             }}
           />
           <div className="flex-1 flex justify-between w-full items-start">
             <div className="flex flex-col w-full gap-8">
-              {t("home")}
               {router.locale === 'en-US' ?<div className="body text-secondary lg:max-w-[517px] mb-3 sm:mb-6">
-                <p className="text-sm" dir="ltr"><strong>Premier Vet Alliance</strong> is the leading pet health plan provider to practices across the UK, Europe and USA.</p>
+                <p dir="ltr"><strong>Premier Vet Alliance</strong> is the leading pet health plan provider to practices across the UK, Europe and USA.</p>
                 <p dir="ltr">&nbsp;</p>
                 <p dir="ltr">With our tailored plans, advanced technology and comprehensive support, we can maximise your practice potential today.&nbsp;</p></div> :  <p
                 className="body text-secondary lg:max-w-[517px] mb-3 sm:mb-6"
