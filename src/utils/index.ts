@@ -8,16 +8,13 @@ export const imageUrl = (url: string) => {
   return process.env.NEXT_PUBLIC_APP_ASSET_ENDPOINT + "/" + url;
 };
 
-export const servicesRouteMapping: Record<
-  number,
-  { name: string; slug: string }
-> = {
-  1: { name: "Premier Pet Care Plan", slug: "premier-pet-care-plan" },
-  2: { name: "Training", slug: "training" },
-  4: { name: "Home Delivery", slug: "post2pet" },
-  5: { name: "Technology", slug: "technology" },
+export const i18nMapping = {
+  de,
+  enUK,
+  enUS,
+  es,
+  fr,
 };
-
 // --------------------------- Localization ------------------------------
 export enum LanguageCode {
   Global = "global",
@@ -28,7 +25,7 @@ export enum LanguageCode {
   French = "fr",
 }
 
-type Translation = Record<string, Record<string, string>>;
+type Translation = Record<string, Record<string, any>>;
 
 export type LanguageConfig = {
   label: string;

@@ -31,7 +31,13 @@
     "contact": "Contact",
     "global_site": "Global Site",
     "book_a_demo": "Book A Demo",
-    "investors":"Investors"
+    "investors":"Investors",
+    "dropdown_label":"Services",
+    "overview":"Overview",
+    "premier-pet-care-plan":"Premier Pet Care Plan",
+    "training":"Training",
+    "post2pet":"Home Delivery",
+    "technology":"Technology"
   },
   "Home": {
     "global_leader_in_preventative": "Global Leader in Preventative",

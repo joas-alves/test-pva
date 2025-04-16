@@ -2,7 +2,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import setupAxios from "@/setupAxios";
 import "@/styles/globals.css";
-import { languagesConfig, languagesList } from "@/utils";
+import { languagesConfig } from "@/utils";
 import { NextIntlClientProvider } from "next-intl";
 import { AppProps } from "next/app";
 import localFont from "next/font/local";

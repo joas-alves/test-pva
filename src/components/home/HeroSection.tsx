@@ -1,6 +1,7 @@
 import { IHomePage } from "@/cms-models/home";
 import { SignUpInput } from "@/components/widgets";
 import { imageUrl } from "@/utils";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { NextRouter, useRouter } from "next/router";
 import React from "react";
@@ -16,7 +17,7 @@ export const HeroSection: React.FC<Props> = ({ data, globaldata }) => {
     globaldata && globaldata.section1_description
       ? globaldata.section1_description
       : data.section1_description;
-
+  const t = useTranslations("Home");
   return (
     <section className="container mx-auto py-10">
       <div className="flex flex-col lg:flex-row gap-10 sm:gap-6 lg:items-start">
@@ -32,6 +33,7 @@ export const HeroSection: React.FC<Props> = ({ data, globaldata }) => {
           />
           <div className="flex-1 flex justify-between w-full items-start">
             <div className="flex flex-col w-full gap-8">
+              {t("home")}
               {router.locale === 'en-US' ?<div className="body text-secondary lg:max-w-[517px] mb-3 sm:mb-6">
                 <p className="text-sm" dir="ltr"><strong>Premier Vet Alliance</strong> is the leading pet health plan provider to practices across the UK, Europe and USA.</p>
                 <p dir="ltr">&nbsp;</p>

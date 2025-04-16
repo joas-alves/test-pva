@@ -21,10 +21,10 @@ export default function Home() {
   const [data, setData] = useState<IHomePage>({} as IHomePage);
   const [globalData, setGlobalData] = useState<IHomePage | null>(null);
 
-  const url = `/en-UK/${
+  const url = `/${router.locale}/${
     router.locale === "global" ? "globalpage-content" : "homepage-content"
   }/1`;
-  const globalUrl = `/en-UK/globalpage-content/1`;
+  const globalUrl = `/${router.locale}/globalpage-content/1`;
 
   useEffect(() => {
     if (!router.isReady) return;
@@ -73,7 +73,7 @@ export default function Home() {
         <meta property="og:site_name" content="Premier Vet Alliance" />
         <meta property="og:updated_time" content="2023-11-14T11:25:01+00:00" />
       </Head>
-      <HeroSection data={data} globaldata={globalData} /> {/* Updated */}
+      <HeroSection data={data} globaldata={globalData} />
       <ElevatingSection data={data} />
       <PracticeSection data={data} />
       <AdvantagesSection data={data} />

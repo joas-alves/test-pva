@@ -1,7 +1,7 @@
 import { useServicesContext } from "@/contexts/services";
-import { servicesRouteMapping } from "@/utils";
 import { useRouter } from "next/router";
 import { DropdownMenu } from "./DropdownMenu";
+import { useTranslations } from "next-intl";
 
 export interface ServiceDropdown {
   onChange?: () => void;
@@ -9,11 +9,19 @@ export interface ServiceDropdown {
 const ServicesDropdown = (props: ServiceDropdown) => {
   const { onChange } = props;
   const { services } = useServicesContext();
+  const t = useTranslations("Header");
 
   const router = useRouter();
   const isEnUK = router.locale?.toLowerCase().includes("en-uk");
   const isEnUS = router.locale?.toLowerCase().includes("en-us");
   const isglobal = router.locale?.toLowerCase().includes("global");
+  
+  const servicesRouteMapping: Record<number, { slug: string }> = {
+    1: { slug: "premier-pet-care-plan" },
+    2: { slug: "training" },
+    4: { slug: "post2pet" },
+    5: { slug: "technology" },
+  };
 
   const preparedServices: Array<{
     id: number;
@@ -21,7 +29,7 @@ const ServicesDropdown = (props: ServiceDropdown) => {
   }> = services
     ?.map((item) => ({
       id: item.id,
-      label: servicesRouteMapping[item.id].name,
+      label: t(servicesRouteMapping[item.id].slug),
     }))
     .filter((item) => isEnUK || isEnUS || isglobal || !item.label?.match(/delivery/i));
 
@@ -32,11 +40,12 @@ const ServicesDropdown = (props: ServiceDropdown) => {
 
     router.push(`/services`);
   };
-  preparedServices.unshift({ id: Math.random(), label: "Overview" });
+
+  preparedServices.unshift({ id: Math.random(), label: t("overview") });
 
   return (
     <DropdownMenu
-      label={"Services"}
+      label={t("dropdown_label")}
       options={preparedServices}
       onChangeMenu={onClick}
     />
