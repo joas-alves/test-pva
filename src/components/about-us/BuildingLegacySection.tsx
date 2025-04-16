@@ -48,17 +48,17 @@ export const BuildingLegacySection: React.FC<Props> = ({ data }) => {
           </div>
 
           <div className="px-[133px] mt-5">
-            <div className="w-full border-t border-dashed border-t-2 border-primary-light flex justify-between">
-              <span className="w-5 h-5 border border-[3px] border-primary-light rounded-full flex justify-center items-center bg-dark-blue -translate-y-[10px]">
+            <div className="w-full border-dashed border-t-2 border-primary-light flex justify-between">
+              <span className="w-5 h-5 border-[3px] border-primary-light rounded-full flex justify-center items-center bg-dark-blue -translate-y-[10px]">
                 <span className="w-3 h-3 bg-primary-light rounded-full" />
               </span>
-              <span className="w-5 h-5 border border-[3px] border-primary-light rounded-full flex justify-center items-center bg-dark-blue -translate-y-[10px]">
+              <span className="w-5 h-5 border-[3px] border-primary-light rounded-full flex justify-center items-center bg-dark-blue -translate-y-[10px]">
                 <span className="w-3 h-3 bg-primary-light rounded-full" />
               </span>
-              <span className="w-5 h-5 border border-[3px] border-primary-light rounded-full flex justify-center items-center bg-dark-blue -translate-y-[10px]">
+              <span className="w-5 h-5 border-[3px] border-primary-light rounded-full flex justify-center items-center bg-dark-blue -translate-y-[10px]">
                 <span className="w-3 h-3 bg-primary-light rounded-full" />
               </span>
-              <span className="w-5 h-5 border border-[3px] border-primary-light rounded-full flex justify-center items-center bg-dark-blue -translate-y-[10px]">
+              <span className="w-5 h-5 border-[3px] border-primary-light rounded-full flex justify-center items-center bg-dark-blue -translate-y-[10px]">
                 <span className="w-3 h-3 bg-primary-light rounded-full" />
               </span>
             </div>
@@ -90,12 +90,12 @@ export const BuildingLegacySection: React.FC<Props> = ({ data }) => {
         </div>
 
         {/* Mobile */}
-        <div className="block lg:hidden text-white flex flex-col gap-4">
+        <div className="lg:hidden text-white flex flex-col gap-4">
           <div className="flex items-center gap-4 relative">
             <div className="text-2xl font-bold text-center flex items-center min-w-[67px]">
               {data.section4_card1_date}
             </div>
-            <span className="w-[14px] h-[14px] border border-[2px] border-primary-light rounded-full flex justify-center items-center bg-dark-blue flex-shrink-0 vertical-milestone">
+            <span className="w-[14px] h-[14px] border-[2px] border-primary-light rounded-full flex justify-center items-center bg-dark-blue flex-shrink-0 vertical-milestone">
               <span className="w-1.5 h-1.5 bg-primary-light rounded-full" />
             </span>
             <div className="rounded-2xl p-5 bg-dark-info">
@@ -109,7 +109,7 @@ export const BuildingLegacySection: React.FC<Props> = ({ data }) => {
             <div className="text-2xl font-bold text-center flex items-center min-w-[67px]">
               {data.section4_card2_date}
             </div>
-            <span className="w-[14px] h-[14px] border border-[2px] border-primary-light rounded-full flex justify-center items-center bg-dark-blue flex-shrink-0 vertical-milestone">
+            <span className="w-[14px] h-[14px] border-[2px] border-primary-light rounded-full flex justify-center items-center bg-dark-blue flex-shrink-0 vertical-milestone">
               <span className="w-1.5 h-1.5 bg-primary-light rounded-full" />
             </span>
             <div className="rounded-2xl p-5 bg-dark-info">
@@ -123,7 +123,7 @@ export const BuildingLegacySection: React.FC<Props> = ({ data }) => {
             <div className="text-2xl font-bold text-center flex items-center min-w-[67px]">
               {data.section4_card3_date}
             </div>
-            <span className="w-[14px] h-[14px] border border-[2px] border-primary-light rounded-full flex justify-center items-center bg-dark-blue flex-shrink-0 vertical-milestone">
+            <span className="w-[14px] h-[14px] border-[2px] border-primary-light rounded-full flex justify-center items-center bg-dark-blue flex-shrink-0 vertical-milestone">
               <span className="w-1.5 h-1.5 bg-primary-light rounded-full" />
             </span>
             <div className="rounded-2xl p-5 bg-dark-info">
@@ -137,7 +137,7 @@ export const BuildingLegacySection: React.FC<Props> = ({ data }) => {
             <div className="text-2xl font-bold text-center flex items-center min-w-[67px]">
               {data.section4_card4_date}
             </div>
-            <span className="w-[14px] h-[14px] border border-[2px] border-primary-light rounded-full flex justify-center items-center bg-dark-blue flex-shrink-0">
+            <span className="w-[14px] h-[14px] border-[2px] border-primary-light rounded-full flex justify-center items-center bg-dark-blue flex-shrink-0">
               <span className="w-1.5 h-1.5 bg-primary-light rounded-full" />
             </span>
             <div className="rounded-2xl p-5 bg-dark-info">
