@@ -30,7 +30,12 @@
     "news": "Actualités",
     "contact": "Contact",
     "global_site": "Site mondial",
-    "book_a_demo": "Réserver une démo"
+    "book_a_demo": "Réserver une démo",
+    "dropdown_label":"Services",
+    "overview":"Aperçu",
+    "premier-pet-care-plan":"Plan de soins pour animaux de compagnie Premier",
+    "training":"Formation",
+    "technology":"Technologie"
   },
   "Home": {
     "global_leader_in_preventative": "Leader mondial en prévention",

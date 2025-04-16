@@ -30,7 +30,12 @@
     "news": "Neuigkeiten",
     "contact": "Kontakt",
     "global_site": "Globale Site",
-    "book_a_demo": "Demo buchen"
+    "book_a_demo": "Demo buchen",
+    "dropdown_label":"Leistungen",
+    "overview":"Übersicht",
+    "premier-pet-care-plan":"Erstklassiger Haustierpflegeplan",
+    "training":"Ausbildung",
+    "technology":"Technologie"
   },
   "Home": {
     "global_leader_in_preventative": "Leader mondial en prévention",

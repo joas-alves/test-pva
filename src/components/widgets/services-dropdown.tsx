@@ -26,10 +26,12 @@ const ServicesDropdown = (props: ServiceDropdown) => {
   const preparedServices: Array<{
     id: number;
     label: string;
+    slug: string;
   }> = services
     ?.map((item) => ({
       id: item.id,
       label: t(servicesRouteMapping[item.id].slug),
+      slug: servicesRouteMapping[item.id].slug,
     }))
     .filter((item) => isEnUK || isEnUS || isglobal || !item.label?.match(/delivery/i));
 
@@ -41,7 +43,7 @@ const ServicesDropdown = (props: ServiceDropdown) => {
     router.push(`/services`);
   };
 
-  preparedServices.unshift({ id: Math.random(), label: t("overview") });
+  preparedServices.unshift({ id: Math.random(), label: t("overview"), slug: "overview" });
 
   return (
     <DropdownMenu
