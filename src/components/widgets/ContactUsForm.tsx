@@ -37,31 +37,31 @@ export const ContactUsForm = () => {
 
     // Validation
     if (formData.firstName.trim().length === 0) {
-      enqueueSnackbar("Please enter a valid first name.", { variant: "error" });
+      enqueueSnackbar(t("please_enter_a_valid_first_name"), { variant: "error" });
       return;
     }
 
     if (formData.lastName.trim().length === 0) {
-      enqueueSnackbar("Please enter a valid last name.", { variant: "error" });
+      enqueueSnackbar(t("please_enter_a_valid_last_name"), { variant: "error" });
       return;
     }
 
     if (!phoneRegex.test(formData.phone)) {
-      enqueueSnackbar("Please enter a valid phone number.", {
+      enqueueSnackbar(t("please_enter_a_valid_phone_number"), {
         variant: "error",
       });
       return;
     }
 
     if (!emailRegex.test(formData.email)) {
-      enqueueSnackbar("Please enter a valid email address.", {
+      enqueueSnackbar(t("please_enter_a_valid_email_address"), {
         variant: "error",
       });
       return;
     }
 
     if (formData.message.trim().length === 0) {
-      enqueueSnackbar("Please enter your message.", { variant: "error" });
+      enqueueSnackbar(t("please_enter_your_message"), { variant: "error" });
       return;
     }
 
@@ -70,7 +70,7 @@ export const ContactUsForm = () => {
 
       if (response.status === 201) {
         // If everything is valid, show success message
-        enqueueSnackbar("Thank you for getting in touch!", {
+        enqueueSnackbar(t("thank_you_for_getting_in_touch"), {
           variant: "success",
         });
 
@@ -86,7 +86,7 @@ export const ContactUsForm = () => {
         });
       } else {
         // Handle generic errors
-        enqueueSnackbar("An unexpected error occurred.", {
+        enqueueSnackbar(t("an_unexpected_error_occurred"), {
           variant: "error",
         });
       }
@@ -147,7 +147,7 @@ export const ContactUsForm = () => {
           disabled={!(formData.email && formData.phone)}
           onClick={handleSubmit}
         >
-          Send
+          {t("send")}
         </button>
       </div>
     </div>

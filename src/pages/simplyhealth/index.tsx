@@ -1,21 +1,24 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
+import { useTranslations } from 'next-intl';
 
 const SimplyHealth = () => {
+    const t = useTranslations('SimplyHealth');
+    
     return (
         <section className="w-full">
             <div className='bg-image h-96 relative'>
-                <h1 className='text-3xl font-bold text-primary absolute bottom-1/3 left-[5%]'>Looking for SimplyHealth?</h1>
+                <h1 className='text-3xl font-bold text-primary absolute bottom-1/3 left-[5%]'>{t('heading')}</h1>
             </div>
             <div className='mx-auto container text-center flex flex-col gap-4 items-center mt-10 text-xl'>
-                <h4 className='text-black text-center font-bold text-primary'>Simplyhealth recently made the decision to withdraw from the Animal Health sector. As part of their overall strategic review, they looked carefully to identify an existing supplier in the market who had the scale and resources to provide continuity of service to their customers and as a consequence, Simplyhealth took the decision to sell the veterinary side of their business to Premier Vet Alliance (PVA).</h4>
-                <p>If you are looking for more information on your existing Pet Care Plan or more details on how to launch a plan, then please visit the Premier Vet Alliance.</p>
-                <a className='text-primary hover:underline font-bold' href="/">Visit our homepage to find out more </a>
-                <p>The Premier Vet Alliance is a global leader in preventative health care offering unrivaled technology, investment and support to veterinary clinics and pet owners around the world including the following services:</p>
-                <p className='text-center'><a className='text-primary font-bold hover:underline' href="/uk/services/premier-pet-care-plan">Pet Care Plan</a>- a market leading preventative healthcare solution</p>
-                <p className='text-center'> <a className='text-primary font-bold hover:underline' href="/uk/services/post2pet/">Post2Pet</a> – An affordable, convenient and easy to use home delivery service</p>
-                <p className='text-center'>  <a className='text-primary font-bold hover:underline' href="/uk/services/our-technology/">Technology</a> – State-of-the-art financial technology platform</p>
-                <p className='text-center'> <a className='text-primary font-bold hover:underline' href="/uk/services/training/">Training</a> – Access to the PVA Training Academy</p>
-                <p>For all queries, please contact:  <a className='text-primary font-light hover:underline' href="mailto:PCP@premiervetalliance.co.uk">enquiries@premiervetalliance.co.uk</a></p>
+                <h4 className='text-black text-center font-bold text-primary'>{t('intro_paragraph')}</h4>
+                <p>{t('info_paragraph')}</p>
+                <a className='text-primary hover:underline font-bold' href="/">{t('visit_homepage')} </a>
+                <p>{t('services_intro')}</p>
+                <p className='text-center'><a className='text-primary font-bold hover:underline' href="/uk/services/premier-pet-care-plan">{t('pet_care_plan')}</a>- {t('pet_care_plan_desc')}</p>
+                <p className='text-center'> <a className='text-primary font-bold hover:underline' href="/uk/services/post2pet/">{t('post2pet')}</a> – {t('post2pet_desc')}</p>
+                <p className='text-center'>  <a className='text-primary font-bold hover:underline' href="/uk/services/our-technology/">{t('technology')}</a> – {t('technology_desc')}</p>
+                <p className='text-center'> <a className='text-primary font-bold hover:underline' href="/uk/services/training/">{t('training')}</a> – {t('training_desc')}</p>
+                <p>{t('contact_prefix')}  <a className='text-primary font-light hover:underline' href="mailto:PCP@premiervetalliance.co.uk">{t('contact_email')}</a></p>
             </div>
         </section>
     )

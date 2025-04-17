@@ -1,6 +1,6 @@
 import { FeatureCard } from "@/components/widgets";
 import Image from "next/image";
-// import { useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import { IAboutPage } from "@/cms-models/about";
 import React from "react";
 import { imageUrl } from "@/utils";
@@ -10,7 +10,7 @@ type Props = {
 }
 
 export const ExperienceUnderstandingSection: React.FC<Props> = ({ data }) => {
-  // const t = useTranslations('About');
+  const t = useTranslations('About');
 
   return (
     <section className="container mx-auto py-10">
@@ -45,8 +45,8 @@ export const ExperienceUnderstandingSection: React.FC<Props> = ({ data }) => {
           <FeatureCard
             image="chart-icon.svg"
             variant="info"
-            title={"Improve sign-ups"}
-            description={"You can achieve a 25% increase in net growth of pets on a health plan, when you offer your clients home delivery"}
+            title={t("section3_card3_title")}
+            description={t("section3_card3_description")}
             cms
           />
         </div>

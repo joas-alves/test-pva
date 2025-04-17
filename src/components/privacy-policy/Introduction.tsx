@@ -1,12 +1,13 @@
 import React from "react";
+import { useTranslations } from "next-intl";
 
 const PrivacyIntroduction = () => {
+  const t = useTranslations("PrivacyPolicy");
+  
   return (
     <div className="mb-4">
       <p className="text-lg">
-        This Policy sets out the basis on which Premier Vet Alliance Limited
-        collects, uses and discloses your personal data and your rights in
-        relation to the personal data that we hold.
+        {t("introduction")}
       </p>
     </div>
   );

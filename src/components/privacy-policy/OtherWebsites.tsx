@@ -1,11 +1,14 @@
 import React from "react";
+import { useTranslations } from "next-intl";
 
 const PrivacyOtherWebsites = () => {
+  const t = useTranslations("PrivacyPolicy");
+  
   return (
     <div className="mb-4">
-      <h2 className="sub-heading mb-4 text-2xl ">Other Websites</h2>
+      <h2 className="sub-heading mb-4 text-2xl ">{t("other_websites_title")}</h2>
       <p className="text-lg">
-      Our site may from time to time contain links to and from the websites of our partner networks, advertisers and affiliates and if you follow a link to any of their websites please note that these will have their own privacy policies and we do not accept any responsibility or liability for these policies.  Please check these policies before you submit any personal data to these websites.
+        {t("other_websites_content")}
       </p>
     </div>
   );

@@ -26,7 +26,7 @@ export default function NewsDetail() {
       if (id) {
         try {
           const response = await axios(
-            `/en-UK/news/${id}`
+            `/${router.locale}/news/${id}`
           );
           if (response.status === 200) {
             setData(response.data);
@@ -38,7 +38,7 @@ export default function NewsDetail() {
     })();
     (async () => {
       try {
-        const response = await axios(`/en-UK/news`);
+        const response = await axios(`/${router.locale}/news`);
         if (response.status === 200) {
           if (response.data && response.data.length > 0) {
             const blogs: INewsPage[] = response.data;

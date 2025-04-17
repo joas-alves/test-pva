@@ -20,7 +20,7 @@ export default function AboutUs() {
   const [data, setData] = useState<IAboutPage>({} as IAboutPage);
   const [faqsData, setFaqsData] = useState<IFaq[]>()
 
-  const url = `/en-UK/${router.locale === "global" ? "globalpage-content" : "homepage-content"
+  const url = `/${router.locale}/${router.locale === "global" ? "globalpage-content" : "homepage-content"
     }/1`;
 
   useEffect(() => {
@@ -28,7 +28,7 @@ export default function AboutUs() {
     (async () => {
       try {
         const [response, response2] = await Promise.all([
-          axios.get(`/en-UK/about-content/1`),
+          axios.get(`/${router.locale}/about-content/1`),
           axios.get(url)
         ]);
         if (response.status === 200) {

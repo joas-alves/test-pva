@@ -16,27 +16,27 @@ const [relevantBlogs, setRelevantData] = useState<INewsPage[]>([]);
 
   useEffect(() => {
     (async () => {
-          try {
-            const response = await axios(`/en-UK/news`);
-            if (response.status === 200) {
-              if (response.data && response.data.length > 0) {
-                const blogs: INewsPage[] = response.data;
-    
-                const sortedData: INewsPage[] =
-                  blogs && blogs.length > 0
-                    ? blogs
-                        .sort(
-                          (a, b) =>
-                            new Date(b.date).getTime() - new Date(a.date).getTime()
-                        )
-                        .slice(0, 3)
-                    : [];
-                setRelevantData(sortedData);
-              } else setRelevantData(response.data);
-            }
-            // eslint-disable-next-line @typescript-eslint/no-unused-vars
-          } catch (error) {}
-        })();
+      try {
+        const response = await axios(`/${router.locale}/news`);
+        if (response.status === 200) {
+          if (response.data && response.data.length > 0) {
+            const blogs: INewsPage[] = response.data;
+
+            const sortedData: INewsPage[] =
+              blogs && blogs.length > 0
+                ? blogs
+                    .sort(
+                      (a, b) =>
+                        new Date(b.date).getTime() - new Date(a.date).getTime()
+                    )
+                    .slice(0, 3)
+                : [];
+            setRelevantData(sortedData);
+          } else setRelevantData(response.data);
+        }
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      } catch (error) {}
+    })();
   }, [router.locale]);
   const gotoNews = () => {
     router.push('/news')

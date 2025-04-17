@@ -1,7 +1,8 @@
 import { MeetingLink } from "@/components/widgets";
+import { useTranslations } from "next-intl";
 
 export const GeneralMeetingSection = () => {
-
+  const t = useTranslations("Investors");
 
   const downloadPdf = (download: boolean, link: string,name: string) => {
     if (download) {
@@ -19,7 +20,7 @@ export const GeneralMeetingSection = () => {
   return (
     <section className="container mx-auto py-10">
       <div className="sub-heading mb-2">
-      Annual Report and Annual General Meetings
+        {t("annual_report_and_annual_general_meetings")}
       </div>
       <div className="flex justify-between flex-col md:flex-row border-b border-b-gray-200 py-10">
         <div className="text-[32px] font-bold text-primary mb-2">AGM 2025</div>

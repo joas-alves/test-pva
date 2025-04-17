@@ -29,7 +29,7 @@ export const RealStoriesSection: React.FC<Props> = ({ data }) => {
         <div className="hidden md:flex justify-end gap-5 pb-8 mt-10">
           <div className="w-[60px] h-[60px] rounded-2xl flex items-center justify-center text-primary border border-primary text-2xl swiper-button-prev cursor-pointer">
             <IoChevronBackOutline />
-      </div>
+          </div>
           <button className="w-[60px] h-[60px] rounded-2xl flex items-center justify-center text-primary border border-primary text-2xl swiper-button-next">
             <IoChevronForwardOutline />
           </button>

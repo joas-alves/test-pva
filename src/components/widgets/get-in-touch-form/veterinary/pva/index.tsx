@@ -11,6 +11,7 @@ import {
   PvaCustomerValidationOptions,
 } from "../../constants";
 import { GetInTouchFormType } from "../../types";
+import { useTranslations } from "next-intl";
 // Mapping reasons to sub-options
 export const subOptionsMap: Record<PvaCustomerReasons, SelectOption[]> = {
   [PvaCustomerReasons.Cancellation]: Object.values(
@@ -45,6 +46,7 @@ type Props = {
   handleChange: (field: keyof GetInTouchFormType, value: string) => void;
 };
 export const ExistingPvaForm = ({ formData, handleChange }: Props) => {
+  const t = useTranslations("PetOwner");
   // Get sub-options for the selected reason
   const selectedSubOptions =
     subOptionsMap[formData.primaryReason as PvaCustomerReasons] || [];
@@ -52,9 +54,9 @@ export const ExistingPvaForm = ({ formData, handleChange }: Props) => {
     <div className="flex flex-col gap-6 py-4">
       {/* Select Reason */}
       <CustomSelect
-        label={"Please select one of the below options"}
+        label={t("please_select_one_of_the_below_options")}
         options={Object.values(PvaCustomerReasons).map((each) => ({
-          label: each,
+          label: t(each),
           value: each,
         }))}
         value={formData.primaryReason}
@@ -68,7 +70,7 @@ export const ExistingPvaForm = ({ formData, handleChange }: Props) => {
           formData.primaryReason as PvaCustomerReasons
         ) && (
           <CustomSelect
-            label={"Please select a specific reason"}
+            label={t("please_select_a_specific_reason")}
             options={selectedSubOptions}
             value={formData.secondaryReason || ""}
             onChange={(e) =>
@@ -78,8 +80,8 @@ export const ExistingPvaForm = ({ formData, handleChange }: Props) => {
         )}
       {formData.primaryReason === PvaCustomerReasons.Other && (
         <CustomInput
-          label="Please write any comments below"
-          placeholder="Other Reason"
+          label={t("please_write_any_comments_below")}
+          placeholder={t("other_reason")}
           value={formData.reasonComments}
           onChange={(e) => handleChange("reasonComments", e.target.value)}
         />

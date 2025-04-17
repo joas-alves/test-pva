@@ -7,19 +7,15 @@ import { usePathname, useSearchParams } from "next/navigation";
 import { NextRouter, useRouter } from "next/router";
 import { useSnackbar } from "notistack";
 import { useEffect, useState } from "react";
-import {
-  locale,
-  NewCustomerReasons,
-  PvaCustomerCancelOptions,
-  PvaCustomerReasons,
-  PvaCustomerType
-} from "./constants";
 import { PetOwnerForm } from "./pet-owner";
 import { GetInTouchFormType } from "./types";
 import { getCustomerType, validateGetInTouchForm } from "./utils";
 import { VetDecisionForm } from "./veterinary";
+
 export const GetInTouchForm = () => {
   const t = useTranslations("Common");
+  const tp = useTranslations("PetOwner");
+  const tc = useTranslations("Constants");
   const { enqueueSnackbar } = useSnackbar();
   const searchParams = useSearchParams();
   const nextRouter: NextRouter = useRouter();
@@ -37,8 +33,8 @@ export const GetInTouchForm = () => {
     clinicName: "",
     postCode: "",
     planReference: "",
-    customerType: PvaCustomerType.New,
-    primaryReason: NewCustomerReasons.HealthPlan,
+    customerType: tc("PvaCustomerType.New"),
+    primaryReason: tc("NewCustomerReasons.HealthPlan"),
     secondaryReason: "",
     reasonComments: "",
   };
@@ -61,12 +57,12 @@ export const GetInTouchForm = () => {
       modifiedData.reasonComments = "";
       const customerType = getCustomerType(value);
       if (customerType === "veterinary") {
-        modifiedData.customerType = PvaCustomerType.New;
-        modifiedData.primaryReason = NewCustomerReasons.HealthPlan;
+        modifiedData.customerType = tc("PvaCustomerType.New");
+        modifiedData.primaryReason = tc("NewCustomerReasons.HealthPlan");
       }
       if (customerType === "pet_owner") {
-        modifiedData.customerType = PvaCustomerType.New;
-        modifiedData.primaryReason = PvaCustomerReasons.Cancellation;
+        modifiedData.customerType = tc("PvaCustomerType.New");
+        modifiedData.primaryReason = tc("PvaCustomerReasons.Cancellation");
         modifiedData.secondaryReason = "";
       }
     }
@@ -75,16 +71,15 @@ export const GetInTouchForm = () => {
       modifiedData.secondaryReason = "";
       modifiedData.reasonComments = "";
 
-      if (value === PvaCustomerType.Existing) {
-        modifiedData.primaryReason = PvaCustomerReasons.Cancellation;
-        modifiedData.secondaryReason =
-          PvaCustomerCancelOptions.CancellationQuery;
+      if (value === tc("PvaCustomerType.Existing")) {
+        modifiedData.primaryReason = tc("PvaCustomerReasons.Cancellation");
+        modifiedData.secondaryReason = tc("PvaCustomerCancelOptions.CancellationQuery");
       } else {
-        modifiedData.primaryReason = NewCustomerReasons.HealthPlan;
+        modifiedData.primaryReason = tc("NewCustomerReasons.HealthPlan");
         modifiedData.secondaryReason = "";
       }
     }
-    if (field === "primaryReason" && value === "Other") {
+    if (field === "primaryReason" && value === tc("PvaCustomerReasons.Other")) {
       modifiedData.secondaryReason = "";
     }
     modifiedData[field] = value;
@@ -92,7 +87,7 @@ export const GetInTouchForm = () => {
   };
   const handleSubmit = async (e: React.FormEvent) => {
     if(isDuplicatePage){
-      enqueueSnackbar("Your form is submitted successfully", {
+      enqueueSnackbar(tp("your_form_is_submitted_successfully"), {
         variant: "success",
       });
       setFormData(initialValue);
@@ -108,7 +103,7 @@ export const GetInTouchForm = () => {
         allData
       );
       if (response.status === 201) {
-        enqueueSnackbar("Thank you for getting in touch!", {
+        enqueueSnackbar(tp("thank_you_for_getting_in_touch"), {
           variant: "success",
         });
         setFormData(initialValue);
@@ -121,7 +116,7 @@ export const GetInTouchForm = () => {
         });
       } else {
         // Handle generic errors
-        enqueueSnackbar("An unexpected error occurred.", {
+        enqueueSnackbar(tp("an_unexpected_error_occurred"), {
           variant: "error",
         });
       }
@@ -133,19 +128,19 @@ export const GetInTouchForm = () => {
     let newLocale = "en"; // Default locale
 
     switch (value) {
-      case locale.Spanish:
+      case tc("locale.Spanish"):
         newLocale = "es"; // Spanish locale
         break;
-      case locale.EnglishUS:
+      case tc("locale.EnglishUS"):
         newLocale = "en-US"; // English (US)
         break;
-      case locale.EnglishUK:
+      case tc("locale.EnglishUK"):
         newLocale = "en-UK"; // English (UK)
         break;
-      case locale.Deutch:
+      case tc("locale.Deutch"):
         newLocale = "de"; // German (Deutch)
         break;
-      case locale.French:
+      case tc("locale.French"):
         newLocale = "fr"; // French
         break;
       default:
@@ -155,10 +150,13 @@ export const GetInTouchForm = () => {
     router.push(router.pathname, router.asPath, { locale: newLocale });
   };
 
-
-  const reasons: SelectOption[] = Object.values(locale).map(
-    (each) => ({ label: each, value: each })
-  );
+  const reasons: SelectOption[] = [
+    { label: tc("locale.Spanish"), value: tc("locale.Spanish") },
+    { label: tc("locale.EnglishUS"), value: tc("locale.EnglishUS") },
+    { label: tc("locale.EnglishUK"), value: tc("locale.EnglishUK") },
+    { label: tc("locale.Deutch"), value: tc("locale.Deutch") },
+    { label: tc("locale.French"), value: tc("locale.French") }
+  ];
   const renderForm = () => {
     const formType = getCustomerType(allData.preference);
     if (formType === "pet_owner")
@@ -172,7 +170,7 @@ export const GetInTouchForm = () => {
       </h2>
       {nextRouter.locale === 'global' && <div className="flex flex-col gap-6 mb-5">
         <CustomSelect
-          label={"Please select one of the below options"}
+          label={tp("please_select_one_of_the_below_options")}
           options={reasons}
           value={selectedOption}
           onChange={(e) => handleSelectChange(e.target.value)}
@@ -184,7 +182,7 @@ export const GetInTouchForm = () => {
           <div className="col-span-2">
             <CustomRadioGroup
               wrapperClassName="grid grid-cols-1 md:grid-cols-2 gap-3"
-              options={["Veterinary Professional", "Pet Owner"]}
+              options={[t("veterinary_professional"), t("pet_owner")]}
               value={allData.preference}
               onChange={(value) => handleChange("preference", value)}
             />
@@ -222,8 +220,8 @@ export const GetInTouchForm = () => {
         </div>
         {renderForm()}
         <CustomInput
-          label="Please share any additional comments below"
-          placeholder="Additional comments"
+          label={tp("please_share_any_additional_comments_below")}
+          placeholder={tp("additional_comments")}
           value={allData.additionalComments}
           onChange={(e) => handleChange("additionalComments", e.target.value)}
         />
@@ -237,9 +235,14 @@ export const GetInTouchForm = () => {
                 onChange={() => setIsAgreed(!isAgreed)}
               />
               <span>
-                By ticking this box, you agree to receive email and text messages from Premier Vet Alliance related to your service and marketing. View our{" "}
-                <Link href="/pet-owner-terms-conditions" target="_blank" className="underline text-blue-600">Terms of Service</Link> and{" "}
-                <Link href="/privacy-policy" target="_blank" className="underline text-blue-600">Privacy Policy</Link> for details.
+                {tp("by_ticking_this_box_you_agree_to_receive_email_and_text_messages_from_premier_vet_alliance_related_to_your_service_and_marketing")}
+                <Link href="/pet-owner-terms-conditions" target="_blank" className="underline text-blue-600">
+                  {tp("terms_of_service")}
+                </Link>{" "}
+                {tp("and")}
+                <Link href="/privacy-policy" target="_blank" className="underline text-blue-600">
+                  {tp("privacy_policy")}
+                </Link>
               </span>
             </label>
           </div>
@@ -250,7 +253,7 @@ export const GetInTouchForm = () => {
             type="button"
             onClick={handleSubmit}
           >
-            Send
+            {tp("send")}
           </button>
         </div>
       </div>

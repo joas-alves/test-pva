@@ -23,7 +23,7 @@ export default function ServicePage() {
     if (!router.isReady) return;
     (async () => {
       try {
-        const response = await axios.get(`/en-UK/service-content/2`);
+        const response = await axios.get(`/${router.locale}/service-content/2`);
         if (response.status === 200) {
           return setData(response.data);
         }

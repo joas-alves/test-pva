@@ -1,5 +1,5 @@
 import Image from "next/image";
-// import { useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import { IHomePage } from "@/cms-models/home";
 import React from "react";
 import { imageUrl } from "@/utils";
@@ -9,14 +9,14 @@ type Props = {
 };
 
 export const AdvantagesSection: React.FC<Props> = ({ data }) => {
-  // const t = useTranslations('Home');
+  const t = useTranslations('Home');
 
   return (
     <section className="container mx-auto">
       <div
         className="sub-heading mb-12 text-center"
         dangerouslySetInnerHTML={{
-          __html: "Unlocking your practice potential",
+          __html: t("advantages_title"),
         }}
       />
 

@@ -3,6 +3,7 @@ import { clsx } from "clsx";
 import React from "react";
 import { ServiceCard } from "./ServiceCard";
 import { useRouter } from "next/router";
+import { useTranslations } from "next-intl";
 
 type Props = {
   data: IHomePage;
@@ -12,6 +13,7 @@ export const ServicesList: React.FC<Props> = ({ data }) => {
   const router = useRouter();
   const isEnUK = router.locale?.toLowerCase().includes("en-uk");
   const isglobal = router.locale?.toLowerCase().includes("global");
+  const t = useTranslations("Services");
 
   const services = [
     {
@@ -52,20 +54,16 @@ export const ServicesList: React.FC<Props> = ({ data }) => {
   return (
     <section className="container mx-auto py-10">
       <div className="max-w-[954px] w-full mx-auto mb-12 text-left md:text-center">
-        <div className="sub-heading mb-6">Premier Vet Alliance Services</div>
+        <div className="sub-heading mb-6">{t("premier_vet_alliance_services")}</div>
         <div className="flex flex-col gap-4">
           <p className="text-secondary max-w-[600px] w-full mx-auto">
-            At Premier Vet Alliance, we are committed to providing veterinary
-            practices with innovative, reliable, and comprehensive solutions to
-            enhance preventative pet care in a way that is bespoke to every
-            practice.
+            {t("committed_to_providing")}
           </p>
           <p className="text-xl max-w-[600px] w-full mx-auto text-primary">
-            Looking to enhance compliance, retention and client satisfaction in
-            your practice?
+            {t("looking_to_enhance")}
           </p>
           <p className="text-xl text-secondary max-w-[600px] w-full mx-auto font-bold">
-            You’re in the right place.
+            {t("right_place")}
           </p>
         </div>
       </div>

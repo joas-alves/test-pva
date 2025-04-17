@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { CiClock2 } from "react-icons/ci";
-
+import { useTranslations } from "next-intl";
 type Props = {
   id?: number;
   image: string | null;
@@ -20,6 +20,7 @@ export const NewsCard: React.FC<Props> = ({
   title,
   description,
 }) => {
+  const t = useTranslations("Common");
   const images = image ? JSON.parse(image) : null;
 
   const removeHtmlTagsAndExtractWords = (
@@ -65,7 +66,7 @@ export const NewsCard: React.FC<Props> = ({
             }}
           />
           <span className="font-medium text-info cursor-pointer text-sm sm:text-base">
-            LEARN MORE
+            {t("learn_more")}
           </span>
         </div>
       </div>
