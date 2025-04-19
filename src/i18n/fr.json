@@ -22,10 +22,127 @@
     "click_here": "Cliquez ici",
     "get_started": "Commencer",
     "ready_to_grow": "Prêt à grandir",
-    "please_enter_a_valid_email_address": "Veuillez entrer une adresse e-mail valide.",
-    "thank_you_for_getting_in_touch": "Merci pour votre message ! Notre représentant vous contactera par e-mail.",
-    "an_unexpected_error_occurred_please_try_again_later": "Une erreur inattendue est survenue. Veuillez réessayer.",
-    "please_enter_your_e_mail": "Veuillez entrer votre adresse e-mail"
+    "please_enter_a_valid_email_address": "Veuillez entrer une adresse e-mail valide",
+    "thank_you_for_getting_in_touch": "Merci de nous avoir contactés ! Notre représentant vous contactera par e-mail",
+    "an_unexpected_error_occurred_please_try_again_later": "Une erreur inattendue s'est produite. Veuillez réessayer plus tard",
+    "please_enter_your_e_mail": "Veuillez entrer votre e-mail",
+    "cookie_policy_description": "Ce site utilise des cookies – de petits fichiers texte qui sont placés sur votre machine pour aider le site à fournir une meilleure expérience utilisateur. En général, les cookies sont utilisés pour conserver les préférences des utilisateurs, stocker des informations pour des choses comme les paniers d'achat et fournir des données de suivi anonymisées à des applications tierces comme Google Analytics",
+    "advantages_title": "Libérer le potentiel de votre cabinet",
+    "important_notice": "AVIS IMPORTANT",
+    "please_enter_a_valid_first_name": "Veuillez entrer un prénom valide",
+    "please_enter_a_valid_last_name": "Veuillez entrer un nom valide",
+    "please_enter_a_valid_phone_number": "Veuillez entrer un numéro de téléphone valide",
+    "send": "Envoyer",
+    "cookie": "Cookie",
+    "policy": "Politique",
+    "pet": "Animal",
+    "owners": "Propriétaires"
+  },
+  "Constants": {
+    "PvaCustomerType": {
+      "New": "Nouveau client",
+      "Existing": "Client existant"
+    },
+    "PetOwnerReasons": {
+      "Cancellation": "Annulations et réintégrations",
+      "Refunds": "Remboursements",
+      "Transfers": "Transférer mon plan",
+      "Change": "Changement de détails",
+      "Payments": "Paiements",
+      "Other": "Autre"
+    },
+    "locale": {
+      "SelectCountry": "Sélectionner un pays",
+      "Spanish": "Espagnol",
+      "EnglishUS": "Anglais-US",
+      "EnglishUK": "Anglais-UK",
+      "Deutch": "Allemand",
+      "French": "Français"
+    },
+    "PetOwnerPaymentOptions": {
+      "Late": "Frais de retard de paiement",
+      "Phone": "Paiements effectués par téléphone"
+    },
+    "NewCustomerReasons": {
+      "HealthPlan": "Démarrer un plan de santé",
+      "Moving": "Déplacer les plans d'un fournisseur existant",
+      "Transfers": "Profiter des services (Livraison à domicile et plus)",
+      "Other": "Autre"
+    },
+    "PvaCustomerReasons": {
+      "Cancellation": "Annulations et réintégrations",
+      "Refunds": "Remboursements",
+      "Payments": "Paiements",
+      "HomeDelivery": "Question sur la livraison à domicile",
+      "Locate": "Impossible de localiser un plan",
+      "Validation": "Échec de la validation du compte",
+      "PlanStatus": "Statut du plan",
+      "Change": "Changement des détails du client",
+      "V2P": "V2P - Configuration ou support",
+      "Other": "Autre"
+    },
+    "PvaCustomerCancelOptions": {
+      "CancellationQuery": "Questions d'annulation",
+      "ReinstatementQuery": "Questions de réintégration"
+    },
+    "PvaCustomerRefundOptions": {
+      "Organizing": "Organiser un remboursement client",
+      "HomeDelivery": "Remboursement de la livraison à domicile"
+    },
+    "PvaCustomerPaymentOptions": {
+      "PaymentQuery": "Question de paiement",
+      "Failed": "Paiement échoué/Manqué",
+      "Invalid": "Coordonnées bancaires invalides",
+      "Change": "Changer les détails de paiement"
+    },
+    "PvaCustomerDeliveryOptions": {
+      "Failed": "Livraison échouée",
+      "Damaged": "Produit endommagé",
+      "Wrong": "Mauvais article envoyé",
+      "HD": "Configuration HD",
+      "Delay": "Retards"
+    },
+    "PvaCustomerLocateOptions": {
+      "Online": "Inscription en ligne non dans le portail",
+      "Correct": "Correctement configuré dans le portail"
+    },
+    "PvaCustomerValidationOptions": {
+      "Bawe": "Bawe (UK)"
+    },
+    "PvaCustomerPlanStatusOptions": {
+      "Active": "Alerte active dans le portail",
+      "Suspended": "Suspendu (RX fonctionne)",
+      "Cancelled": "Annulé/Inactif"
+    },
+    "PvaCustomerChangeOptions": {
+      "Contact": "Coordonnées",
+      "Payment": "Détails de paiement",
+      "Cancelled": "Nom du titulaire du plan",
+      "Comms": "Préférence de communication"
+    }
+  },
+  "PetOwner": {
+    "clinic_name": "Nom de la clinique",
+    "plan_reference": "Référence du plan",
+    "postal_code": "Code postal",
+    "please_select_one_of_the_below_options": "Veuillez sélectionner l'une des options ci-dessous",
+    "what_is_your_payment_query_related_to": "À quoi se rapporte votre question de paiement ?",
+    "please_write_any_comments_below": "Veuillez écrire vos commentaires ci-dessous",
+    "other_reason": "Autre raison",
+    "please_select_a_specific_reason": "Veuillez sélectionner une raison spécifique",
+    "veterinary_clinic_name": "Nom de la clinique vétérinaire",
+    "thank_you_for_getting_in_touch": "Merci de nous avoir contactés !",
+    "an_unexpected_error_occurred": "Une erreur inattendue s'est produite",
+    "an_unexpected_error_occurred_description": "Veuillez réessayer plus tard ou nous contacter si le problème persiste",
+    "your_form_is_submitted_successfully": "Votre formulaire a été soumis avec succès",
+    "your_form_is_submitted_successfully_description": "Merci de nous avoir contactés ! Nous vous répondrons dès que possible",
+    "please_share_any_additional_comments_below": "Veuillez partager tout commentaire supplémentaire ci-dessous",
+    "additional_comments": "Commentaires supplémentaires",
+    "by_ticking_this_box_you_agree_to_receive_email_and_text_messages_from_premier_vet_alliance_related_to_your_service_and_marketing": "En cochant cette case, vous acceptez de recevoir des e-mails et des messages texte de Premier Vet Alliance liés à votre service et au marketing",
+    "terms_of_service": "Conditions d'utilisation",
+    "privacy_policy": "Politique de confidentialité",
+    "and": "et",
+    "send": "Envoyer"
   },
   "Header": {
     "home": "Accueil",
@@ -77,7 +194,7 @@
     "smart_technology_for_seamless": "Une technologie intelligente pour des opérations fluides",
     "benefit_from_our_cutting_edge": "Profitez de nos plateformes de pointe qui simplifient la communication avec les clients, la prise de rendez-vous et les services de livraison à domicile, vous permettant ainsi de fournir des soins de qualité supérieure plus efficacement.",
     "decades_of_experience": "Des décennies d'expérience et de confiance mondiale",
-    "with_over_a_decade": "Avec plus d'une décennie d'expérience et un réseau de plus de 3 000 cabinets dans le monde, nous proposons des solutions éprouvées et des innovations de pointe pour élever votre cabinet.",
+    "with_over_a_decade": "Avec plus d'une décennie d'expérience et un réseau de plus de 3 000 cabinets dans le monde, nous proposons des solutions éprouvées et des innovations de pointe pour élever votre cabinet.",
     "what_our_partners": "Ce que disent nos partenaires",
     "real_stories": "Des histoires réelles",
     "of_success": "de réussite",
@@ -91,19 +208,19 @@
     "what_new": "Quoi de neuf",
     "in_veterinary_care": "dans les soins vétérinaires",
     "discover_all": "Tout découvrir",
-    "gen_x_and_millennials": "La génération X et la génération Y font la loi !",
+    "gen_x_and_millennials": "La génération X et la génération Y font la loi !",
     "the_highest_percentage": "Le pourcentage le plus élevé de nouveaux propriétaires d'animaux de compagnie d'aujourd'hui appartient à la génération X et à la génération Y. Les ciblez-vous?",
-    "home_delivery_why_are": "Livraison à domicile : pourquoi en parlons-nous encore ? ! ",
+    "home_delivery_why_are": "Livraison à domicile : pourquoi en parlons-nous encore ? ! ",
     "owners_who_must_collect": "Les propriétaires qui doivent récupérer les produits de leur chirurgie restent sur le plan 22 mois de moins que ceux qui ont une option de livraison par la poste. Ne laissez pas cela vous arriver.",
-    "can_you_guess_the_top": "Pouvez-vous deviner les noms de chats et de chiens les plus populaires en 2024 ? ",
-    "what_are_the_three_most": "Quels sont les trois noms de chats et de chiens les plus courants en 2024 ? Nous les vérifions et voyons comment les suppositions de l'équipe PVA se comparent à la moyenne.",
+    "can_you_guess_the_top": "Pouvez-vous deviner les noms de chats et de chiens les plus populaires en 2024 ? ",
+    "what_are_the_three_most": "Quels sont les trois noms de chats et de chiens les plus courants en 2024 ? Nous les vérifions et voyons comment les suppositions de l'équipe PVA se comparent à la moyenne.",
     "frequently": "Fréquent",
     "asked_questions": "Questions posées",
-    "what_services_does": "Quels services Premier Vet Alliance propose-t-il ?",
-    "how_does_premier": "Comment Premier Pet Care Plan profite-t-il à mon cabinet ?",
-    "what_countries_does": "Dans quels pays Premier Vet Alliance opère-t-il ?",
-    "how_does_the_post": "Comment fonctionne le service Post2Pet ?",
-    "how_do_i_get": "Comment démarrer avec Premier Vet Alliance ?",
+    "what_services_does": "Quels services Premier Vet Alliance propose-t-il ?",
+    "how_does_premier": "Comment Premier Pet Care Plan profite-t-il à mon cabinet ?",
+    "what_countries_does": "Dans quels pays Premier Vet Alliance opère-t-il ?",
+    "how_does_the_post": "Comment fonctionne le service Post2Pet ?",
+    "how_do_i_get": "Comment démarrer avec Premier Vet Alliance ?",
     "discover_how_we_can_help": "Découvrez comment nous pouvons aider votre cabinet",
     "book_a_demo_to_see": "Réservez une démonstration pour voir comment nos solutions peuvent améliorer votre cabinet et les soins aux animaux de compagnie.",
     "book_a_demo": "Réserver une démonstration",
@@ -117,7 +234,7 @@
     "app_store": "App Store",
     "google_play": "Google Play",
     "trusted_by_vets": "Approuvé par les vétérinaires",
-    "vet2pet_has_streamlined": "Vet2Pet a rationalisé la communication avec les clients, facilitant la gestion des plans de santé et augmentant la satisfaction !",
+    "vet2pet_has_streamlined": "Vet2Pet a rationalisé la communication avec les clients, facilitant la gestion des plans de santé et augmentant la satisfaction !",
     "number_of_practices_we_operate_in": "Nombre de cabinets dans lesquels nous opérons",
     "enhanced": "Amélioré",
     "client_communication": "Communication avec les clients",
@@ -178,7 +295,7 @@
     "about_us": "À propos de nous",
     "our_industry": "Notre expérience du secteur, des cabinets aux fabricants, nous permet de comprendre les besoins de votre entreprise et d'améliorer l'efficacité. En tant que l'un des rares fournisseurs de régimes d'assurance maladie à posséder une expérience pratique de la gestion, nous offrons des informations uniques et un soutien personnalisé.",
     "why_invest_in_us": "Croissance soutenue",
-    "with_over_partnerships": "Avec plus de 2 500 partenariats avec des hôpitaux vétérinaires au Royaume-Uni, en Europe et aux États-Unis, nous avons démontré une croissance constante. Notre concentration sur la mise en œuvre de programmes de soins de santé préventifs dans les cliniques souligne notre engagement envers une croissance durable et des opportunités d'investissement à long terme pour les parties prenantes.",
+    "with_over_partnerships": "Avec plus de 2 500 partenariats avec des hôpitaux vétérinaires au Royaume-Uni, en Europe et aux États-Unis, nous avons démontré une croissance constante. Notre concentration sur la mise en œuvre de programmes de soins de santé préventifs dans les cliniques souligne notre engagement envers une croissance durable et des opportunités d'investissement à long terme pour les parties prenantes.",
     "notice_of_annual_meeting": "Examen stratégique",
     "strategic_review": "Examen stratégique"
   },
@@ -201,7 +318,7 @@
     "tailored_health_plans": "Des plans de santé sur mesure pour améliorer la fidélisation des clients.",
     "streamlined_technology": "Une technologie simplifiée pour une communication et une planification faciles.",
     "10_years_of_experience": "Plus de 10 ans d'expertise et de succès avéré.",
-    "trusted_by_veterinary": "Plus de 3 000 cliniques vétérinaires dans le monde lui font confiance.",
+    "trusted_by_veterinary": "Plus de 3 000 cliniques vétérinaires dans le monde lui font confiance.",
     "tailored_for": "Sur mesure pour",
     "veterinary": "Vétérinaire",
     "and_efficiency": "efficacité",
@@ -237,12 +354,12 @@
     "expanding_across_europe": "En expansion à travers l'Europe",
     "pva_extended_its_reach": "PVA a étendu sa portée à l'Irlande, aux Pays-Bas et à l'Allemagne, établissant une solide présence européenne.",
     "global_veterinary_partner": "Partenaire vétérinaire mondial",
-    "now_partnering_with": "En partenariat avec plus de 3 000 cabinets, PVA fournit des solutions pour la santé des animaux de compagnie et la croissance des cabinets dans le monde entier.",
+    "now_partnering_with": "En partenariat avec plus de 3 000 cabinets, PVA fournit des solutions pour la santé des animaux de compagnie et la croissance des cabinets dans le monde entier.",
     "success_stories_from": "Réussites de",
     "those_who_trust_us": "Ceux qui nous font confiance",
     "see_how_our_tailored_solutions": "Découvrez comment nos solutions sur mesure ont aidé des clients du monde entier à accroître leur efficacité et à améliorer leurs résultats, directement à partir de leurs expériences.",
-    "need_more_help": "Besoin d'aide supplémentaire ?",
-    "find_the_answers_you": "Vous n'avez pas trouvé les réponses que vous cherchiez ? Nous sommes là pour vous aider ! Essayez l'une des options ci-dessous",
+    "need_more_help": "Besoin d'aide supplémentaire ?",
+    "find_the_answers_you": "Vous n'avez pas trouvé les réponses que vous cherchiez ? Nous sommes là pour vous aider ! Essayez l'une des options ci-dessous",
     "send_us_message": "Envoyez-nous un message",
     "use_our_contract_form": "Utilisez notre formulaire de contact et nous vous répondrons dans les plus brefs délais.",
     "book_a_demo": "Réservez une démonstration",

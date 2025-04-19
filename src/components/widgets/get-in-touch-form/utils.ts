@@ -17,8 +17,8 @@ export const getCustomerType = (
     es.Common.pet_owner,
     fr.Common.pet_owner,
   ];
-  if (petOwnerStrings.includes(preference)) return "pet_owner";
-  else if (veterinaryStrings.includes(preference)) return "veterinary";
+  if (petOwnerStrings.includes(preference) || preference === "pet_owner") return "pet_owner";
+  else if (veterinaryStrings.includes(preference) || preference === "veterinary_professional") return "veterinary";
   else return null;
 };
 import { PetOwnerReasons, PvaCustomerReasons, PvaCustomerType } from "./constants";
@@ -30,7 +30,6 @@ export const validateGetInTouchForm = (
   allData: GetInTouchFormType,
   enqueueSnackbar: (message: string, options: { variant: string }) => void
 ) => {
-  console.log({allData})
   if (allData.firstName.length <= 0) {
     enqueueSnackbar("Please enter a valid first name.", { variant: "error" });
     return false;

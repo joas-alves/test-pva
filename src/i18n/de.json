@@ -25,7 +25,18 @@
     "please_enter_a_valid_email_address": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
     "thank_you_for_getting_in_touch": "Vielen Dank für Ihre Nachricht! Unser Vertreter wird sich per E-Mail an Sie wenden.",
     "an_unexpected_error_occurred_please_try_again_later": "Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie es erneut.",
-    "please_enter_your_e_mail": "Bitte geben Sie Ihre E-Mail-Adresse ein"
+    "please_enter_your_e_mail": "Bitte geben Sie Ihre E-Mail-Adresse ein",
+    "cookie_policy_description": "Diese Website verwendet Cookies – kleine Textdateien, die auf Ihrem Computer abgelegt werden, um der Website zu helfen, ein besseres Benutzererlebnis zu bieten. Im Allgemeinen werden Cookies verwendet, um Benutzerpräferenzen zu speichern, Informationen für Einkaufswagen zu speichern und anonymisierte Tracking-Daten an Drittanbieteranwendungen wie Google Analytics bereitzustellen.",
+    "advantages_title": "Das Potenzial Ihrer Praxis freisetzen",
+    "important_notice": "WICHTIGER HINWEIS",
+    "please_enter_a_valid_first_name": "Bitte geben Sie einen gültigen Vornamen ein",
+    "please_enter_a_valid_last_name": "Bitte geben Sie einen gültigen Nachnamen ein",
+    "please_enter_a_valid_phone_number": "Bitte geben Sie eine gültige Telefonnummer ein",
+    "send": "Senden",
+    "cookie": "Cookie",
+    "policy": "Richtlinie",
+    "pet": "Haustier",
+    "owners": "Besitzer"
   },
   "Header": {
     "home": "Home",
@@ -251,7 +262,7 @@
   "CookiePolicy": {
     "title": "Cookie-Richtlinie",
     "understading_cookie": "Diese Website verwendet Cookies – kleine Textdateien, die auf Ihrem Computer abgelegt werden, um der Website zu helfen, ein besseres Benutzererlebnis zu bieten. Im Allgemeinen werden Cookies verwendet, um Benutzerpräferenzen zu speichern, Informationen für Einkaufswagen zu speichern und anonymisierte Tracking-Daten an Drittanbieteranwendungen wie Google Analytics bereitzustellen.",
-    "cookie_management": "In der Regel verbessern Cookies Ihr Surferlebnis. Möglicherweise möchten Sie jedoch Cookies auf dieser und anderen Websites deaktivieren. Der effektivste Weg, dies zu tun, besteht darin, Cookies in Ihrem Browser zu deaktivieren. Wir empfehlen Ihnen, den Hilfebereich Ihres Browsers zu konsultieren oder einen Blick auf die Website „Über Cookies“ zu werfen, die Anleitungen für alle modernen Browser bietet."
+    "cookie_management": "In der Regel verbessern Cookies Ihr Surferlebnis. Möglicherweise möchten Sie jedoch Cookies auf dieser und anderen Websites deaktivieren. Der effektivste Weg, dies zu tun, besteht darin, Cookies in Ihrem Browser zu deaktivieren. Wir empfehlen Ihnen, den Hilfebereich Ihres Browsers zu konsultieren oder einen Blick auf die Website \"Über Cookies\" zu werfen, die Anleitungen für alle modernen Browser bietet."
   },
   "TermsOfUse": {
     "title": "Nutzungsbedingungen",
@@ -281,5 +292,111 @@
     "cookie_policy": "Cookie-Richtlinie",
     "copyright-1": "Premier Vet Alliance Limited ist Mitglied der Premier Veterinary Group plc",
     "copyright-2": "Eingetragen in England und Wales"
+  },
+  "Constants": {
+    "PvaCustomerType": {
+      "New": "Neuer Kunde",
+      "Existing": "Bestehender Kunde"
+    },
+    "PetOwnerReasons": {
+      "Cancellation": "Kündigungen und Wiedereinsetzungen",
+      "Refunds": "Rückerstattungen",
+      "Transfers": "Meinen Plan übertragen",
+      "Change": "Details ändern",
+      "Payments": "Zahlungen",
+      "Other": "Andere"
+    },
+    "locale": {
+      "SelectCountry": "Land auswählen",
+      "Spanish": "Spanisch",
+      "EnglishUS": "Englisch-US",
+      "EnglishUK": "Englisch-UK",
+      "Deutch": "Deutsch",
+      "French": "Französisch"
+    },
+    "PetOwnerPaymentOptions": {
+      "Late": "Verspätete Zahlungsgebühren",
+      "Phone": "Zahlungen per Telefon"
+    },
+    "NewCustomerReasons": {
+      "HealthPlan": "Einen Gesundheitsplan starten",
+      "Moving": "Pläne von einem bestehenden Anbieter umziehen",
+      "Transfers": "Dienste nutzen (Hauslieferung und mehr)",
+      "Other": "Andere"
+    },
+    "PvaCustomerReasons": {
+      "Cancellation": "Kündigungen und Wiedereinsetzungen",
+      "Refunds": "Rückerstattungen",
+      "Payments": "Zahlungen",
+      "HomeDelivery": "Frage zur Hauslieferung",
+      "Locate": "Kann einen Plan nicht finden",
+      "Validation": "Kontovalidierungsfehler",
+      "PlanStatus": "Planstatus",
+      "Change": "Kundendetails ändern",
+      "V2P": "V2P - Einrichtung oder Support",
+      "Other": "Andere"
+    },
+    "PvaCustomerCancelOptions": {
+      "CancellationQuery": "Kündigungsfragen",
+      "ReinstatementQuery": "Wiedereinsetzungsfragen"
+    },
+    "PvaCustomerRefundOptions": {
+      "Organizing": "Rückerstattung für den Kunden organisieren",
+      "HomeDelivery": "Hauslieferungsrückerstattung"
+    },
+    "PvaCustomerPaymentOptions": {
+      "PaymentQuery": "Zahlungsfrage",
+      "Failed": "Fehlgeschlagene/Verlorene Zahlung",
+      "Invalid": "Ungültige Bankdaten",
+      "Change": "Zahlungsdetails ändern"
+    },
+    "PvaCustomerDeliveryOptions": {
+      "Failed": "Fehlgeschlagene Lieferung",
+      "Damaged": "Beschädigtes Produkt",
+      "Wrong": "Falscher Artikel geliefert",
+      "HD": "HD-Einrichtung",
+      "Delay": "Verzögerungen"
+    },
+    "PvaCustomerLocateOptions": {
+      "Online": "Online-Registrierung nicht im Portal",
+      "Correct": "Korrekt im Portal eingerichtet"
+    },
+    "PvaCustomerValidationOptions": {
+      "Bawe": "Bawe (UK)"
+    },
+    "PvaCustomerPlanStatusOptions": {
+      "Active": "Aktive Warnung im Portal",
+      "Suspended": "Ausgesetzt (RX funktioniert)",
+      "Cancelled": "Gekündigt/Inaktiv"
+    },
+    "PvaCustomerChangeOptions": {
+      "Contact": "Kontaktdetails",
+      "Payment": "Zahlungsdetails",
+      "Cancelled": "Name des Planinhabers",
+      "Comms": "Kommunikationspräferenz"
+    }
+  },
+  "PetOwner": {
+    "clinic_name": "Name der Klinik",
+    "plan_reference": "Planreferenz",
+    "postal_code": "Postleitzahl",
+    "please_select_one_of_the_below_options": "Bitte wählen Sie eine der folgenden Optionen",
+    "what_is_your_payment_query_related_to": "Worauf bezieht sich Ihre Zahlungsfrage?",
+    "please_write_any_comments_below": "Bitte schreiben Sie Ihre Kommentare unten",
+    "other_reason": "Anderer Grund",
+    "please_select_a_specific_reason": "Bitte wählen Sie einen spezifischen Grund",
+    "veterinary_clinic_name": "Name der Tierklinik",
+    "thank_you_for_getting_in_touch": "Vielen Dank für Ihre Kontaktaufnahme!",
+    "an_unexpected_error_occurred": "Ein unerwarteter Fehler ist aufgetreten",
+    "an_unexpected_error_occurred_description": "Bitte versuchen Sie es später erneut oder kontaktieren Sie uns, wenn das Problem weiterhin besteht",
+    "your_form_is_submitted_successfully": "Ihr Formular wurde erfolgreich übermittelt",
+    "your_form_is_submitted_successfully_description": "Vielen Dank für Ihre Kontaktaufnahme! Wir werden uns so bald wie möglich bei Ihnen melden",
+    "please_share_any_additional_comments_below": "Bitte teilen Sie weitere Kommentare unten mit",
+    "additional_comments": "Zusätzliche Kommentare",
+    "by_ticking_this_box_you_agree_to_receive_email_and_text_messages_from_premier_vet_alliance_related_to_your_service_and_marketing": "Durch Ankreuzen dieses Kästchens stimmen Sie zu, E-Mails und Textnachrichten von Premier Vet Alliance in Bezug auf Ihren Service und Marketing zu erhalten",
+    "terms_of_service": "Nutzungsbedingungen",
+    "privacy_policy": "Datenschutzrichtlinie",
+    "and": "und",
+    "send": "Senden"
   }
 }

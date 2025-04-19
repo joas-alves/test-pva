@@ -3,7 +3,7 @@ import { Field, Label, Radio, RadioGroup } from '@headlessui/react'
 
 type Props = {
   wrapperClassName?: string;
-  options: string[];
+  options: {label:string,value:string}[];
   value: string;
   onChange: (value: string) => void;
 }
@@ -16,14 +16,14 @@ export const CustomRadioGroup: React.FC<Props> = ({ wrapperClassName, options, v
       onChange={onChange}
     >
       {options.map((option) => (
-        <Field key={option} className="flex items-center gap-2">
+        <Field key={option.value} className="flex items-center gap-2">
           <Radio
-            value={option}
+            value={option.value}
             className="group flex size-5 items-center justify-center rounded-full border border-primary data-[checked]:bg-white"
           >
             <span className="invisible size-3 bg-primary rounded-full group-data-[checked]:visible" />
           </Radio>
-          <Label className="text-sm">{option}</Label>
+          <Label className="text-sm">{option.label}</Label>
         </Field>
       ))}
     </RadioGroup>

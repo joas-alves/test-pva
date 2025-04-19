@@ -1,13 +1,13 @@
 export enum PvaCustomerType {
-  New = "New Customer",
-  Existing = "Existing Customer",
+  New = "New",
+  Existing = "Existing",
 }
 //Pet owner values
 export enum PetOwnerReasons {
-  Cancellation = "Cancellations & reinstatements",
+  Cancellation = "Cancellation",
   Refunds = "Refunds",
-  Transfers = "Transfer my plan",
-  Change = "Change of details",
+  Transfers = "Transfers",
+  Change = "Change",
   Payments = "Payments",
   Other = "Other",
 }
@@ -27,68 +27,68 @@ export enum PetOwnerPaymentOptions {
 }
 
 export enum NewCustomerReasons {
-  HealthPlan = "Starting a health plan",
-  Moving = "Moving plans from existing provider",
-  Transfers = "Avail services (Home Delivery and more)",
+  HealthPlan = "HealthPlan",
+  Moving = "Moving",
+  Transfers = "Transfers",
   Other = "Other",
 }
 
 export enum PvaCustomerReasons {
-  Cancellation = "Cancellations & reinstatements",
+  Cancellation = "Cancellation",
   Refunds = "Refunds",
   Payments = "Payments",
-  HomeDelivery = "Home delivery query",
-  Locate = "Unable to locate a plan",
-  Validation = "Account validation failed",
-  PlanStatus = "Plan status",
-  Change = "Change of client details",
-  V2P = "V2P - Setup or support",
+  HomeDelivery = "HomeDelivery",
+  Locate = "Locate",
+  Validation = "Validation",
+  PlanStatus = "PlanStatus",
+  Change = "Change",
+  V2P = "V2P",
   Other = "Other",
 }
 
 export enum PvaCustomerCancelOptions {
-  CancellationQuery = "Cancellation queries",
-  ReinstatementQuery = "Reinstatement queries",
+  CancellationQuery = "CancellationQuery",
+  ReinstatementQuery = "ReinstatementQuery",
 }
 
 export enum PvaCustomerRefundOptions {
-  Organizing = "Organizing a client refund",
-  HomeDelivery = "Home delivery refund",
+  Organizing = "Organizing",
+  HomeDelivery = "HomeDelivery",
 }
 
 export enum PvaCustomerPaymentOptions {
-  PaymentQuery = "Payment query",
-  Failed = "Failed/Missed payment",
-  Invalid = "Invalid bank details",
-  Change = "Change payment details",
+  PaymentQuery = "PaymentQuery",
+  Failed = "Failed",
+  Invalid = "Invalid",
+  Change = "Change",
 }
 
 export enum PvaCustomerDeliveryOptions {
-  Failed = "Failed delivery",
-  Damaged = "Damaged product/",
-  Wrong = "Wrong item sent",
-  HD = "Setting up HD",
-  Delay = "Delays",
+  Failed = "Failed",
+  Damaged = "Damaged",
+  Wrong = "Wrong",
+  HD = "HD",
+  Delay = "Delay",
 }
 
 export enum PvaCustomerLocateOptions {
-  Online = "Online signup not in portal",
-  Correct = "Correctly setup in portal",
+  Online = "Online",
+  Correct = "Correct",
 }
 
 export enum PvaCustomerValidationOptions {
-  Bawe = "Bawe (UK)",
+  Bawe = "Bawe",
 }
 
 export enum PvaCustomerPlanStatusOptions {
-  Active = "Active alert in portal",
-  Suspended = "Suspended (RX works)",
-  Cancelled = "Cancelled/Inactive",
+  Active = "Active",
+  Suspended = "Suspended",
+  Cancelled = "Cancelled",
 }
 
 export enum PvaCustomerChangeOptions {
-  Contact = "Contact details",
-  Payment = "Payment Details",
-  Cancelled = "Plan holder name",
-  Comms = "Comms preference",
+  Contact = "Contact",
+  Payment = "Payment",
+  Cancelled = "Cancelled",
+  Comms = "Comms",
 }

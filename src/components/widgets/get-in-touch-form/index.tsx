@@ -7,10 +7,18 @@ import { usePathname, useSearchParams } from "next/navigation";
 import { NextRouter, useRouter } from "next/router";
 import { useSnackbar } from "notistack";
 import { useEffect, useState } from "react";
+import {
+  locale,
+  NewCustomerReasons,
+  PvaCustomerCancelOptions,
+  PvaCustomerReasons,
+  PvaCustomerType
+} from "./constants";
 import { PetOwnerForm } from "./pet-owner";
 import { GetInTouchFormType } from "./types";
 import { getCustomerType, validateGetInTouchForm } from "./utils";
 import { VetDecisionForm } from "./veterinary";
+import { subOptionKeyMap } from "./veterinary/pva";
 
 export const GetInTouchForm = () => {
   const t = useTranslations("Common");
@@ -28,13 +36,13 @@ export const GetInTouchForm = () => {
     lastName: "",
     email: "",
     phone: "",
-    preference: t("veterinary_professional"),
+    preference: "veterinary_professional",
     additionalComments: "",
     clinicName: "",
     postCode: "",
     planReference: "",
-    customerType: tc("PvaCustomerType.New"),
-    primaryReason: tc("NewCustomerReasons.HealthPlan"),
+    customerType: PvaCustomerType.New,
+    primaryReason: NewCustomerReasons.HealthPlan,
     secondaryReason: "",
     reasonComments: "",
   };
@@ -55,14 +63,13 @@ export const GetInTouchForm = () => {
       modifiedData.primaryReason = "";
       modifiedData.secondaryReason = "";
       modifiedData.reasonComments = "";
-      const customerType = getCustomerType(value);
-      if (customerType === "veterinary") {
-        modifiedData.customerType = tc("PvaCustomerType.New");
-        modifiedData.primaryReason = tc("NewCustomerReasons.HealthPlan");
+      if (value === "veterinary_professional") {
+        modifiedData.customerType = PvaCustomerType.New;
+        modifiedData.primaryReason = NewCustomerReasons.HealthPlan;
       }
-      if (customerType === "pet_owner") {
-        modifiedData.customerType = tc("PvaCustomerType.New");
-        modifiedData.primaryReason = tc("PvaCustomerReasons.Cancellation");
+      if (value === "pet_owner") {
+        modifiedData.customerType = PvaCustomerType.New;
+        modifiedData.primaryReason = PvaCustomerReasons.Cancellation;
         modifiedData.secondaryReason = "";
       }
     }
@@ -71,15 +78,16 @@ export const GetInTouchForm = () => {
       modifiedData.secondaryReason = "";
       modifiedData.reasonComments = "";
 
-      if (value === tc("PvaCustomerType.Existing")) {
-        modifiedData.primaryReason = tc("PvaCustomerReasons.Cancellation");
-        modifiedData.secondaryReason = tc("PvaCustomerCancelOptions.CancellationQuery");
+      if (value === PvaCustomerType.Existing) {
+        modifiedData.primaryReason = PvaCustomerReasons.Cancellation;
+        modifiedData.secondaryReason =
+          PvaCustomerCancelOptions.CancellationQuery;
       } else {
-        modifiedData.primaryReason = tc("NewCustomerReasons.HealthPlan");
+        modifiedData.primaryReason = NewCustomerReasons.HealthPlan;
         modifiedData.secondaryReason = "";
       }
     }
-    if (field === "primaryReason" && value === tc("PvaCustomerReasons.Other")) {
+    if (field === "primaryReason" && value === "Other") {
       modifiedData.secondaryReason = "";
     }
     modifiedData[field] = value;
@@ -87,7 +95,7 @@ export const GetInTouchForm = () => {
   };
   const handleSubmit = async (e: React.FormEvent) => {
     if(isDuplicatePage){
-      enqueueSnackbar(tp("your_form_is_submitted_successfully"), {
+      enqueueSnackbar("Your form is submitted successfully", {
         variant: "success",
       });
       setFormData(initialValue);
@@ -98,9 +106,21 @@ export const GetInTouchForm = () => {
     const isValid = validateGetInTouchForm(allData, enqueueSnackbar);
     if (!isValid) return;
     try {
+      const formData = {
+        ...allData,
+        customerType: allData.customerType === PvaCustomerType.Existing ? tc("PvaCustomerType.Existing") : tc("PvaCustomerType.New"),
+      }
+      if(formData.customerType === PvaCustomerType.Existing){
+        formData.primaryReason = allData.primaryReason === PvaCustomerReasons.Other ? allData.primaryReason : tc(`PvaCustomerReasons.${allData.primaryReason}`);
+        formData.secondaryReason = allData.secondaryReason === PvaCustomerReasons.Other ? allData.secondaryReason : tc(`${subOptionKeyMap[allData.primaryReason as PvaCustomerReasons]}.${allData.secondaryReason}`);
+      }else{
+        formData.primaryReason = allData.primaryReason === NewCustomerReasons.Other ? allData.primaryReason : tc(`NewCustomerReasons.${allData.primaryReason}`);
+        formData.secondaryReason = "";
+      }
+      formData.preference = t(formData.preference);
       const response = await axios.post(
         `/api/${nextRouter.locale || LanguageCode.Global}/get-in-touch`,
-        allData
+        formData
       );
       if (response.status === 201) {
         enqueueSnackbar(tp("thank_you_for_getting_in_touch"), {
@@ -110,12 +130,10 @@ export const GetInTouchForm = () => {
       }
     } catch (error) {
       if (axios.isAxiosError(error)) {
-        // Handle Axios-specific error with message or response data
         enqueueSnackbar(error.response?.data?.message || error.message, {
           variant: "error",
         });
       } else {
-        // Handle generic errors
         enqueueSnackbar(tp("an_unexpected_error_occurred"), {
           variant: "error",
         });
@@ -128,19 +146,19 @@ export const GetInTouchForm = () => {
     let newLocale = "en"; // Default locale
 
     switch (value) {
-      case tc("locale.Spanish"):
+      case locale.Spanish:
         newLocale = "es"; // Spanish locale
         break;
-      case tc("locale.EnglishUS"):
+      case locale.EnglishUS:
         newLocale = "en-US"; // English (US)
         break;
-      case tc("locale.EnglishUK"):
+      case locale.EnglishUK:
         newLocale = "en-UK"; // English (UK)
         break;
-      case tc("locale.Deutch"):
+      case locale.Deutch:
         newLocale = "de"; // German (Deutch)
         break;
-      case tc("locale.French"):
+      case locale.French:
         newLocale = "fr"; // French
         break;
       default:
@@ -150,13 +168,9 @@ export const GetInTouchForm = () => {
     router.push(router.pathname, router.asPath, { locale: newLocale });
   };
 
-  const reasons: SelectOption[] = [
-    { label: tc("locale.Spanish"), value: tc("locale.Spanish") },
-    { label: tc("locale.EnglishUS"), value: tc("locale.EnglishUS") },
-    { label: tc("locale.EnglishUK"), value: tc("locale.EnglishUK") },
-    { label: tc("locale.Deutch"), value: tc("locale.Deutch") },
-    { label: tc("locale.French"), value: tc("locale.French") }
-  ];
+  const reasons: SelectOption[] = Object.entries(locale).map(
+    ([key, value]) => ({ label: value, value: key })
+  );
   const renderForm = () => {
     const formType = getCustomerType(allData.preference);
     if (formType === "pet_owner")
@@ -182,7 +196,10 @@ export const GetInTouchForm = () => {
           <div className="col-span-2">
             <CustomRadioGroup
               wrapperClassName="grid grid-cols-1 md:grid-cols-2 gap-3"
-              options={[t("veterinary_professional"), t("pet_owner")]}
+              options={[
+                { label: t("veterinary_professional"), value: "veterinary_professional" },
+                { label: t("pet_owner"), value: "pet_owner" }
+              ]}
               value={allData.preference}
               onChange={(value) => handleChange("preference", value)}
             />

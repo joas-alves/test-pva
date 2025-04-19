@@ -1,4 +1,5 @@
 import axios from "axios";
+
 export const translateHtmlContent = async (
   html: string,
   targetLang: string
@@ -18,31 +19,16 @@ export const translateHtmlContent = async (
     const tempDiv = document.createElement("div");
     tempDiv.innerHTML = html;
 
-    // Extract text nodes and their positions
-    const textNodes: { node: Text; text: string }[] = [];
-    const extractTextNodes = (node: Node) => {
-      if (node.nodeType === Node.TEXT_NODE) {
-        const text = node.textContent?.trim();
-        if (text) {
-          textNodes.push({ node: node as Text, text });
-        }
-      } else if (node.nodeType === Node.ELEMENT_NODE) {
-        node.childNodes.forEach((child) => extractTextNodes(child));
-      }
-    };
-
-    extractTextNodes(tempDiv);
-
-    // If no text nodes to translate, return original
-    if (textNodes.length === 0) {
+    // Extract content from higher-level blocks for better translation context
+    const contentBlocks = extractContentBlocks(tempDiv);
+    
+    if (contentBlocks.length === 0) {
       return html;
     }
 
-    // Extract just the text content to translate (ignore empty or whitespace-only texts)
-    const textsToTranslate = textNodes
-      .map((item) => item.text)
-      .filter((text) => text.trim().length > 0);
-
+    // Prepare text for translation with placeholder markers
+    const { textsToTranslate, placeholderMap } = prepareForTranslation(contentBlocks);
+    
     if (textsToTranslate.length === 0) {
       return html;
     }
@@ -53,27 +39,9 @@ export const translateHtmlContent = async (
       targetLanguage: targetLang,
     });
 
-    // Replace original text with translations
+    // Apply translations and rebuild HTML
     if (response.data && response.data.translations) {
-      // Keep track of which text nodes we've actually translated
-      let translationIndex = 0;
-
-      for (let i = 0; i < textNodes.length; i++) {
-        const node = textNodes[i];
-        if (node.text.trim().length > 0) {
-          // Only replace text nodes that have actual content
-          const translation = response.data.translations[translationIndex++];
-          if (translation) {
-            // Preserve any leading/trailing whitespace from the original text
-            const originalText = node.node.textContent || "";
-            const leadingWhitespace = originalText.match(/^\s*/)?.[0] || "";
-            const trailingWhitespace = originalText.match(/\s*$/)?.[0] || "";
-
-            node.node.textContent =
-              leadingWhitespace + translation + trailingWhitespace;
-          }
-        }
-      }
+      applyTranslations(contentBlocks, response.data.translations, placeholderMap);
     }
 
     return tempDiv.innerHTML;
@@ -82,3 +50,163 @@ export const translateHtmlContent = async (
     return html; // Return original if translation fails
   }
 };
+
+// Extract content from higher-level semantic blocks
+function extractContentBlocks(rootElement: HTMLElement): Array<{
+  element: HTMLElement;
+  textContent: string;
+  children: Array<Node>;
+}> {
+  const blockElements = [
+    "h1", "h2", "h3", "h4", "h5", "h6", "p", "li", "td", "th", 
+    "figcaption", "blockquote", "dd", "dt"
+  ];
+  
+  const blocks: Array<{
+    element: HTMLElement;
+    textContent: string;
+    children: Array<Node>;
+  }> = [];
+  
+  // Find all block-level elements that contain text
+  blockElements.forEach(tag => {
+    const elements = rootElement.querySelectorAll(tag);
+    elements.forEach(el => {
+      const text = el.textContent?.trim();
+      if (text) {
+        blocks.push({
+          element: el as HTMLElement, 
+          textContent: text,
+          children: Array.from(el.childNodes)
+        });
+      }
+    });
+  });
+  
+  // Also handle standalone text nodes in divs or spans when they're not part of blocks
+  const standaloneTextContainers = rootElement.querySelectorAll('div, span');
+  standaloneTextContainers.forEach(container => {
+    // Only include containers that have direct text nodes and aren't inside a block we already captured
+    const hasDirectText = Array.from(container.childNodes).some(
+      node => node.nodeType === Node.TEXT_NODE && node.textContent?.trim()
+    );
+    
+    const isInCapturedBlock = blockElements.some(tag => 
+      container.closest(tag) !== null
+    );
+    
+    if (hasDirectText && !isInCapturedBlock) {
+      blocks.push({
+        element: container as HTMLElement,
+        textContent: container.textContent?.trim() || "",
+        children: Array.from(container.childNodes)
+      });
+    }
+  });
+  
+  return blocks;
+}
+
+// Prepare text for translation by replacing HTML elements with placeholders
+function prepareForTranslation(contentBlocks: Array<{
+  element: HTMLElement;
+  textContent: string;
+  children: Array<Node>;
+}>) {
+  const textsToTranslate: string[] = [];
+  const placeholderMap = new Map<string, Node>();
+  
+  contentBlocks.forEach(block => {
+    let preparedText = "";
+    let placeholderIndex = 0;
+    
+    // Function to process a node and its children
+    const processNode = (node: Node): string => {
+      if (node.nodeType === Node.TEXT_NODE) {
+        return node.textContent || "";
+      } else if (node.nodeType === Node.ELEMENT_NODE) {
+        const placeholder = `[HTML_ELEMENT_${placeholderIndex++}]`;
+        placeholderMap.set(placeholder, node);
+        
+        // For elements that might break sentence flow (like <br>), add a space
+        if ((node as HTMLElement).tagName === 'BR') {
+          return ` ${placeholder} `;
+        }
+        
+        // For inline elements, we want to keep their content in the sentence
+        const inlineContent = (node as HTMLElement).textContent || "";
+        return `${placeholder}${inlineContent}${placeholder}`;
+      }
+      return "";
+    };
+    
+    // Process all child nodes to build the text with placeholders
+    block.children.forEach(child => {
+      preparedText += processNode(child);
+    });
+    
+    // Normalize whitespace and add to texts to translate
+    preparedText = preparedText.replace(/\s+/g, ' ').trim();
+    if (preparedText) {
+      textsToTranslate.push(preparedText);
+    }
+  });
+  
+  return { textsToTranslate, placeholderMap };
+}
+
+// Apply translations and reconstruct the HTML
+function applyTranslations(
+  contentBlocks: Array<{
+    element: HTMLElement;
+    textContent: string;
+    children: Array<Node>;
+  }>, 
+  translations: string[],
+  placeholderMap: Map<string, Node>
+) {
+  contentBlocks.forEach((block, index) => {
+    if (index < translations.length) {
+      const translation = translations[index];
+      
+      // Clear the original content
+      while (block.element.firstChild) {
+        block.element.removeChild(block.element.firstChild);
+      }
+      
+      // Replace placeholders with original elements
+      let translatedContent = translation;
+      placeholderMap.forEach((node, placeholder) => {
+        // Check for opening and closing pairs of the same placeholder
+        const regex = new RegExp(`${placeholder}(.*?)${placeholder}`, 'g');
+        translatedContent = translatedContent.replace(regex, (match, content) => {
+          const clonedNode = node.cloneNode(true) as HTMLElement;
+          
+          // Remove any existing content and add the translated content
+          while (clonedNode.firstChild) {
+            clonedNode.removeChild(clonedNode.firstChild);
+          }
+          
+          if (content.trim()) {
+            clonedNode.textContent = content.trim();
+          }
+          
+          const tempWrapper = document.createElement('div');
+          tempWrapper.appendChild(clonedNode);
+          return tempWrapper.innerHTML;
+        });
+        
+        // Replace single placeholders (like <br>)
+        translatedContent = translatedContent.replace(placeholder, () => {
+          const clonedNode = node.cloneNode(true);
+          const tempWrapper = document.createElement('div');
+          tempWrapper.appendChild(clonedNode);
+          return tempWrapper.innerHTML;
+        });
+      });
+      
+      // Set the new HTML
+      block.element.innerHTML = translatedContent;
+    }
+  });
+}

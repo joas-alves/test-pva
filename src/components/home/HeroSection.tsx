@@ -1,7 +1,6 @@
 import { IHomePage } from "@/cms-models/home";
 import { SignUpInput } from "@/components/widgets";
 import { imageUrl} from "@/utils";
-import { translateHtmlContent } from "@/utils/translateHTML";
 import Image from "next/image";
 import { NextRouter, useRouter } from "next/router";
 import { useTranslations } from "next-intl";
@@ -35,10 +34,10 @@ export const HeroSection: React.FC<Props> = ({ data, globaldata }) => {
           />
           <div className="flex-1 flex justify-between w-full items-start">
             <div className="flex flex-col w-full gap-8">
-              {router.locale === 'en-US' ?<div className="body text-secondary lg:max-w-[517px] mb-3 sm:mb-6">
+              {router.locale === 'en-US' ? <div className="body text-secondary lg:max-w-[517px] mb-3 sm:mb-6">
                 <p dir="ltr"><strong>{t("section1_title")}</strong> {t('section1_description')}</p>
                 <p dir="ltr">&nbsp;</p>
-                <p dir="ltr">{t('section1_description2')}</p></div> :  <p
+                <p dir="ltr">{t('section1_description2')}</p></div> : <p
                 className="body text-secondary lg:max-w-[517px] mb-3 sm:mb-6"
                 dangerouslySetInnerHTML={{ __html: description }}
               />}

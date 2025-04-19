@@ -8,8 +8,9 @@ type Props = {
 };
 export const NewCustomerForm = ({ formData, handleChange }: Props) => {
   const t = useTranslations("PetOwner");
-  const reasons: SelectOption[] = Object.values(NewCustomerReasons).map(
-    (each) => ({ label: each, value: each })
+  const tc = useTranslations("Constants");
+  const reasons: SelectOption[] = Object.keys(NewCustomerReasons).map(
+    (each) => ({ label: tc(`NewCustomerReasons.${each}`), value: each })
   );
   return (
     <div className="flex flex-col gap-6 py-4">

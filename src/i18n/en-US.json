@@ -22,10 +22,21 @@
     "click_here": "Click here",
     "get_started": "Get started",
     "ready_to_grow": "Ready to grow",
-    "please_enter_a_valid_email_address": "Please enter a valid email address.",
+    "please_enter_a_valid_email_address": "Please enter a valid email address",
     "thank_you_for_getting_in_touch": "Thank you for getting in touch! Our representative will contact you via email",
-    "an_unexpected_error_occurred_please_try_again_later": "An unexpected error occurred. Please try again later.",
-    "please_enter_your_e_mail": "Please enter your e-mail"
+    "an_unexpected_error_occurred_please_try_again_later": "An unexpected error occurred. Please try again later",
+    "please_enter_your_e_mail": "Please enter your email",
+    "cookie_policy_description": "This site uses cookies – small text files that are placed on your machine to help the site provide a better user experience. In general, cookies are used to retain user preferences, store information for things like shopping carts, and provide anonymized tracking data to third party applications like Google Analytics",
+    "advantages_title": "Unlocking your practice potential",
+    "important_notice": "IMPORTANT NOTICE",
+    "please_enter_a_valid_first_name": "Please enter a valid first name",
+    "please_enter_a_valid_last_name": "Please enter a valid last name",
+    "please_enter_a_valid_phone_number": "Please enter a valid phone number",
+    "send": "Send",
+    "cookie": "Cookie",
+    "policy": "Policy",
+    "pet": "Pet",
+    "owners": "Owners"
   },
   "Header": {
     "home": "Home",
@@ -40,9 +51,13 @@
     "premier-pet-care-plan":"Premier Pet Care Plan",
     "training":"Training",
     "post2pet":"Home Delivery",
-    "technology":"Technology"
+    "technology":"Technology",
+    "an_unexpected_error_occurred": "An unexpected error occurred"
   },
   "Home": {
+    "section1_title": "Premier Vet Alliance",
+    "section1_description": "is the leading pet health plan provider to practices across the UK, Europe and USA.",
+    "section1_description2": "With our tailored plans, advanced technology and comprehensive support, we can maximise your practice potential today.",
     "global_leader_in_preventative": "Global Leader in Preventative",
     "health_care": "Health Care",
     "utilizing_advanced_technology_comprehensive": "Utilizing advanced technology and comprehensive support, Premier Vet Alliance provides exceptional care for pets globally.",
@@ -67,7 +82,7 @@
     "training": "Training",
     "with_our_expertise_in_health": "With our expertise in Health Plans, we've developed the PVA Training Academy—an exclusive service offering flexible, tailored training packages, allowing you to choose the support you need, when you need it.",
     "technology": "Technology",
-    "our_innovative_financial_platform": "Our innovative financial platform, the first of its kind in the UK veterinary market, is tailored to vets' needs. As a market leader, it’s highly automated, intuitive, and continually evolving through investment and innovation.",
+    "our_innovative_financial_platform": "Our innovative financial platform, the first of its kind in the UK veterinary market, is tailored to vets' needs. As a market leader, it's highly automated, intuitive, and continually evolving through investment and innovation.",
     "premier_vet": "Premier Vet Alliance",
     "the_advantages": "The Advantages",
     "of_partnership": "of Partnership",
@@ -82,22 +97,22 @@
     "what_our_partners": "What Our Partners Says",
     "real_stories": "Real Stories",
     "of_success": "of Success",
-    "hear_from_veterinary_practices": "Hear from veterinary practices around the world that have grown and thrived with Premier Vet Alliance’s tailored solutions. Discover how our services have made a real impact on their success.",
+    "hear_from_veterinary_practices": "Hear from veterinary practices around the world that have grown and thrived with Premier Vet Alliance's tailored solutions. Discover how our services have made a real impact on their success.",
     "reviews": "Reviews",
     "expanding_horizons": "Expanding Horizons: Premier Vet Alliance Across the Globe",
     "see_how_premier": "See how Premier Vet Alliance partners with veterinary practices worldwide, bringing top-tier pet care solutions to clinics across the globe.",
     "practices": "practices",
     "countries": "countries",
     "continents": "continents",
-    "what_new": "What’s New",
+    "what_new": "What's New",
     "in_veterinary_care": "in Veterinary Care",
     "discover_all": "Discover All",
     "gen_x_and_millennials": "Gen X and Millennials are Ruling the Roost!",
-    "the_highest_percentage": "The highest percentage of today’s new pet owners belong to the Gen X and Millennials. Are you targeting them?",
+    "the_highest_percentage": "The highest percentage of today's new pet owners belong to the Gen X and Millennials. Are you targeting them?",
     "home_delivery_why_are": "Home Delivery – Why Are We Still Talking About It?!",
-    "owners_who_must_collect": "Owners who must collect products from their surgery stay on plan 22 fewer months than those who have a post option. Don’t let this be you.",
+    "owners_who_must_collect": "Owners who must collect products from their surgery stay on plan 22 fewer months than those who have a post option. Don't let this be you.",
     "can_you_guess_the_top": "Can You Guess the Top Cat and Dog Names in 2024?",
-    "what_are_the_three_most": "What are the three most common cat and dog names in 2024? We check them out and see how the PVA team’s guesses compare to the average.",
+    "what_are_the_three_most": "What are the three most common cat and dog names in 2024? We check them out and see how the PVA team's guesses compare to the average.",
     "frequently": "Frequently",
     "asked_questions": "Asked Questions",
     "what_services_does": "What services does Premier Vet Alliance offer?",
@@ -123,7 +138,7 @@
     "client_communication": "Client Communication",
     "the_perfect_complete_to_premier": "The perfect complement to Premier Pet Care Plans and Post2Pet services, the newly designed communication platform enables you and your clients to perfectly manage all Pet Health Plan and Home Delivery updates, transactions/orders, and appointment bookings.",
     "better_yet_the_technology": "Better yet, the technology works within your existing clinic infrastructure and will streamline all your client communication, improving the overall experience and satisfaction.",
-    "of_pet_owners_want_to_interact": "of pet owners want to interact with their practice ‘out of hours’.",
+    "of_pet_owners_want_to_interact": "of pet owners want to interact with their practice 'out of hours'.",
     "of_new_pet_owners_are_now_under": "of new pet owners are now under the age of 35 and looking for a digital solution.",
     "potential_revenue_per_dog": "potential revenue per dog and the cost of a missed call to your practice.",
     "key_benefits": "Key Benefits",
@@ -140,7 +155,11 @@
     "time_pressure": "Time Pressure",
     "designed_to_relative": "Designed to relieve the administrative pressure on your clinic, enabling you to connect with your clients, share updates and manage their health plans / home delivery with minimal effort.",
     "added_value": "Added Value",
-    "take_advantage": "Take advantage of additional staff training and our pet care library, bringing your clients news, advice, instructional videos and more."
+    "take_advantage": "Take advantage of additional staff training and our pet care library, bringing your clients news, advice, instructional videos and more.",
+    "premier_vet_alliance_services": "Premier Vet Alliance Services",
+    "committed_to_providing": "At Premier Vet Alliance, we are committed to providing veterinary practices with innovative, reliable, and comprehensive solutions to enhance preventative pet care in a way that is bespoke to every practice.",
+    "looking_to_enhance": "Looking to enhance compliance, retention and client satisfaction in your practice?",
+    "right_place": "You're in the right place."
   },
   "Owners": {
     "for_pet": "For Pet",
@@ -177,7 +196,7 @@
     "you_can_trust": "you can trust",
     "about_us": "About us",
     "our_industry": "Our industry experience—from practices to manufacturers—enables us to understand your business needs and improve efficiency. As one of the few health plan providers with hands-on management experience, we offer unique insights and tailored support.",
-    "why_invest_in_us": "Sustained growth",
+    "why_invest_in_us": "Sustained growth",
     "with_over_partnerships": "With over 2,500 partnerships with veterinary hospitals across the UK, Europe, and the U.S., we have demonstrated consistent growth. Our focus on implementing preventative healthcare programs in clinics highlights our commitment to sustainable growth and long-term investment opportunities for stakeholders.",
     "notice_of_annual_meeting": "Notice of Annual General Meeting",
     "strategic_review": "Strategic Review"
@@ -196,7 +215,7 @@
     "unlock_the": "Unlock the",
     "full_potential": "full potential",
     "of_your_veterinary": "of your veterinary practice",
-    "discover_how_premier": "Discover how Premier Vet Alliance‘s tailored solutions can enhance pet care and streamline your clinic’s operations. Book a personalized demo to see how our services can support the growth of your practice.",
+    "discover_how_premier": "Discover how Premier Vet Alliance's tailored solutions can enhance pet care and streamline your clinic's operations. Book a personalized demo to see how our services can support the growth of your practice.",
     "what_can_i_expect": "What can I expect?",
     "tailored_health_plans": "Tailored health plans to enhance client retention.",
     "streamlined_technology": "Streamlined technology for easy communication and scheduling.",
@@ -228,7 +247,7 @@
     "insight_driven_support": "Insight-Driven Support for Your Success",
     "our_industry_experience": "Our industry experience—from practices to manufacturers—enables us to understand your business needs and improve efficiency. As one of the few health plan providers with hands-on management experience, we offer unique insights and tailored support.",
     "building_a_legacy_of": "Building a Legacy of Veterinary Excellence Worldwide",
-    "from_small_uk_veterinary": "From a small UK veterinary group to a global partner, we’ve continuously evolved to support practices and pet owners with innovation and care.",
+    "from_small_uk_veterinary": "From a small UK veterinary group to a global partner, we've continuously evolved to support practices and pet owners with innovation and care.",
     "founded_bristol": "Founded in Bristol, United Kingdom",
     "pva_began_as_small_group": "PVA began as a small group focused on transforming veterinary care through innovation and strong partnerships.",
     "entering_us_market": "Entering the U.S. Market",
@@ -242,12 +261,14 @@
     "those_who_trust_us": "Those Who Trust Us",
     "see_how_our_tailored_solutions": "See how our tailored solutions have helped clients worldwide boost efficiency and improve outcomes, directly from their experiences.",
     "need_more_help": "Need More Help?",
-    "find_the_answers_you": "Didn’t find the answers you were looking for? We’re here to help! Try one of the options below",
+    "find_the_answers_you": "Didn't find the answers you were looking for? We're here to help! Try one of the options below",
     "send_us_message": "Send Us a Message",
-    "use_our_contract_form": "Use our contact form, and we’ll get back to you as soon as possible.",
+    "use_our_contract_form": "Use our contact form, and we'll get back to you as soon as possible.",
     "book_a_demo": "Book a demo",
     "give_us_call": "Give Us a Call",
-    "call_us_directly": "Call us directly for prompt assistance with any of your questions."
+    "call_us_directly": "Call us directly for prompt assistance with any of your questions.",
+    "section3_card3_title": "Improve sign-ups",
+    "section3_card3_description": "You can achieve a 25% increase in net growth of pets on a health plan, when you offer your clients home delivery"
   },
   "CookiePolicy": {
     "title": "Cookie Policy",
@@ -256,7 +277,7 @@
   },
   "TermsOfUse": {
     "title": "Terms of use",
-    "intro": "Premier Vet Alliance and/or PVA is the business and trading name of Premier Vet Alliance Limited and any reference on this website to “Premier Vet Alliance”, “PVA”, “the Company”, “we”, “our” or “us” is to Premier Vet Alliance Limited. We are a limited company registered in England and Wales, number 07267818 and our registered office is at The Quorum, Bond Street, Bristol BS1 3AG.",
+    "intro": "Premier Vet Alliance and/or PVA is the business and trading name of Premier Vet Alliance Limited and any reference on this website to \"Premier Vet Alliance\", \"PVA\", \"the Company\", \"we\", \"our\" or \"us\" is to Premier Vet Alliance Limited. We are a limited company registered in England and Wales, number 07267818 and our registered office is at The Quorum, Bond Street, Bristol BS1 3AG.",
     "alteration_title": "Terms of use and their alteration",
     "alteration_desc": "This document sets out the terms under which you may use our website under the domain name www.premiervetalliance.co.uk. You should read this document carefully as by using our website you agree to accept these terms of use. We reserve the right to revise and alter these terms of use at any time, any changes shall take effect as soon as they are posted on this website.",
     "information_title": "Information on this website",
@@ -282,5 +303,219 @@
     "cookie_policy": "Cookie policy",
     "copyright-1": "Premier Vet Alliance Limited is a member of Premier Veterinary Group plc",
     "copyright-2": "Registered in England & Wales"
+  },
+  "Constants": {
+    "PvaCustomerType": {
+      "New": "New Customer",
+      "Existing": "Existing Customer"
+    },
+    "PetOwnerReasons": {
+      "Cancellation": "Cancellations & reinstatements",
+      "Refunds": "Refunds",
+      "Transfers": "Transfer my plan",
+      "Change": "Change of details",
+      "Payments": "Payments",
+      "Other": "Other"
+    },
+    "locale": {
+      "SelectCountry": "Select country",
+      "Spanish": "Spanish",
+      "EnglishUS": "English-US",
+      "EnglishUK": "English-UK",
+      "Deutch": "German",
+      "French": "French"
+    },
+    "PetOwnerPaymentOptions": {
+      "Late": "Late payment fees",
+      "Phone": "Payments taken over phone"
+    },
+    "NewCustomerReasons": {
+      "HealthPlan": "Starting a health plan",
+      "Moving": "Moving plans from existing provider",
+      "Transfers": "Avail services (Home Delivery and more)",
+      "Other": "Other"
+    },
+    "PvaCustomerReasons": {
+      "Cancellation": "Cancellations & reinstatements",
+      "Refunds": "Refunds",
+      "Payments": "Payments",
+      "HomeDelivery": "Home delivery query",
+      "Locate": "Unable to locate a plan",
+      "Validation": "Account validation failed",
+      "PlanStatus": "Plan status",
+      "Change": "Change of client details",
+      "V2P": "V2P - Setup or support",
+      "Other": "Other"
+    },
+    "PvaCustomerCancelOptions": {
+      "CancellationQuery": "Cancellation queries",
+      "ReinstatementQuery": "Reinstatement queries"
+    },
+    "PvaCustomerRefundOptions": {
+      "Organizing": "Organizing a client refund",
+      "HomeDelivery": "Home delivery refund"
+    },
+    "PvaCustomerPaymentOptions": {
+      "PaymentQuery": "Payment query",
+      "Failed": "Failed/Missed payment",
+      "Invalid": "Invalid bank details",
+      "Change": "Change payment details"
+    },
+    "PvaCustomerDeliveryOptions": {
+      "Failed": "Failed delivery",
+      "Damaged": "Damaged product",
+      "Wrong": "Wrong item sent",
+      "HD": "Setting up HD",
+      "Delay": "Delays"
+    },
+    "PvaCustomerLocateOptions": {
+      "Online": "Online signup not in portal",
+      "Correct": "Correctly setup in portal"
+    },
+    "PvaCustomerValidationOptions": {
+      "Bawe": "Bawe (UK)"
+    },
+    "PvaCustomerPlanStatusOptions": {
+      "Active": "Active alert in portal",
+      "Suspended": "Suspended (RX works)",
+      "Cancelled": "Cancelled/Inactive"
+    },
+    "PvaCustomerChangeOptions": {
+      "Contact": "Contact details",
+      "Payment": "Payment Details",
+      "Cancelled": "Plan holder name",
+      "Comms": "Comms preference"
+    }
+  },
+  "PetOwner": {
+    "clinic_name": "Clinic Name",
+    "plan_reference": "Plan Reference",
+    "postal_code": "Postal Code",
+    "please_select_one_of_the_below_options": "Please select one of the below options",
+    "what_is_your_payment_query_related_to": "What is your payment query related to?",
+    "please_write_any_comments_below": "Please write any comments below",
+    "other_reason": "Other Reason",
+    "please_select_a_specific_reason": "Please select a specific reason",
+    "veterinary_clinic_name": "Veterinary Clinic Name",
+    "thank_you_for_getting_in_touch": "Thank you for getting in touch!",
+    "an_unexpected_error_occurred": "An unexpected error occurred",
+    "an_unexpected_error_occurred_description": "Please try again later or contact us if the problem persists",
+    "your_form_is_submitted_successfully": "Your form is submitted successfully",
+    "your_form_is_submitted_successfully_description": "Thank you for getting in touch! We will get back to you as soon as possible",
+    "please_share_any_additional_comments_below": "Please share any additional comments below",
+    "additional_comments": "Additional comments",
+    "by_ticking_this_box_you_agree_to_receive_email_and_text_messages_from_premier_vet_alliance_related_to_your_service_and_marketing": "By ticking this box you agree to receive email and text messages from Premier Vet Alliance related to your service and marketing",
+    "terms_of_service": "Terms of Service",
+    "privacy_policy": "Privacy Policy",
+    "and": "and",
+    "send": "Send"
+  },
+  "BookDemo2": {
+    "full_potential_title": "Unlock the full potential of your veterinary practice",
+    "full_potential_description": "Discover how Premier Vet Alliance's tailored solutions can enhance pet care and streamline your clinic's operations. Book a personalized demo to see how our services can support the growth of your practice.",
+    "full_potential_what_can_i_expect": "What can I expect?",
+    "full_potential_tailored_health_plans": "Tailored health plans to enhance client retention.",
+    "full_potential_streamlined_technology": "Streamlined technology for easy communication and scheduling.",
+    "full_potential_10_years_of_experience": "10+ years of expertise and proven success.",
+    "full_potential_trusted_by_veterinary": "Trusted by 3,000+ veterinary clinics worldwide."
+  },
+  "SimplyHealth": {
+    "heading": "SimplyHealth",
+    "intro_paragraph": "As a SimplyHealth insurance Pet Parent, your veterinary practices offer a range of services to help your pet remain a healthy and happy member of your family.",
+    "info_paragraph": "SimplyHealth works in partnership with Premier Veterinary Alliance to offer a range of comprehensive, great value services that keep pets happy and healthy.",
+    "visit_homepage": "Visit the Premier Veterinary Alliance Homepage",
+    "services_intro": "Our services include:",
+    "pet_care_plan": "Premier Pet Care Plan",
+    "pet_care_plan_desc": "A pet health scheme providing preventative veterinary services for your pet",
+    "post2pet": "Post2Pet",
+    "post2pet_desc": "A secure communications platform for your vet to get in touch with you via email or text",
+    "technology": "Technology",
+    "technology_desc": "The means to offer clients convenient 24/7 access to pet health records, appointments and reminders",
+    "training": "Training",
+    "training_desc": "For your front-line staff members and veterinary professionals",
+    "contact_prefix": "Contact us:",
+    "contact_email": "Email: info@premiervets.com"
+  },
+  "Vet2Pet": {
+    "page_title": "Vet2Pet Services",
+    "meta_description": "Discover Vet2Pet, your all-in-one veterinary health care app for managing your pets health.",
+    "welcome_title": "Welcome to Vet2Pet",
+    "banner_alt": "Vet2Pet banner",
+    "intro_paragraph": "Introducing Vet2Pet – your all-in-one veterinary health care app designed to make managing your pet's health easier than ever! With Vet2Pet, you can effortlessly track treatment schedules, set reminders for medications, and keep detailed health records, all in one place.",
+    "second_paragraph": "But that's not all! Our app also allows you to engage directly with your veterinary practice. Schedule appointments, ask questions, and receive personalised advice from your trusted vet, ensuring your furry friend gets the best care possible.",
+    "third_paragraph": "Join the Vet2Pet community today and take the stress out of pet health management. Your pet deserves the best, and with Vet2Pet, the best is just a tap away! 🐾📱",
+    "download_app_store": "Download on the App Store",
+    "download_google_play": "Get it on Google Play"
+  },
+  "AHCPetOwner": {
+    "ahc_pet_owner": "AHC Pet Owner",
+    "terms_and_conditions": "Terms and Conditions",
+    "download_link": "You can download the AHC Pet Owner Terms and Conditions here",
+    "agreement_title": "The Agreement between you and your veterinary practice",
+    "welcome_text": "Welcome to your payment plan from your veterinary practice. The agreement you have is with your practice which means you can enjoy the benefits of preventative healthcare for your pet(s).",
+    "payment_plan_text": "Your payment plan is administered by The Animal Healthcare Company Limited (\"The Animal Healthcare Company\") for and on behalf of your veterinary practice. The Animal Healthcare Company's role is to provide administrative services to support the contract between you and your practice. This includes passing your payments to your practice on a regular basis. Please remember, your Contract is between you and your practice and is not transferable to another. However, if you are considering changing your practice, please contact The Animal Healthcare Company who will advise you on how to re-register, ensuring your pet's health is not compromised.",
+    "terms_intro": "The following points make up the 'terms and conditions' of your Contract with your veterinary practice and are effective from 1st December 2021. These are very important, and we strongly advise that you read through them carefully, and keep them in a safe place, so that you can refer to them in the future should you wish to. These terms and conditions should be read in conjunction with your practice's leaflet and any practice-specific notes or requirements in the leaflet will form part of these terms and conditions. In the event of a conflict, your practice's leaflet and any practice-specific notes or requirements in the leaflet will prevail."
+  },
+  "PetOwnerHealthPlan": {
+    "what_is_a_preventative_pet_health_plan": "What is a preventative pet health plan?",
+    "a_preventative_pet_health_plan_description": "A preventative pet health plan – sometimes referred to as a pet healthcare plan or other similar terms - is proactive healthcare that helps you to stay on top of routine treatments for your pet throughout the year.",
+    "a_preventative_pet_health_plan_description_2": "These plans typically cover a range of products and services, such as regular checkups, flea and worming treatment, prescription deliveries and vaccinations, all of which are included in a manageable fixed cost that is taken directly by your vet practice every month.",
+    "need_immediate_help": "Need immediate help?",
+    "need_immediate_help_description": "If you have questions about your pet's health plan, we're here to help. Get in touch with your local Premier Vet Alliance support team if you cannot resolve your query in the FAQs below. If you are looking to make contact with a vet in an emergency or have a question about a short-term health issue, please reach out to your local vet.",
+    "information_for_pet_owners": "Information for pet owners",
+    "what_is_a_preventative_pet_health_plan_description": "Hello! We're so pleased you have found us. Welcome to Premier Vet Alliance, a market-leader in offering comprehensive preventative pet healthcare plans, created with both owners and vets in mind.",
+    "what_is_a_preventative_pet_health_plan_description_2": "We like to think of every pet on one of our plans as our very own. That's why we partner with veterinary practices across the globe to offer gold-standard pet health plans, designed to make the highest quality of preventative care affordable and accessible for as many pet owners as possible."
+  },
+  "PetOwnerTerms": {
+    "voyager_pet_owner": "Voyager Pet Owner",
+    "terms_and_conditions": "Terms and Conditions",
+    "download_link": "You can download the Voyager Pet Owner Terms and Conditions here",
+    "section1_title": "1. Explanation of terms",
+    "section1_content": "In these terms and conditions: 'Contract' means the Terms and Conditions for Voyager Pet Care Plan. 'Home visit' means a visit by your practice to your home or they may ask you to attend the practice. Prices and content of the plan may vary across practices.",
+    "section2_title": "2. Treatment Entitlements",
+    "section2_content": "Subject to payment of the appropriate fees, your pet will be enrolled on a plan as agreed with your practice. Your pet is entitled to receive the home visit, vaccination regime or other treatment during the 12 month period after joining the plan as advised by your practice. The entitlements will be items such as regular visits (usually annually) for complete health check, vaccines, parasite control, nail cutting, anal gland expressing, nutritional advice, weight advice and general wellbeing advice; additional visits may include a 6 month health check, parasite control, weight check and general advice.",
+    "section3_title": "3. Practice Protocol",
+    "section3_content": "The practice protocol can be obtained from your practice; this is the procedure that your practice follows, and it will vary from practice to practice. It is your responsibility to ensure that your pet is brought into the practice regularly for health checks, vaccinations and/or attend visits made to your home. Any missed visits or failure to contact your practice to arrange for required visit or examination are non-refundable.",
+    "direct_debit_guarantee": "The Direct Debit Guarantee",
+    "direct_debit_point1": "This Guarantee is offered by all banks and building societies that accept instructions to pay Direct Debits.",
+    "direct_debit_point2": "If there are any changes to the amount, date or frequency of your Direct Debit, Premier Vet Alliance Ltd will notify you 3 working days in advance of your account being debited or as otherwise agreed. If you request Premier Vet Alliance Ltd to collect a payment, confirmation of the amount and date will be given to you at the time of the request.",
+    "direct_debit_point3": "If an error is made in the payment of your Direct Debit, by Premier Vet Alliance Ltd, or your bank or building society, you are entitled to a full and immediate refund of the amount paid from your bank or building society",
+    "direct_debit_point4": "If you receive a refund you are not entitled to, you must pay it back when Premier Vet Alliance Ltd asks you to.",
+    "direct_debit_point5": "You can cancel a Direct Debit at anytime by simply contacting your bank or building society. Written confirmation may be required. Please also notify us."
+  },
+  "StrategicReviewModal": {
+    "intro": "The formal review of the various strategic options available to Premier Veterinary Group PLC (the \"<strong>Company</strong>\") was announced by the Company on 15 September 2023 (the \"<strong>Strategic Review</strong>\").",
+    "warning1": "<strong>YOU ARE ATTEMPTING TO ENTER THE PART OF THIS WEBSITE THAT IS DESIGNATED FOR THE PUBLICATION OF ANNOUNCEMENTS, DOCUMENTS AND INFORMATION IN CONNECTION WITH THE STRATEGIC REVIEW. THIS INFORMATION IS BEING MADE AVAILABLE ON THIS PART OF THE COMPANY'S WEBSITE IN GOOD FAITH AND FOR INFORMATION PURPOSES ONLY IN COMPLIANCE WITH THE UK CITY CODE ON TAKEOVERS AND MERGERS (THE \"CODE\") AND IS SUBJECT TO THE TERMS AND CONDITIONS SET OUT BELOW.</strong>",
+    "warning2": "<strong>PLEASE READ THIS NOTICE CAREFULLY AND IN FULL. IT APPLIES TO ALL PERSONS WHO VIEW THIS PART OF THE WEBSITE AND, DEPENDING ON WHO YOU ARE AND WHERE YOU LIVE, IT MAY AFFECT YOUR RIGHTS. YOU SHOULD NOTE THAT THIS NOTICE MAY BE ALTERED OR UPDATED FROM TIME TO TIME, AND SHOULD BE READ IN FULL EACH TIME YOU VISIT THIS PAGE. IN ADDITION, THE CONTENTS OF THIS PART OF THE WEBSITE MAY BE AMENDED AT ANY TIME WITHOUT NOTICE, IN WHOLE OR IN PART.</strong>",
+    "section1_title": "1. ACCESS TO THE STRATEGIC REVIEW MICROSITE",
+    "section1_content": "This part of the Company's website contains announcements, documents and information relating to the Strategic Review (the \"<strong>Information</strong>\"). Please note that, as the Strategic Review progresses, the Information, as well as the terms of this notice, may be altered or updated. You should read the full text of this notice each time you visit this part of the Company's website. In addition, the Information may be amended at any time in whole or in part at the sole discretion of the Company.",
+    "section1_warning": "<strong>ACCESS TO THIS PART OF THE COMPANY'S WEBSITE MAY BE RESTRICTED UNDER THE SECURITIES LAWS OF CERTAIN JURISDICTIONS. THIS NOTICE REQUIRES YOU TO CONFIRM CERTAIN MATTERS (INCLUDING THAT YOU ARE NOT RESIDENT IN SUCH A JURISDICTION), BEFORE YOU MAY OBTAIN ACCESS TO THIS INFORMATION. THESE MATERIALS ARE NOT DIRECTED AT, OR TO BE ACCESSED BY, PERSONS RESIDENT IN ANY JURISDICTION WHERE TO DO SO WOULD CONSTITUTE A VIOLATION OF THE RELEVANT LAWS OF THAT JURISDICTION OR WOULD RESULT IN A REQUIREMENT TO COMPLY WITH ANY CONSENT OR OTHER FORMALITY WHICH THE COMPANY REGARDS AS UNDULY ONEROUS.</strong>",
+    "section1_note": "For regulatory reasons, the Company must ensure that persons seeking to access this part of the Company's website are made aware of the appropriate regulations for the country which such person is in. In order to access the Information you must be able to make the confirmations listed at the bottom of this notice. If you are unable to make these confirmations, you will not be able to access the Microsite.",
+    "section2_title": "2. OVERSEAS JURISDICTIONS",
+    "section2_content1": "Viewing the Information may not be lawful in certain jurisdictions. In other jurisdictions, only certain categories of person are allowed to view the Information.",
+    "section2_content2": "It is your responsibility to comply with the relevant laws of your jurisdiction. If you are not permitted to view the Information, or viewing the Information would result in a breach of the above, or you are in any doubt as to whether you are permitted to view the Information, please exit this webpage by clicking on the \"I disagree\" box below.",
+    "section3_title": "3. BASIS OF ACCESS TO INFORMATION RELATING TO THE STRATEGIC REVIEW",
+    "section3_warning": "<strong>YOU SHOULD NOT SHARE THE INFORMATION WITH OR DOWNLOAD, MAIL, FORWARD, DISTRIBUTE OR SEND THE INFORMATION TO ANY PERSON. IN PARTICULAR, YOU SHOULD NOT MAIL, FORWARD, DISTRIBUTE OR SEND THE INFORMATION TO ANY JURISDICTION WHERE IT WOULD BE UNLAWFUL TO DO SO.</strong>",
+    "section3_content1": "The Information is being made available in good faith and for information purposes only. Any person seeking access to this part of the Company's website represents and warrants to the Company that they are doing so for information purposes only. Making the Information available in electronic format is not intended to and does not constitute an offer to sell or the solicitation of an offer to subscribe for or buy or an invitation to purchase or subscribe for any securities or the solicitation of any vote or approval in any jurisdiction pursuant to the Strategic Review or otherwise.",
+    "section3_content2": "The Information has been prepared for the purposes of complying with English law and the Code and therefore the Information disclosed may not be the same as that which would have been disclosed if this Information had been prepared in accordance with the laws and regulations of any jurisdiction outside of England and Wales.<br />Any shareholder action required in connection with the Strategic Review will only be set out in documents sent to or made available to the Company's shareholders and any decision made by such shareholders should be made solely and only on the basis of information provided in those documents.",
+    "section3_content3": "If you are in any doubt about the Information or the action you should take, you should seek your own financial advice from an independent financial adviser authorised under the Financial Services and Markets Act 2000 or, if you are located outside the United Kingdom, from an appropriately authorised independent financial adviser.",
+    "section4_title": "4. FORWARDLOOKING STATEMENTS",
+    "section4_content": "Some of the Information may include statements that are or may be deemed to be \"forwardlooking statements\". These statements are prospective in nature and are not based on historical facts, but rather on the current expectations, assumptions and assessments of the management of the Company about future events and are naturally subject to uncertainty and changes in circumstances which could cause actual events to differ materially from the future events expected or implied by the forwardlooking statements. The forwardlooking statements contained in the Information include statements about the expected effects of the Strategic Review on the Company, the expected timing and scope of the Strategic Review, synergies, other strategic options and all other statements in the Information other than historical facts. Forwardlooking statements may (but will not always) include, without limitation, statements typically containing words such as \"anticipate\", \"target\", \"believe\", \"intend\", \"plan\", \"goal\", \"hope\", \"aim\", \"can\", \"continue\", \"could\", \"may\", \"should\", \"estimate\", \"expect\", \"opportunity\", \"will\" and \"would\", and words of similar import. By their nature, forwardlooking statements involve risk and uncertainty because they relate to events and depend on circumstances that will (or might) occur in the future.",
+    "section4_content2": "These forwardlooking statements are not guarantees of future performance and have not been reviewed by the auditors of the Company. There are a number of factors that could cause actual results and developments to differ materially from those expressed or implied by such forwardlooking statements. These factors include, but are not limited to, changes in economic conditions, changes in the level of capital investment, success of business and operating initiatives and restructuring objectives, customers' strategies and stability, changes in the regulatory environment, fluctuations in interest and exchange rates, the outcome of litigation, government actions and natural phenomena such as floods, earthquakes and hurricanes. Other unknown or unpredictable factors could cause actual results to differ materially from those in (or implied by) the forwardlooking statements. Investors should not place undue reliance on any forwardlooking statements. None of the directors of the Company (the <strong>\"Directors\"</strong>), the Company or its affiliated companies provides any representation, assurance or guarantee that the occurrence of events expressed or implied in any forwardlooking statement contained in the Information will actually occur.",
+    "section4_content3": "No statement contained or referred to in the Information shall be deemed to be a forecast, projection or estimate of the future financial performance of the Company unless otherwise stated.",
+    "section5_title": "5. RESPONSIBILITY",
+    "section5_content1": "The Information speaks only as at the date of that relevant piece of Information and, subject to any continuing obligations under applicable law or the Code, none of the Directors or the Company or its affiliated companies has, or accepts, any responsibility or duty to update any such information, document or announcement. However, the Company reserves the right to add to, remove or amend any Information at any time.",
+    "section5_content2": "The Directors accept responsibility for the correctness and fairness of the reproduction or presentation of the Information unless the responsibility statement in any relevant document expressly provides otherwise.",
+    "section5_content3": "None of the Directors, the Company or its affiliated companies have reviewed and none of them is responsible for, or accepts any liability in respect of, any information on any other website that may be linked to this website by a third party.",
+    "section5_content4": "Subject to any continuing obligations under applicable law, the Code or any relevant listing rules, the Company expressly disclaims any obligation to disseminate, after the date of the posting of the Information, any updates or revisions to any statements in the Strategic Review to reflect any change in expectations or events, conditions or circumstances on which any such statements are based.",
+    "section5_content5": "Neither the Company nor any of its advisers, associates, directors or officers undertakes any obligation to update publicly, expressly disclaim or revise the Information, whether as a result of new information, future events or otherwise, except to the extent legally required.",
+    "section5_warning": "<strong>THE INFORMATION MAY NOT BE DOWNLOADED BY ANY PERSON EITHER IN WHOLE OR IN PART WHERE TO DO SO WOULD OR MAY CONSTITUTE A BREACH OF ANY APPLICABLE LOCAL LAWS OR REGULATIONS. THIS NOTICE SHALL BE GOVERNED BY, AND INTERPRETED IN ACCORDANCE WITH, ENGLISH LAW.</strong>",
+    "section6_title": "6. CONFIRMATION OF UNDERSTANDING AND ACCEPTANCE OF DISCLAIMER:",
+    "confirm_item1": "I certify that I am not (and that I do not act on behalf of someone who is) resident in any country that renders the accessing of this area of the website or parts thereof illegal.",
+    "confirm_item2": "I agree that I will not forward, transfer or distribute (by any means including by electronic transmission) any documents included in this area of the website either in whole or in part to any person in any jurisdiction where such distribution may be restricted by applicable law or regulation.",
+    "confirm_item3": "I represent and warrant to the Company that I intend to access this area of the website for information purposes only, that I have read and understood this notice and that I understand that it may affect my rights or responsibilities.",
+    "confirm_item4": "I agree to be bound by the terms of this notice. I confirm that I am permitted to proceed to this part of the Company's website.",
+    "disagree_button": "Disagree",
+    "agree_button": "Agree"
   }
 }

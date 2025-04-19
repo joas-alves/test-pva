@@ -11,9 +11,9 @@ type Props={
 export const VetDecisionForm = ({formData,handleChange}:Props) => {
   const t = useTranslations("PetOwner");
   const tc = useTranslations("Constants");
-  const pvaCustomerTypes: string[] = Object.keys(PvaCustomerType).map(each => tc(each) as string);
+  const pvaCustomerTypes: {label:string,value:string}[] = Object.keys(PvaCustomerType).map(each => ({label:tc(`PvaCustomerType.${each}`),value:each}));
   const renderForm = () => {
-    if (formData.customerType === tc("PvaCustomerType.Existing"))
+    if (formData.customerType === PvaCustomerType.Existing)
       return <ExistingPvaForm formData={formData} handleChange={handleChange} />;
     return <NewCustomerForm formData={formData} handleChange={handleChange} />;
   };

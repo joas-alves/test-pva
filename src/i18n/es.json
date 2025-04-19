@@ -1,31 +1,42 @@
 {
   "Common": {
-    "signup": "Regístrate",
-    "learn_more": "Más información",
+    "signup": "Registrarse",
+    "learn_more": "Saber más",
     "veterinary_professional": "Profesional veterinario",
-    "pet_owner": "Dueño de mascota",
+    "pet_owner": "Propietario de mascota",
     "first_name": "Nombre",
-    "enter_first_name": "Ingresa tu nombre",
+    "enter_first_name": "Ingrese su nombre",
     "last_name": "Apellido",
-    "enter_last_name": "Ingresa tu apellido",
+    "enter_last_name": "Ingrese su apellido",
     "phone_number": "Número de teléfono",
-    "topic_of_your_request": "Tema de tu solicitud",
-    "your_message": "Tu mensaje",
-    "enter_your_message": "Ingresa tu mensaje",
-    "get_in_touch": "Ponte en contacto",
-    "book_a_demo": "Reserva una demostración",
+    "topic_of_your_request": "Tema de su solicitud",
+    "your_message": "Su mensaje",
+    "enter_your_message": "Ingrese su mensaje",
+    "get_in_touch": "Contáctenos",
+    "book_a_demo": "Reservar una demostración",
     "company_name": "Nombre de la empresa",
-    "enter_company_name": "Ingresa el nombre de tu empresa",
+    "enter_company_name": "Ingrese el nombre de su empresa",
     "country": "País",
     "talk_to_us": "Hable con nosotros",
     "e-mail": "Correo electrónico",
-    "click_here": "Haz clic aquí",
-    "get_started": "Empieza ahora",
+    "click_here": "Haga clic aquí",
+    "get_started": "Comenzar",
     "ready_to_grow": "Listo para crecer",
-    "please_enter_a_valid_email_address": "Por favor, ingrese una dirección de correo electrónico válida.",
-    "thank_you_for_getting_in_touch": "¡Gracias por contactarnos! Nuestro representante se pondrá en contacto con usted a través de correo electrónico.",
-    "an_unexpected_error_occurred_please_try_again_later": "Ocurrió un error inesperado. Por favor, inténtelo de nuevo.",
-    "please_enter_your_e_mail": "Por favor, ingrese su correo electrónico"
+    "please_enter_a_valid_email_address": "Por favor ingrese una dirección de correo electrónico válida",
+    "thank_you_for_getting_in_touch": "¡Gracias por contactarnos! Nuestro representante se comunicará con usted por correo electrónico",
+    "an_unexpected_error_occurred_please_try_again_later": "Ocurrió un error inesperado. Por favor intente nuevamente más tarde",
+    "please_enter_your_e_mail": "Por favor ingrese su correo electrónico",
+    "cookie_policy_description": "Este sitio utiliza cookies – pequeños archivos de texto que se colocan en su máquina para ayudar al sitio a proporcionar una mejor experiencia de usuario. En general, las cookies se utilizan para mantener las preferencias del usuario, almacenar información para cosas como carritos de compras y proporcionar datos de seguimiento anónimos a aplicaciones de terceros como Google Analytics",
+    "advantages_title": "Liberar el potencial de su clínica",
+    "important_notice": "AVISO IMPORTANTE",
+    "please_enter_a_valid_first_name": "Por favor ingrese un nombre válido",
+    "please_enter_a_valid_last_name": "Por favor ingrese un apellido válido",
+    "please_enter_a_valid_phone_number": "Por favor ingrese un número de teléfono válido",
+    "send": "Enviar",
+    "cookie": "Cookie",
+    "policy": "Política",
+    "pet": "Mascota",
+    "owners": "Propietarios"
   },
   "Header": {
     "home": "Inicio",
@@ -39,7 +50,9 @@
     "overview":"Descripción general",
     "premier-pet-care-plan":"Plan de atención para mascotas Premier",
     "training":"Capacitación",
-    "technology":"Tecnología"
+    "technology":"Tecnología",
+    "investors": "Inversores",
+    "post2pet": "Entrega a domicilio"
   },
   "Home": {
     "global_leader_in_preventative": "Líder mundial en prevención",
@@ -139,7 +152,11 @@
     "time_pressure": "Presión de tiempo",
     "designed_to_relative": "Diseñado para aliviar la presión administrativa de su clínica, lo que le permite conectarse con sus clientes, compartir actualizaciones y administrar sus planes de salud/entrega a domicilio con un mínimo esfuerzo.",
     "added_value": "Valor agregado",
-    "take_advantage": "Aproveche la capacitación adicional del personal y nuestra biblioteca de cuidado de mascotas, que ofrece a sus clientes noticias, consejos, videos instructivos y más."
+    "take_advantage": "Aproveche la capacitación adicional del personal y nuestra biblioteca de cuidado de mascotas, que ofrece a sus clientes noticias, consejos, videos instructivos y más.",
+    "premier_vet_alliance_services": "Servicios de Premier Vet Alliance",
+    "committed_to_providing": "En Premier Vet Alliance, estamos comprometidos a proporcionar a las clínicas veterinarias soluciones innovadoras, confiables e integrales para mejorar la atención preventiva de mascotas de una manera personalizada para cada clínica.",
+    "looking_to_enhance": "¿Busca mejorar el cumplimiento, la retención y la satisfacción del cliente en su clínica?",
+    "right_place": "Está en el lugar correcto."
   },
   "Owners": {
     "for_pet": "Para mascotas",
@@ -179,7 +196,22 @@
     "why_invest_in_us": "Crecimiento sostenido",
     "with_over_partnerships": "Con más de 2500 asociaciones con hospitales veterinarios en el Reino Unido, Europa y los EE. UU., hemos demostrado un crecimiento constante. Nuestro enfoque en la implementación de programas de atención médica preventiva en clínicas destaca nuestro compromiso con el crecimiento sostenible y las oportunidades de inversión a largo plazo para las partes interesadas",
     "notice_of_annual_meeting": "Revisión estratégica",
-    "strategic_review": "Revisión estratégica"
+    "strategic_review": "Revisión estratégica",
+    "annual_report_and_annual_general_meetings": "Informe Anual y Reuniones Generales Anuales",
+    "strategic_review_announcement": "Anuncio de Revisión Estratégica",
+    "rule_2_11_letter_to_shareholders": "Carta Regla 2.11 a los Accionistas",
+    "form_8_0_opd_premier_veterinary_group_plc": "Formulario 8.0 (OPD) Premier Veterinary Group plc",
+    "form_8_3_andrew_carter": "Formulario 8.3 – Andrew Carter",
+    "form_8_3_ning_cao": "Formulario 8.3 – Ning Cao",
+    "form_8_3_andy_taylor": "Formulario 8.3 – Andy Taylor",
+    "form_8_3_iain_ross": "Formulario 8.3 – Iain Ross",
+    "form_8_3_gerry_harkins": "Formulario 8.3 – Gerry Harkins",
+    "form_8_3_matthew_turner": "Formulario 8.3 – Matthew Turner",
+    "form_8_3_denplan": "Formulario 8.3 – Denplan",
+    "form_8_3_michael_somerset_leeke": "Formulario 8.3 – Michael Somerset-Leeke",
+    "form_8_3_caspar_macdonald_hall": "Formulario 8.3 – Caspar Macdonald-Hall",
+    "form_8_3_anthony_miller": "Formulario 8.3 – Anthony Miller",
+    "strategic_review_update_announcement": "Anuncio de Actualización de la Revisión Estratégica"
   },
   "Contact": {
     "contact_us": "Contáctenos",
@@ -281,5 +313,111 @@
     "cookie_policy": "Política de cookies",
     "copyright-1": "Premier Vet Alliance Limited es miembro de Premier Veterinary Group plc",
     "copyright-2": "Registrada en Inglaterra y Gales"
+  },
+  "Constants": {
+    "PvaCustomerType": {
+      "New": "Nuevo cliente",
+      "Existing": "Cliente existente"
+    },
+    "PetOwnerReasons": {
+      "Cancellation": "Cancelaciones y reinstalaciones",
+      "Refunds": "Reembolsos",
+      "Transfers": "Transferir mi plan",
+      "Change": "Cambio de detalles",
+      "Payments": "Pagos",
+      "Other": "Otro"
+    },
+    "locale": {
+      "SelectCountry": "Seleccionar país",
+      "Spanish": "Español",
+      "EnglishUS": "Inglés-US",
+      "EnglishUK": "Inglés-UK",
+      "Deutch": "Alemán",
+      "French": "Francés"
+    },
+    "PetOwnerPaymentOptions": {
+      "Late": "Cargos por pago tardío",
+      "Phone": "Pagos realizados por teléfono"
+    },
+    "NewCustomerReasons": {
+      "HealthPlan": "Comenzar un plan de salud",
+      "Moving": "Mover planes de un proveedor existente",
+      "Transfers": "Aprovechar los servicios (Entrega a domicilio y más)",
+      "Other": "Otro"
+    },
+    "PvaCustomerReasons": {
+      "Cancellation": "Cancelaciones y reinstalaciones",
+      "Refunds": "Reembolsos",
+      "Payments": "Pagos",
+      "HomeDelivery": "Pregunta sobre entrega a domicilio",
+      "Locate": "No se puede localizar un plan",
+      "Validation": "Error de validación de cuenta",
+      "PlanStatus": "Estado del plan",
+      "Change": "Cambio de detalles del cliente",
+      "V2P": "V2P - Configuración o soporte",
+      "Other": "Otro"
+    },
+    "PvaCustomerCancelOptions": {
+      "CancellationQuery": "Preguntas de cancelación",
+      "ReinstatementQuery": "Preguntas de reinstalación"
+    },
+    "PvaCustomerRefundOptions": {
+      "Organizing": "Organizar un reembolso al cliente",
+      "HomeDelivery": "Reembolso de entrega a domicilio"
+    },
+    "PvaCustomerPaymentOptions": {
+      "PaymentQuery": "Pregunta de pago",
+      "Failed": "Pago fallido/Perdido",
+      "Invalid": "Detalles bancarios inválidos",
+      "Change": "Cambiar detalles de pago"
+    },
+    "PvaCustomerDeliveryOptions": {
+      "Failed": "Entrega fallida",
+      "Damaged": "Producto dañado",
+      "Wrong": "Artículo incorrecto enviado",
+      "HD": "Configuración HD",
+      "Delay": "Retrasos"
+    },
+    "PvaCustomerLocateOptions": {
+      "Online": "Registro en línea no en el portal",
+      "Correct": "Configurado correctamente en el portal"
+    },
+    "PvaCustomerValidationOptions": {
+      "Bawe": "Bawe (UK)"
+    },
+    "PvaCustomerPlanStatusOptions": {
+      "Active": "Alerta activa en el portal",
+      "Suspended": "Suspendido (RX funciona)",
+      "Cancelled": "Cancelado/Inactivo"
+    },
+    "PvaCustomerChangeOptions": {
+      "Contact": "Detalles de contacto",
+      "Payment": "Detalles de pago",
+      "Cancelled": "Nombre del titular del plan",
+      "Comms": "Preferencia de comunicación"
+    }
+  },
+  "PetOwner": {
+    "clinic_name": "Nombre de la clínica",
+    "plan_reference": "Referencia del plan",
+    "postal_code": "Código postal",
+    "please_select_one_of_the_below_options": "Por favor seleccione una de las opciones a continuación",
+    "what_is_your_payment_query_related_to": "¿A qué se relaciona su pregunta de pago?",
+    "please_write_any_comments_below": "Por favor escriba sus comentarios a continuación",
+    "other_reason": "Otra razón",
+    "please_select_a_specific_reason": "Por favor seleccione una razón específica",
+    "veterinary_clinic_name": "Nombre de la clínica veterinaria",
+    "thank_you_for_getting_in_touch": "¡Gracias por contactarnos!",
+    "an_unexpected_error_occurred": "Ocurrió un error inesperado",
+    "an_unexpected_error_occurred_description": "Por favor intente nuevamente más tarde o contáctenos si el problema persiste",
+    "your_form_is_submitted_successfully": "Su formulario ha sido enviado exitosamente",
+    "your_form_is_submitted_successfully_description": "¡Gracias por contactarnos! Nos pondremos en contacto con usted lo antes posible",
+    "please_share_any_additional_comments_below": "Por favor comparta cualquier comentario adicional a continuación",
+    "additional_comments": "Comentarios adicionales",
+    "by_ticking_this_box_you_agree_to_receive_email_and_text_messages_from_premier_vet_alliance_related_to_your_service_and_marketing": "Al marcar esta casilla, acepta recibir correos electrónicos y mensajes de texto de Premier Vet Alliance relacionados con su servicio y marketing",
+    "terms_of_service": "Términos de servicio",
+    "privacy_policy": "Política de privacidad",
+    "and": "y",
+    "send": "Enviar"
   }
 }

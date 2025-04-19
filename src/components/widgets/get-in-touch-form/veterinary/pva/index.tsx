@@ -41,12 +41,25 @@ export const subOptionsMap: Record<PvaCustomerReasons, SelectOption[]> = {
   [PvaCustomerReasons.V2P]: [],
   [PvaCustomerReasons.Other]: [],
 };
+export const subOptionKeyMap = {
+  'Cancellation': 'PvaCustomerCancelOptions',
+  'Refunds': 'PvaCustomerRefundOptions',
+  'Payments': 'PvaCustomerPaymentOptions',
+  'HomeDelivery': 'PvaCustomerDeliveryOptions',
+  'Locate': 'PvaCustomerLocateOptions',
+  'Validation': 'PvaCustomerValidationOptions',
+  'PlanStatus': 'PvaCustomerPlanStatusOptions',
+  'Change': 'PvaCustomerChangeOptions',
+  'V2P': '',
+  'Other': '',
+}
 type Props = {
   formData: GetInTouchFormType;
   handleChange: (field: keyof GetInTouchFormType, value: string) => void;
 };
 export const ExistingPvaForm = ({ formData, handleChange }: Props) => {
   const t = useTranslations("PetOwner");
+  const tc = useTranslations("Constants");
   // Get sub-options for the selected reason
   const selectedSubOptions =
     subOptionsMap[formData.primaryReason as PvaCustomerReasons] || [];
@@ -55,14 +68,14 @@ export const ExistingPvaForm = ({ formData, handleChange }: Props) => {
       {/* Select Reason */}
       <CustomSelect
         label={t("please_select_one_of_the_below_options")}
-        options={Object.values(PvaCustomerReasons).map((each) => ({
-          label: t(each),
+        options={Object.keys(PvaCustomerReasons).map((each) => ({
+          label: tc(`PvaCustomerReasons.${each}`),
           value: each,
         }))}
         value={formData.primaryReason}
-        onChange={(e) =>
+        onChange={(e) => {
           handleChange("primaryReason", e.target.value as PvaCustomerReasons)
-        }
+        }}
       />
       {/* Select Sub-Reason */}
       {selectedSubOptions.length > 0 &&
@@ -71,10 +84,13 @@ export const ExistingPvaForm = ({ formData, handleChange }: Props) => {
         ) && (
           <CustomSelect
             label={t("please_select_a_specific_reason")}
-            options={selectedSubOptions}
+            options={selectedSubOptions.map(each => ({
+              label: tc(`${subOptionKeyMap[formData.primaryReason as PvaCustomerReasons]}.${each.value}`),
+              value: each.value
+            }))}
             value={formData.secondaryReason || ""}
             onChange={(e) =>
-              handleChange("secondaryReason", e.target.value as string)
+              handleChange("secondaryReason", e.target.value as PvaCustomerReasons)
             }
           />
         )}
