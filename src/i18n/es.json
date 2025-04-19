@@ -419,5 +419,15 @@
     "privacy_policy": "Política de privacidad",
     "and": "y",
     "send": "Enviar"
+  },
+  "PetOwnerHealthPlan": {
+    "what_is_a_preventative_pet_health_plan": "¿Qué es un plan de salud preventivo para mascotas?",
+    "a_preventative_pet_health_plan_description": "Un plan de salud preventivo para mascotas – a veces llamado plan de cuidado de mascotas o términos similares – es una atención proactiva que le ayuda a mantenerse al día con los tratamientos rutinarios para su mascota a lo largo del año.",
+    "a_preventative_pet_health_plan_description_2": "Estos planes cubren generalmente un rango de productos y servicios, como exámenes regulares, tratamiento de piojos y vermes, entrega de prescripciones y vacunas, todas ellas incluidas en un coste fijo manejable que se paga directamente a su clínica veterinaria cada mes.",
+    "need_immediate_help": "¿Necesita ayuda inmediata?",
+    "need_immediate_help_description": "Si tiene preguntas sobre su plan de salud para mascotas, estamos aquí para ayudarle. Póngase en contacto con el equipo de soporte local de Premier Vet Alliance si no puede resolver su consulta en las preguntas frecuentes a continuación. Si está buscando hacer contacto con un veterinario en una emergencia o tiene una pregunta sobre un problema de salud a corto plazo, póngase en contacto con su veterinario local.",
+    "information_for_pet_owners": "Información para propietarios de mascotas",
+    "what_is_a_preventative_pet_health_plan_description": "¡Hola! Estamos encantados de que nos haya encontrado. Bienvenido a Premier Vet Alliance, un líder en ofrecer planes de salud preventiva para mascotas, creados con la colaboración de propietarios y veterinarios.",
+    "what_is_a_preventative_pet_health_plan_description_2": "Nos gusta pensar en cada mascota en uno de nuestros planes como nuestra propia. Es por eso que trabajamos con clínicas veterinarias de todo el mundo para ofrecer planes de salud para mascotas de alta calidad, diseñados para hacer que la atención preventiva de la mejor calidad sea accesible y asequible para tantos propietarios de mascotas como sea posible."
   }
 }

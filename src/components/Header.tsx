@@ -21,7 +21,6 @@ const Header = () => {
       try {
         const response = await axios.get(`/${router.locale}/service-contents`);
         if (response.status === 200) {
-          console.log({response})
           return setServices(response.data);
         }
         // eslint-disable-next-line @typescript-eslint/no-unused-vars

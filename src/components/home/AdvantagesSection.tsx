@@ -9,7 +9,7 @@ type Props = {
 };
 
 export const AdvantagesSection: React.FC<Props> = ({ data }) => {
-  const t = useTranslations('Home');
+  const t = useTranslations('Common');
 
   return (
     <section className="container mx-auto">

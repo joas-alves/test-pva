@@ -399,5 +399,15 @@
     "cookie_policy": "Politique relative aux cookies",
     "copyright-1": "Premier Vet Alliance Limited est membre de Premier Veterinary Group plc",
     "copyright-2": "Enregistré en Angleterre et au Pays de Galles"
+  },
+  "PetOwnerHealthPlan": {
+    "what_is_a_preventative_pet_health_plan": "Qu'est-ce qu'un plan de santé préventive pour animaux de compagnie ?",
+    "a_preventative_pet_health_plan_description": "Un plan de santé préventive pour animaux de compagnie – parfois appelé plan de soins pour animaux de compagnie ou d'autres termes similaires – est une santé proactive qui vous aide à rester au top des traitements de routine pour votre animal de compagnie tout au long de l'année.",
+    "a_preventative_pet_health_plan_description_2": "Ces plans couvrent généralement une gamme de produits et de services, tels que les examens réguliers, le traitement des puces et des vers, les livraisons de prescriptions et les vaccinations, toutes incluses dans un coût fixe gérable pris directement par votre clinique vétérinaire chaque mois.",
+    "need_immediate_help": "Besoin d'aide immédiate ?",
+    "need_immediate_help_description": "Si vous avez des questions sur votre plan de santé pour animaux de compagnie, nous sommes là pour vous aider. Contactez votre équipe de support local de Premier Vet Alliance si vous ne pouvez pas résoudre votre question dans les questions fréquentes ci-dessous. Si vous recherchez un contact avec un vétérinaire en cas d'urgence ou avez une question sur un problème de santé à court terme, veuillez contacter votre vétérinaire local.",
+    "information_for_pet_owners": "Information pour les propriétaires d'animaux de compagnie",
+    "what_is_a_preventative_pet_health_plan_description": "Bonjour ! Nous sommes ravis de vous avoir trouvé. Bienvenue à Premier Vet Alliance, un leader sur le marché dans l'offre de plans de santé préventifs pour animaux de compagnie, créés avec à la fois les propriétaires et les vétérinaires en tête.",
+    "what_is_a_preventative_pet_health_plan_description_2": "Nous pensons que chaque animal de compagnie sur l'un de nos plans est notre propre animal. C'est pourquoi nous travaillons avec des cliniques vétérinaires dans le monde entier pour offrir des plans de santé pour animaux de compagnie de haute qualité, conçus pour rendre la meilleure qualité de soins préventifs accessible et abordable pour autant de propriétaires d'animaux de compagnie que possible."
   }
 }
