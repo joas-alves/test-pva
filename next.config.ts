@@ -41,6 +41,12 @@ const nextConfig: NextConfig = {
         port: "",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "pva-amber.vercel.app",
+        port: "",
+        pathname: "/**",
+      },
     ],
   },
   async redirects() {
