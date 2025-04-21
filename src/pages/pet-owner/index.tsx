@@ -28,7 +28,7 @@ export default function PetOwnerPage() {
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
       } catch (error) {}
     })();
-  }, [router.locale]);
+  }, [router.locale, router.isReady, router]);
 
   if (!data || Object.keys(data).length === 0) {
     return <div>Loading...</div>;

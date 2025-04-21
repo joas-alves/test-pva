@@ -30,7 +30,7 @@ export default function ServicePage() {
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
       } catch (error) {}
     })();
-  }, [router.locale, params]);
+  }, [router.locale, router.isReady, params, router]);
 
   if (!data || Object.keys(data).length === 0) {
     return <div>Loading...</div>;

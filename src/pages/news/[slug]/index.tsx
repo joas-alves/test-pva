@@ -58,7 +58,7 @@ export default function NewsDetail() {
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
       } catch (error) {}
     })();
-  }, [router.locale, router.query]);
+  }, [router.locale, router.query, router.isReady, router, id]);
 
   if (!data || Object.keys(data).length === 0) {
     return <div>Loading...</div>;

@@ -26,7 +26,7 @@ export default function StrategicReview() {
       // Redirect to the homepage if locale is not allowed
       router.replace("/");
     }
-  }, [router.locale]);
+  }, [router.locale, router.isReady, router]);
   return (
     <div className="flex flex-col gap-0 md:gap-20">
       <StrategicReviewSection />

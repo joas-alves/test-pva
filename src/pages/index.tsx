@@ -53,7 +53,7 @@ export default function Home() {
     };
 
     fetchData();
-  }, [router.locale, router.isReady]);
+  }, [router.locale, router.isReady, globalUrl, url]);
 
   if (!data || Object.keys(data).length === 0) {
     return <div>Loading...</div>;

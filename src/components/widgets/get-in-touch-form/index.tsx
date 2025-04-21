@@ -6,7 +6,7 @@ import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import { NextRouter, useRouter } from "next/router";
 import { useSnackbar } from "notistack";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import {
   locale,
   NewCustomerReasons,
@@ -31,7 +31,7 @@ export const GetInTouchForm = () => {
   const [selectedOption, setSelectedOption] = useState<string>();
   const [isAgreed, setIsAgreed] = useState(false);
   const pathname = usePathname();
-  const initialValue: GetInTouchFormType = {
+  const initialValue: GetInTouchFormType = useMemo(() => ({
     firstName: "",
     lastName: "",
     email: "",
@@ -45,19 +45,10 @@ export const GetInTouchForm = () => {
     primaryReason: NewCustomerReasons.HealthPlan,
     secondaryReason: "",
     reasonComments: "",
-  };
+  }), []);
   const [allData, setFormData] = useState(initialValue);
-  useEffect(() => {
-    const initialPreference =
-      searchParams.get("default") === "pet-owner"
-        ? t("pet_owner")
-        : t("veterinary_professional");
-    handleChange("preference", initialPreference);
-
-    if (router?.locale) setSelectedOption(router.locale === "global" ? undefined : router.locale)
-  }, [searchParams, router.locale]);
   const isDuplicatePage = pathname === "/get-in-touch-online"
-  const handleChange = (field: keyof GetInTouchFormType, value: string) => {
+  const handleChange = useCallback((field: keyof GetInTouchFormType, value: string) => {
     const modifiedData = { ...allData };
     if (field === "preference") {
       modifiedData.primaryReason = "";
@@ -92,8 +83,8 @@ export const GetInTouchForm = () => {
     }
     modifiedData[field] = value;
     setFormData(modifiedData);
-  };
-  const handleSubmit = async (e: React.FormEvent) => {
+  }, [allData, setFormData]);
+  const handleSubmit = useCallback(async (e: React.FormEvent) => {
     if(isDuplicatePage){
       enqueueSnackbar("Your form is submitted successfully", {
         variant: "success",
@@ -139,7 +130,7 @@ export const GetInTouchForm = () => {
         });
       }
     }
-  };
+  }, [allData, enqueueSnackbar, isDuplicatePage, nextRouter.locale, t, tp, tc, initialValue]);
   const handleSelectChange = (value: string) => {
     setSelectedOption(value);
 
@@ -177,6 +168,15 @@ export const GetInTouchForm = () => {
       return <PetOwnerForm formData={allData} handleChange={handleChange} />;
     return <VetDecisionForm formData={allData} handleChange={handleChange} />;
   };
+  useEffect(() => {
+    const initialPreference =
+      searchParams.get("default") === "pet-owner"
+        ? t("pet_owner")
+        : t("veterinary_professional");
+    handleChange("preference", initialPreference);
+
+    if (router?.locale) setSelectedOption(router.locale === "global" ? undefined : router.locale)
+  }, [searchParams, router.locale, handleChange, t, router.isReady, router]);
   return (
     <div className="shadow-paper rounded-3xl p-6 md:p-12 bg-white">
       <h2 className="text-2xl md:text-[32px] font-bold text-primary mb-8">

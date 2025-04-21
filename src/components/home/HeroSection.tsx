@@ -4,7 +4,7 @@ import { imageUrl} from "@/utils";
 import Image from "next/image";
 import { NextRouter, useRouter } from "next/router";
 import { useTranslations } from "next-intl";
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 type Props = {
   data: IHomePage;

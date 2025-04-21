@@ -46,7 +46,7 @@ export default function Investors() {
       // Redirect to the homepage if locale is not allowed
       router.replace("/");
     }
-  }, [router.locale]);
+  }, [router.locale, router.isReady, router]);
 
   if (!data || Object.keys(data).length === 0) {
     return <div>Loading...</div>;

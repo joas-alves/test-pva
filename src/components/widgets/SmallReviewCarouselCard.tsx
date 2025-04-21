@@ -1,5 +1,5 @@
 import { GoStarFill } from "react-icons/go";
-
+import Image from "next/image";
 export type ReviewUser = {
   name: string;
   username: string;
@@ -22,7 +22,7 @@ export const SmallReviewCarouselCard: React.FC<DataProp> = ({ rate, message, use
       <div className="flex justify-between items-center mb-2">
         <div className="flex items-center gap-4">
           <div className="w-16 h-16 rounded-full bg-gray-100">
-            {image && <img src={image} className="w-16" />}
+            {image && <Image src={image} className="w-16" alt={name || ""} />}
           </div>
           <div>
             <p className="text-sm md:text-base font-bold">{username}</p>

@@ -20,7 +20,7 @@ export const ReviewCarouselCard: React.FC<Props> = ({
     <div className="shadow-paper rounded-3xl p-4 md:py-8 md:px-10">
       <div className="flex md:hidden items-center gap-4 mb-6">
         <div className="w-16 h-16 rounded-full bg-gray-100">
-        {user?.image && <img src={user.image} className="w-16" />}
+        {user?.image && <Image src={user.image} className="w-16" alt={user.name || ""} />}
         </div>
         <div>
           <p>{user?.name}</p>
@@ -38,7 +38,7 @@ export const ReviewCarouselCard: React.FC<Props> = ({
       <div className="flex justify-between items-center">
         <div className="hidden md:flex items-center gap-4">
           <div className="w-16 h-16 rounded-full bg-gray-100">
-            {user?.image && <img src={user.image} className="w-16" />}
+            {user?.image && <Image src={user.image} className="w-16" alt={user.name || ""} />}
           </div>
           <div>
             <p>{user?.name}</p>

@@ -25,7 +25,11 @@ export enum LanguageCode {
   French = "fr",
 }
 
-type Translation = Record<string, Record<string, any>>;
+type RecursiveRecord = {
+  [key: string]: string | RecursiveRecord;
+};
+
+type Translation = RecursiveRecord;
 
 export type LanguageConfig = {
   label: string;
