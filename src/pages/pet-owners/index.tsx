@@ -1,13 +1,13 @@
 import { ContactUsForm } from "@/components/widgets";
 import Image from "next/image";
 import { FAQSection } from "@/components/home";
-import { faqsforPetOwner } from "@/temp/faqs";
 import { useTranslations } from "next-intl";
 import { getLocaleSiteInfo, LanguageCode } from "@/utils";
 import { NextRouter, useRouter } from "next/router";
-
+import { IFaq } from "@/cms-models/faq";
 export default function PetOwners() {
   const t = useTranslations("Owners");
+  const tq = useTranslations("FAQs");
 
   const router: NextRouter = useRouter();
   const {  address } = getLocaleSiteInfo(router.locale as LanguageCode);
@@ -62,8 +62,13 @@ export default function PetOwners() {
           </div>
         </div>
       </section>
-
-      <FAQSection data={faqsforPetOwner} />
+      <FAQSection data={(tq.raw("pet_owner_faqs") as IFaq[]).map((item) => ({
+        ...item,
+        id: Math.random(),
+        homepage_id: "",
+        created_at: "",
+        updated_at: "",
+      }))} />
     </div>
   );
 }

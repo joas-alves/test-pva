@@ -6,8 +6,9 @@ import {
   Vet2PetSection,
   YouPracticeSection,
 } from "@/components/services";
-import { faqsForTechnology } from "@/temp/faqs";
+import { IFaq } from "@/cms-models/faq";
 import axios from "axios";
+import { useTranslations } from "next-intl";
 import Head from "next/head";
 import { useParams } from "next/navigation";
 import { NextRouter, useRouter } from "next/router";
@@ -16,7 +17,7 @@ import { useEffect, useState } from "react";
 export default function ServicePage() {
   const router: NextRouter = useRouter();
   const params = useParams();
-
+  const t = useTranslations("FAQs");
   const [data, setData] = useState<IServicePage>({} as IServicePage);
 
   useEffect(() => {
@@ -65,7 +66,16 @@ export default function ServicePage() {
       <EnhancedSection data={data} />
       <YouPracticeSection data={data} />
       {/*<RealStoriesSection />*/}
-      <FAQSection data={faqsForTechnology} />
+      <FAQSection
+        data={(t.raw("technology") as IFaq[]).map((item) => ({
+          title: item.title,
+          description: item.description,
+          id: Math.random(),
+          homepage_id: "",
+          created_at: "",
+          updated_at: "",
+        }))}
+      />
       <NeedMoreHelpSection
         title={data.section4_title}
         description={data.section4_description}

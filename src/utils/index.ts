@@ -35,7 +35,7 @@ export type LanguageConfig = {
   label: string;
   flag: string;
   code: LanguageCode;
-  translation: Translation;
+  translation: Translation | any;
 };
 
 export const globalLanguageConfig: LanguageConfig = {

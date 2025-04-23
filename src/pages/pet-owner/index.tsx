@@ -3,16 +3,16 @@ import { FAQSection, RealStoriesSection } from "@/components/home";
 import { PetOwnerHealthPlan } from "@/components/pet-owner/health-plan";
 import { PetOwnerHelp } from "@/components/pet-owner/help";
 import { PetOwnerIntroduction } from "@/components/pet-owner/introduction";
-import { faqsforPetOwner } from "@/temp/faqs";
 import axios from "axios";
 import { NextRouter, useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
+import { IFaq } from "@/cms-models/faq";
 
 export default function PetOwnerPage() {
   const router: NextRouter = useRouter();
   const t = useTranslations("Common");
-
+  const tq = useTranslations("FAQs");
   const [data, setData] = useState<IHomePage>({} as IHomePage);
 
   useEffect(() => {
@@ -42,7 +42,13 @@ export default function PetOwnerPage() {
       <PetOwnerIntroduction />
       <PetOwnerHealthPlan />
       <PetOwnerHelp />
-      <FAQSection data={faqsforPetOwner} />
+      <FAQSection data={(tq.raw("pet_owner_faqs") as IFaq[]).map((item) => ({
+        ...item,
+        id: Math.random(),
+        homepage_id: "",
+        created_at: "",
+        updated_at: "",
+      }))} />
       <RealStoriesSection data={data} />
     </section>
   );
