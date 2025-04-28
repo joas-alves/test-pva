@@ -3,7 +3,6 @@ import { LanguageCode } from "@/utils";
 import axios from "axios";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
-import { usePathname, useSearchParams } from "next/navigation";
 import { NextRouter, useRouter } from "next/router";
 import { useSnackbar } from "notistack";
 import { useCallback, useEffect, useMemo, useState } from "react";
@@ -25,12 +24,10 @@ export const GetInTouchForm = () => {
   const tp = useTranslations("PetOwner");
   const tc = useTranslations("Constants");
   const { enqueueSnackbar } = useSnackbar();
-  const searchParams = useSearchParams();
-  const nextRouter: NextRouter = useRouter();
   const router = useRouter();
+  const { pathname, query, locale: currentLocale, isReady } = router;
   const [selectedOption, setSelectedOption] = useState<string>();
   const [isAgreed, setIsAgreed] = useState(false);
-  const pathname = usePathname();
   const initialValue: GetInTouchFormType = useMemo(() => ({
     firstName: "",
     lastName: "",
@@ -110,7 +107,7 @@ export const GetInTouchForm = () => {
       }
       formData.preference = t(formData.preference);
       const response = await axios.post(
-        `/api/${nextRouter.locale || LanguageCode.Global}/get-in-touch`,
+        `/api/${currentLocale || LanguageCode.Global}/get-in-touch`,
         formData
       );
       if (response.status === 201) {
@@ -130,7 +127,7 @@ export const GetInTouchForm = () => {
         });
       }
     }
-  }, [allData, enqueueSnackbar, isDuplicatePage, nextRouter.locale, t, tp, tc, initialValue]);
+  }, [allData, enqueueSnackbar, isDuplicatePage, currentLocale, t, tp, tc, initialValue, pathname]);
   const handleSelectChange = (value: string) => {
     setSelectedOption(value);
 
@@ -156,7 +153,7 @@ export const GetInTouchForm = () => {
         newLocale = ""; // Default to English
     }
 
-    router.push(router.pathname, router.asPath, { locale: newLocale });
+    router.push({ pathname: router.pathname, query: router.query }, router.asPath, { locale: newLocale });
   };
 
   const reasons: SelectOption[] = Object.entries(locale).map(
@@ -169,20 +166,21 @@ export const GetInTouchForm = () => {
     return <VetDecisionForm formData={allData} handleChange={handleChange} />;
   };
   useEffect(() => {
-    const initialPreference =
-      searchParams.get("default") === "pet-owner"
-        ? t("pet_owner")
-        : t("veterinary_professional");
+    if (!isReady) return; // Ensure router is ready before accessing query/locale
+
+    const initialPreference = query.default === "pet-owner"
+      ? 'pet_owner'
+      : 'veterinary_professional';
     handleChange("preference", initialPreference);
 
-    if (router?.locale) setSelectedOption(router.locale === "global" ? undefined : router.locale)
-  }, [searchParams, router.locale, handleChange, t, router.isReady, router]);
+    if (currentLocale) setSelectedOption(currentLocale === "global" ? undefined : currentLocale)
+  }, [query, currentLocale, isReady]);
   return (
     <div className="shadow-paper rounded-3xl p-6 md:p-12 bg-white">
       <h2 className="text-2xl md:text-[32px] font-bold text-primary mb-8">
         {t("get_in_touch")}
       </h2>
-      {nextRouter.locale === 'global' && <div className="flex flex-col gap-6 mb-5">
+      {currentLocale === 'global' && <div className="flex flex-col gap-6 mb-5">
         <CustomSelect
           label={tp("please_select_one_of_the_below_options")}
           options={reasons}
@@ -191,7 +189,7 @@ export const GetInTouchForm = () => {
         />
 
       </div>}
-      <div className={selectedOption === undefined && nextRouter.locale === 'global' ? "opacity-50 pointer-events-none" : ""}>
+      <div className={selectedOption === undefined && currentLocale === 'global' ? "opacity-50 pointer-events-none" : ""}>
         <div className="grid grid-cols-2 gap-6">
           <div className="col-span-2">
             <CustomRadioGroup

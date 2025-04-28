@@ -12,7 +12,7 @@ import axios from "axios";
 import { useTranslations } from "next-intl";
 import Head from "next/head";
 import { useParams } from "next/navigation";
-import router, { NextRouter, useRouter } from "next/router";
+import { NextRouter, useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 export default function ServicePage() {
