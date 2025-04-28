@@ -131,6 +131,14 @@ export const GetInTouchForm = () => {
     }
   }, [allData, enqueueSnackbar, isDuplicatePage, currentLocale, t, tp, tc, initialValue]);
   const handleSelectChange = (value: string) => {
+    console.log("Selected value (key):", value);
+
+    // Ignore if the placeholder is selected
+    if (value === locale.SelectCountry) {
+      console.log("Placeholder selected, ignoring.");
+      return;
+    }
+
     setSelectedOption(value);
 
     let newLocale = "en"; // Default locale
@@ -155,7 +163,15 @@ export const GetInTouchForm = () => {
         newLocale = ""; // Default to English
     }
 
-    router.push({ pathname: router.pathname, query: router.query }, router.asPath, { locale: newLocale });
+    console.log("Determined newLocale code:", newLocale);
+
+    // Use simpler router.push syntax for locale change
+    if (newLocale && newLocale !== currentLocale) { // Ensure newLocale is valid and different
+      console.log(`Pushing new locale: ${newLocale}`);
+      router.push(router.pathname, router.asPath, { locale: newLocale });
+    } else {
+      console.log(`Locale not changed (new: ${newLocale}, current: ${currentLocale})`);
+    }
   };
 
   const reasons: SelectOption[] = Object.entries(locale).map(
