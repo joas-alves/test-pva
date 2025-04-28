@@ -46,41 +46,43 @@ export const GetInTouchForm = () => {
   const [allData, setFormData] = useState(initialValue);
   const isDuplicatePage = pathname === "/get-in-touch-online"
   const handleChange = useCallback((field: keyof GetInTouchFormType, value: string) => {
-    const modifiedData = { ...allData };
-    if (field === "preference") {
-      modifiedData.primaryReason = "";
-      modifiedData.secondaryReason = "";
-      modifiedData.reasonComments = "";
-      if (value === "veterinary_professional") {
-        modifiedData.customerType = PvaCustomerType.New;
-        modifiedData.primaryReason = NewCustomerReasons.HealthPlan;
-      }
-      if (value === "pet_owner") {
-        modifiedData.customerType = PvaCustomerType.New;
-        modifiedData.primaryReason = PvaCustomerReasons.Cancellation;
+    setFormData(prevData => {
+      const modifiedData = { ...prevData };
+      if (field === "preference") {
+        modifiedData.primaryReason = "";
         modifiedData.secondaryReason = "";
+        modifiedData.reasonComments = "";
+        if (value === "veterinary_professional") {
+          modifiedData.customerType = PvaCustomerType.New;
+          modifiedData.primaryReason = NewCustomerReasons.HealthPlan;
+        }
+        if (value === "pet_owner") {
+          modifiedData.customerType = PvaCustomerType.New;
+          modifiedData.primaryReason = PvaCustomerReasons.Cancellation;
+          modifiedData.secondaryReason = "";
+        }
       }
-    }
-    if (field === "customerType") {
-      modifiedData.primaryReason = "";
-      modifiedData.secondaryReason = "";
-      modifiedData.reasonComments = "";
+      if (field === "customerType") {
+        modifiedData.primaryReason = "";
+        modifiedData.secondaryReason = "";
+        modifiedData.reasonComments = "";
 
-      if (value === PvaCustomerType.Existing) {
-        modifiedData.primaryReason = PvaCustomerReasons.Cancellation;
-        modifiedData.secondaryReason =
-          PvaCustomerCancelOptions.CancellationQuery;
-      } else {
-        modifiedData.primaryReason = NewCustomerReasons.HealthPlan;
+        if (value === PvaCustomerType.Existing) {
+          modifiedData.primaryReason = PvaCustomerReasons.Cancellation;
+          modifiedData.secondaryReason =
+            PvaCustomerCancelOptions.CancellationQuery;
+        } else {
+          modifiedData.primaryReason = NewCustomerReasons.HealthPlan;
+          modifiedData.secondaryReason = "";
+        }
+      }
+      if (field === "primaryReason" && value === "Other") {
         modifiedData.secondaryReason = "";
       }
-    }
-    if (field === "primaryReason" && value === "Other") {
-      modifiedData.secondaryReason = "";
-    }
-    modifiedData[field] = value;
-    setFormData(modifiedData);
-  }, [allData, setFormData]);
+      modifiedData[field] = value;
+      return modifiedData;
+    });
+  }, [setFormData]);
   const handleSubmit = useCallback(async (e: React.FormEvent) => {
     if(isDuplicatePage){
       enqueueSnackbar("Your form is submitted successfully", {
