@@ -3,7 +3,7 @@ import { LanguageCode } from "@/utils";
 import axios from "axios";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
-import { NextRouter, useRouter } from "next/router";
+import { useRouter } from "next/router";
 import { useSnackbar } from "notistack";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import {
@@ -127,7 +127,7 @@ export const GetInTouchForm = () => {
         });
       }
     }
-  }, [allData, enqueueSnackbar, isDuplicatePage, currentLocale, t, tp, tc, initialValue, pathname]);
+  }, [allData, enqueueSnackbar, isDuplicatePage, currentLocale, t, tp, tc, initialValue]);
   const handleSelectChange = (value: string) => {
     setSelectedOption(value);
 
@@ -174,7 +174,7 @@ export const GetInTouchForm = () => {
     handleChange("preference", initialPreference);
 
     if (currentLocale) setSelectedOption(currentLocale === "global" ? undefined : currentLocale)
-  }, [query, currentLocale, isReady]);
+  }, [query, currentLocale, isReady, handleChange]);
   return (
     <div className="shadow-paper rounded-3xl p-6 md:p-12 bg-white">
       <h2 className="text-2xl md:text-[32px] font-bold text-primary mb-8">
