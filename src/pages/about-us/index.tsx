@@ -20,8 +20,7 @@ export default function AboutUs() {
   const [data, setData] = useState<IAboutPage>({} as IAboutPage);
   const [faqsData, setFaqsData] = useState<IFaq[]>()
 
-  const url = `/${router.locale}/${router.locale === "global" ? "globalpage-content" : "homepage-content"
-    }/1`;
+  const url = `/${router.locale}/${router.locale === "global" ? "globalpage-content" : "homepage-content"}/1`;
 
   useEffect(() => {
     if (!router.isReady) return;

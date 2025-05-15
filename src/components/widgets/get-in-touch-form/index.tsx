@@ -3,8 +3,7 @@ import { LanguageCode } from "@/utils";
 import axios from "axios";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
-import { usePathname, useSearchParams } from "next/navigation";
-import { NextRouter, useRouter } from "next/router";
+import { useRouter } from "next/router";
 import { useSnackbar } from "notistack";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import {
@@ -25,12 +24,10 @@ export const GetInTouchForm = () => {
   const tp = useTranslations("PetOwner");
   const tc = useTranslations("Constants");
   const { enqueueSnackbar } = useSnackbar();
-  const searchParams = useSearchParams();
-  const nextRouter: NextRouter = useRouter();
   const router = useRouter();
+  const { pathname, query, locale: currentLocale, isReady } = router;
   const [selectedOption, setSelectedOption] = useState<string>();
   const [isAgreed, setIsAgreed] = useState(false);
-  const pathname = usePathname();
   const initialValue: GetInTouchFormType = useMemo(() => ({
     firstName: "",
     lastName: "",
@@ -49,41 +46,43 @@ export const GetInTouchForm = () => {
   const [allData, setFormData] = useState(initialValue);
   const isDuplicatePage = pathname === "/get-in-touch-online"
   const handleChange = useCallback((field: keyof GetInTouchFormType, value: string) => {
-    const modifiedData = { ...allData };
-    if (field === "preference") {
-      modifiedData.primaryReason = "";
-      modifiedData.secondaryReason = "";
-      modifiedData.reasonComments = "";
-      if (value === "veterinary_professional") {
-        modifiedData.customerType = PvaCustomerType.New;
-        modifiedData.primaryReason = NewCustomerReasons.HealthPlan;
-      }
-      if (value === "pet_owner") {
-        modifiedData.customerType = PvaCustomerType.New;
-        modifiedData.primaryReason = PvaCustomerReasons.Cancellation;
+    setFormData(prevData => {
+      const modifiedData = { ...prevData };
+      if (field === "preference") {
+        modifiedData.primaryReason = "";
         modifiedData.secondaryReason = "";
+        modifiedData.reasonComments = "";
+        if (value === "veterinary_professional") {
+          modifiedData.customerType = PvaCustomerType.New;
+          modifiedData.primaryReason = NewCustomerReasons.HealthPlan;
+        }
+        if (value === "pet_owner") {
+          modifiedData.customerType = PvaCustomerType.New;
+          modifiedData.primaryReason = PvaCustomerReasons.Cancellation;
+          modifiedData.secondaryReason = "";
+        }
       }
-    }
-    if (field === "customerType") {
-      modifiedData.primaryReason = "";
-      modifiedData.secondaryReason = "";
-      modifiedData.reasonComments = "";
+      if (field === "customerType") {
+        modifiedData.primaryReason = "";
+        modifiedData.secondaryReason = "";
+        modifiedData.reasonComments = "";
 
-      if (value === PvaCustomerType.Existing) {
-        modifiedData.primaryReason = PvaCustomerReasons.Cancellation;
-        modifiedData.secondaryReason =
-          PvaCustomerCancelOptions.CancellationQuery;
-      } else {
-        modifiedData.primaryReason = NewCustomerReasons.HealthPlan;
+        if (value === PvaCustomerType.Existing) {
+          modifiedData.primaryReason = PvaCustomerReasons.Cancellation;
+          modifiedData.secondaryReason =
+            PvaCustomerCancelOptions.CancellationQuery;
+        } else {
+          modifiedData.primaryReason = NewCustomerReasons.HealthPlan;
+          modifiedData.secondaryReason = "";
+        }
+      }
+      if (field === "primaryReason" && value === "Other") {
         modifiedData.secondaryReason = "";
       }
-    }
-    if (field === "primaryReason" && value === "Other") {
-      modifiedData.secondaryReason = "";
-    }
-    modifiedData[field] = value;
-    setFormData(modifiedData);
-  }, [allData, setFormData]);
+      modifiedData[field] = value;
+      return modifiedData;
+    });
+  }, [setFormData]);
   const handleSubmit = useCallback(async (e: React.FormEvent) => {
     if(isDuplicatePage){
       enqueueSnackbar("Your form is submitted successfully", {
@@ -110,7 +109,7 @@ export const GetInTouchForm = () => {
       }
       formData.preference = t(formData.preference);
       const response = await axios.post(
-        `/api/${nextRouter.locale || LanguageCode.Global}/get-in-touch`,
+        `/api/${currentLocale || LanguageCode.Global}/get-in-touch`,
         formData
       );
       if (response.status === 201) {
@@ -130,8 +129,16 @@ export const GetInTouchForm = () => {
         });
       }
     }
-  }, [allData, enqueueSnackbar, isDuplicatePage, nextRouter.locale, t, tp, tc, initialValue]);
+  }, [allData, enqueueSnackbar, isDuplicatePage, currentLocale, t, tp, tc, initialValue]);
   const handleSelectChange = (value: string) => {
+    console.log("Selected value (key):", value);
+
+    // Ignore if the placeholder is selected
+    if (value === locale.SelectCountry) {
+      console.log("Placeholder selected, ignoring.");
+      return;
+    }
+
     setSelectedOption(value);
 
     let newLocale = "en"; // Default locale
@@ -156,7 +163,15 @@ export const GetInTouchForm = () => {
         newLocale = ""; // Default to English
     }
 
-    router.push(router.pathname, router.asPath, { locale: newLocale });
+    console.log("Determined newLocale code:", newLocale);
+
+    // Use simpler router.push syntax for locale change
+    if (newLocale && newLocale !== currentLocale) { // Ensure newLocale is valid and different
+      console.log(`Pushing new locale: ${newLocale}`);
+      router.push(router.pathname, router.asPath, { locale: newLocale });
+    } else {
+      console.log(`Locale not changed (new: ${newLocale}, current: ${currentLocale})`);
+    }
   };
 
   const reasons: SelectOption[] = Object.entries(locale).map(
@@ -169,20 +184,21 @@ export const GetInTouchForm = () => {
     return <VetDecisionForm formData={allData} handleChange={handleChange} />;
   };
   useEffect(() => {
-    const initialPreference =
-      searchParams.get("default") === "pet-owner"
-        ? t("pet_owner")
-        : t("veterinary_professional");
+    if (!isReady) return; // Ensure router is ready before accessing query/locale
+
+    const initialPreference = query.default === "pet-owner"
+      ? 'pet_owner'
+      : 'veterinary_professional';
     handleChange("preference", initialPreference);
 
-    if (router?.locale) setSelectedOption(router.locale === "global" ? undefined : router.locale)
-  }, [searchParams, router.locale, handleChange, t, router.isReady, router]);
+    if (currentLocale) setSelectedOption(currentLocale === "global" ? undefined : currentLocale)
+  }, [query, currentLocale, isReady, handleChange]);
   return (
     <div className="shadow-paper rounded-3xl p-6 md:p-12 bg-white">
       <h2 className="text-2xl md:text-[32px] font-bold text-primary mb-8">
         {t("get_in_touch")}
       </h2>
-      {nextRouter.locale === 'global' && <div className="flex flex-col gap-6 mb-5">
+      {currentLocale === 'global' && <div className="flex flex-col gap-6 mb-5">
         <CustomSelect
           label={tp("please_select_one_of_the_below_options")}
           options={reasons}
@@ -191,7 +207,7 @@ export const GetInTouchForm = () => {
         />
 
       </div>}
-      <div className={selectedOption === undefined && nextRouter.locale === 'global' ? "opacity-50 pointer-events-none" : ""}>
+      <div className={selectedOption === undefined && currentLocale === 'global' ? "opacity-50 pointer-events-none" : ""}>
         <div className="grid grid-cols-2 gap-6">
           <div className="col-span-2">
             <CustomRadioGroup

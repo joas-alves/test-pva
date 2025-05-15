@@ -22,7 +22,7 @@ export const SmallReviewCarouselCard: React.FC<DataProp> = ({ rate, message, use
       <div className="flex justify-between items-center mb-2">
         <div className="flex items-center gap-4">
           <div className="w-16 h-16 rounded-full bg-gray-100">
-            {image && <Image src={image} className="w-16" alt={name || ""} />}
+            {image && <Image src={image} className="w-16" alt={name || ""} width={64} height={64} />}
           </div>
           <div>
             <p className="text-sm md:text-base font-bold">{username}</p>

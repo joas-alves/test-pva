@@ -8,13 +8,6 @@ export const imageUrl = (url: string) => {
   return process.env.NEXT_PUBLIC_APP_ASSET_ENDPOINT + "/" + url;
 };
 
-export const i18nMapping = {
-  de,
-  enUK,
-  enUS,
-  es,
-  fr,
-};
 // --------------------------- Localization ------------------------------
 export enum LanguageCode {
   Global = "global",
@@ -35,7 +28,7 @@ export type LanguageConfig = {
   label: string;
   flag: string;
   code: LanguageCode;
-  translation: Translation;
+  translation: Translation | object;
 };
 
 export const globalLanguageConfig: LanguageConfig = {
@@ -91,7 +84,7 @@ export const languagesList: LanguageConfig[] = [
 
 export const languagesConfig: Record<LanguageCode, Translation> =
   languagesList.reduce((acc, lang) => {
-    acc[lang.code] = lang.translation;
+    acc[lang.code] = lang.translation as Translation;
     return acc;
   }, {} as Record<LanguageCode, Translation>);
 
