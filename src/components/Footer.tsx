@@ -83,7 +83,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="container mx-auto border-t border-t-none md:border-t-gray-300 py-6 md:py-8 text-gray-400 flex flex-col-reverse md:flex-row gap-6 text-xs md:text-sm">
+      <div className="container mx-auto border-t border-t-none md:border-t-gray-300 pt-6 md:pt-8 text-gray-400 flex flex-col-reverse md:flex-row gap-6 text-xs md:text-sm">
         <div className="flex-1">
           © {t("copyright-1")} · {t("copyright-2")} · 07267818
         </div>
@@ -99,6 +99,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
+      <p className="container mx-auto py-4 text-gray-400 text-xs md:text-sm">Premier Vet Alliance Ltd is authorised and regulated by the Financial Conduct Authority. Our FCA registration number is 992343.</p>
     </footer>
   );
 };

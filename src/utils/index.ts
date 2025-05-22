@@ -3,6 +3,7 @@ import enUK from "@/i18n/en-UK.json";
 import enUS from "@/i18n/en-US.json";
 import es from "@/i18n/es.json";
 import fr from "@/i18n/fr.json";
+import nl from "@/i18n/nl.json";
 
 export const imageUrl = (url: string) => {
   return process.env.NEXT_PUBLIC_APP_ASSET_ENDPOINT + "/" + url;
@@ -16,6 +17,7 @@ export enum LanguageCode {
   EnglishUK = "en-UK",
   German = "de",
   French = "fr",
+  Dutch = "du",
 }
 
 type RecursiveRecord = {
@@ -73,6 +75,13 @@ export const frenchLanguageConfig: LanguageConfig = {
   translation: fr,
 };
 
+export const dutchLanguageConfig: LanguageConfig = {
+  label: "Dutch",
+  flag: "nl.svg",
+  code: LanguageCode.Dutch,
+  translation: nl,
+};
+
 export const languagesList: LanguageConfig[] = [
   globalLanguageConfig,
   spanishLanguageConfig,
@@ -80,6 +89,7 @@ export const languagesList: LanguageConfig[] = [
   englishUKLanguageConfig,
   germanLanguageConfig,
   frenchLanguageConfig,
+  dutchLanguageConfig,
 ];
 
 export const languagesConfig: Record<LanguageCode, Translation> =
@@ -131,6 +141,12 @@ export const getLocaleSiteInfo = (
       currency: "£",
       address: "The Quorum, Bond Street, Bristol, BS1 3AE",
     },
+    [LanguageCode.Dutch]: {
+      phone: "+31 1234 1234567",
+      email: "pcp@premiervetalliance.co.uk",
+      currency: "€",
+      address: "The Quorum, Bond Street, Bristol, BS1 3AE",
+    },
   };
 
   // Return the info for the given locale
@@ -145,6 +161,7 @@ export const phoneNumberPlaceholders: Record<LanguageCode, string> = {
   [LanguageCode.EnglishUK]: "+44 1234 123 123",
   [LanguageCode.German]: "+49 1234 1234567",
   [LanguageCode.French]: "+33 1 23 45 67 89",
+  [LanguageCode.Dutch]: "+31 1234 1234567",
 };
 
 export const replaceCurrency = (

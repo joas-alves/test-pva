@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   productionBrowserSourceMaps: true,
   i18n: {
-    locales: ["en-UK", "en-US", "de", "es", "fr", "global"],
+    locales: ["en-UK", "en-US", "de", "es", "fr", "du", "global", "nl"],
     defaultLocale: "global",
     localeDetection: false,
   },
@@ -281,3 +281,4 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
+
